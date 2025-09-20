@@ -15,9 +15,10 @@ namespace Winform_Login
     {
         //static SqlConnection conn = new SqlConnection(@"Data Source=SISWA-RPL-003\MSSQLSERVER02;Initial Catalog=week3;Integrated Security=True");
         static DataClasses1DataContext data = new DataClasses1DataContext();
-        static IQueryable<Customer> customers = data.Customers;
+        static IQueryable<Administrator> administrator = data.Administrators;
         int dgvRow = -1;
         string nama, emal, phone;
+        bool onInsert = false, onUpdate = false;
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace Winform_Login
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            loadDgv();   
+            loadDgv();
         }
 
         void loadDgv ()
@@ -40,9 +41,9 @@ namespace Winform_Login
             //DataTable dt = new DataTable();
             //adapter.Fill(dt);
 
-            foreach (Customer customer in customers)
+            foreach (Administrator admin in administrator)
             {
-                dgv.Rows.Add(customer.Id, customer.Name, customer.Email, customer.PhoneNumber);
+                dgv.Rows.Add(admin.id, admin.Name, admin.Email, admin.Password, admin.PhoneNumber, admin.BirthDate);
             }
         }
 
@@ -62,112 +63,175 @@ namespace Winform_Login
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (onInsert) return;
+
+            rmv.Enabled = true;
             dgvRow = e.RowIndex;
 
-            name.Text = dgv.Rows[dgvRow].Cells[0].Value.ToString();
-            email.Text = dgv.Rows[dgvRow].Cells[1].Value.ToString();
-            number.Text = dgv.Rows[dgvRow].Cells[2].Value.ToString();
-            name.ForeColor = email.ForeColor = number.ForeColor = Color.Black;
+            id.Text = dgv.Rows[dgvRow].Cells[0].Value.ToString();
+            name.Text = dgv.Rows[dgvRow].Cells[1].Value.ToString();
+            email.Text = dgv.Rows[dgvRow].Cells[2].Value.ToString();
+            number.Text = dgv.Rows[dgvRow].Cells[4].Value.ToString();
+            birth.Value = Convert.ToDateTime(dgv.Rows[dgvRow].Cells[5].Value);
         }
 
-        private void add_Click(object sender, EventArgs e)
+        private void insert_Click(object sender, EventArgs e)
         {
-            int res;
-            if (string.IsNullOrEmpty(nama) || string.IsNullOrEmpty(emal) || string.IsNullOrEmpty(phone)) MessageBox.Show("Can't be empty!");
-            else if (!int.TryParse(phone, out res)) MessageBox.Show("Must be a valid phone number!");
-            else
-            {
-                dgv.Rows.Add(nama, emal, phone);
-                nama = emal = phone = string.Empty;
-                name_Leave(sender, e);
-                email_Leave(sender, e);
-                number_Leave(sender, e);
-            }
+            onInsert = true;
+            name.Text = email.Text = number.Text = string.Empty;
+            birth.Value = DateTime.Now;
+            name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled =
+                cancel.Enabled = pass.Enabled = cpass.Enabled = cbRol.Enabled = true;
+            insert.Enabled = update.Enabled = rmv.Enabled = false;
         }
 
-        private void edit_Click(object sender, EventArgs e)
+        private void update_Click(object sender, EventArgs e)
         {
-            int res;
-            if (string.IsNullOrEmpty(name.Text) || string.IsNullOrEmpty(email.Text) || string.IsNullOrEmpty(number.Text)) MessageBox.Show("Can't be empty!");
-            else if (!int.TryParse(number.Text, out res)) MessageBox.Show("Must be a valid phone number!");
-            else
-            {
-                dgv.Rows[dgvRow].Cells[0].Value = nama;
-                dgv.Rows[dgvRow].Cells[1].Value = emal;
-                dgv.Rows[dgvRow].Cells[2].Value = phone;
-            }
+            onUpdate = true;
+            name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled =
+                cancel.Enabled = true;
+            insert.Enabled = update.Enabled = rmv.Enabled = false;
         }
 
         private void rmv_Click(object sender, EventArgs e)
         {
-            if (dgvRow < 0) MessageBox.Show("There aren't anymore cells");
-            else
-            {
-                dgv.Rows.RemoveAt(dgvRow);
-                dgvRow--;
-            }
+            DialogResult dialog = MessageBox.Show("Are you sure want to delete this data?", "Warning", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.No) return;
+
+            Administrator delAdmin = data.Administrators.Where(x => x.id.Equals(id.Text)).FirstOrDefault();
+            data.Administrators.DeleteOnSubmit(delAdmin);
+
+            data.SubmitChanges();
+
+            rmv.Enabled = false;
+
+            loadDgv();
         }
 
 
-        private void number_Enter(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(phone))
-            {
-                number.Text = string.Empty;
-                number.ForeColor = Color.Black;
-            }
-        }
+        //private void number_Enter(object sender, EventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(phone))
+        //    {
+        //        number.Text = string.Empty;
+        //        number.ForeColor = Color.Black;
+        //    }
+        //}
 
-        private void number_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(phone))
-            {
-                number.Text = "+123456789";
-                number.ForeColor = Color.Gray;
-                phone = string.Empty;
-            }
-        }
+        //private void number_Leave(object sender, EventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(phone))
+        //    {
+        //        number.Text = "+123456789";
+        //        number.ForeColor = Color.Gray;
+        //        phone = string.Empty;
+        //    }
+        //}
 
-        private void email_Enter(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(emal))
-            {
-                email.Text = string.Empty;
-                email.ForeColor = Color.Black;
-            }
-        }
+        //private void email_Enter(object sender, EventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(emal))
+        //    {
+        //        email.Text = string.Empty;
+        //        email.ForeColor = Color.Black;
+        //    }
+        //}
 
-        private void email_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(emal))
-            {
-                email.Text = "example@gmail.com";
-                email.ForeColor = Color.Gray;
-                emal = string.Empty;
-            }
-        }
+        //private void email_Leave(object sender, EventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(emal))
+        //    {
+        //        email.Text = "example@gmail.com";
+        //        email.ForeColor = Color.Gray;
+        //        emal = string.Empty;
+        //    }
+        //}
 
-        private void name_Enter(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(nama))
-            {
-                name.Text = string.Empty;
-                name.ForeColor = Color.Black;
-            }
-        }
+        //private void name_Enter(object sender, EventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(nama))
+        //    {
+        //        name.Text = string.Empty;
+        //        name.ForeColor = Color.Black;
+        //    }
+        //}
 
-        private void name_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(nama))
-            {
-                name.Text = "Nizam Rizki Syahputra";
-                name.ForeColor = Color.Gray;
-                nama = string.Empty;
-            }
-        }
+        //private void name_Leave(object sender, EventArgs e)
+        //{
+        //    if (string.IsNullOrEmpty(nama))
+        //    {
+        //        name.Text = "Nizam Rizki Syahputra";
+        //        name.ForeColor = Color.Gray;
+        //        nama = string.Empty;
+        //    }
+        //}
         private void number_TextChanged(object sender, EventArgs e)
         {
             phone = number.Text.Trim();
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled = cancel.Enabled = pass.Enabled = cpass.Enabled = false;
+            insert.Enabled = update.Enabled = rmv.Enabled = true;
+            onInsert = onUpdate = false;
+        }
+
+        private void spass_Click(object sender, EventArgs e)
+        {
+            pass.UseSystemPasswordChar = cpass.UseSystemPasswordChar = !pass.UseSystemPasswordChar;
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            //int res;
+            if (string.IsNullOrEmpty(name.Text) || string.IsNullOrEmpty(email.Text) || string.IsNullOrEmpty(number.Text)) MessageBox.Show("Can't be empty!");
+            //else if (!int.TryParse(number.Text, out res)) MessageBox.Show("Must be a valid phone number!");
+            else
+            {
+                if (onInsert)
+                {
+                    if (pass.Text != cpass.Text)
+                    {
+                        MessageBox.Show("Password and Confirm Password must be the same!");
+                        return;
+                    }
+
+                    Administrator newAdmins = new Administrator
+                    {
+                        id = administrator.Count() + 1,
+                        Roleid = 2,
+                        Name = nama,
+                        Email = emal,
+                        Password = pass.Text,
+                        PhoneNumber = phone,
+                        BirthDate = birth.Value
+                    };
+
+                    data.Administrators.InsertOnSubmit(newAdmins);
+                    data.SubmitChanges();
+
+                    loadDgv();
+                    name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled = cancel.Enabled = false;
+                    insert.Enabled = update.Enabled = rmv.Enabled = true;
+                    onInsert = false;
+                }
+                else if (onUpdate)
+                {
+                    Administrator updAdmin = data.Administrators.Where(x => x.id.Equals(id.Text)).FirstOrDefault();
+                    updAdmin.Name = nama;
+                    updAdmin.Email = emal;
+                    updAdmin.PhoneNumber = phone;
+                    updAdmin.BirthDate = birth.Value;
+
+                    data.SubmitChanges();
+                    loadDgv();
+                    name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled = cancel.Enabled = false;
+                    insert.Enabled = update.Enabled = rmv.Enabled = true;
+                    onUpdate = false;
+                }
+            }
         }
 
         private void name_Changed(object sender, EventArgs e)
