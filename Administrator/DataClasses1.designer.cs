@@ -22,7 +22,7 @@ namespace Winform_Login
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="week3")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="LEGION")]
 	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -39,7 +39,7 @@ namespace Winform_Login
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::Winform_Login.Properties.Settings.Default.week3ConnectionString, mappingSource)
+				base(global::Winform_Login.Properties.Settings.Default.LEGIONConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -91,9 +91,9 @@ namespace Winform_Login
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _id;
+		private int _Id;
 		
-		private int _Roleid;
+		private int _RoleId;
 		
 		private string _Name;
 		
@@ -111,10 +111,10 @@ namespace Winform_Login
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnRoleidChanging(int value);
-    partial void OnRoleidChanged();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnRoleIdChanging(int value);
+    partial void OnRoleIdChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
     partial void OnEmailChanging(string value);
@@ -133,46 +133,46 @@ namespace Winform_Login
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
 		{
 			get
 			{
-				return this._id;
+				return this._Id;
 			}
 			set
 			{
-				if ((this._id != value))
+				if ((this._Id != value))
 				{
-					this.OnidChanging(value);
+					this.OnIdChanging(value);
 					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Roleid", DbType="Int NOT NULL")]
-		public int Roleid
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleId", DbType="Int NOT NULL")]
+		public int RoleId
 		{
 			get
 			{
-				return this._Roleid;
+				return this._RoleId;
 			}
 			set
 			{
-				if ((this._Roleid != value))
+				if ((this._RoleId != value))
 				{
 					if (this._Role.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnRoleidChanging(value);
+					this.OnRoleIdChanging(value);
 					this.SendPropertyChanging();
-					this._Roleid = value;
-					this.SendPropertyChanged("Roleid");
-					this.OnRoleidChanged();
+					this._RoleId = value;
+					this.SendPropertyChanged("RoleId");
+					this.OnRoleIdChanged();
 				}
 			}
 		}
@@ -277,7 +277,7 @@ namespace Winform_Login
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_Administrator", Storage="_Role", ThisKey="Roleid", OtherKey="id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_Administrator", Storage="_Role", ThisKey="RoleId", OtherKey="Id", IsForeignKey=true)]
 		public Role Role
 		{
 			get
@@ -300,11 +300,11 @@ namespace Winform_Login
 					if ((value != null))
 					{
 						value.Administrators.Add(this);
-						this._Roleid = value.id;
+						this._RoleId = value.Id;
 					}
 					else
 					{
-						this._Roleid = default(int);
+						this._RoleId = default(int);
 					}
 					this.SendPropertyChanged("Role");
 				}
@@ -338,7 +338,7 @@ namespace Winform_Login
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _id;
+		private int _Id;
 		
 		private string _Name;
 		
@@ -348,8 +348,8 @@ namespace Winform_Login
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
     #endregion
@@ -360,22 +360,22 @@ namespace Winform_Login
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
 		{
 			get
 			{
-				return this._id;
+				return this._Id;
 			}
 			set
 			{
-				if ((this._id != value))
+				if ((this._Id != value))
 				{
-					this.OnidChanging(value);
+					this.OnIdChanging(value);
 					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
 				}
 			}
 		}
@@ -400,7 +400,7 @@ namespace Winform_Login
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_Administrator", Storage="_Administrators", ThisKey="id", OtherKey="Roleid")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_Administrator", Storage="_Administrators", ThisKey="Id", OtherKey="RoleId")]
 		public EntitySet<Administrator> Administrators
 		{
 			get

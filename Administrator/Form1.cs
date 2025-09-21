@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Winform_Login
 {
@@ -17,7 +18,7 @@ namespace Winform_Login
         static DataClasses1DataContext data = new DataClasses1DataContext();
         static IQueryable<Administrator> administrator = data.Administrators;
         int dgvRow = -1;
-        string nama, emal, phone;
+        string nama, emal, phone, passs;
         bool onInsert = false, onUpdate = false;
         public Form1()
         {
@@ -29,7 +30,7 @@ namespace Winform_Login
             loadDgv();
         }
 
-        void loadDgv ()
+        void loadDgv()
         {
             dgv.Rows.Clear();
 
@@ -43,7 +44,7 @@ namespace Winform_Login
 
             foreach (Administrator admin in administrator)
             {
-                dgv.Rows.Add(admin.id, admin.Name, admin.Email, admin.Password, admin.PhoneNumber, admin.BirthDate);
+                dgv.Rows.Add(admin.Id, admin.RoleId, admin.Name, admin.Email, admin.Password, admin.PhoneNumber, admin.BirthDate);
             }
         }
 
@@ -63,34 +64,46 @@ namespace Winform_Login
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (onInsert) return;
+            if (onInsert || onUpdate) return;
 
             rmv.Enabled = true;
             dgvRow = e.RowIndex;
 
+            if (dgvRow < 0) { clear(); return; }
+
+            if (dgv.Rows[dgvRow].Cells[1].Value.ToString() == "1")
+            {
+                cbRol.SelectedIndex = 0;
+            } else
+            {
+                cbRol.SelectedIndex = 1;
+            }
+
             id.Text = dgv.Rows[dgvRow].Cells[0].Value.ToString();
-            name.Text = dgv.Rows[dgvRow].Cells[1].Value.ToString();
-            email.Text = dgv.Rows[dgvRow].Cells[2].Value.ToString();
-            number.Text = dgv.Rows[dgvRow].Cells[4].Value.ToString();
-            birth.Value = Convert.ToDateTime(dgv.Rows[dgvRow].Cells[5].Value);
+            name.Text = dgv.Rows[dgvRow].Cells[2].Value.ToString();
+            email.Text = dgv.Rows[dgvRow].Cells[3].Value.ToString();
+            pass.Text = cpass.Text = dgv.Rows[dgvRow].Cells[4].Value.ToString();
+            number.Text = dgv.Rows[dgvRow].Cells[5].Value.ToString();
+            birth.Value = Convert.ToDateTime(dgv.Rows[dgvRow].Cells[6].Value);
         }
 
         private void insert_Click(object sender, EventArgs e)
         {
             onInsert = true;
-            name.Text = email.Text = number.Text = string.Empty;
-            birth.Value = DateTime.Now;
-            name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled =
-                cancel.Enabled = pass.Enabled = cpass.Enabled = cbRol.Enabled = true;
-            insert.Enabled = update.Enabled = rmv.Enabled = false;
+            clear();
+            enable();
         }
 
         private void update_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(id.Text)) 
+            {
+                MessageBox.Show("Please choose a grid");
+                return;
+            }
+
             onUpdate = true;
-            name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled =
-                cancel.Enabled = true;
-            insert.Enabled = update.Enabled = rmv.Enabled = false;
+            enable();
         }
 
         private void rmv_Click(object sender, EventArgs e)
@@ -99,12 +112,14 @@ namespace Winform_Login
 
             if (dialog == DialogResult.No) return;
 
-            Administrator delAdmin = data.Administrators.Where(x => x.id.Equals(id.Text)).FirstOrDefault();
+            Administrator delAdmin = administrator.Where(x => x.Id.Equals(id.Text)).FirstOrDefault();
             data.Administrators.DeleteOnSubmit(delAdmin);
 
             data.SubmitChanges();
 
             rmv.Enabled = false;
+
+            MessageBox.Show("Data successfully deleted");
 
             loadDgv();
         }
@@ -166,15 +181,13 @@ namespace Winform_Login
         //        nama = string.Empty;
         //    }
         //}
-        private void number_TextChanged(object sender, EventArgs e)
-        {
-            phone = number.Text.Trim();
-        }
 
         private void cancel_Click(object sender, EventArgs e)
         {
-            name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled = cancel.Enabled = pass.Enabled = cpass.Enabled = false;
+            name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled = 
+                cancel.Enabled = pass.Enabled = cpass.Enabled = cbRol.Enabled = spass.Enabled = false;
             insert.Enabled = update.Enabled = rmv.Enabled = true;
+            pass.UseSystemPasswordChar = cpass.UseSystemPasswordChar = true;
             onInsert = onUpdate = false;
         }
 
@@ -186,25 +199,19 @@ namespace Winform_Login
         private void save_Click(object sender, EventArgs e)
         {
             //int res;
-            if (string.IsNullOrEmpty(name.Text) || string.IsNullOrEmpty(email.Text) || string.IsNullOrEmpty(number.Text)) MessageBox.Show("Can't be empty!");
+            if (string.IsNullOrEmpty(nama) || string.IsNullOrEmpty(emal) || string.IsNullOrEmpty(phone) || string.IsNullOrEmpty(passs) || cbRol.SelectedIndex == -1) MessageBox.Show("Can't be empty!");
+            else if (pass.Text != cpass.Text) MessageBox.Show("Password and confirm password isn't same!");
             //else if (!int.TryParse(number.Text, out res)) MessageBox.Show("Must be a valid phone number!");
             else
             {
                 if (onInsert)
                 {
-                    if (pass.Text != cpass.Text)
-                    {
-                        MessageBox.Show("Password and Confirm Password must be the same!");
-                        return;
-                    }
-
                     Administrator newAdmins = new Administrator
                     {
-                        id = administrator.Count() + 1,
-                        Roleid = 2,
+                        RoleId = cbRol.SelectedIndex == 0 ? 1 : 2,
                         Name = nama,
                         Email = emal,
-                        Password = pass.Text,
+                        Password = passs,
                         PhoneNumber = phone,
                         BirthDate = birth.Value
                     };
@@ -212,26 +219,46 @@ namespace Winform_Login
                     data.Administrators.InsertOnSubmit(newAdmins);
                     data.SubmitChanges();
 
+                    MessageBox.Show("Data successfully saved");
+
                     loadDgv();
-                    name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled = cancel.Enabled = false;
-                    insert.Enabled = update.Enabled = rmv.Enabled = true;
-                    onInsert = false;
+                    clear();
                 }
                 else if (onUpdate)
                 {
-                    Administrator updAdmin = data.Administrators.Where(x => x.id.Equals(id.Text)).FirstOrDefault();
+                    Administrator updAdmin = administrator.Where(x => x.Id.Equals(id.Text)).FirstOrDefault();
                     updAdmin.Name = nama;
+                    updAdmin.RoleId = cbRol.SelectedIndex == 0 ? 1 : 2;
                     updAdmin.Email = emal;
+                    updAdmin.Password = pass.Text;
                     updAdmin.PhoneNumber = phone;
                     updAdmin.BirthDate = birth.Value;
 
                     data.SubmitChanges();
+
+                    MessageBox.Show("Data successfully updated");
+
                     loadDgv();
-                    name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled = cancel.Enabled = false;
-                    insert.Enabled = update.Enabled = rmv.Enabled = true;
-                    onUpdate = false;
                 }
             }
+        }
+
+        private void number_TextChanged(object sender, EventArgs e)
+        {
+            phone = number.Text.Trim();
+        }
+
+        private void debug_Click(object sender, EventArgs e)
+        {
+            int res;
+            Console.WriteLine(int.TryParse(number.Text.Remove(0, 1).Replace(" ", string.Empty).Trim(), out res));
+            Console.WriteLine(int.TryParse("123", out res));
+            Console.WriteLine(number.Text.Remove(0, 1).Replace(" ", string.Empty));
+        }
+
+        private void pass_TextChanged(object sender, EventArgs e)
+        {
+            passs = pass.Text.Trim();
         }
 
         private void name_Changed(object sender, EventArgs e)
@@ -242,6 +269,18 @@ namespace Winform_Login
         private void email_Changed(object sender, EventArgs e)
         {
             emal = email.Text.Trim();
+        }
+        void clear()
+        {
+            id.Text = name.Text = email.Text = number.Text = pass.Text = cpass.Text = string.Empty;
+            cbRol.SelectedIndex = -1;
+            birth.Value = DateTime.Now;
+        }
+        void enable()
+        {
+            name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled = 
+                cancel.Enabled = cbRol.Enabled = pass.Enabled = cpass.Enabled = spass.Enabled = true;
+            insert.Enabled = update.Enabled = rmv.Enabled = false;
         }
     }
 }
