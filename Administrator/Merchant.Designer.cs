@@ -40,7 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.rmv = new System.Windows.Forms.Button();
+            this.del = new System.Windows.Forms.Button();
             this.specific = new System.Windows.Forms.TextBox();
             this.update = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.TextBox();
@@ -61,9 +61,11 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -84,6 +86,7 @@
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(100, 20);
             this.search.TabIndex = 57;
+            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             // 
             // debug
             // 
@@ -120,7 +123,7 @@
             // 
             this.save.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.save.Enabled = false;
-            this.save.Location = new System.Drawing.Point(545, 563);
+            this.save.Location = new System.Drawing.Point(545, 585);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(75, 23);
             this.save.TabIndex = 52;
@@ -131,12 +134,13 @@
             // 
             this.cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cancel.Enabled = false;
-            this.cancel.Location = new System.Drawing.Point(626, 563);
+            this.cancel.Location = new System.Drawing.Point(626, 585);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(75, 23);
             this.cancel.TabIndex = 51;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
             // label8
             // 
@@ -193,16 +197,17 @@
             this.label1.TabIndex = 38;
             this.label1.Text = "Name";
             // 
-            // rmv
+            // del
             // 
-            this.rmv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rmv.Enabled = false;
-            this.rmv.Location = new System.Drawing.Point(669, 534);
-            this.rmv.Name = "rmv";
-            this.rmv.Size = new System.Drawing.Size(75, 23);
-            this.rmv.TabIndex = 37;
-            this.rmv.Text = "Delete";
-            this.rmv.UseVisualStyleBackColor = true;
+            this.del.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.del.Enabled = false;
+            this.del.Location = new System.Drawing.Point(669, 556);
+            this.del.Name = "del";
+            this.del.Size = new System.Drawing.Size(75, 23);
+            this.del.TabIndex = 37;
+            this.del.Text = "Delete";
+            this.del.UseVisualStyleBackColor = true;
+            this.del.Click += new System.EventHandler(this.del_Click);
             // 
             // specific
             // 
@@ -217,12 +222,13 @@
             // update
             // 
             this.update.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.update.Location = new System.Drawing.Point(588, 534);
+            this.update.Location = new System.Drawing.Point(588, 556);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(75, 23);
             this.update.TabIndex = 35;
             this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // name
             // 
@@ -237,12 +243,13 @@
             // insert
             // 
             this.insert.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.insert.Location = new System.Drawing.Point(507, 534);
+            this.insert.Location = new System.Drawing.Point(507, 556);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(75, 23);
             this.insert.TabIndex = 33;
             this.insert.Text = "Insert";
             this.insert.UseVisualStyleBackColor = true;
+            this.insert.Click += new System.EventHandler(this.insert_Click);
             // 
             // dgv
             // 
@@ -285,7 +292,7 @@
             this.phButt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.phButt.Enabled = false;
             this.phButt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phButt.Location = new System.Drawing.Point(712, 427);
+            this.phButt.Location = new System.Drawing.Point(712, 429);
             this.phButt.Name = "phButt";
             this.phButt.Size = new System.Drawing.Size(27, 23);
             this.phButt.TabIndex = 60;
@@ -406,12 +413,21 @@
             this.Column8.ReadOnly = true;
             this.Column8.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(588, 458);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(101, 81);
+            this.pictureBox1.TabIndex = 66;
+            this.pictureBox1.TabStop = false;
+            // 
             // Merchant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(834, 622);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.model);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -431,7 +447,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.rmv);
+            this.Controls.Add(this.del);
             this.Controls.Add(this.specific);
             this.Controls.Add(this.update);
             this.Controls.Add(this.name);
@@ -443,6 +459,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,7 +479,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button rmv;
+        private System.Windows.Forms.Button del;
         private System.Windows.Forms.TextBox specific;
         private System.Windows.Forms.Button update;
         private System.Windows.Forms.TextBox name;
@@ -483,5 +500,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -73,22 +73,16 @@ namespace Winform_Login
             if (dgvRow >= 0) rmv.Enabled = true;
             else rmv.Enabled = false;
 
-            if (dgvRow < 0) { clear(); return; }
-
-            if (dgv.Rows[dgvRow].Cells[1].Value.ToString() == "1")
+            if (dgvRow >= 0)
             {
-                cbRol.SelectedIndex = 0;
-            } else
-            {
-                cbRol.SelectedIndex = 1;
+                cbRol.SelectedIndex = Convert.ToInt32(dgv.Rows[dgvRow].Cells[1].Value) - 1;
+                id.Text = dgv.Rows[dgvRow].Cells[0].Value.ToString();
+                name.Text = dgv.Rows[dgvRow].Cells[2].Value.ToString();
+                email.Text = dgv.Rows[dgvRow].Cells[3].Value.ToString();
+                pass.Text = cpass.Text = dgv.Rows[dgvRow].Cells[4].Value.ToString();
+                number.Text = dgv.Rows[dgvRow].Cells[5].Value.ToString();
+                birth.Value = Convert.ToDateTime(dgv.Rows[dgvRow].Cells[6].Value);
             }
-
-            id.Text = dgv.Rows[dgvRow].Cells[0].Value.ToString();
-            name.Text = dgv.Rows[dgvRow].Cells[2].Value.ToString();
-            email.Text = dgv.Rows[dgvRow].Cells[3].Value.ToString();
-            pass.Text = cpass.Text = dgv.Rows[dgvRow].Cells[4].Value.ToString();
-            number.Text = dgv.Rows[dgvRow].Cells[5].Value.ToString();
-            birth.Value = Convert.ToDateTime(dgv.Rows[dgvRow].Cells[6].Value);
         }
 
         private void insert_Click(object sender, EventArgs e)

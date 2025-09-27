@@ -15,6 +15,7 @@ namespace Winform_Login
         static DataClasses1DataContext data = new DataClasses1DataContext();
         static IQueryable<Merchandise> merchants = data.Merchandises;
         int dgvRow = -1;
+        bool onInsert = false, onUpdate = false;
         public Merchant()
         {
             InitializeComponent();
@@ -34,12 +35,49 @@ namespace Winform_Login
             loadDgv();
         }
 
+        private void insert_Click(object sender, EventArgs e)
+        {
+            onInsert = true;
+            modeField(true);
+            clearField();
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            if (dgvRow < 0)
+            {
+                MessageBox.Show("Please select data to be updated", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            onUpdate = true;
+            modeField(true);
+        }
+
+        private void del_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Are you sure want to delete this data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialog == DialogResult.No) return;
+
+            Merchandise delMerch = merchants.Where(x => x.Id.Equals(id.Text)).FirstOrDefault();
+            data.Merchandises.DeleteOnSubmit(delMerch);
+
+            data.SubmitChanges();
+
+            del.Enabled = false;
+
+            MessageBox.Show("Data successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            loadDgv();
+        }
+
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvRow = e.RowIndex;
 
             if (dgvRow >= 0)
             {
+                del.Enabled = true;
                 id.Text = dgv.Rows[dgvRow].Cells[0].Value.ToString();
                 name.Text = dgv.Rows[dgvRow].Cells[2].Value.ToString();
                 specific.Text = dgv.Rows[dgvRow].Cells[4].Value.ToString();
@@ -48,6 +86,37 @@ namespace Winform_Login
                 stock.Text = dgv.Rows[dgvRow].Cells[6].Value.ToString();
                 photo.Text = dgv.Rows[dgvRow].Cells[7].Value.ToString();
             }
+            else
+            {
+                clearField();
+                del.Enabled = false;
+            }
+        }
+
+        private void search_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            modeField(false);
+        }
+        void clearField()
+        {
+            id.Text = "";
+            name.Text = "";
+            specific.Text = "";
+            model.SelectedIndex = -1;
+            price.Text = "";
+            stock.Text = "";
+            photo.Text = "";
+        }
+        void modeField(bool state)
+        {
+            id.Enabled = name.Enabled = specific.Enabled = model.Enabled = price.Enabled = stock.Enabled =
+                photo.Enabled = save.Enabled = cancel.Enabled = phButt.Enabled = state;
+            insert.Enabled = update.Enabled = dgv.Enabled = !state;
         }
     }
 }
