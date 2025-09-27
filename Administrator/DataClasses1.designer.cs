@@ -22,7 +22,7 @@ namespace Winform_Login
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="LEGION")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="tabola")]
 	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -39,7 +39,7 @@ namespace Winform_Login
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::Winform_Login.Properties.Settings.Default.LEGIONConnectionString, mappingSource)
+				base(global::Winform_Login.Properties.Settings.Default.tabolaConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -133,7 +133,7 @@ namespace Winform_Login
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int Id
 		{
 			get
@@ -360,7 +360,7 @@ namespace Winform_Login
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int Id
 		{
 			get

@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LEGION" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-SL3N9LFD;Initial Catalog=LEGION;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="Winform_Login.Properties.Settings" SettingsPropertyName="LEGIONConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="tabola" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SISWA-RPL-36\MSSQLSERVER01;Initial Catalog=tabola;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="Winform_Login.Properties.Settings" SettingsPropertyName="tabolaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Administrator" Member="Administrators">
     <Type Name="Administrator">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
@@ -14,7 +14,7 @@
   </Table>
   <Table Name="dbo.Role" Member="Roles">
     <Type Name="Role">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Role_Administrator" Member="Administrators" ThisKey="Id" OtherKey="RoleId" Type="Administrator" />
     </Type>

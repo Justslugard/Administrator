@@ -44,5 +44,27 @@ namespace Winform_Login.Properties {
                 return ((string)(this["LEGIONConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=wutwut;Integrated Security=Tru" +
+            "e;TrustServerCertificate=True")]
+        public string wutwutConnectionString {
+            get {
+                return ((string)(this["wutwutConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SISWA-RPL-36\\MSSQLSERVER01;Initial Catalog=tabola;Integrated Security" +
+            "=True;TrustServerCertificate=True")]
+        public string tabolaConnectionString {
+            get {
+                return ((string)(this["tabolaConnectionString"]));
+            }
+        }
     }
 }
