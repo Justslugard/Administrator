@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Winform_Login
 {
@@ -34,13 +35,14 @@ namespace Winform_Login
         {
             dgv.Rows.Clear();
 
-            //openConnection();
 
-            //string query = "SELECT * FROM Customer";
-            //SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                //openConnection();
 
-            //DataTable dt = new DataTable();
-            //adapter.Fill(dt);
+                //string query = "SELECT * FROM Customer";
+                //SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+
+                //DataTable dt = new DataTable();
+                //adapter.Fill(dt);
 
             foreach (Administrator admin in administrator)
             {
@@ -202,11 +204,7 @@ namespace Winform_Login
 
         private void save_Click(object sender, EventArgs e)
         {
-            long res;
-            if (string.IsNullOrEmpty(nama) || string.IsNullOrEmpty(emal) || string.IsNullOrEmpty(phone) || string.IsNullOrEmpty(passs) || cbRol.SelectedIndex == -1) MessageBox.Show("Can't be empty!");
-            else if (emal.Split(new char[] { '@' }, StringSplitOptions.RemoveEmptyEntries).Length != 2 || !emal.Contains('.')) MessageBox.Show("Must be a valid email!");
-            else if (!long.TryParse(number.Text.Remove(0, 1).Replace(" ", string.Empty).Trim(), out res) || number.Text[0] != '+') MessageBox.Show("Must be a valid phone number!");
-            else if (pass.Text != cpass.Text) MessageBox.Show("Password and confirm password isn't same!");
+            if (!validation()) return;
             else
             {
                 if (onInsert)
@@ -259,11 +257,12 @@ namespace Winform_Login
 
         private void debug_Click(object sender, EventArgs e)
         {
-            //long res;
-            //Console.WriteLine(long.TryParse(number.Text.Remove(0, 1).Replace(" ", string.Empty).Trim(), out res));
-            //Console.WriteLine(long.TryParse("123", out res));
-            //Console.WriteLine(number.Text.Remove(0, 1).Replace(" ", string.Empty));
-            Console.WriteLine("bot@jkjk".Split(new char[] { '@' }, StringSplitOptions.RemoveEmptyEntries).Length == 2);
+            name.Text = "Nizam Rizki Syahputra";
+            email.Text = "bot3445x@gmail.com";
+            number.Text = "+6281234567890";
+            pass.Text = cpass.Text = "password";
+            birth.Value = new DateTime(2000, 1, 1);
+            cbRol.SelectedIndex = 0;
         }
 
         private void pass_TextChanged(object sender, EventArgs e)
@@ -273,7 +272,15 @@ namespace Winform_Login
 
         private void search_TextChanged(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrWhiteSpace(search.Text))
+            {
+                administrator = data.Administrators.Where(x => x.Name.Contains(search.Text) || x.Email.Contains(search.Text) || x.PhoneNumber.Contains(search.Text));
+            }
+            else
+            {
+                administrator = data.Administrators;
+            }
+            loadDgv();
         }
 
         private void name_Changed(object sender, EventArgs e)
@@ -296,6 +303,24 @@ namespace Winform_Login
             name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled = 
                 cancel.Enabled = cbRol.Enabled = pass.Enabled = cpass.Enabled = spass.Enabled = true;
             insert.Enabled = update.Enabled = rmv.Enabled = false;
+        }
+        bool validation()
+        {
+            long res;
+            Regex emailReg = new Regex(@"^+.+\@.+$");
+            if (string.IsNullOrEmpty(nama)) MessageBox.Show("Name can't be empty!");
+            else if (string.IsNullOrEmpty(emal)) MessageBox.Show("Email can't be empty!");
+            else if (string.IsNullOrEmpty(phone)) MessageBox.Show("Phone number can't be empty!");
+            else if (string.IsNullOrEmpty(passs)) MessageBox.Show("Password can't be empty!");
+            else if (cbRol.SelectedIndex == -1) MessageBox.Show("Role must be selected!");
+            else if (DateTime.Now.Year - birth.Value.Year < 18) MessageBox.Show("Age must be at least 18 years old!");
+            else if (!emailReg.IsMatch(emal)) MessageBox.Show("Must be a valid email!");
+            else if (data.Administrators.Any(x => x.Email.Equals(emal))) MessageBox.Show("Email already registered!");
+            else if (!long.TryParse(number.Text.Remove(0, 1).Replace(" ", string.Empty).Trim(), out res) || number.Text[0] != '+') MessageBox.Show("Must be a valid phone number!");
+            else if (pass.Text != cpass.Text) MessageBox.Show("Password and confirm password isn't same!");
+            else return true;
+
+            return false;
         }
     }
 }
