@@ -58,16 +58,25 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="DataGrid.cs">
+    <Compile Include="Strator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataGrid.Designer.cs">
-      <DependentUpon>DataGrid.cs</DependentUpon>
+    <Compile Include="Strator.Designer.cs">
+      <DependentUpon>Strator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Merchant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Merchant.Designer.cs">
+      <DependentUpon>Merchant.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DataGrid.resx">
-      <DependentUpon>DataGrid.cs</DependentUpon>
+    <EmbeddedResource Include="Strator.resx">
+      <DependentUpon>Strator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Merchant.resx">
+      <DependentUpon>Merchant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

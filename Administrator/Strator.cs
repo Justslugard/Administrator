@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 
 namespace Winform_Login
 {
-    public partial class DataGrid : Form
+    public partial class Strator : Form
     {
         //static SqlConnection conn = new SqlConnection(@"Data Source=SISWA-RPL-003\MSSQLSERVER02;Initial Catalog=week3;Integrated Security=True");
         static DataClasses1DataContext data = new DataClasses1DataContext();
@@ -21,7 +21,7 @@ namespace Winform_Login
         int dgvRow = -1;
         string nama, emal, phone, passs;
         bool onInsert = false, onUpdate = false;
-        public DataGrid()
+        public Strator()
         {
             InitializeComponent();
         }
@@ -96,6 +96,7 @@ namespace Winform_Login
             onInsert = true;
             clear();
             enable();
+            id.Text = (data.Administrators.Max(x => x.Id) + 1).ToString();
         }
 
         private void update_Click(object sender, EventArgs e)
@@ -113,7 +114,7 @@ namespace Winform_Login
         private void rmv_Click(object sender, EventArgs e)
         {
 
-            DialogResult dialog = MessageBox.Show("Are you sure want to delete this data?", "Warning", MessageBoxButtons.YesNo);
+            DialogResult dialog = MessageBox.Show("Are you sure want to delete this data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialog == DialogResult.No) return;
 
@@ -124,7 +125,7 @@ namespace Winform_Login
 
             rmv.Enabled = false;
 
-            MessageBox.Show("Data successfully deleted");
+            MessageBox.Show("Data successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             loadDgv();
         }
@@ -210,6 +211,7 @@ namespace Winform_Login
                 {
                     Administrator newAdmins = new Administrator
                     {
+                        Id = Convert.ToInt32(id.Text),
                         RoleId = cbRol.SelectedIndex == 0 ? 1 : 2,
                         Name = nama,
                         Email = emal,

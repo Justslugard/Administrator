@@ -1,6 +1,6 @@
 ﻿namespace Winform_Login
 {
-    partial class DataGrid
+    partial class Strator
     {
         /// <summary>
         /// Required designer variable.
@@ -429,7 +429,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(599, 46);
+            this.label10.Location = new System.Drawing.Point(600, 46);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 31;
@@ -470,7 +470,7 @@
             this.Controls.Add(this.dgv);
             this.Name = "DataGrid";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Manage Customers";
+            this.Text = "Manage Administrator";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
