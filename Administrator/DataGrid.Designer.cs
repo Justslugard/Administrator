@@ -417,6 +417,7 @@
             // 
             // search
             // 
+            this.search.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.search.Location = new System.Drawing.Point(646, 43);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(100, 20);

@@ -68,8 +68,10 @@ namespace Winform_Login
         {
             if (onInsert || onUpdate) return;
 
-            rmv.Enabled = true;
             dgvRow = e.RowIndex;
+
+            if (dgvRow >= 0) rmv.Enabled = true;
+            else rmv.Enabled = false;
 
             if (dgvRow < 0) { clear(); return; }
 
@@ -106,8 +108,6 @@ namespace Winform_Login
 
             onUpdate = true;
             enable();
-            pass.Enabled = false;
-            cpass.Text = string.Empty;
         }
 
         private void rmv_Click(object sender, EventArgs e)
@@ -198,8 +198,7 @@ namespace Winform_Login
 
         private void spass_Click(object sender, EventArgs e)
         {
-            if (!onUpdate) pass.UseSystemPasswordChar = !pass.UseSystemPasswordChar;
-            cpass.UseSystemPasswordChar = !cpass.UseSystemPasswordChar;
+            pass.UseSystemPasswordChar = cpass.UseSystemPasswordChar = !pass.UseSystemPasswordChar;
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -222,7 +221,7 @@ namespace Winform_Login
                     data.Administrators.InsertOnSubmit(newAdmins);
                     data.SubmitChanges();
 
-                    MessageBox.Show("Data successfully saved");
+                    MessageBox.Show("Data successfully saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     loadDgv();
                     clear();
@@ -231,7 +230,8 @@ namespace Winform_Login
                 {
                     if (!pass.Enabled)
                     {
-                        pass.Enabled = true; pass.Text = cpass.Text = string.Empty; passs = string.Empty; MessageBox.Show("Password correct"); return;
+                        pass.Enabled = true; pass.Text = cpass.Text = string.Empty; passs = string.Empty; MessageBox.Show("Password correct"); 
+                        return;
                     }
                     Administrator updAdmin = administrator.Where(x => x.Id.Equals(id.Text)).FirstOrDefault();
                     updAdmin.Name = nama;
@@ -243,7 +243,7 @@ namespace Winform_Login
 
                     data.SubmitChanges();
 
-                    MessageBox.Show("Data successfully updated");
+                    MessageBox.Show("Data successfully updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     loadDgv();
                 }
@@ -272,14 +272,9 @@ namespace Winform_Login
 
         private void search_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(search.Text))
-            {
-                administrator = data.Administrators.Where(x => x.Name.Contains(search.Text) || x.Email.Contains(search.Text) || x.PhoneNumber.Contains(search.Text));
-            }
-            else
-            {
-                administrator = data.Administrators;
-            }
+            if (!string.IsNullOrWhiteSpace(search.Text)) administrator = data.Administrators.Where(x => x.Name.Contains(search.Text) || x.Email.Contains(search.Text) || x.PhoneNumber.Contains(search.Text));
+            else administrator = data.Administrators;
+            
             loadDgv();
         }
 
@@ -308,16 +303,16 @@ namespace Winform_Login
         {
             long res;
             Regex emailReg = new Regex(@"^+.+\@.+$");
-            if (string.IsNullOrEmpty(nama)) MessageBox.Show("Name can't be empty!");
-            else if (string.IsNullOrEmpty(emal)) MessageBox.Show("Email can't be empty!");
-            else if (string.IsNullOrEmpty(phone)) MessageBox.Show("Phone number can't be empty!");
-            else if (string.IsNullOrEmpty(passs)) MessageBox.Show("Password can't be empty!");
-            else if (cbRol.SelectedIndex == -1) MessageBox.Show("Role must be selected!");
-            else if (DateTime.Now.Year - birth.Value.Year < 18) MessageBox.Show("Age must be at least 18 years old!");
-            else if (!emailReg.IsMatch(emal)) MessageBox.Show("Must be a valid email!");
-            else if (data.Administrators.Any(x => x.Email.Equals(emal))) MessageBox.Show("Email already registered!");
-            else if (!long.TryParse(number.Text.Remove(0, 1).Replace(" ", string.Empty).Trim(), out res) || number.Text[0] != '+') MessageBox.Show("Must be a valid phone number!");
-            else if (pass.Text != cpass.Text) MessageBox.Show("Password and confirm password isn't same!");
+            if (string.IsNullOrEmpty(nama)) MessageBox.Show("Name can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (string.IsNullOrEmpty(emal)) MessageBox.Show("Email can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (string.IsNullOrEmpty(phone)) MessageBox.Show("Phone number can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (string.IsNullOrEmpty(passs)) MessageBox.Show("Password can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (cbRol.SelectedIndex == -1) MessageBox.Show("Role must be selected!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (DateTime.Now.Year - birth.Value.Year < 18) MessageBox.Show("Age must be at least 18 years old!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (!emailReg.IsMatch(emal)) MessageBox.Show("Must be a valid email!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (administrator.Where(x => x.Email.Equals(emal) && (onInsert || !x.Id.Equals(id.Text))).FirstOrDefault() != null) MessageBox.Show("Email already registered!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (!long.TryParse(number.Text.Remove(0, 1).Replace(" ", string.Empty).Trim(), out res) || number.Text[0] != '+') MessageBox.Show("Must be a valid phone number!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (pass.Text != cpass.Text) MessageBox.Show("Password and confirm password isn't same!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else return true;
 
             return false;
