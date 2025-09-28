@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="Strator.Methods.cs">
       <DependentUpon>Strator.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="Strator.resx">
       <DependentUpon>Strator.cs</DependentUpon>

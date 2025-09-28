@@ -66,10 +66,6 @@ namespace Winform_Login
             Merchandise delMerch = merchants.Where(x => x.Id.Equals(id.Text)).FirstOrDefault();
             data.Merchandises.DeleteOnSubmit(delMerch);
 
-            string photoName = merchants.Where(x => x.Id.Equals(id.Text)).FirstOrDefault().ImagePath;
-            File.Delete($"./Assets/Images/{photoName}");
-            File.Delete($"../../Assets/Images/{photoName}");
-
             data.SubmitChanges();
 
             del.Enabled = false;
@@ -93,8 +89,8 @@ namespace Winform_Login
                 model.SelectedIndex = Convert.ToInt32(dgv.Rows[dgvRow].Cells[1].Value) - 1;
                 price.Text = dgv.Rows[dgvRow].Cells[5].Value.ToString();
                 stock.Text = dgv.Rows[dgvRow].Cells[6].Value.ToString();
-                photo.Text = dgv.Rows[dgvRow].Cells[7].Value.ToString();
-                pBox.ImageLocation = $"./Assets/Images/{photo.Text}";
+                photo.Text = dgv.Rows[dgvRow].Cells[7].Value.ToString().Split('\\').Last();
+                pBox.ImageLocation = dgv.Rows[dgvRow].Cells[7].Value.ToString().Contains("\\") ? dgv.Rows[dgvRow].Cells[7].Value.ToString() : $"./Assets/Images/{photo.Text}";
             }
             else
             {
@@ -119,8 +115,6 @@ namespace Winform_Login
             {
                 string filePath = pictureDialog.SafeFileName;
 
-                File.Copy(pictureDialog.FileName, $"./Assets/Images/{filePath}", false);
-                File.Copy(pictureDialog.FileName, $"../../Assets/Images/{filePath}", false);
                 pBox.ImageLocation = pictureDialog.FileName;
                 photo.Text = filePath;
             }
@@ -149,7 +143,7 @@ namespace Winform_Login
                         Specification = specific.Text.Trim(),
                         Price = (int) price.Value,
                         Stock = (int) stock.Value,
-                        ImagePath = photo.Text
+                        ImagePath = pictureDialog.FileName
                     };
 
                     DialogResult res = DialogResult.Yes;
@@ -177,7 +171,7 @@ namespace Winform_Login
                     merchandise.Specification = specific.Text.Trim();
                     merchandise.Price = (int) price.Value;
                     merchandise.Stock = (int) stock.Value;
-                    merchandise.ImagePath = photo.Text;
+                    merchandise.ImagePath = pictureDialog.FileName;
 
                     data.SubmitChanges();
 
@@ -196,9 +190,7 @@ namespace Winform_Login
             price.Value = 8000;
             stock.Value = 70;
 
-            string[] file = "jembut.png".Split('.');
-            string newFile = file[0] += "_1";
-            Console.WriteLine($"{newFile}.{file[file.Length - 1]}");
+            Console.WriteLine(pBox.ImageLocation);
             //photo.Text = "dummy.png";
         }
     }
