@@ -139,6 +139,7 @@
             this.save.TabIndex = 52;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // cancel
             // 

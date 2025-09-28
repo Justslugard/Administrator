@@ -112,69 +112,71 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Resources\abc-kecap-manis.jpeg">
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Images\abc-kecap-manis.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\ajinomoto-plus.jpeg">
+    <Content Include="Assets\Images\ajinomoto-plus.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\del-monte-saus.jpeg">
+    <Content Include="Assets\Images\del-monte-saus.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\kecap-manis-bango.jpeg">
+    <Content Include="Assets\Images\kecap-manis-bango.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\royco-pelezat-rasa-ayam.jpeg">
+    <Content Include="Assets\Images\royco-pelezat-rasa-ayam.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\royco-rasa-sapi.jpeg">
+    <Content Include="Assets\Images\royco-rasa-sapi.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\sajiku-bumbu-nasi-goreng-rasa-ayam.jpeg">
+    <Content Include="Assets\Images\sajiku-bumbu-nasi-goreng-rasa-ayam.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\sasa-msg.jpeg">
+    <Content Include="Assets\Images\sasa-msg.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\saus-sambal-abc.jpeg">
+    <Content Include="Assets\Images\saus-sambal-abc.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\saus-sambal-dua-belibis.jpeg">
+    <Content Include="Assets\Images\saus-sambal-dua-belibis.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\saus-sambal-indofood.jpeg">
+    <Content Include="Assets\Images\saus-sambal-indofood.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\saus-sambal-sasa.jpeg">
+    <Content Include="Assets\Images\saus-sambal-sasa.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\sedaap-kecap-manis.jpeg">
+    <Content Include="Assets\Images\sedaap-kecap-manis.jpeg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -66,12 +66,7 @@ namespace Winform_Login
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (onInsert || onUpdate) return;
-
             dgvRow = e.RowIndex;
-
-            if (dgvRow >= 0) rmv.Enabled = true;
-            else rmv.Enabled = false;
 
             if (dgvRow >= 0)
             {
@@ -82,6 +77,10 @@ namespace Winform_Login
                 pass.Text = cpass.Text = dgv.Rows[dgvRow].Cells[4].Value.ToString();
                 number.Text = dgv.Rows[dgvRow].Cells[5].Value.ToString();
                 birth.Value = Convert.ToDateTime(dgv.Rows[dgvRow].Cells[6].Value);
+                rmv.Enabled = true;
+            } else
+            {
+                rmv.Enabled = false;
             }
         }
 
@@ -231,7 +230,7 @@ namespace Winform_Login
                     }
                     Administrator updAdmin = administrator.Where(x => x.Id.Equals(id.Text)).FirstOrDefault();
                     updAdmin.Name = nama;
-                    updAdmin.RoleId = cbRol.SelectedIndex == 0 ? 1 : 2;
+                    updAdmin.RoleId = cbRol.SelectedIndex + 1;
                     updAdmin.Email = emal;
                     updAdmin.Password = passs;
                     updAdmin.PhoneNumber = phone;
@@ -268,7 +267,7 @@ namespace Winform_Login
 
         private void search_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(search.Text)) administrator = data.Administrators.Where(x => x.Name.Contains(search.Text) || x.Email.Contains(search.Text) || x.PhoneNumber.Contains(search.Text));
+            if (!string.IsNullOrWhiteSpace(search.Text)) administrator = data.Administrators.Where(x => x.Id == Convert.ToInt32(search.Text) || x.Name.Contains(search.Text) || x.Email.Contains(search.Text) || x.PhoneNumber.Contains(search.Text));
             else administrator = data.Administrators;
             
             loadDgv();

@@ -118,43 +118,4 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="abc-kecap-manis" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\abc-kecap-manis.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ajinomoto-plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ajinomoto-plus.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="del-monte-saus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\del-monte-saus.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="kecap-manis-bango" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kecap-manis-bango.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="royco-pelezat-rasa-ayam" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\royco-pelezat-rasa-ayam.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="royco-rasa-sapi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\royco-rasa-sapi.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sajiku-bumbu-nasi-goreng-rasa-ayam" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sajiku-bumbu-nasi-goreng-rasa-ayam.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sasa-msg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sasa-msg.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="saus-sambal-abc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\saus-sambal-abc.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="saus-sambal-dua-belibis" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\saus-sambal-dua-belibis.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="saus-sambal-indofood" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\saus-sambal-indofood.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="saus-sambal-sasa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\saus-sambal-sasa.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sedaap-kecap-manis" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sedaap-kecap-manis.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>
