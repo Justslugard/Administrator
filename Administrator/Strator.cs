@@ -68,7 +68,7 @@ namespace Winform_Login
         {
             dgvRow = e.RowIndex;
 
-            if (dgvRow >= 0)
+            if (dgvRow >= 0 && !onInsert && !onUpdate)
             {
                 cbRol.SelectedIndex = Convert.ToInt32(dgv.Rows[dgvRow].Cells[1].Value) - 1;
                 id.Text = dgv.Rows[dgvRow].Cells[0].Value.ToString();
@@ -88,7 +88,8 @@ namespace Winform_Login
         {
             onInsert = true;
             clear();
-            enable();
+            modeField(false);
+            rmv.Enabled = false;
             id.Text = (data.Administrators.Max(x => x.Id) + 1).ToString();
         }
 
@@ -101,7 +102,7 @@ namespace Winform_Login
             }
 
             onUpdate = true;
-            enable();
+            modeField(false);
         }
 
         private void rmv_Click(object sender, EventArgs e)
@@ -122,70 +123,9 @@ namespace Winform_Login
 
             loadDgv();
         }
-
-
-        //private void number_Enter(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrEmpty(phone))
-        //    {
-        //        number.Text = string.Empty;
-        //        number.ForeColor = Color.Black;
-        //    }
-        //}
-
-        //private void number_Leave(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrEmpty(phone))
-        //    {
-        //        number.Text = "+123456789";
-        //        number.ForeColor = Color.Gray;
-        //        phone = string.Empty;
-        //    }
-        //}
-
-        //private void email_Enter(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrEmpty(emal))
-        //    {
-        //        email.Text = string.Empty;
-        //        email.ForeColor = Color.Black;
-        //    }
-        //}
-
-        //private void email_Leave(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrEmpty(emal))
-        //    {
-        //        email.Text = "example@gmail.com";
-        //        email.ForeColor = Color.Gray;
-        //        emal = string.Empty;
-        //    }
-        //}
-
-        //private void name_Enter(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrEmpty(nama))
-        //    {
-        //        name.Text = string.Empty;
-        //        name.ForeColor = Color.Black;
-        //    }
-        //}
-
-        //private void name_Leave(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrEmpty(nama))
-        //    {
-        //        name.Text = "Nizam Rizki Syahputra";
-        //        name.ForeColor = Color.Gray;
-        //        nama = string.Empty;
-        //    }
-        //}
-
         private void cancel_Click(object sender, EventArgs e)
         {
-            name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled = 
-                cancel.Enabled = pass.Enabled = cpass.Enabled = cbRol.Enabled = spass.Enabled = false;
-            insert.Enabled = update.Enabled = true;
+            modeField(true);
             pass.UseSystemPasswordChar = cpass.UseSystemPasswordChar = true;
             onInsert = onUpdate = false;
         }
@@ -205,7 +145,7 @@ namespace Winform_Login
                     Administrator newAdmins = new Administrator
                     {
                         Id = Convert.ToInt32(id.Text),
-                        RoleId = cbRol.SelectedIndex == 0 ? 1 : 2,
+                        RoleId = cbRol.SelectedIndex + 1,
                         Name = nama,
                         Email = emal,
                         Password = passs,
@@ -223,11 +163,6 @@ namespace Winform_Login
                 }
                 else if (onUpdate)
                 {
-                    if (!pass.Enabled)
-                    {
-                        pass.Enabled = true; pass.Text = cpass.Text = string.Empty; passs = string.Empty; MessageBox.Show("Password correct"); 
-                        return;
-                    }
                     Administrator updAdmin = administrator.Where(x => x.Id.Equals(id.Text)).FirstOrDefault();
                     updAdmin.Name = nama;
                     updAdmin.RoleId = cbRol.SelectedIndex + 1;
@@ -245,10 +180,6 @@ namespace Winform_Login
             }
         }
 
-        private void number_TextChanged(object sender, EventArgs e)
-        {
-            phone = number.Text.Trim();
-        }
 
         private void debug_Click(object sender, EventArgs e)
         {
@@ -259,19 +190,23 @@ namespace Winform_Login
             birth.Value = new DateTime(2000, 1, 1);
             cbRol.SelectedIndex = 0;
         }
+        private void search_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(search.Text)) administrator = data.Administrators.Where(x => x.Name.Contains(search.Text) || x.Email.Contains(search.Text) || x.PhoneNumber.Contains(search.Text));
+            else administrator = data.Administrators;
+            
+            loadDgv();
+        }
+        private void number_TextChanged(object sender, EventArgs e)
+        {
+            phone = number.Text.Trim();
+        }
 
         private void pass_TextChanged(object sender, EventArgs e)
         {
             passs = pass.Text.Trim();
         }
 
-        private void search_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(search.Text)) administrator = data.Administrators.Where(x => x.Id == Convert.ToInt32(search.Text) || x.Name.Contains(search.Text) || x.Email.Contains(search.Text) || x.PhoneNumber.Contains(search.Text));
-            else administrator = data.Administrators;
-            
-            loadDgv();
-        }
 
         private void name_Changed(object sender, EventArgs e)
         {

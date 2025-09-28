@@ -21,11 +21,12 @@ namespace Winform_Login
             cbRol.SelectedIndex = -1;
             birth.Value = DateTime.Now;
         }
-        void enable()
+        void modeField(bool state)
         {
             name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled =
-                cancel.Enabled = cbRol.Enabled = pass.Enabled = cpass.Enabled = spass.Enabled = true;
-            insert.Enabled = update.Enabled = rmv.Enabled = false;
+                cancel.Enabled = cbRol.Enabled = pass.Enabled = cpass.Enabled = spass.Enabled = !state;
+            insert.Enabled = update.Enabled = state;
+            if (onUpdate) rmv.Enabled = state;
         }
         bool validation()
         {
