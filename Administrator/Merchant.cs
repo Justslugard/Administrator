@@ -72,6 +72,7 @@ namespace Winform_Login
 
             MessageBox.Show("Data successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            clearField();
             loadDgv();
         }
 
@@ -158,6 +159,7 @@ namespace Winform_Login
 
                     loadDgv();
                     clearField();
+                    id.Text = newId();
                 }
                 else if (onUpdate)
                 {

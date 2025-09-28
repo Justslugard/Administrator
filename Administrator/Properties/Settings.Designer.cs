@@ -70,22 +70,11 @@ namespace Winform_Login.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SISWA-RPL-003\\MSSQLSERVER02;Initial Catalog=week3;Integrated Security" +
-            "=True;Encrypt=True;TrustServerCertificate=True")]
-        public string week3ConnectionString1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-62UUGGH;Initial Catalog=Asus;Integrated Security=True;Encrypt" +
+            "=True;TrustServerCertificate=True")]
+        public string AsusConnectionString {
             get {
-                return ((string)(this["week3ConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-SL3N9LFD;Initial Catalog=LEGION;Integrated Security=True;Encry" +
-            "pt=True;TrustServerCertificate=True")]
-        public string LEGIONConnectionString1 {
-            get {
-                return ((string)(this["LEGIONConnectionString1"]));
+                return ((string)(this["AsusConnectionString"]));
             }
         }
     }
