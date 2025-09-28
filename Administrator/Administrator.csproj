@@ -64,20 +64,27 @@
     <Compile Include="Strator.Designer.cs">
       <DependentUpon>Strator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Strator.Methods.cs">
+      <DependentUpon>Strator.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Strator.resx">
+      <DependentUpon>Strator.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Merchant.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Merchant.Designer.cs">
       <DependentUpon>Merchant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Strator.resx">
-      <DependentUpon>Strator.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Merchant.Methods.cs">
+      <DependentUpon>Merchant.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="Merchant.resx">
       <DependentUpon>Merchant.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -116,67 +123,7 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Images\abc-kecap-manis.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Images\ajinomoto-plus.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Images\del-monte-saus.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Images\kecap-manis-bango.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Images\royco-pelezat-rasa-ayam.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Images\royco-rasa-sapi.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Images\sajiku-bumbu-nasi-goreng-rasa-ayam.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Images\sasa-msg.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Images\saus-sambal-abc.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Images\saus-sambal-dua-belibis.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Images\saus-sambal-indofood.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Images\saus-sambal-sasa.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Images\sedaap-kecap-manis.jpeg">
+    <Content Include="Assets\Images\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

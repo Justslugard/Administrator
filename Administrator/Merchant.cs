@@ -66,6 +66,10 @@ namespace Winform_Login
             Merchandise delMerch = merchants.Where(x => x.Id.Equals(id.Text)).FirstOrDefault();
             data.Merchandises.DeleteOnSubmit(delMerch);
 
+            string photoName = merchants.Where(x => x.Id.Equals(id.Text)).FirstOrDefault().ImagePath;
+            File.Delete($"./Assets/Images/{photoName}");
+            File.Delete($"../../Assets/Images/{photoName}");
+
             data.SubmitChanges();
 
             del.Enabled = false;
@@ -113,8 +117,12 @@ namespace Winform_Login
             pictureDialog.Filter = "Image Files(*.jpg;*.png;*.jpeg)|*.jpg;*.png;*.jpeg|All Files(*.*)|*.*";
             if (pictureDialog.ShowDialog() == DialogResult.OK)
             {
+                string filePath = pictureDialog.SafeFileName;
+
+                File.Copy(pictureDialog.FileName, $"./Assets/Images/{filePath}", false);
+                File.Copy(pictureDialog.FileName, $"../../Assets/Images/{filePath}", false);
                 pBox.ImageLocation = pictureDialog.FileName;
-                photo.Text = pictureDialog.SafeFileName;
+                photo.Text = filePath;
             }
         }
 
@@ -187,55 +195,11 @@ namespace Winform_Login
             model.SelectedIndex = 5;
             price.Value = 8000;
             stock.Value = 70;
+
+            string[] file = "jembut.png".Split('.');
+            string newFile = file[0] += "_1";
+            Console.WriteLine($"{newFile}.{file[file.Length - 1]}");
             //photo.Text = "dummy.png";
-        }
-
-        void clearField()
-        {
-            id.Text = name.Text = specific.Text = photo.Text = pBox.ImageLocation = string.Empty;
-            stock.Value = price.Value = 1;
-            model.SelectedIndex = -1;
-        }
-
-        void modeField(bool state)
-        {
-            name.Enabled = specific.Enabled = model.Enabled = price.Enabled = stock.Enabled = save.Enabled = cancel.Enabled = phButt.Enabled = state;
-            insert.Enabled = update.Enabled = !state;
-            if (onUpdate) del.Enabled = !state;
-        }
-
-        bool isValid()
-        {
-            if (string.IsNullOrWhiteSpace(name.Text)) MessageBox.Show("Name can't be empty!");
-            else if (string.IsNullOrWhiteSpace(specific.Text)) MessageBox.Show("Name can't be empty!");
-            else if (model.SelectedIndex == -1) MessageBox.Show("Select a model!");
-            else return true;
-                return false;
-        }
-        string newId ()
-        {
-            string ids = data.Merchandises.OrderByDescending(x => x.Id).FirstOrDefault().Id;
-            Match regx = Regex.Match(ids, @"([a-zA-Z]+)(\d+)");
-            char[] idNums = regx.Groups[2].Value.ToCharArray();
-            for (int i = idNums.Length - 1, adder = 1; i >= 0; i--)
-            {
-                int sum = (idNums[i] - '0') + 1;
-                if (adder > 0)
-                {
-                    if (sum == 10)
-                    {
-                        adder++;
-                        idNums[i] = '0';
-                    }
-                    else
-                    {
-                        idNums[i] = (char)(sum + '0');
-                    }
-                    adder--;
-                }
-                else break;
-            }
-            return $"PR{string.Concat(idNums)}";
         }
     }
 }
