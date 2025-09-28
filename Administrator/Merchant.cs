@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Winform_Login
 {
@@ -46,7 +47,7 @@ namespace Winform_Login
         {
             if (dgvRow < 0)
             {
-                MessageBox.Show("Please select data to be updated", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a data!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             onUpdate = true;
@@ -85,6 +86,7 @@ namespace Winform_Login
                 price.Text = dgv.Rows[dgvRow].Cells[5].Value.ToString();
                 stock.Text = dgv.Rows[dgvRow].Cells[6].Value.ToString();
                 photo.Text = dgv.Rows[dgvRow].Cells[7].Value.ToString();
+                pBox.ImageLocation = $"./Resources/{photo.Text}";
             }
             else
             {
@@ -98,25 +100,44 @@ namespace Winform_Login
 
         }
 
+        private void phButt_Click(object sender, EventArgs e)
+        {
+            pictureDialog.Filter = "Image Files(*.jpg;*.png;*.jpeg)|*.jpg;*.png;*.jpeg|All Files(*.*)|*.*";
+            if (pictureDialog.ShowDialog() == DialogResult.OK)
+            {
+                pBox.ImageLocation = pictureDialog.FileName;
+                photo.Text = pictureDialog.SafeFileName;
+            }
+        }
+
+        private void debug_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine($"{string.IsNullOrWhiteSpace("   rambut mera mera   ")}");
+        }
+
         private void cancel_Click(object sender, EventArgs e)
         {
             modeField(false);
         }
         void clearField()
         {
-            id.Text = "";
-            name.Text = "";
-            specific.Text = "";
+            id.Text = name.Text = specific.Text = price.Text = stock.Text = photo.Text = pBox.ImageLocation = string.Empty;
             model.SelectedIndex = -1;
-            price.Text = "";
-            stock.Text = "";
-            photo.Text = "";
         }
+
         void modeField(bool state)
         {
-            id.Enabled = name.Enabled = specific.Enabled = model.Enabled = price.Enabled = stock.Enabled =
-                photo.Enabled = save.Enabled = cancel.Enabled = phButt.Enabled = state;
+            name.Enabled = specific.Enabled = model.Enabled = price.Enabled = stock.Enabled = save.Enabled = cancel.Enabled = phButt.Enabled = state;
             insert.Enabled = update.Enabled = dgv.Enabled = !state;
+        }
+        bool validation()
+        {
+            if (string.IsNullOrWhiteSpace(name.Text)) MessageBox.Show("Name can't be empty!");
+            else if (string.IsNullOrWhiteSpace(specific.Text)) MessageBox.Show("Name can't be empty!");
+            else if (model.SelectedIndex == -1) MessageBox.Show("Select a model!");
+            else if (string.IsNullOrWhiteSpace(photo.Text)) MessageBox.Show("Choose a photo");
+            else return true;
+                return false;
         }
     }
 }

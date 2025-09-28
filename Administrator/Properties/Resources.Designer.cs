@@ -63,9 +63,9 @@ namespace Winform_Login.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1388342 {
+        internal static System.Drawing.Bitmap abc_kecap_manis {
             get {
-                object obj = ResourceManager.GetObject("1388342", resourceCulture);
+                object obj = ResourceManager.GetObject("abc-kecap-manis", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Winform_Login.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap wallpaperflare_com_wallpaper {
+        internal static System.Drawing.Bitmap ajinomoto_plus {
             get {
-                object obj = ResourceManager.GetObject("wallpaperflare.com_wallpaper", resourceCulture);
+                object obj = ResourceManager.GetObject("ajinomoto-plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Winform_Login.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap wallpaperflare_com_wallpaper__1_ {
+        internal static System.Drawing.Bitmap del_monte_saus {
             get {
-                object obj = ResourceManager.GetObject("wallpaperflare.com_wallpaper (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("del-monte-saus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,99 @@ namespace Winform_Login.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap your_name_shooting_7680x4320_14938 {
+        internal static System.Drawing.Bitmap kecap_manis_bango {
             get {
-                object obj = ResourceManager.GetObject("your-name-shooting-7680x4320-14938", resourceCulture);
+                object obj = ResourceManager.GetObject("kecap-manis-bango", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap royco_pelezat_rasa_ayam {
+            get {
+                object obj = ResourceManager.GetObject("royco-pelezat-rasa-ayam", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap royco_rasa_sapi {
+            get {
+                object obj = ResourceManager.GetObject("royco-rasa-sapi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sajiku_bumbu_nasi_goreng_rasa_ayam {
+            get {
+                object obj = ResourceManager.GetObject("sajiku-bumbu-nasi-goreng-rasa-ayam", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sasa_msg {
+            get {
+                object obj = ResourceManager.GetObject("sasa-msg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap saus_sambal_abc {
+            get {
+                object obj = ResourceManager.GetObject("saus-sambal-abc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap saus_sambal_dua_belibis {
+            get {
+                object obj = ResourceManager.GetObject("saus-sambal-dua-belibis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap saus_sambal_indofood {
+            get {
+                object obj = ResourceManager.GetObject("saus-sambal-indofood", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap saus_sambal_sasa {
+            get {
+                object obj = ResourceManager.GetObject("saus-sambal-sasa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sedaap_kecap_manis {
+            get {
+                object obj = ResourceManager.GetObject("sedaap-kecap-manis", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
