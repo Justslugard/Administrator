@@ -42,6 +42,15 @@ namespace Winform_Login
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
+    partial void InsertCustomer(Customer instance);
+    partial void UpdateCustomer(Customer instance);
+    partial void DeleteCustomer(Customer instance);
+    partial void InsertSalesDetail(SalesDetail instance);
+    partial void UpdateSalesDetail(SalesDetail instance);
+    partial void DeleteSalesDetail(SalesDetail instance);
+    partial void InsertSalesHeader(SalesHeader instance);
+    partial void UpdateSalesHeader(SalesHeader instance);
+    partial void DeleteSalesHeader(SalesHeader instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -105,6 +114,30 @@ namespace Winform_Login
 				return this.GetTable<Role>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Customer> Customers
+		{
+			get
+			{
+				return this.GetTable<Customer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SalesDetail> SalesDetails
+		{
+			get
+			{
+				return this.GetTable<SalesDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SalesHeader> SalesHeaders
+		{
+			get
+			{
+				return this.GetTable<SalesHeader>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Administrator")]
@@ -126,6 +159,8 @@ namespace Winform_Login
 		private string _PhoneNumber;
 		
 		private System.DateTime _BirthDate;
+		
+		private EntitySet<SalesHeader> _SalesHeaders;
 		
 		private EntityRef<Role> _Role;
 		
@@ -151,6 +186,7 @@ namespace Winform_Login
 		
 		public Administrator()
 		{
+			this._SalesHeaders = new EntitySet<SalesHeader>(new Action<SalesHeader>(this.attach_SalesHeaders), new Action<SalesHeader>(this.detach_SalesHeaders));
 			this._Role = default(EntityRef<Role>);
 			OnCreated();
 		}
@@ -299,6 +335,19 @@ namespace Winform_Login
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Administrator_SalesHeader", Storage="_SalesHeaders", ThisKey="Id", OtherKey="AdministratorId")]
+		public EntitySet<SalesHeader> SalesHeaders
+		{
+			get
+			{
+				return this._SalesHeaders;
+			}
+			set
+			{
+				this._SalesHeaders.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_Administrator", Storage="_Role", ThisKey="RoleId", OtherKey="Id", IsForeignKey=true)]
 		public Role Role
 		{
@@ -352,6 +401,18 @@ namespace Winform_Login
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_SalesHeaders(SalesHeader entity)
+		{
+			this.SendPropertyChanging();
+			entity.Administrator = this;
+		}
+		
+		private void detach_SalesHeaders(SalesHeader entity)
+		{
+			this.SendPropertyChanging();
+			entity.Administrator = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Merchandise")]
@@ -373,6 +434,8 @@ namespace Winform_Login
 		private int _Stock;
 		
 		private string _ImagePath;
+		
+		private EntitySet<SalesDetail> _SalesDetails;
 		
 		private EntityRef<Model> _Model;
 		
@@ -398,6 +461,7 @@ namespace Winform_Login
 		
 		public Merchandise()
 		{
+			this._SalesDetails = new EntitySet<SalesDetail>(new Action<SalesDetail>(this.attach_SalesDetails), new Action<SalesDetail>(this.detach_SalesDetails));
 			this._Model = default(EntityRef<Model>);
 			OnCreated();
 		}
@@ -546,6 +610,19 @@ namespace Winform_Login
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Merchandise_SalesDetail", Storage="_SalesDetails", ThisKey="Id", OtherKey="MerchandiseId")]
+		public EntitySet<SalesDetail> SalesDetails
+		{
+			get
+			{
+				return this._SalesDetails;
+			}
+			set
+			{
+				this._SalesDetails.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Model_Merchandise", Storage="_Model", ThisKey="ModelId", OtherKey="Id", IsForeignKey=true)]
 		public Model Model
 		{
@@ -598,6 +675,18 @@ namespace Winform_Login
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_SalesDetails(SalesDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Merchandise = this;
+		}
+		
+		private void detach_SalesDetails(SalesDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Merchandise = null;
 		}
 	}
 	
@@ -826,6 +915,700 @@ namespace Winform_Login
 		{
 			this.SendPropertyChanging();
 			entity.Role = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customer")]
+	public partial class Customer : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Id;
+		
+		private string _Name;
+		
+		private string _Email;
+		
+		private string _PhoneNumber;
+		
+		private EntitySet<SalesHeader> _SalesHeaders;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(string value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnPhoneNumberChanging(string value);
+    partial void OnPhoneNumberChanged();
+    #endregion
+		
+		public Customer()
+		{
+			this._SalesHeaders = new EntitySet<SalesHeader>(new Action<SalesHeader>(this.attach_SalesHeaders), new Action<SalesHeader>(this.detach_SalesHeaders));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="VarChar(20)")]
+		public string PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this.OnPhoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._PhoneNumber = value;
+					this.SendPropertyChanged("PhoneNumber");
+					this.OnPhoneNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_SalesHeader", Storage="_SalesHeaders", ThisKey="Id", OtherKey="CustomerId")]
+		public EntitySet<SalesHeader> SalesHeaders
+		{
+			get
+			{
+				return this._SalesHeaders;
+			}
+			set
+			{
+				this._SalesHeaders.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SalesHeaders(SalesHeader entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = this;
+		}
+		
+		private void detach_SalesHeaders(SalesHeader entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SalesDetail")]
+	public partial class SalesDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _SalesHeaderId;
+		
+		private string _MerchandiseId;
+		
+		private int _Qty;
+		
+		private int _Price;
+		
+		private EntityRef<Merchandise> _Merchandise;
+		
+		private EntityRef<SalesHeader> _SalesHeader;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnSalesHeaderIdChanging(string value);
+    partial void OnSalesHeaderIdChanged();
+    partial void OnMerchandiseIdChanging(string value);
+    partial void OnMerchandiseIdChanged();
+    partial void OnQtyChanging(int value);
+    partial void OnQtyChanged();
+    partial void OnPriceChanging(int value);
+    partial void OnPriceChanged();
+    #endregion
+		
+		public SalesDetail()
+		{
+			this._Merchandise = default(EntityRef<Merchandise>);
+			this._SalesHeader = default(EntityRef<SalesHeader>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalesHeaderId", DbType="VarChar(11) NOT NULL", CanBeNull=false)]
+		public string SalesHeaderId
+		{
+			get
+			{
+				return this._SalesHeaderId;
+			}
+			set
+			{
+				if ((this._SalesHeaderId != value))
+				{
+					if (this._SalesHeader.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSalesHeaderIdChanging(value);
+					this.SendPropertyChanging();
+					this._SalesHeaderId = value;
+					this.SendPropertyChanged("SalesHeaderId");
+					this.OnSalesHeaderIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MerchandiseId", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string MerchandiseId
+		{
+			get
+			{
+				return this._MerchandiseId;
+			}
+			set
+			{
+				if ((this._MerchandiseId != value))
+				{
+					if (this._Merchandise.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMerchandiseIdChanging(value);
+					this.SendPropertyChanging();
+					this._MerchandiseId = value;
+					this.SendPropertyChanged("MerchandiseId");
+					this.OnMerchandiseIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Qty", DbType="Int NOT NULL")]
+		public int Qty
+		{
+			get
+			{
+				return this._Qty;
+			}
+			set
+			{
+				if ((this._Qty != value))
+				{
+					this.OnQtyChanging(value);
+					this.SendPropertyChanging();
+					this._Qty = value;
+					this.SendPropertyChanged("Qty");
+					this.OnQtyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int NOT NULL")]
+		public int Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Merchandise_SalesDetail", Storage="_Merchandise", ThisKey="MerchandiseId", OtherKey="Id", IsForeignKey=true)]
+		public Merchandise Merchandise
+		{
+			get
+			{
+				return this._Merchandise.Entity;
+			}
+			set
+			{
+				Merchandise previousValue = this._Merchandise.Entity;
+				if (((previousValue != value) 
+							|| (this._Merchandise.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Merchandise.Entity = null;
+						previousValue.SalesDetails.Remove(this);
+					}
+					this._Merchandise.Entity = value;
+					if ((value != null))
+					{
+						value.SalesDetails.Add(this);
+						this._MerchandiseId = value.Id;
+					}
+					else
+					{
+						this._MerchandiseId = default(string);
+					}
+					this.SendPropertyChanged("Merchandise");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalesHeader_SalesDetail", Storage="_SalesHeader", ThisKey="SalesHeaderId", OtherKey="Id", IsForeignKey=true)]
+		public SalesHeader SalesHeader
+		{
+			get
+			{
+				return this._SalesHeader.Entity;
+			}
+			set
+			{
+				SalesHeader previousValue = this._SalesHeader.Entity;
+				if (((previousValue != value) 
+							|| (this._SalesHeader.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SalesHeader.Entity = null;
+						previousValue.SalesDetails.Remove(this);
+					}
+					this._SalesHeader.Entity = value;
+					if ((value != null))
+					{
+						value.SalesDetails.Add(this);
+						this._SalesHeaderId = value.Id;
+					}
+					else
+					{
+						this._SalesHeaderId = default(string);
+					}
+					this.SendPropertyChanged("SalesHeader");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SalesHeader")]
+	public partial class SalesHeader : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Id;
+		
+		private int _AdministratorId;
+		
+		private string _CustomerId;
+		
+		private System.DateTime _Date;
+		
+		private string _PaymentType;
+		
+		private string _CardNumber;
+		
+		private EntitySet<SalesDetail> _SalesDetails;
+		
+		private EntityRef<Administrator> _Administrator;
+		
+		private EntityRef<Customer> _Customer;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(string value);
+    partial void OnIdChanged();
+    partial void OnAdministratorIdChanging(int value);
+    partial void OnAdministratorIdChanged();
+    partial void OnCustomerIdChanging(string value);
+    partial void OnCustomerIdChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnPaymentTypeChanging(string value);
+    partial void OnPaymentTypeChanged();
+    partial void OnCardNumberChanging(string value);
+    partial void OnCardNumberChanged();
+    #endregion
+		
+		public SalesHeader()
+		{
+			this._SalesDetails = new EntitySet<SalesDetail>(new Action<SalesDetail>(this.attach_SalesDetails), new Action<SalesDetail>(this.detach_SalesDetails));
+			this._Administrator = default(EntityRef<Administrator>);
+			this._Customer = default(EntityRef<Customer>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="VarChar(11) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdministratorId", DbType="Int NOT NULL")]
+		public int AdministratorId
+		{
+			get
+			{
+				return this._AdministratorId;
+			}
+			set
+			{
+				if ((this._AdministratorId != value))
+				{
+					if (this._Administrator.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAdministratorIdChanging(value);
+					this.SendPropertyChanging();
+					this._AdministratorId = value;
+					this.SendPropertyChanged("AdministratorId");
+					this.OnAdministratorIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerId", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string CustomerId
+		{
+			get
+			{
+				return this._CustomerId;
+			}
+			set
+			{
+				if ((this._CustomerId != value))
+				{
+					if (this._Customer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCustomerIdChanging(value);
+					this.SendPropertyChanging();
+					this._CustomerId = value;
+					this.SendPropertyChanged("CustomerId");
+					this.OnCustomerIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaymentType", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string PaymentType
+		{
+			get
+			{
+				return this._PaymentType;
+			}
+			set
+			{
+				if ((this._PaymentType != value))
+				{
+					this.OnPaymentTypeChanging(value);
+					this.SendPropertyChanging();
+					this._PaymentType = value;
+					this.SendPropertyChanged("PaymentType");
+					this.OnPaymentTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardNumber", DbType="VarChar(16)")]
+		public string CardNumber
+		{
+			get
+			{
+				return this._CardNumber;
+			}
+			set
+			{
+				if ((this._CardNumber != value))
+				{
+					this.OnCardNumberChanging(value);
+					this.SendPropertyChanging();
+					this._CardNumber = value;
+					this.SendPropertyChanged("CardNumber");
+					this.OnCardNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SalesHeader_SalesDetail", Storage="_SalesDetails", ThisKey="Id", OtherKey="SalesHeaderId")]
+		public EntitySet<SalesDetail> SalesDetails
+		{
+			get
+			{
+				return this._SalesDetails;
+			}
+			set
+			{
+				this._SalesDetails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Administrator_SalesHeader", Storage="_Administrator", ThisKey="AdministratorId", OtherKey="Id", IsForeignKey=true)]
+		public Administrator Administrator
+		{
+			get
+			{
+				return this._Administrator.Entity;
+			}
+			set
+			{
+				Administrator previousValue = this._Administrator.Entity;
+				if (((previousValue != value) 
+							|| (this._Administrator.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Administrator.Entity = null;
+						previousValue.SalesHeaders.Remove(this);
+					}
+					this._Administrator.Entity = value;
+					if ((value != null))
+					{
+						value.SalesHeaders.Add(this);
+						this._AdministratorId = value.Id;
+					}
+					else
+					{
+						this._AdministratorId = default(int);
+					}
+					this.SendPropertyChanged("Administrator");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_SalesHeader", Storage="_Customer", ThisKey="CustomerId", OtherKey="Id", IsForeignKey=true)]
+		public Customer Customer
+		{
+			get
+			{
+				return this._Customer.Entity;
+			}
+			set
+			{
+				Customer previousValue = this._Customer.Entity;
+				if (((previousValue != value) 
+							|| (this._Customer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Customer.Entity = null;
+						previousValue.SalesHeaders.Remove(this);
+					}
+					this._Customer.Entity = value;
+					if ((value != null))
+					{
+						value.SalesHeaders.Add(this);
+						this._CustomerId = value.Id;
+					}
+					else
+					{
+						this._CustomerId = default(string);
+					}
+					this.SendPropertyChanged("Customer");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SalesDetails(SalesDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.SalesHeader = this;
+		}
+		
+		private void detach_SalesDetails(SalesDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.SalesHeader = null;
 		}
 	}
 }
