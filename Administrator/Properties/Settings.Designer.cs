@@ -77,5 +77,16 @@ namespace Winform_Login.Properties {
                 return ((string)(this["AsusConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SISWA-RPL-36\\MSSQLSERVER01;Initial Catalog=tabola;Integrated Security" +
+            "=True;Encrypt=True;TrustServerCertificate=True")]
+        public string tabolaConnectionString1 {
+            get {
+                return ((string)(this["tabolaConnectionString1"]));
+            }
+        }
     }
 }

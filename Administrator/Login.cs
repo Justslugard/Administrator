@@ -30,11 +30,11 @@ namespace Winform_Login
         {
             Administrator user = data.Administrators.Where(x => x.Email.Equals(email.Text)).FirstOrDefault();
 
-            if (user == null || user.Password != password.Text) MessageBox.Show("Invalid email or password", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (user == null || user.Password != password.Text) MessageBox.Show("Please Try Again, Your Data is not Valid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 MessageBox.Show($"Login Success! You logged in as a {user.Role.Name}", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                new Main().Show();
+                new Main(user.RoleId).Show();
                 this.Hide();
             }
         }
