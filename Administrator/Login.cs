@@ -13,6 +13,7 @@ namespace Winform_Login
     public partial class Login : Form
     {
         static DataClasses1DataContext data = new DataClasses1DataContext();
+        static public Administrator user;
         public Login()
         {
             InitializeComponent();
@@ -28,14 +29,27 @@ namespace Winform_Login
 
         private void logkan_Click(object sender, EventArgs e)
         {
-            Administrator user = data.Administrators.Where(x => x.Email.Equals(email.Text)).FirstOrDefault();
+            user = data.Administrators.Where(x => x.Email.Equals(email.Text)).FirstOrDefault();
 
             if (user == null || user.Password != password.Text) MessageBox.Show("Please Try Again, Your Data is not Valid", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 MessageBox.Show($"Login Success! You logged in as a {user.Role.Name}", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                new Main(user.RoleId).Show();
-                this.Hide();
+                this.DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Button button = (Button) sender;
+            if (button.Name == "cash")
+            {
+                email.Text = "cmattin2@51.la";
+                password.Text = "KG5FijQS62oe";
+            } else if (button.Name == "adm")
+            {
+                email.Text = "ktoner0@topsy.com";
+                password.Text = "lO8LLrrnpmY";
             }
         }
     }

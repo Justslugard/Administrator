@@ -16,7 +16,14 @@ namespace Winform_Login
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            //using (Login login = new Login())
+            //{
+            //    if (login.ShowDialog() == DialogResult.OK)
+            //    {
+            //        Application.Run(new Main(Login.user.RoleId));
+            //    }
+            //}
+            Application.Run(new Merchant());
         }
     }
 }

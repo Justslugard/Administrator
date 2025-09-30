@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label10 = new System.Windows.Forms.Label();
             this.search = new System.Windows.Forms.TextBox();
             this.debug = new System.Windows.Forms.Button();
@@ -63,10 +64,19 @@
             this.model = new System.Windows.Forms.ComboBox();
             this.pBox = new System.Windows.Forms.PictureBox();
             this.pictureDialog = new System.Windows.Forms.OpenFileDialog();
+            this.asusDataSet = new Winform_Login.AsusDataSet();
+            this.asusDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.modelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.modelTableAdapter = new Winform_Login.AsusDataSetTableAdapters.ModelTableAdapter();
+            this.modelBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.asusDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.asusDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -442,27 +452,17 @@
             // model
             // 
             this.model.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.model.DataSource = this.modelBindingSource1;
+            this.model.DisplayMember = "Name";
             this.model.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.model.Enabled = false;
             this.model.FormattingEnabled = true;
-            this.model.Items.AddRange(new object[] {
-            "Bango",
-            "Menjangan",
-            "Sedaap",
-            "ABC",
-            "Indofood",
-            "Belibis",
-            "Del Monte",
-            "Sasa",
-            "Royco",
-            "Masako",
-            "Saori",
-            "Sajiku",
-            "Ajinomoto"});
+            this.model.ImeMode = System.Windows.Forms.ImeMode.On;
             this.model.Location = new System.Drawing.Point(227, 525);
             this.model.Name = "model";
             this.model.Size = new System.Drawing.Size(152, 21);
             this.model.TabIndex = 65;
+            this.model.ValueMember = "Id";
             // 
             // pBox
             // 
@@ -474,6 +474,31 @@
             this.pBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pBox.TabIndex = 66;
             this.pBox.TabStop = false;
+            // 
+            // asusDataSet
+            // 
+            this.asusDataSet.DataSetName = "AsusDataSet";
+            this.asusDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // asusDataSetBindingSource
+            // 
+            this.asusDataSetBindingSource.AllowNew = true;
+            this.asusDataSetBindingSource.DataSource = this.asusDataSet;
+            this.asusDataSetBindingSource.Position = 0;
+            // 
+            // modelBindingSource
+            // 
+            this.modelBindingSource.DataMember = "Model";
+            this.modelBindingSource.DataSource = this.asusDataSet;
+            // 
+            // modelTableAdapter
+            // 
+            this.modelTableAdapter.ClearBeforeFill = true;
+            // 
+            // modelBindingSource1
+            // 
+            this.modelBindingSource1.DataMember = "Model";
+            this.modelBindingSource1.DataSource = this.asusDataSetBindingSource;
             // 
             // Merchant
             // 
@@ -516,6 +541,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.asusDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.asusDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -558,5 +587,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.PictureBox pBox;
         private System.Windows.Forms.OpenFileDialog pictureDialog;
+        private System.Windows.Forms.BindingSource asusDataSetBindingSource;
+        private AsusDataSet asusDataSet;
+        private System.Windows.Forms.BindingSource modelBindingSource;
+        private AsusDataSetTableAdapters.ModelTableAdapter modelTableAdapter;
+        private System.Windows.Forms.BindingSource modelBindingSource1;
     }
 }

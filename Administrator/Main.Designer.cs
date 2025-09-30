@@ -30,14 +30,14 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.wutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.modelStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.merchandStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.administratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.merchandiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,34 +59,64 @@
             this.wutToolStripMenuItem.Checked = true;
             this.wutToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.wutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.asToolStripMenuItem,
-            this.asToolStripMenuItem1});
+            this.logoutStrip,
+            this.exitStrip});
             this.wutToolStripMenuItem.Name = "wutToolStripMenuItem";
             this.wutToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.wutToolStripMenuItem.Text = "File";
             // 
-            // asToolStripMenuItem
+            // logoutStrip
             // 
-            this.asToolStripMenuItem.Name = "asToolStripMenuItem";
-            this.asToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
-            this.asToolStripMenuItem.Text = "Exit";
+            this.logoutStrip.Name = "logoutStrip";
+            this.logoutStrip.Size = new System.Drawing.Size(180, 22);
+            this.logoutStrip.Text = "Logout";
+            this.logoutStrip.Click += new System.EventHandler(this.logoutStrip_Click);
             // 
-            // asToolStripMenuItem1
+            // exitStrip
             // 
-            this.asToolStripMenuItem1.Name = "asToolStripMenuItem1";
-            this.asToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
-            this.asToolStripMenuItem1.Text = "Login";
+            this.exitStrip.Name = "exitStrip";
+            this.exitStrip.Size = new System.Drawing.Size(180, 22);
+            this.exitStrip.Text = "Exit";
+            this.exitStrip.Click += new System.EventHandler(this.exitStrip_Click);
             // 
             // manageToolStripMenuItem
             // 
             this.manageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customerToolStripMenuItem,
-            this.administratorToolStripMenuItem,
-            this.modelToolStripMenuItem,
-            this.merchandiseToolStripMenuItem});
+            this.customerStrip,
+            this.adminStrip,
+            this.modelStrip,
+            this.merchandStrip});
             this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
             this.manageToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.manageToolStripMenuItem.Text = "Manage";
+            // 
+            // customerStrip
+            // 
+            this.customerStrip.Name = "customerStrip";
+            this.customerStrip.Size = new System.Drawing.Size(180, 22);
+            this.customerStrip.Text = "Customer";
+            this.customerStrip.Click += new System.EventHandler(this.customerStrip_Click);
+            // 
+            // adminStrip
+            // 
+            this.adminStrip.Name = "adminStrip";
+            this.adminStrip.Size = new System.Drawing.Size(180, 22);
+            this.adminStrip.Text = "Administrator";
+            this.adminStrip.Click += new System.EventHandler(this.adminStrip_Click);
+            // 
+            // modelStrip
+            // 
+            this.modelStrip.Name = "modelStrip";
+            this.modelStrip.Size = new System.Drawing.Size(180, 22);
+            this.modelStrip.Text = "Model";
+            this.modelStrip.Click += new System.EventHandler(this.modelStrip_Click);
+            // 
+            // merchandStrip
+            // 
+            this.merchandStrip.Name = "merchandStrip";
+            this.merchandStrip.Size = new System.Drawing.Size(180, 22);
+            this.merchandStrip.Text = "Merchandise";
+            this.merchandStrip.Click += new System.EventHandler(this.merchandStrip_Click);
             // 
             // transactionToolStripMenuItem
             // 
@@ -96,35 +126,12 @@
             this.transactionToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
-            // customerToolStripMenuItem
-            // 
-            this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.customerToolStripMenuItem.Text = "Customer";
-            // 
-            // administratorToolStripMenuItem
-            // 
-            this.administratorToolStripMenuItem.Name = "administratorToolStripMenuItem";
-            this.administratorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.administratorToolStripMenuItem.Text = "Administrator";
-            // 
-            // modelToolStripMenuItem
-            // 
-            this.modelToolStripMenuItem.Name = "modelToolStripMenuItem";
-            this.modelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.modelToolStripMenuItem.Text = "Model";
-            // 
-            // merchandiseToolStripMenuItem
-            // 
-            this.merchandiseToolStripMenuItem.Name = "merchandiseToolStripMenuItem";
-            this.merchandiseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.merchandiseToolStripMenuItem.Text = "Merchandise";
-            // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
             this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salesToolStripMenuItem.Text = "Sales";
+            this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -151,14 +158,14 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem wutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem asToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem asToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem logoutStrip;
+        private System.Windows.Forms.ToolStripMenuItem exitStrip;
         private System.Windows.Forms.ToolStripMenuItem manageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transactionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem administratorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem merchandiseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customerStrip;
+        private System.Windows.Forms.ToolStripMenuItem adminStrip;
+        private System.Windows.Forms.ToolStripMenuItem modelStrip;
+        private System.Windows.Forms.ToolStripMenuItem merchandStrip;
         private System.Windows.Forms.ToolStripMenuItem salesToolStripMenuItem;
     }
 }

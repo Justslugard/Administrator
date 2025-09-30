@@ -36,13 +36,15 @@
             this.password = new System.Windows.Forms.TextBox();
             this.logkan = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
+            this.cash = new System.Windows.Forms.Button();
+            this.adm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(153, 9);
+            this.label1.Location = new System.Drawing.Point(163, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(199, 46);
             this.label1.TabIndex = 0;
@@ -51,7 +53,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(171, 55);
+            this.label2.Location = new System.Drawing.Point(181, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(159, 13);
             this.label2.TabIndex = 1;
@@ -94,7 +96,7 @@
             // 
             // logkan
             // 
-            this.logkan.Location = new System.Drawing.Point(171, 156);
+            this.logkan.Location = new System.Drawing.Point(184, 156);
             this.logkan.Name = "logkan";
             this.logkan.Size = new System.Drawing.Size(75, 23);
             this.logkan.TabIndex = 6;
@@ -104,7 +106,7 @@
             // 
             // close
             // 
-            this.close.Location = new System.Drawing.Point(252, 156);
+            this.close.Location = new System.Drawing.Point(265, 156);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 23);
             this.close.TabIndex = 7;
@@ -112,12 +114,34 @@
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
+            // cash
+            // 
+            this.cash.Location = new System.Drawing.Point(404, 9);
+            this.cash.Name = "cash";
+            this.cash.Size = new System.Drawing.Size(75, 23);
+            this.cash.TabIndex = 8;
+            this.cash.Text = "Cashier";
+            this.cash.UseVisualStyleBackColor = true;
+            this.cash.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // adm
+            // 
+            this.adm.Location = new System.Drawing.Point(404, 38);
+            this.adm.Name = "adm";
+            this.adm.Size = new System.Drawing.Size(75, 23);
+            this.adm.TabIndex = 9;
+            this.adm.Text = "Admin";
+            this.adm.UseVisualStyleBackColor = true;
+            this.adm.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(491, 201);
+            this.Controls.Add(this.adm);
+            this.Controls.Add(this.cash);
             this.Controls.Add(this.close);
             this.Controls.Add(this.logkan);
             this.Controls.Add(this.password);
@@ -144,5 +168,7 @@
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Button logkan;
         private System.Windows.Forms.Button close;
+        private System.Windows.Forms.Button cash;
+        private System.Windows.Forms.Button adm;
     }
 }

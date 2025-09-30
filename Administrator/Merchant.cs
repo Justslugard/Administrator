@@ -35,6 +35,9 @@ namespace Winform_Login
 
         private void Merchant_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'asusDataSet.Model' table. You can move, or remove it, as needed.
+            this.modelTableAdapter.Fill(this.asusDataSet.Model);
+            model.SelectedIndex = -1;
             loadDgv();
         }
 
@@ -94,7 +97,6 @@ namespace Winform_Login
             }
             else
             {
-                clearField();
                 del.Enabled = false;
             }
         }
@@ -134,11 +136,10 @@ namespace Winform_Login
             {
                 if (onInsert)
                 {
-                    
                     Merchandise merchandise = new Merchandise()
                     {
                         Id = newId(),
-                        ModelId = model.SelectedIndex + 1,
+                        ModelId = (int) model.SelectedValue,
                         Name = name.Text.Trim(),
                         Specification = specific.Text.Trim(),
                         Price = (int) price.Value,
@@ -165,12 +166,12 @@ namespace Winform_Login
                 }
                 else if (onUpdate)
                 {
-                    Merchandise merchandise = data.Merchandises.Where(x => x.Id.Equals(x.Id)).FirstOrDefault();
-                    merchandise.ModelId = model.SelectedIndex + 1;
+                    Merchandise merchandise = data.Merchandises.Where(x => x.Id.Equals(id.Text)).FirstOrDefault();
                     merchandise.Name = name.Text.Trim();
+                    merchandise.Model = data.Models.Single(x => x.Id.Equals((int)model.SelectedValue));
                     merchandise.Specification = specific.Text.Trim();
-                    merchandise.Price = (int) price.Value;
-                    merchandise.Stock = (int) stock.Value;
+                    merchandise.Price = (int)price.Value;
+                    merchandise.Stock = (int)stock.Value;
                     merchandise.ImagePath = pictureDialog.FileName;
 
                     data.SubmitChanges();

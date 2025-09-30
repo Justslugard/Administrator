@@ -23,8 +23,51 @@ namespace Winform_Login
         {
             if (admin == 2)
             {
-                ToolStripItem menu = menuStrip1.Items["Manage"];
+                adminStrip.Visible = modelStrip.Visible = merchandStrip.Visible = false;
             }
+        }
+
+        private void exitStrip_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Are you sure you want to exit?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (res == DialogResult.Yes) this.Close();
+        }
+
+        private void logoutStrip_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Are you sure you want to logout?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if (res == DialogResult.Yes) Application.Restart();
+        }
+
+        private void customerStrip_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adminStrip_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<Strator>().Count() >= 1) return;
+
+            new Strator().Show();
+        }
+
+        private void modelStrip_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void merchandStrip_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<Merchant>().Count() >= 1) return;
+
+            new Merchant().Show();
+        }
+
+        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
