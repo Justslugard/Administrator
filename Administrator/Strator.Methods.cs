@@ -13,7 +13,7 @@ using System.Runtime.Remoting.Messaging;
 
 namespace Winform_Login
 {
-    partial class Strator
+    partial class MAdministrator
     {
         void clear()
         {
@@ -31,11 +31,11 @@ namespace Winform_Login
         bool validation()
         {
             long res;
-            Regex emailReg = new Regex(@"^+.+\@.+$");
-            if (string.IsNullOrEmpty(nama)) MessageBox.Show("Name can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (string.IsNullOrEmpty(emal)) MessageBox.Show("Email can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (string.IsNullOrEmpty(phone)) MessageBox.Show("Phone number can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (string.IsNullOrEmpty(passs)) MessageBox.Show("Password can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            Regex emailReg = new Regex(@"^[\w.]+@[\w.-]+\.\w+");
+            if (string.IsNullOrWhiteSpace(nama)) MessageBox.Show("Name can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (string.IsNullOrWhiteSpace(emal)) MessageBox.Show("Email can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (string.IsNullOrWhiteSpace(phone)) MessageBox.Show("Phone number can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (string.IsNullOrWhiteSpace(passs)) MessageBox.Show("Password can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (cbRol.SelectedIndex == -1) MessageBox.Show("Role must be selected!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (DateTime.Now.Year - birth.Value.Year < 18) MessageBox.Show("Age must be at least 18 years old!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (!emailReg.IsMatch(emal)) MessageBox.Show("Must be a valid email!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);

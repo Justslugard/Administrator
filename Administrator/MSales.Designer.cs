@@ -1,6 +1,6 @@
 ﻿namespace Winform_Login
 {
-    partial class Sales
+    partial class MSales
     {
         /// <summary>
         /// Required designer variable.

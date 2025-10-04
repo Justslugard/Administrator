@@ -13,13 +13,13 @@ using System.Runtime.Remoting.Messaging;
 
 namespace Winform_Login
 {
-    public partial class Merchant : Form
+    public partial class MMerchandise : Form
     {
         static DataClasses1DataContext data = new DataClasses1DataContext();
         static IQueryable<Merchandise> merchants = data.Merchandises;
         int dgvRow = -1;
         bool onInsert = false, onUpdate = false;
-        public Merchant()
+        public MMerchandise()
         {
             InitializeComponent();
         }

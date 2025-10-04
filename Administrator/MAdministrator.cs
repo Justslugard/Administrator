@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 
 namespace Winform_Login
 {
-    public partial class Strator : Form
+    public partial class MAdministrator : Form
     {
         //static SqlConnection conn = new SqlConnection(@"Data Source=SISWA-RPL-003\MSSQLSERVER02;Initial Catalog=week3;Integrated Security=True");
         static DataClasses1DataContext data = new DataClasses1DataContext();
@@ -21,7 +21,7 @@ namespace Winform_Login
         int dgvRow = -1;
         string nama, emal, phone, passs;
         bool onInsert = false, onUpdate = false;
-        public Strator()
+        public MAdministrator()
         {
             InitializeComponent();
         }

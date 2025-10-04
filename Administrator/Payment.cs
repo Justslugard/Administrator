@@ -25,7 +25,6 @@ namespace Winform_Login
 
         private void Payment_Load(object sender, EventArgs e)
         {
-            Console.WriteLine(customers.FirstOrDefault().Id);
             total.Text = totaL;
         }
 
@@ -44,9 +43,11 @@ namespace Winform_Login
             {
                 SalesHeader newHeader = new SalesHeader();
                 newHeader.Id = newHeaderId();
-                newHeader.AdministratorId = 1;
+                newHeader.AdministratorId = Main.admin?.Id ?? 1;
                 newHeader.CustomerId = id.Text;
+                newHeader.Date = DateTime.Now;
                 newHeader.PaymentType = card.Checked ? "card" : "cash";
+                if (card.Checked) newHeader.CardNumber = cNumber.Text; 
 
                 data.SalesHeaders.InsertOnSubmit(newHeader);
                 data.SubmitChanges();
@@ -59,6 +60,9 @@ namespace Winform_Login
                     newSales.MerchandiseId = grid[i].Cells[0].Value.ToString();
                     newSales.Qty = int.Parse(grid[i].Cells[4].Value.ToString());
                     newSales.Price = int.Parse(grid[i].Cells[5].Value.ToString());
+
+                    data.SalesDetails.InsertOnSubmit(newSales);
+                    data.SubmitChanges();
                 }
 
                 MessageBox.Show("Payment successfull!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -79,16 +83,16 @@ namespace Winform_Login
         }
         string newHeaderId ()
         {
-            string headerID = data.SalesHeaders.OrderByDescending(x => x.Id).FirstOrDefault().Id ?? null;
+            string headerID = data.SalesHeaders.OrderByDescending(x => x.Id).FirstOrDefault()?.Id;
             int year = DateTime.Now.Year,
                 month = DateTime.Now.Month;
-            if (headerID == null || int.Parse(headerID.Substring(1, 4)) == year)
+            if (headerID == null || int.Parse(headerID.Substring(1, 4)) != year)
             {
                 return $"{year}{month}00001";
             }
             else 
             {
-                return $"{year}{month}{headerID.Substring(7, 5) + 1:00000}";
+                return $"{year}{month:00}{headerID.Substring(7, 5) + 1:00000}";
             }
         }
     }

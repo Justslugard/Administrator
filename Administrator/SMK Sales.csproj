@@ -73,18 +73,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AsusDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AsusDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AsusDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataClasses1.cs">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </Compile>
     <Compile Include="DataClasses1.designer.cs">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -98,11 +90,17 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModeL.cs">
+    <Compile Include="MCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModeL.Designer.cs">
-      <DependentUpon>ModeL.cs</DependentUpon>
+    <Compile Include="MCustomer.Designer.cs">
+      <DependentUpon>MCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MModel.Designer.cs">
+      <DependentUpon>MModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Payment.cs">
       <SubType>Form</SubType>
@@ -110,20 +108,20 @@
     <Compile Include="Payment.Designer.cs">
       <DependentUpon>Payment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales.cs">
+    <Compile Include="MSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales.Designer.cs">
-      <DependentUpon>Sales.cs</DependentUpon>
+    <Compile Include="MSales.Designer.cs">
+      <DependentUpon>MSales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Strator.cs">
+    <Compile Include="MAdministrator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Strator.Designer.cs">
-      <DependentUpon>Strator.cs</DependentUpon>
+    <Compile Include="MAdministrator.Designer.cs">
+      <DependentUpon>MAdministrator.cs</DependentUpon>
     </Compile>
     <Compile Include="Strator.Methods.cs">
-      <DependentUpon>Strator.cs</DependentUpon>
+      <DependentUpon>MAdministrator.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="Login.resx">
@@ -132,27 +130,30 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MCustomer.resx">
+      <DependentUpon>MCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales.resx">
-      <DependentUpon>Sales.cs</DependentUpon>
+    <EmbeddedResource Include="MSales.resx">
+      <DependentUpon>MSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Strator.resx">
-      <DependentUpon>Strator.cs</DependentUpon>
+    <EmbeddedResource Include="MAdministrator.resx">
+      <DependentUpon>MAdministrator.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Merchant.cs">
+    <Compile Include="MMerchandise.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Merchant.Designer.cs">
-      <DependentUpon>Merchant.cs</DependentUpon>
+    <Compile Include="MMerchandise.Designer.cs">
+      <DependentUpon>MMerchandise.cs</DependentUpon>
     </Compile>
     <Compile Include="Merchant.Methods.cs">
-      <DependentUpon>Merchant.cs</DependentUpon>
+      <DependentUpon>MMerchandise.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <EmbeddedResource Include="Merchant.resx">
-      <DependentUpon>Merchant.cs</DependentUpon>
+    <EmbeddedResource Include="MMerchandise.resx">
+      <DependentUpon>MMerchandise.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -176,17 +177,6 @@
     </None>
     <None Include="AsusDataSet.xss">
       <DependentUpon>AsusDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="AsusDataSet1.xsc">
-      <DependentUpon>AsusDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="AsusDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AsusDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="AsusDataSet1.xss">
-      <DependentUpon>AsusDataSet1.xsd</DependentUpon>
     </None>
     <None Include="DataClasses1.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

@@ -1,6 +1,6 @@
 ﻿namespace Winform_Login
 {
-    partial class Strator
+    partial class MAdministrator
     {
         /// <summary>
         /// Required designer variable.
@@ -133,14 +133,14 @@
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "PhoneNumber";
+            this.Column3.HeaderText = "Phone Number";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "BirthDate";
+            this.Column5.HeaderText = "Birth Date";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -254,7 +254,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(258, 21);
+            this.label4.Location = new System.Drawing.Point(260, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(298, 31);
             this.label4.TabIndex = 12;
@@ -445,7 +445,7 @@
             this.label10.TabIndex = 31;
             this.label10.Text = "Search:";
             // 
-            // Strator
+            // MAdministrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -480,7 +480,7 @@
             this.Controls.Add(this.insert);
             this.Controls.Add(this.dgv);
             this.DoubleBuffered = true;
-            this.Name = "Strator";
+            this.Name = "MAdministrator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Administrator";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -516,6 +516,8 @@
         private System.Windows.Forms.TextBox id;
         private System.Windows.Forms.Button spass;
         private System.Windows.Forms.Button debug;
+        private System.Windows.Forms.TextBox search;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -523,8 +525,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.TextBox search;
-        private System.Windows.Forms.Label label10;
     }
 }
 

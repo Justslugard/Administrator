@@ -1,6 +1,6 @@
 ﻿namespace Winform_Login
 {
-    partial class Merchant
+    partial class MMerchandise
     {
         /// <summary>
         /// Required designer variable.
@@ -63,10 +63,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.model = new System.Windows.Forms.ComboBox();
             this.modelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.asusDataSet1 = new Winform_Login.AsusDataSet1();
+            this.asusDataSet1 = new Winform_Login.AsusDataSet();
             this.pBox = new System.Windows.Forms.PictureBox();
             this.pictureDialog = new System.Windows.Forms.OpenFileDialog();
-            this.modelTableAdapter = new Winform_Login.AsusDataSet1TableAdapters.ModelTableAdapter();
+            this.modelTableAdapter = new Winform_Login.AsusDataSetTableAdapters.ModelTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).BeginInit();
@@ -570,8 +570,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.PictureBox pBox;
         private System.Windows.Forms.OpenFileDialog pictureDialog;
-        private AsusDataSet1 asusDataSet1;
+        private AsusDataSet asusDataSet1;
         private System.Windows.Forms.BindingSource modelBindingSource;
-        private AsusDataSet1TableAdapters.ModelTableAdapter modelTableAdapter;
+        private AsusDataSetTableAdapters.ModelTableAdapter modelTableAdapter;
     }
 }

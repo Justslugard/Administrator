@@ -13,7 +13,7 @@ using System.Runtime.Remoting.Messaging;
 
 namespace Winform_Login
 {
-    partial class Merchant
+    partial class MMerchandise
     {
 
         void clearField()
@@ -41,7 +41,7 @@ namespace Winform_Login
         string newId()
         {
             int ids = int.Parse(data.Merchandises.OrderByDescending(x => x.Id).FirstOrDefault().Id.Substring(2, 4));
-            return $"PR{ids + 1:0000}"; 
+            return $"{ids + 1:PR0000}"; 
             //Match regx = Regex.Match(ids, @"([a-zA-Z]+)(\d+)");
             //char[] idNums = regx.Groups[2].Value.ToCharArray();
             //for (int i = idNums.Length - 1, adder = 1; i >= 0; i--)

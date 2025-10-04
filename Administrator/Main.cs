@@ -12,11 +12,11 @@ namespace Winform_Login
 {
     public partial class Main : Form
     {
-        Administrator admin;
+        static public Administrator admin;
         public Main(Administrator admin)
         {
             InitializeComponent();
-            this.admin = admin;
+            Main.admin = admin;
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -48,9 +48,9 @@ namespace Winform_Login
 
         private void adminStrip_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Strator>().Count() >= 1) return;
+            if (Application.OpenForms.OfType<MAdministrator>().Count() >= 1) return;
 
-            new Strator().Show();
+            new MAdministrator().Show();
         }
 
         private void modelStrip_Click(object sender, EventArgs e)
@@ -60,16 +60,16 @@ namespace Winform_Login
 
         private void merchandStrip_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Merchant>().Count() >= 1) return;
+            if (Application.OpenForms.OfType<MMerchandise>().Count() >= 1) return;
 
-            new Merchant().Show();
+            new MMerchandise().Show();
         }
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Sales>().Count() >= 1) return;
+            if (Application.OpenForms.OfType<MSales>().Count() >= 1) return;
 
-            new Sales().Show();
+            new MSales().Show();
 
         }
     }

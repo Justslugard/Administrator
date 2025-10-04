@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Winform_Login
 {
-    public partial class ModeL : Form
+    public partial class MModel : Form
     {
-        public ModeL()
+        public MModel()
         {
             InitializeComponent();
         }

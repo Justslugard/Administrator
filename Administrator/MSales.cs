@@ -14,12 +14,12 @@ using System.Windows.Forms;
 
 namespace Winform_Login
 {
-    public partial class Sales : Form
+    public partial class MSales : Form
     {
         static DataClasses1DataContext data = new DataClasses1DataContext();
         static IQueryable<Merchandise> merchants = data.Merchandises;
         static int dgvRow = -1;
-        public Sales()
+        public MSales()
         {
             InitializeComponent();
         }

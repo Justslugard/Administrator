@@ -1,6 +1,6 @@
 ﻿namespace Winform_Login
 {
-    partial class ModeL
+    partial class MModel
     {
         /// <summary>
         /// Required designer variable.
