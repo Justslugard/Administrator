@@ -35,8 +35,6 @@ namespace Winform_Login
 
         private void Merchant_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'asusDataSet.Model' table. You can move, or remove it, as needed.
-            this.modelTableAdapter.Fill(this.asusDataSet.Model);
             model.SelectedIndex = -1;
             loadDgv();
         }

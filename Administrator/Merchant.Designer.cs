@@ -64,19 +64,15 @@
             this.model = new System.Windows.Forms.ComboBox();
             this.pBox = new System.Windows.Forms.PictureBox();
             this.pictureDialog = new System.Windows.Forms.OpenFileDialog();
-            this.asusDataSet = new Winform_Login.AsusDataSet();
-            this.asusDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.week3DataSet = new Winform_Login.week3DataSet();
             this.modelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.modelTableAdapter = new Winform_Login.AsusDataSetTableAdapters.ModelTableAdapter();
-            this.modelBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.modelTableAdapter = new Winform_Login.week3DataSetTableAdapters.ModelTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.asusDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.asusDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.week3DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -452,7 +448,7 @@
             // model
             // 
             this.model.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.model.DataSource = this.modelBindingSource1;
+            this.model.DataSource = this.modelBindingSource;
             this.model.DisplayMember = "Name";
             this.model.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.model.Enabled = false;
@@ -475,30 +471,19 @@
             this.pBox.TabIndex = 66;
             this.pBox.TabStop = false;
             // 
-            // asusDataSet
+            // week3DataSet
             // 
-            this.asusDataSet.DataSetName = "AsusDataSet";
-            this.asusDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // asusDataSetBindingSource
-            // 
-            this.asusDataSetBindingSource.AllowNew = true;
-            this.asusDataSetBindingSource.DataSource = this.asusDataSet;
-            this.asusDataSetBindingSource.Position = 0;
+            this.week3DataSet.DataSetName = "week3DataSet";
+            this.week3DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // modelBindingSource
             // 
             this.modelBindingSource.DataMember = "Model";
-            this.modelBindingSource.DataSource = this.asusDataSet;
+            this.modelBindingSource.DataSource = this.week3DataSet;
             // 
             // modelTableAdapter
             // 
             this.modelTableAdapter.ClearBeforeFill = true;
-            // 
-            // modelBindingSource1
-            // 
-            this.modelBindingSource1.DataMember = "Model";
-            this.modelBindingSource1.DataSource = this.asusDataSetBindingSource;
             // 
             // Merchant
             // 
@@ -541,10 +526,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.asusDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.asusDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.week3DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -587,10 +570,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.PictureBox pBox;
         private System.Windows.Forms.OpenFileDialog pictureDialog;
-        private System.Windows.Forms.BindingSource asusDataSetBindingSource;
-        private AsusDataSet asusDataSet;
+        private week3DataSet week3DataSet;
         private System.Windows.Forms.BindingSource modelBindingSource;
-        private AsusDataSetTableAdapters.ModelTableAdapter modelTableAdapter;
-        private System.Windows.Forms.BindingSource modelBindingSource1;
+        private week3DataSetTableAdapters.ModelTableAdapter modelTableAdapter;
     }
 }

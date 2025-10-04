@@ -40,28 +40,29 @@ namespace Winform_Login
         }
         string newId()
         {
-            string ids = data.Merchandises.OrderByDescending(x => x.Id).FirstOrDefault().Id;
-            Match regx = Regex.Match(ids, @"([a-zA-Z]+)(\d+)");
-            char[] idNums = regx.Groups[2].Value.ToCharArray();
-            for (int i = idNums.Length - 1, adder = 1; i >= 0; i--)
-            {
-                int sum = (idNums[i] - '0') + 1;
-                if (adder > 0)
-                {
-                    if (sum == 10)
-                    {
-                        adder++;
-                        idNums[i] = '0';
-                    }
-                    else
-                    {
-                        idNums[i] = (char)(sum + '0');
-                    }
-                    adder--;
-                }
-                else break;
-            }
-            return $"PR{string.Concat(idNums)}";
+            int ids = int.Parse(data.Merchandises.OrderByDescending(x => x.Id).FirstOrDefault().Id.Substring(2, 4));
+            return $"PR{ids + 1:0000}"; 
+            //Match regx = Regex.Match(ids, @"([a-zA-Z]+)(\d+)");
+            //char[] idNums = regx.Groups[2].Value.ToCharArray();
+            //for (int i = idNums.Length - 1, adder = 1; i >= 0; i--)
+            //{
+            //    int sum = (idNums[i] - '0') + 1;
+            //    if (adder > 0)
+            //    {
+            //        if (sum == 10)
+            //        {
+            //            adder++;
+            //            idNums[i] = '0';
+            //        }
+            //        else
+            //        {
+            //            idNums[i] = (char)(sum + '0');
+            //        }
+            //        adder--;
+            //    }
+            //    else break;
+            //}
+            //return $"PR{string.Concat(idNums)}";
         }
     }
 }

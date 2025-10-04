@@ -364,3 +364,16 @@ FodyWeavers.xsd
 /Administrator/Form2.cs
 /Administrator/Form2.Designer.cs
 /Administrator/Form2.resx
+
+*.xsd
+*.xsc
+*.xss
+*.dbml.layout
+*.dbml
+
+*DataSet.cs
+
+DataClasses1.cs
+DataClasses1.designer.cs
+/Administrator/DataClasses1.dbml
+/Administrator/DataClasses1.dbml.layout
