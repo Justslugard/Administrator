@@ -44,6 +44,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.wutToolStripMenuItem,
             this.manageToolStripMenuItem,
@@ -68,14 +69,14 @@
             // logoutStrip
             // 
             this.logoutStrip.Name = "logoutStrip";
-            this.logoutStrip.Size = new System.Drawing.Size(180, 22);
+            this.logoutStrip.Size = new System.Drawing.Size(112, 22);
             this.logoutStrip.Text = "Logout";
             this.logoutStrip.Click += new System.EventHandler(this.logoutStrip_Click);
             // 
             // exitStrip
             // 
             this.exitStrip.Name = "exitStrip";
-            this.exitStrip.Size = new System.Drawing.Size(180, 22);
+            this.exitStrip.Size = new System.Drawing.Size(112, 22);
             this.exitStrip.Text = "Exit";
             this.exitStrip.Click += new System.EventHandler(this.exitStrip_Click);
             // 
@@ -93,28 +94,28 @@
             // customerStrip
             // 
             this.customerStrip.Name = "customerStrip";
-            this.customerStrip.Size = new System.Drawing.Size(180, 22);
+            this.customerStrip.Size = new System.Drawing.Size(147, 22);
             this.customerStrip.Text = "Customer";
             this.customerStrip.Click += new System.EventHandler(this.customerStrip_Click);
             // 
             // adminStrip
             // 
             this.adminStrip.Name = "adminStrip";
-            this.adminStrip.Size = new System.Drawing.Size(180, 22);
+            this.adminStrip.Size = new System.Drawing.Size(147, 22);
             this.adminStrip.Text = "Administrator";
             this.adminStrip.Click += new System.EventHandler(this.adminStrip_Click);
             // 
             // modelStrip
             // 
             this.modelStrip.Name = "modelStrip";
-            this.modelStrip.Size = new System.Drawing.Size(180, 22);
+            this.modelStrip.Size = new System.Drawing.Size(147, 22);
             this.modelStrip.Text = "Model";
             this.modelStrip.Click += new System.EventHandler(this.modelStrip_Click);
             // 
             // merchandStrip
             // 
             this.merchandStrip.Name = "merchandStrip";
-            this.merchandStrip.Size = new System.Drawing.Size(180, 22);
+            this.merchandStrip.Size = new System.Drawing.Size(147, 22);
             this.merchandStrip.Text = "Merchandise";
             this.merchandStrip.Click += new System.EventHandler(this.merchandStrip_Click);
             // 
@@ -129,7 +130,7 @@
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.salesToolStripMenuItem.Text = "Sales";
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 

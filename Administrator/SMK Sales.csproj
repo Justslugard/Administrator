@@ -73,6 +73,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AsusDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="AsusDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AsusDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataClasses1.cs">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
@@ -93,6 +98,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales.Designer.cs">
+      <DependentUpon>Sales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Strator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,16 +114,14 @@
       <DependentUpon>Strator.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="week3DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>week3DataSet.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales.resx">
+      <DependentUpon>Sales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Strator.resx">
       <DependentUpon>Strator.cs</DependentUpon>
@@ -153,6 +162,17 @@
     <None Include="AsusDataSet.xss">
       <DependentUpon>AsusDataSet.xsd</DependentUpon>
     </None>
+    <None Include="AsusDataSet1.xsc">
+      <DependentUpon>AsusDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="AsusDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AsusDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AsusDataSet1.xss">
+      <DependentUpon>AsusDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="DataClasses1.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
@@ -170,17 +190,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="week3DataSet.xsc">
-      <DependentUpon>week3DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="week3DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>week3DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="week3DataSet.xss">
-      <DependentUpon>week3DataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

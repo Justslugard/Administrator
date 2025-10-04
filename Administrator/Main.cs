@@ -67,6 +67,9 @@ namespace Winform_Login
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Application.OpenForms.OfType<Sales>().Count() >= 1) return;
+
+            new Sales().Show();
 
         }
     }

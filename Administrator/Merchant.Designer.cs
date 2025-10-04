@@ -62,17 +62,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.model = new System.Windows.Forms.ComboBox();
+            this.modelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.asusDataSet1 = new Winform_Login.AsusDataSet1();
             this.pBox = new System.Windows.Forms.PictureBox();
             this.pictureDialog = new System.Windows.Forms.OpenFileDialog();
-            this.week3DataSet = new Winform_Login.week3DataSet();
-            this.modelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.modelTableAdapter = new Winform_Login.week3DataSetTableAdapters.ModelTableAdapter();
+            this.modelTableAdapter = new Winform_Login.AsusDataSet1TableAdapters.ModelTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.week3DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.asusDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -171,7 +171,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(278, 46);
+            this.label4.Location = new System.Drawing.Point(278, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(291, 31);
             this.label4.TabIndex = 42;
@@ -460,6 +460,16 @@
             this.model.TabIndex = 65;
             this.model.ValueMember = "Id";
             // 
+            // modelBindingSource
+            // 
+            this.modelBindingSource.DataMember = "Model";
+            this.modelBindingSource.DataSource = this.asusDataSet1;
+            // 
+            // asusDataSet1
+            // 
+            this.asusDataSet1.DataSetName = "AsusDataSet1";
+            this.asusDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // pBox
             // 
             this.pBox.BackColor = System.Drawing.Color.Transparent;
@@ -470,16 +480,6 @@
             this.pBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pBox.TabIndex = 66;
             this.pBox.TabStop = false;
-            // 
-            // week3DataSet
-            // 
-            this.week3DataSet.DataSetName = "week3DataSet";
-            this.week3DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // modelBindingSource
-            // 
-            this.modelBindingSource.DataMember = "Model";
-            this.modelBindingSource.DataSource = this.week3DataSet;
             // 
             // modelTableAdapter
             // 
@@ -525,9 +525,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.week3DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.asusDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -570,8 +570,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.PictureBox pBox;
         private System.Windows.Forms.OpenFileDialog pictureDialog;
-        private week3DataSet week3DataSet;
+        private AsusDataSet1 asusDataSet1;
         private System.Windows.Forms.BindingSource modelBindingSource;
-        private week3DataSetTableAdapters.ModelTableAdapter modelTableAdapter;
+        private AsusDataSet1TableAdapters.ModelTableAdapter modelTableAdapter;
     }
 }
