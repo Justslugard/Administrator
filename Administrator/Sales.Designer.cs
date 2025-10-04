@@ -401,6 +401,7 @@
             this.buy.TabIndex = 77;
             this.buy.Text = "Buy";
             this.buy.UseVisualStyleBackColor = true;
+            this.buy.Click += new System.EventHandler(this.buy_Click);
             // 
             // Sales
             // 
@@ -425,6 +426,7 @@
             this.Controls.Add(this.vgd);
             this.Controls.Add(this.dgv);
             this.Name = "Sales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales";
             this.Load += new System.EventHandler(this.Sales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();

@@ -104,7 +104,12 @@ namespace Winform_Login
                         }
                     }
                 }
-                vgd.Rows.Add(dgv.Rows[dgvRow].Cells[0].Value.ToString(), dgv.Rows[dgvRow].Cells[1].Value.ToString(), dgv.Rows[dgvRow].Cells[2].Value.ToString(), dgv.Rows[dgvRow].Cells[3].Value.ToString(), qty.Text, price.Text, (int.Parse(qty.Text) * int.Parse(price.Text)).ToString(), dgv.Rows[dgvRow].Cells[7].Value.ToString());
+                vgd.Rows.Add(dgv.Rows[dgvRow].Cells[0].Value.ToString(),
+                    dgv.Rows[dgvRow].Cells[1].Value.ToString(),
+                    dgv.Rows[dgvRow].Cells[2].Value.ToString(),
+                    dgv.Rows[dgvRow].Cells[3].Value.ToString(),
+                    qty.Text, price.Text, (int.Parse(qty.Text) * int.Parse(price.Text)).ToString(),
+                    dgv.Rows[dgvRow].Cells[7].Value.ToString());
                 total.Text = newTotal();
             }
         }
@@ -156,6 +161,11 @@ namespace Winform_Login
         private void vgd_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             buy.Enabled = false;
+        }
+
+        private void buy_Click(object sender, EventArgs e)
+        {
+            new Payment(vgd.Rows, total.Text).ShowDialog();
         }
     }
 }

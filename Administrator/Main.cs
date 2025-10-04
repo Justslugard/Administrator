@@ -12,8 +12,8 @@ namespace Winform_Login
 {
     public partial class Main : Form
     {
-        int admin;
-        public Main(int admin)
+        Administrator admin;
+        public Main(Administrator admin)
         {
             InitializeComponent();
             this.admin = admin;
@@ -21,7 +21,7 @@ namespace Winform_Login
 
         private void Main_Load(object sender, EventArgs e)
         {
-            if (admin == 2)
+            if (admin.RoleId == 2)
             {
                 adminStrip.Visible = modelStrip.Visible = merchandStrip.Visible = false;
             }
