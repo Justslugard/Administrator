@@ -42,22 +42,23 @@
             this.email = new System.Windows.Forms.TextBox();
             this.insert = new System.Windows.Forms.Button();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label10 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // search
             // 
             this.search.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.search.Location = new System.Drawing.Point(637, 36);
+            this.search.Location = new System.Drawing.Point(849, 44);
+            this.search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(100, 20);
+            this.search.Size = new System.Drawing.Size(132, 22);
             this.search.TabIndex = 75;
             this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             // 
@@ -66,10 +67,12 @@
             this.name.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.name.Enabled = false;
             this.name.ForeColor = System.Drawing.Color.Black;
-            this.name.Location = new System.Drawing.Point(402, 365);
+            this.name.Location = new System.Drawing.Point(536, 449);
+            this.name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(152, 20);
+            this.name.Size = new System.Drawing.Size(201, 22);
             this.name.TabIndex = 73;
+            this.name.Leave += new System.EventHandler(this.trim_Leave);
             // 
             // label9
             // 
@@ -77,9 +80,10 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(259, 363);
+            this.label9.Location = new System.Drawing.Point(345, 447);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 20);
+            this.label9.Size = new System.Drawing.Size(75, 25);
             this.label9.TabIndex = 72;
             this.label9.Text = "Name:";
             // 
@@ -87,9 +91,10 @@
             // 
             this.save.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.save.Enabled = false;
-            this.save.Location = new System.Drawing.Point(321, 484);
+            this.save.Location = new System.Drawing.Point(428, 596);
+            this.save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(75, 23);
+            this.save.Size = new System.Drawing.Size(100, 28);
             this.save.TabIndex = 71;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
@@ -99,9 +104,10 @@
             // 
             this.cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cancel.Enabled = false;
-            this.cancel.Location = new System.Drawing.Point(402, 484);
+            this.cancel.Location = new System.Drawing.Point(536, 596);
+            this.cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(75, 23);
+            this.cancel.Size = new System.Drawing.Size(100, 28);
             this.cancel.TabIndex = 70;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
@@ -113,9 +119,10 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(286, 15);
+            this.label4.Location = new System.Drawing.Point(381, 18);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(251, 31);
+            this.label4.Size = new System.Drawing.Size(311, 39);
             this.label4.TabIndex = 68;
             this.label4.Text = "Manage Customer";
             // 
@@ -125,9 +132,10 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(259, 417);
+            this.label2.Location = new System.Drawing.Point(345, 513);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 20);
+            this.label2.Size = new System.Drawing.Size(162, 25);
             this.label2.TabIndex = 67;
             this.label2.Text = "Phone Number:";
             // 
@@ -137,9 +145,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(259, 391);
+            this.label1.Location = new System.Drawing.Point(345, 481);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 20);
+            this.label1.Size = new System.Drawing.Size(72, 25);
             this.label1.TabIndex = 66;
             this.label1.Text = "Email:";
             // 
@@ -147,9 +156,10 @@
             // 
             this.del.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.del.Enabled = false;
-            this.del.Location = new System.Drawing.Point(445, 454);
+            this.del.Location = new System.Drawing.Point(593, 559);
+            this.del.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.del.Name = "del";
-            this.del.Size = new System.Drawing.Size(75, 23);
+            this.del.Size = new System.Drawing.Size(100, 28);
             this.del.TabIndex = 65;
             this.del.Text = "Delete";
             this.del.UseVisualStyleBackColor = true;
@@ -160,17 +170,20 @@
             this.pNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pNumber.Enabled = false;
             this.pNumber.ForeColor = System.Drawing.Color.Black;
-            this.pNumber.Location = new System.Drawing.Point(402, 417);
+            this.pNumber.Location = new System.Drawing.Point(536, 513);
+            this.pNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pNumber.Name = "pNumber";
-            this.pNumber.Size = new System.Drawing.Size(152, 20);
+            this.pNumber.Size = new System.Drawing.Size(201, 22);
             this.pNumber.TabIndex = 64;
+            this.pNumber.Leave += new System.EventHandler(this.trim_Leave);
             // 
             // update
             // 
             this.update.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.update.Location = new System.Drawing.Point(363, 454);
+            this.update.Location = new System.Drawing.Point(484, 559);
+            this.update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(75, 23);
+            this.update.Size = new System.Drawing.Size(100, 28);
             this.update.TabIndex = 63;
             this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = true;
@@ -181,17 +194,20 @@
             this.email.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.email.Enabled = false;
             this.email.ForeColor = System.Drawing.Color.Black;
-            this.email.Location = new System.Drawing.Point(402, 391);
+            this.email.Location = new System.Drawing.Point(536, 481);
+            this.email.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(152, 20);
+            this.email.Size = new System.Drawing.Size(201, 22);
             this.email.TabIndex = 62;
+            this.email.Leave += new System.EventHandler(this.trim_Leave);
             // 
             // insert
             // 
             this.insert.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.insert.Location = new System.Drawing.Point(283, 454);
+            this.insert.Location = new System.Drawing.Point(377, 559);
+            this.insert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.insert.Name = "insert";
-            this.insert.Size = new System.Drawing.Size(75, 23);
+            this.insert.Size = new System.Drawing.Size(100, 28);
             this.insert.TabIndex = 61;
             this.insert.Text = "Insert";
             this.insert.UseVisualStyleBackColor = true;
@@ -211,48 +227,15 @@
             this.Column2,
             this.Column4,
             this.Column5});
-            this.dgv.Location = new System.Drawing.Point(24, 62);
+            this.dgv.Location = new System.Drawing.Point(32, 76);
+            this.dgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersWidth = 51;
-            this.dgv.Size = new System.Drawing.Size(713, 261);
+            this.dgv.Size = new System.Drawing.Size(951, 321);
             this.dgv.TabIndex = 60;
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(590, 39);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
-            this.label10.TabIndex = 78;
-            this.label10.Text = "Search:";
-            // 
-            // id
-            // 
-            this.id.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.id.Enabled = false;
-            this.id.ForeColor = System.Drawing.Color.Black;
-            this.id.Location = new System.Drawing.Point(402, 339);
-            this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(152, 20);
-            this.id.TabIndex = 80;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(259, 337);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 20);
-            this.label5.TabIndex = 79;
-            this.label5.Text = "ID:";
             // 
             // Column1
             // 
@@ -282,12 +265,49 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(787, 48);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 17);
+            this.label10.TabIndex = 78;
+            this.label10.Text = "Search:";
+            // 
+            // id
+            // 
+            this.id.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.id.Enabled = false;
+            this.id.ForeColor = System.Drawing.Color.Black;
+            this.id.Location = new System.Drawing.Point(536, 417);
+            this.id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.id.Name = "id";
+            this.id.Size = new System.Drawing.Size(201, 22);
+            this.id.TabIndex = 80;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(345, 415);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 25);
+            this.label5.TabIndex = 79;
+            this.label5.Text = "ID:";
+            // 
             // MCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(775, 525);
+            this.ClientSize = new System.Drawing.Size(1033, 646);
             this.Controls.Add(this.id);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label10);
@@ -305,6 +325,7 @@
             this.Controls.Add(this.email);
             this.Controls.Add(this.insert);
             this.Controls.Add(this.dgv);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MCustomer";
             this.Text = "Manage Customer";
             this.Load += new System.EventHandler(this.MCustomer_Load);

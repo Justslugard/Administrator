@@ -42,63 +42,77 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(163, 9);
+            this.label1.Location = new System.Drawing.Point(217, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 46);
+            this.label1.Size = new System.Drawing.Size(251, 58);
             this.label1.TabIndex = 0;
             this.label1.Text = "SMK Sales";
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(181, 55);
+            this.label2.Location = new System.Drawing.Point(241, 68);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 13);
+            this.label2.Size = new System.Drawing.Size(201, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Winform for managing smk sales";
             // 
             // email
             // 
-            this.email.Location = new System.Drawing.Point(144, 86);
+            this.email.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.email.Location = new System.Drawing.Point(192, 106);
+            this.email.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(322, 20);
+            this.email.Size = new System.Drawing.Size(428, 22);
             this.email.TabIndex = 2;
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(44, 86);
+            this.label3.Location = new System.Drawing.Point(59, 106);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 20);
+            this.label3.Size = new System.Drawing.Size(65, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "Email";
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(44, 116);
+            this.label4.Location = new System.Drawing.Point(59, 143);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 20);
+            this.label4.Size = new System.Drawing.Size(106, 25);
             this.label4.TabIndex = 4;
             this.label4.Text = "Password";
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(144, 118);
+            this.password.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.password.Location = new System.Drawing.Point(192, 145);
+            this.password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(322, 20);
+            this.password.Size = new System.Drawing.Size(428, 22);
             this.password.TabIndex = 5;
             this.password.UseSystemPasswordChar = true;
             // 
             // logkan
             // 
-            this.logkan.Location = new System.Drawing.Point(184, 156);
+            this.logkan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.logkan.Location = new System.Drawing.Point(245, 192);
+            this.logkan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logkan.Name = "logkan";
-            this.logkan.Size = new System.Drawing.Size(75, 23);
+            this.logkan.Size = new System.Drawing.Size(100, 28);
             this.logkan.TabIndex = 6;
             this.logkan.Text = "Login";
             this.logkan.UseVisualStyleBackColor = true;
@@ -106,9 +120,11 @@
             // 
             // close
             // 
-            this.close.Location = new System.Drawing.Point(265, 156);
+            this.close.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.close.Location = new System.Drawing.Point(353, 192);
+            this.close.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(75, 23);
+            this.close.Size = new System.Drawing.Size(100, 28);
             this.close.TabIndex = 7;
             this.close.Text = "Close";
             this.close.UseVisualStyleBackColor = true;
@@ -116,9 +132,11 @@
             // 
             // cash
             // 
-            this.cash.Location = new System.Drawing.Point(404, 9);
+            this.cash.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cash.Location = new System.Drawing.Point(539, 11);
+            this.cash.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cash.Name = "cash";
-            this.cash.Size = new System.Drawing.Size(75, 23);
+            this.cash.Size = new System.Drawing.Size(100, 28);
             this.cash.TabIndex = 8;
             this.cash.Text = "Cashier";
             this.cash.UseVisualStyleBackColor = true;
@@ -126,9 +144,11 @@
             // 
             // adm
             // 
-            this.adm.Location = new System.Drawing.Point(404, 38);
+            this.adm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.adm.Location = new System.Drawing.Point(539, 47);
+            this.adm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.adm.Name = "adm";
-            this.adm.Size = new System.Drawing.Size(75, 23);
+            this.adm.Size = new System.Drawing.Size(100, 28);
             this.adm.TabIndex = 9;
             this.adm.Text = "Admin";
             this.adm.UseVisualStyleBackColor = true;
@@ -136,10 +156,10 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(491, 201);
+            this.ClientSize = new System.Drawing.Size(655, 247);
             this.Controls.Add(this.adm);
             this.Controls.Add(this.cash);
             this.Controls.Add(this.close);
@@ -150,6 +170,7 @@
             this.Controls.Add(this.email);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

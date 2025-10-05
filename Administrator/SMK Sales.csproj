@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{840C19CA-63B8-4BE1-BE53-F8E977603DA9}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Winform_Login</RootNamespace>
     <AssemblyName>Administrator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -70,6 +70,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="LEGIONDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LEGIONDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,10 +117,6 @@
     <Compile Include="MAdministrator.Designer.cs">
       <DependentUpon>MAdministrator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Strator.Methods.cs">
-      <DependentUpon>MAdministrator.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MCustomer.resx">
       <DependentUpon>MCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MModel.resx">
+      <DependentUpon>MModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
@@ -139,10 +143,6 @@
     </Compile>
     <Compile Include="MMerchandise.Designer.cs">
       <DependentUpon>MMerchandise.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Merchant.Methods.cs">
-      <DependentUpon>MMerchandise.cs</DependentUpon>
-      <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="MMerchandise.resx">
       <DependentUpon>MMerchandise.cs</DependentUpon>
@@ -166,6 +166,17 @@
     </None>
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
+    <None Include="LEGIONDataSet.xsc">
+      <DependentUpon>LEGIONDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LEGIONDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LEGIONDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LEGIONDataSet.xss">
+      <DependentUpon>LEGIONDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

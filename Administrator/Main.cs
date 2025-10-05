@@ -43,7 +43,9 @@ namespace Winform_Login
 
         private void customerStrip_Click(object sender, EventArgs e)
         {
+            if (Application.OpenForms.OfType<MCustomer>().Count() >= 1) return;
 
+            new MCustomer().Show();
         }
 
         private void adminStrip_Click(object sender, EventArgs e)
@@ -55,7 +57,9 @@ namespace Winform_Login
 
         private void modelStrip_Click(object sender, EventArgs e)
         {
+            if (Application.OpenForms.OfType<MModel>().Count() >= 1) return;
 
+            new MModel().Show();
         }
 
         private void merchandStrip_Click(object sender, EventArgs e)

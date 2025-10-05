@@ -19,7 +19,6 @@ namespace Winform_Login
         static DataClasses1DataContext data = new DataClasses1DataContext();
         static IQueryable<Administrator> administrator = data.Administrators;
         int dgvRow = -1;
-        string nama, emal, phone, passs;
         bool onInsert = false, onUpdate = false;
         public MAdministrator()
         {
@@ -80,6 +79,7 @@ namespace Winform_Login
                 rmv.Enabled = true;
             } else
             {
+                if (!onInsert && !onUpdate) clear();
                 rmv.Enabled = false;
             }
         }
@@ -97,7 +97,7 @@ namespace Winform_Login
         {
             if (string.IsNullOrEmpty(id.Text)) 
             {
-                MessageBox.Show("Please choose a grid");
+                MessageBox.Show("Please select an Administrator!", "No Data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 return;
             }
 
@@ -108,7 +108,7 @@ namespace Winform_Login
         private void rmv_Click(object sender, EventArgs e)
         {
 
-            DialogResult dialog = MessageBox.Show("Are you sure want to delete this data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialog = MessageBox.Show("Are you sure want to delete this Administrator?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialog == DialogResult.No) return;
 
@@ -119,7 +119,7 @@ namespace Winform_Login
 
             rmv.Enabled = false;
 
-            MessageBox.Show("Data successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Administrator deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             loadDgv();
         }
@@ -144,36 +144,37 @@ namespace Winform_Login
                 {
                     Administrator newAdmins = new Administrator
                     {
-                        Id = Convert.ToInt32(id.Text),
+                        Id = int.Parse(id.Text),
                         RoleId = cbRol.SelectedIndex + 1,
-                        Name = nama,
-                        Email = emal,
-                        Password = passs,
-                        PhoneNumber = phone,
+                        Name = name.Text,
+                        Email = email.Text,
+                        Password = pass.Text,
+                        PhoneNumber = number.Text,
                         BirthDate = birth.Value
                     };
 
                     data.Administrators.InsertOnSubmit(newAdmins);
                     data.SubmitChanges();
 
-                    MessageBox.Show("Data successfully saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Administrator inserted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     loadDgv();
                     clear();
+                    id.Text = (data.Administrators.Max(x => x.Id) + 1).ToString();
                 }
                 else if (onUpdate)
                 {
                     Administrator updAdmin = administrator.Where(x => x.Id.Equals(id.Text)).FirstOrDefault();
-                    updAdmin.Name = nama;
+                    updAdmin.Name = name.Text;
                     updAdmin.RoleId = cbRol.SelectedIndex + 1;
-                    updAdmin.Email = emal;
-                    updAdmin.Password = passs;
-                    updAdmin.PhoneNumber = phone;
+                    updAdmin.Email = email.Text;
+                    updAdmin.Password = pass.Text;
+                    updAdmin.PhoneNumber = number.Text;
                     updAdmin.BirthDate = birth.Value;
 
                     data.SubmitChanges();
 
-                    MessageBox.Show("Data successfully updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Administrator updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     loadDgv();
                 }
@@ -197,25 +198,44 @@ namespace Winform_Login
             
             loadDgv();
         }
-        private void number_TextChanged(object sender, EventArgs e)
+
+        void clear()
         {
-            phone = number.Text.Trim();
+            id.Text = name.Text = email.Text = number.Text = pass.Text = cpass.Text = string.Empty;
+            cbRol.SelectedIndex = -1;
+            birth.Value = DateTime.Now;
+        }
+        void modeField(bool state)
+        {
+            name.Enabled = email.Enabled = number.Enabled = birth.Enabled = save.Enabled =
+                cancel.Enabled = cbRol.Enabled = pass.Enabled = cpass.Enabled = spass.Enabled = !state;
+            insert.Enabled = update.Enabled = state;
+            if (onUpdate) rmv.Enabled = state;
         }
 
-        private void pass_TextChanged(object sender, EventArgs e)
+        private void trim_Leave(object sender, EventArgs e)
         {
-            passs = pass.Text.Trim();
+            TextBox tb = sender as TextBox;
+
+            this.Controls[tb.Name].Text = tb.Text.Trim();
         }
 
-
-        private void name_Changed(object sender, EventArgs e)
+        bool validation()
         {
-            nama = name.Text.Trim();
-        }
+            Regex emailReg = new Regex(@"^[\w.]+@[\w.-]+\.\w+"), numberReg = new Regex(@"^\+\d+( \d+)*$");
+            if (string.IsNullOrWhiteSpace(name.Text)) MessageBox.Show("Name can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (string.IsNullOrWhiteSpace(email.Text)) MessageBox.Show("Email can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (string.IsNullOrWhiteSpace(number.Text)) MessageBox.Show("Phone number can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (string.IsNullOrWhiteSpace(pass.Text)) MessageBox.Show("Password can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (cbRol.SelectedIndex == -1) MessageBox.Show("Role must be selected!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (DateTime.Now.Year - birth.Value.Year < 18) MessageBox.Show("Age must be at least 18 years old!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (!emailReg.IsMatch(email.Text)) MessageBox.Show("Must be a valid email!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (administrator.Any(x => x.Email.Equals(email.Text) && !x.Id.Equals(id.Text))) MessageBox.Show("Email already registered!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (!numberReg.IsMatch(number.Text)) MessageBox.Show("Must be a valid phone number!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (pass.Text != cpass.Text) MessageBox.Show("Password and confirm password isn't same!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else return true;
 
-        private void email_Changed(object sender, EventArgs e)
-        {
-            emal = email.Text.Trim();
+            return false;
         }
     }
 }

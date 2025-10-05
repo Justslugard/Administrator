@@ -108,7 +108,9 @@ namespace Winform_Login
                     dgv.Rows[dgvRow].Cells[1].Value.ToString(),
                     dgv.Rows[dgvRow].Cells[2].Value.ToString(),
                     dgv.Rows[dgvRow].Cells[3].Value.ToString(),
-                    qty.Text, price.Text, (int.Parse(qty.Text) * int.Parse(price.Text)).ToString(),
+                    qty.Text,
+                    price.Text,
+                    (int.Parse(qty.Text) * int.Parse(price.Text)).ToString(),
                     dgv.Rows[dgvRow].Cells[7].Value.ToString());
                 total.Text = newTotal();
             }
@@ -117,10 +119,12 @@ namespace Winform_Login
         
         bool isValid ()
         {
-            if (dgvRow < 0) MessageBox.Show("Please select a merchandise!");
-            else if (string.IsNullOrWhiteSpace(qty.Text)) MessageBox.Show("Quantity can't be empty!");
-            else if (int.Parse(qty.Text) < 1) MessageBox.Show("Quantity must be more than zero!");
-            else if (int.Parse(qty.Text) > int.Parse(dgv.Rows[dgvRow].Cells[6].Value.ToString())) MessageBox.Show("Quantity exceeds stock!");
+            int output;
+            if (dgvRow < 0) MessageBox.Show("Please select a merchandise!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (string.IsNullOrWhiteSpace(qty.Text)) MessageBox.Show("Quantity can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (!int.TryParse(qty.Text, out output)) MessageBox.Show("Invalid number!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (int.Parse(qty.Text) < 1) MessageBox.Show("Quantity must be more than zero!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (int.Parse(qty.Text) > int.Parse(dgv.Rows[dgvRow].Cells[6].Value.ToString())) MessageBox.Show("Quantity exceeds stock!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else return true;
             return false;
         }
@@ -160,12 +164,17 @@ namespace Winform_Login
 
         private void vgd_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-            buy.Enabled = false;
+            if (vgd.Rows.Count == 0) buy.Enabled = false;
         }
 
         private void buy_Click(object sender, EventArgs e)
         {
             new Payment(vgd.Rows, total.Text).ShowDialog();
+        }
+
+        private void qty_Leave(object sender, EventArgs e)
+        {
+            qty.Text = qty.Text.Trim();
         }
     }
 }

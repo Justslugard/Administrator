@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.label10 = new System.Windows.Forms.Label();
             this.search = new System.Windows.Forms.TextBox();
-            this.debug = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.save = new System.Windows.Forms.Button();
@@ -63,13 +62,20 @@
             this.label6 = new System.Windows.Forms.Label();
             this.model = new System.Windows.Forms.ComboBox();
             this.modelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lEGIONDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lEGIONDataSet = new Winform_Login.LEGIONDataSet();
             this.pBox = new System.Windows.Forms.PictureBox();
             this.pictureDialog = new System.Windows.Forms.OpenFileDialog();
+            this.modelBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.modelTableAdapter = new Winform_Login.LEGIONDataSetTableAdapters.ModelTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lEGIONDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lEGIONDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -89,23 +95,11 @@
             // 
             this.search.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.search.Location = new System.Drawing.Point(888, 84);
-            this.search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.search.Margin = new System.Windows.Forms.Padding(4);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(132, 22);
             this.search.TabIndex = 57;
             this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
-            // 
-            // debug
-            // 
-            this.debug.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.debug.Location = new System.Drawing.Point(1027, 33);
-            this.debug.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.debug.Name = "debug";
-            this.debug.Size = new System.Drawing.Size(71, 26);
-            this.debug.TabIndex = 56;
-            this.debug.Text = "Debug";
-            this.debug.UseVisualStyleBackColor = true;
-            this.debug.Click += new System.EventHandler(this.debug_Click);
             // 
             // id
             // 
@@ -113,7 +107,7 @@
             this.id.Enabled = false;
             this.id.ForeColor = System.Drawing.Color.Black;
             this.id.Location = new System.Drawing.Point(303, 550);
-            this.id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.id.Margin = new System.Windows.Forms.Padding(4);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(201, 22);
             this.id.TabIndex = 54;
@@ -136,7 +130,7 @@
             this.save.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.save.Enabled = false;
             this.save.Location = new System.Drawing.Point(727, 747);
-            this.save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.save.Margin = new System.Windows.Forms.Padding(4);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(100, 28);
             this.save.TabIndex = 52;
@@ -149,7 +143,7 @@
             this.cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cancel.Enabled = false;
             this.cancel.Location = new System.Drawing.Point(835, 747);
-            this.cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancel.Margin = new System.Windows.Forms.Padding(4);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(100, 28);
             this.cancel.TabIndex = 51;
@@ -227,7 +221,7 @@
             this.del.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.del.Enabled = false;
             this.del.Location = new System.Drawing.Point(892, 710);
-            this.del.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.del.Margin = new System.Windows.Forms.Padding(4);
             this.del.Name = "del";
             this.del.Size = new System.Drawing.Size(100, 28);
             this.del.TabIndex = 37;
@@ -241,16 +235,17 @@
             this.specific.Enabled = false;
             this.specific.ForeColor = System.Drawing.Color.Black;
             this.specific.Location = new System.Drawing.Point(303, 614);
-            this.specific.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.specific.Margin = new System.Windows.Forms.Padding(4);
             this.specific.Name = "specific";
             this.specific.Size = new System.Drawing.Size(201, 22);
             this.specific.TabIndex = 36;
+            this.specific.Leave += new System.EventHandler(this.trim_Leave);
             // 
             // update
             // 
             this.update.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.update.Location = new System.Drawing.Point(783, 710);
-            this.update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.update.Margin = new System.Windows.Forms.Padding(4);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(100, 28);
             this.update.TabIndex = 35;
@@ -264,16 +259,17 @@
             this.name.Enabled = false;
             this.name.ForeColor = System.Drawing.Color.Black;
             this.name.Location = new System.Drawing.Point(303, 582);
-            this.name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.name.Margin = new System.Windows.Forms.Padding(4);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(201, 22);
             this.name.TabIndex = 34;
+            this.name.Leave += new System.EventHandler(this.trim_Leave);
             // 
             // insert
             // 
             this.insert.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.insert.Location = new System.Drawing.Point(676, 710);
-            this.insert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.insert.Margin = new System.Windows.Forms.Padding(4);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(100, 28);
             this.insert.TabIndex = 33;
@@ -300,7 +296,7 @@
             this.Column7,
             this.Column8});
             this.dgv.Location = new System.Drawing.Point(71, 112);
-            this.dgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv.Margin = new System.Windows.Forms.Padding(4);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
@@ -373,7 +369,7 @@
             this.photo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.photo.Enabled = false;
             this.photo.Location = new System.Drawing.Point(728, 548);
-            this.photo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.photo.Margin = new System.Windows.Forms.Padding(4);
             this.photo.Name = "photo";
             this.photo.Size = new System.Drawing.Size(213, 22);
             this.photo.TabIndex = 59;
@@ -384,7 +380,7 @@
             this.phButt.Enabled = false;
             this.phButt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phButt.Location = new System.Drawing.Point(951, 546);
-            this.phButt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phButt.Margin = new System.Windows.Forms.Padding(4);
             this.phButt.Name = "phButt";
             this.phButt.Size = new System.Drawing.Size(36, 28);
             this.phButt.TabIndex = 60;
@@ -394,9 +390,10 @@
             // 
             // price
             // 
+            this.price.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.price.Enabled = false;
             this.price.Location = new System.Drawing.Point(303, 682);
-            this.price.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.price.Margin = new System.Windows.Forms.Padding(4);
             this.price.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -418,16 +415,12 @@
             // 
             // stock
             // 
+            this.stock.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.stock.Enabled = false;
             this.stock.Location = new System.Drawing.Point(303, 714);
-            this.stock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.stock.Margin = new System.Windows.Forms.Padding(4);
             this.stock.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.stock.Minimum = new decimal(new int[] {
-            1,
+            5000,
             0,
             0,
             0});
@@ -476,7 +469,7 @@
             this.model.FormattingEnabled = true;
             this.model.ImeMode = System.Windows.Forms.ImeMode.On;
             this.model.Location = new System.Drawing.Point(303, 646);
-            this.model.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.model.Margin = new System.Windows.Forms.Padding(4);
             this.model.Name = "model";
             this.model.Size = new System.Drawing.Size(201, 24);
             this.model.TabIndex = 65;
@@ -485,18 +478,39 @@
             // modelBindingSource
             // 
             this.modelBindingSource.DataMember = "Model";
+            this.modelBindingSource.DataSource = this.lEGIONDataSetBindingSource;
+            // 
+            // lEGIONDataSetBindingSource
+            // 
+            this.lEGIONDataSetBindingSource.DataSource = this.lEGIONDataSet;
+            this.lEGIONDataSetBindingSource.Position = 0;
+            // 
+            // lEGIONDataSet
+            // 
+            this.lEGIONDataSet.DataSetName = "LEGIONDataSet";
+            this.lEGIONDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pBox
             // 
+            this.pBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pBox.BackColor = System.Drawing.Color.Transparent;
             this.pBox.ImageLocation = "";
             this.pBox.Location = new System.Drawing.Point(783, 582);
-            this.pBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pBox.Margin = new System.Windows.Forms.Padding(4);
             this.pBox.Name = "pBox";
             this.pBox.Size = new System.Drawing.Size(125, 117);
             this.pBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pBox.TabIndex = 66;
             this.pBox.TabStop = false;
+            // 
+            // modelBindingSource1
+            // 
+            this.modelBindingSource1.DataMember = "Model";
+            this.modelBindingSource1.DataSource = this.lEGIONDataSet;
+            // 
+            // modelTableAdapter
+            // 
+            this.modelTableAdapter.ClearBeforeFill = true;
             // 
             // MMerchandise
             // 
@@ -515,7 +529,6 @@
             this.Controls.Add(this.photo);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.search);
-            this.Controls.Add(this.debug);
             this.Controls.Add(this.id);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.save);
@@ -532,7 +545,7 @@
             this.Controls.Add(this.insert);
             this.Controls.Add(this.dgv);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MMerchandise";
             this.Text = "Manage Merchandise";
             this.Load += new System.EventHandler(this.Merchant_Load);
@@ -540,7 +553,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lEGIONDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lEGIONDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -550,7 +566,6 @@
 
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox search;
-        private System.Windows.Forms.Button debug;
         private System.Windows.Forms.TextBox id;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button save;
@@ -583,6 +598,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.PictureBox pBox;
         private System.Windows.Forms.OpenFileDialog pictureDialog;
+        private LEGIONDataSet lEGIONDataSet;
+        private System.Windows.Forms.BindingSource modelBindingSource1;
+        private LEGIONDataSetTableAdapters.ModelTableAdapter modelTableAdapter;
         private System.Windows.Forms.BindingSource modelBindingSource;
+        private System.Windows.Forms.BindingSource lEGIONDataSetBindingSource;
     }
 }

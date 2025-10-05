@@ -45,9 +45,10 @@
             // 
             this.id.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.id.ForeColor = System.Drawing.Color.Black;
-            this.id.Location = new System.Drawing.Point(150, 20);
+            this.id.Location = new System.Drawing.Point(200, 25);
+            this.id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(161, 20);
+            this.id.Size = new System.Drawing.Size(213, 22);
             this.id.TabIndex = 31;
             // 
             // asd
@@ -56,9 +57,10 @@
             this.asd.AutoSize = true;
             this.asd.BackColor = System.Drawing.Color.Transparent;
             this.asd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.asd.Location = new System.Drawing.Point(29, 18);
+            this.asd.Location = new System.Drawing.Point(39, 22);
+            this.asd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.asd.Name = "asd";
-            this.asd.Size = new System.Drawing.Size(115, 20);
+            this.asd.Size = new System.Drawing.Size(139, 25);
             this.asd.TabIndex = 30;
             this.asd.Text = "Customer ID:";
             // 
@@ -68,9 +70,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 154);
+            this.label1.Location = new System.Drawing.Point(39, 190);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 20);
+            this.label1.Size = new System.Drawing.Size(147, 25);
             this.label1.TabIndex = 29;
             this.label1.Text = "Card Number:";
             // 
@@ -79,19 +82,22 @@
             this.cNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cNumber.Enabled = false;
             this.cNumber.ForeColor = System.Drawing.Color.Black;
-            this.cNumber.Location = new System.Drawing.Point(150, 154);
+            this.cNumber.Location = new System.Drawing.Point(200, 190);
+            this.cNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cNumber.Name = "cNumber";
-            this.cNumber.Size = new System.Drawing.Size(217, 20);
+            this.cNumber.Size = new System.Drawing.Size(288, 22);
             this.cNumber.TabIndex = 28;
             // 
             // cash
             // 
+            this.cash.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cash.AutoSize = true;
             this.cash.Checked = true;
             this.cash.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cash.Location = new System.Drawing.Point(161, 112);
+            this.cash.Location = new System.Drawing.Point(215, 138);
+            this.cash.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cash.Name = "cash";
-            this.cash.Size = new System.Drawing.Size(49, 17);
+            this.cash.Size = new System.Drawing.Size(59, 20);
             this.cash.TabIndex = 32;
             this.cash.TabStop = true;
             this.cash.Text = "Cash";
@@ -100,11 +106,13 @@
             // 
             // card
             // 
+            this.card.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.card.AutoSize = true;
             this.card.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.card.Location = new System.Drawing.Point(216, 112);
+            this.card.Location = new System.Drawing.Point(288, 138);
+            this.card.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.card.Name = "card";
-            this.card.Size = new System.Drawing.Size(47, 17);
+            this.card.Size = new System.Drawing.Size(57, 20);
             this.card.TabIndex = 33;
             this.card.Text = "Card";
             this.card.UseVisualStyleBackColor = true;
@@ -116,9 +124,10 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 112);
+            this.label2.Location = new System.Drawing.Point(39, 138);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 20);
+            this.label2.Size = new System.Drawing.Size(158, 25);
             this.label2.TabIndex = 35;
             this.label2.Text = "Payment Type:";
             // 
@@ -128,9 +137,10 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(29, 66);
+            this.label3.Location = new System.Drawing.Point(39, 81);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 20);
+            this.label3.Size = new System.Drawing.Size(68, 25);
             this.label3.TabIndex = 36;
             this.label3.Text = "Total:";
             // 
@@ -140,9 +150,10 @@
             this.total.AutoSize = true;
             this.total.BackColor = System.Drawing.Color.Transparent;
             this.total.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total.Location = new System.Drawing.Point(156, 66);
+            this.total.Location = new System.Drawing.Point(208, 81);
+            this.total.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.total.Name = "total";
-            this.total.Size = new System.Drawing.Size(18, 20);
+            this.total.Size = new System.Drawing.Size(23, 25);
             this.total.TabIndex = 77;
             this.total.Text = "0";
             // 
@@ -150,9 +161,10 @@
             // 
             this.check.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.check.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.check.Location = new System.Drawing.Point(317, 20);
+            this.check.Location = new System.Drawing.Point(423, 25);
+            this.check.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.check.Name = "check";
-            this.check.Size = new System.Drawing.Size(88, 20);
+            this.check.Size = new System.Drawing.Size(117, 25);
             this.check.TabIndex = 78;
             this.check.Text = "Check";
             this.check.UseVisualStyleBackColor = true;
@@ -163,9 +175,10 @@
             this.pay.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pay.Enabled = false;
-            this.pay.Location = new System.Drawing.Point(180, 196);
+            this.pay.Location = new System.Drawing.Point(240, 241);
+            this.pay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pay.Name = "pay";
-            this.pay.Size = new System.Drawing.Size(88, 20);
+            this.pay.Size = new System.Drawing.Size(117, 25);
             this.pay.TabIndex = 79;
             this.pay.Text = "Pay";
             this.pay.UseVisualStyleBackColor = true;
@@ -173,10 +186,10 @@
             // 
             // Payment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(434, 228);
+            this.ClientSize = new System.Drawing.Size(579, 281);
             this.Controls.Add(this.cash);
             this.Controls.Add(this.pay);
             this.Controls.Add(this.card);
@@ -188,6 +201,7 @@
             this.Controls.Add(this.asd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cNumber);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Payment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Payment";

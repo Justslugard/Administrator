@@ -35,6 +35,8 @@ namespace Winform_Login
 
         private void Merchant_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lEGIONDataSet.Model' table. You can move, or remove it, as needed.
+            this.modelTableAdapter.Fill(this.lEGIONDataSet.Model);
             // TODO: This line of code loads data into the 'asusDataSet1.Model' table. You can move, or remove it, as needed.
             //this.modelTableAdapter.Fill(this.asusDataSet1.Model);
             model.SelectedIndex = -1;
@@ -46,6 +48,7 @@ namespace Winform_Login
             onInsert = true;
             modeField(true);
             clearField();
+            del.Enabled = false;
             id.Text = newId();
         }
 
@@ -97,6 +100,7 @@ namespace Winform_Login
             }
             else
             {
+                if (!onInsert && !onUpdate) clearField();
                 del.Enabled = false;
             }
         }
@@ -144,21 +148,19 @@ namespace Winform_Login
                         Specification = specific.Text.Trim(),
                         Price = (int) price.Value,
                         Stock = (int) stock.Value,
-                        ImagePath = pictureDialog.FileName
                     };
+                    if (!string.IsNullOrWhiteSpace(photo.Text)) merchandise.ImagePath = pictureDialog.FileName;
 
                     DialogResult res = DialogResult.Yes;
                     if (string.IsNullOrWhiteSpace(photo.Text))
-                    {
                         res = MessageBox.Show("Are you sure you want to insert a merchandise without a photo?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    }
 
                     if (res == DialogResult.No) return;
 
                     data.Merchandises.InsertOnSubmit(merchandise);
                     data.SubmitChanges();
 
-                    MessageBox.Show("Successfully insert a new merchandise", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Merchandise successfully inserted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     loadDgv();
                     clearField();
@@ -173,10 +175,11 @@ namespace Winform_Login
                     merchandise.Price = (int)price.Value;
                     merchandise.Stock = (int)stock.Value;
                     merchandise.ImagePath = pictureDialog.FileName;
+                    if (!string.IsNullOrWhiteSpace(photo.Text)) merchandise.ImagePath = pictureDialog.FileName;
 
                     data.SubmitChanges();
 
-                    MessageBox.Show("Successfully update a merchandise", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Merchandise successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     loadDgv();
                 }
@@ -193,6 +196,60 @@ namespace Winform_Login
 
             Console.WriteLine(pBox.ImageLocation);
             //photo.Text = "dummy.png";
+        }
+        void clearField()
+        {
+            id.Text = name.Text = specific.Text = photo.Text = pBox.ImageLocation = string.Empty;
+            stock.Value = price.Value = 1;
+            model.SelectedIndex = -1;
+        }
+
+        void modeField(bool state)
+        {
+            name.Enabled = specific.Enabled = model.Enabled = price.Enabled = stock.Enabled = save.Enabled = cancel.Enabled = phButt.Enabled = state;
+            insert.Enabled = update.Enabled = !state;
+        }
+
+        bool isValid()
+        {
+            if (string.IsNullOrWhiteSpace(name.Text)) MessageBox.Show("Name can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (string.IsNullOrWhiteSpace(specific.Text)) MessageBox.Show("Specification can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (model.SelectedIndex == -1) MessageBox.Show("Select a model!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else return true;
+            return false;
+        }
+
+        private void trim_Leave(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            this.Controls[tb.Name].Text = tb.Text.Trim();
+        }
+
+        string newId()
+        {
+            int ids = int.Parse(data.Merchandises.OrderByDescending(x => x.Id).FirstOrDefault().Id.Substring(2, 4));
+            return $"{ids + 1:PR0000}";
+            //Match regx = Regex.Match(ids, @"([a-zA-Z]+)(\d+)");
+            //char[] idNums = regx.Groups[2].Value.ToCharArray();
+            //for (int i = idNums.Length - 1, adder = 1; i >= 0; i--)
+            //{
+            //    int sum = (idNums[i] - '0') + 1;
+            //    if (adder > 0)
+            //    {
+            //        if (sum == 10)
+            //        {
+            //            adder++;
+            //            idNums[i] = '0';
+            //        }
+            //        else
+            //        {
+            //            idNums[i] = (char)(sum + '0');
+            //        }
+            //        adder--;
+            //    }
+            //    else break;
+            //}
+            //return $"PR{string.Concat(idNums)}";
         }
     }
 }

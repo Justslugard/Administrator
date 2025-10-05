@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -41,12 +42,15 @@ namespace Winform_Login
             if (!isValid()) return;
             else
             {
-                SalesHeader newHeader = new SalesHeader();
-                newHeader.Id = newHeaderId();
-                newHeader.AdministratorId = Main.admin?.Id ?? 1;
-                newHeader.CustomerId = id.Text;
-                newHeader.Date = DateTime.Now;
-                newHeader.PaymentType = card.Checked ? "card" : "cash";
+                SalesHeader newHeader = new SalesHeader() 
+                { 
+                    
+                    Id = newHeaderId(),
+                    AdministratorId = Main.admin?.Id ?? 1,
+                    CustomerId = id.Text,
+                    Date = DateTime.Now,
+                    PaymentType = card.Checked ? "card" : "cash"
+                };
                 if (card.Checked) newHeader.CardNumber = cNumber.Text; 
 
                 data.SalesHeaders.InsertOnSubmit(newHeader);
@@ -54,12 +58,14 @@ namespace Winform_Login
 
                 for (int i = 0; i < grid.Count; i++) 
                 {
-                    SalesDetail newSales = new SalesDetail();
-                    newSales.Id = data.SalesDetails.OrderByDescending(x => x.Id).FirstOrDefault() == null ? 1 : data.SalesDetails.OrderByDescending(x => x.Id).FirstOrDefault().Id + 1;
-                    newSales.SalesHeaderId = newHeader.Id;
-                    newSales.MerchandiseId = grid[i].Cells[0].Value.ToString();
-                    newSales.Qty = int.Parse(grid[i].Cells[4].Value.ToString());
-                    newSales.Price = int.Parse(grid[i].Cells[5].Value.ToString());
+                    SalesDetail newSales = new SalesDetail() 
+                    { 
+                        Id = data.SalesDetails.OrderByDescending(x => x.Id).FirstOrDefault()?.Id + 1 ?? 1,
+                        SalesHeaderId = newHeader.Id,
+                        MerchandiseId = grid[i].Cells[0].Value.ToString(),
+                        Qty = int.Parse(grid[i].Cells[4].Value.ToString()),
+                        Price = int.Parse(grid[i].Cells[5].Value.ToString())
+                    };
 
                     data.SalesDetails.InsertOnSubmit(newSales);
                     data.SubmitChanges();
@@ -77,7 +83,8 @@ namespace Winform_Login
         }
         bool isValid ()
         {
-            if (cNumber.Enabled && cNumber.Text.Length != 16) MessageBox.Show("Credit Card Must Be 16 Digit long!");
+            Regex reg = new Regex(@"\d{16}");
+            if (cNumber.Enabled && !reg.IsMatch(cNumber.Text)) MessageBox.Show("Credit Card is invalid!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else return true;
             return false;
         }
