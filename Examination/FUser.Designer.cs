@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,31 +36,36 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.address = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.cbGen = new System.Windows.Forms.ComboBox();
+            this.phone = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.email = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cbRol = new System.Windows.Forms.ComboBox();
+            this.name = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.username = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.id = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.examinationDataSet = new Examination.ExaminationDataSet();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesTableAdapter = new Examination.ExaminationDataSetTableAdapters.rolesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.examinationDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -124,23 +130,23 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox8);
+            this.groupBox1.Controls.Add(this.address);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.cbGen);
+            this.groupBox1.Controls.Add(this.phone);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.email);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.cbRol);
+            this.groupBox1.Controls.Add(this.name);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.password);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.username);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.id);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(15, 408);
             this.groupBox1.Name = "groupBox1";
@@ -148,17 +154,16 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Detail";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox8
+            // address
             // 
-            this.textBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(512, 96);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(152, 47);
-            this.textBox8.TabIndex = 26;
+            this.address.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.address.Enabled = false;
+            this.address.Location = new System.Drawing.Point(512, 96);
+            this.address.Multiline = true;
+            this.address.Name = "address";
+            this.address.Size = new System.Drawing.Size(152, 47);
+            this.address.TabIndex = 26;
             // 
             // label12
             // 
@@ -170,25 +175,29 @@
             this.label12.TabIndex = 25;
             this.label12.Text = "Address";
             // 
-            // comboBox3
+            // cbGen
             // 
-            this.comboBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(512, 67);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(152, 21);
-            this.comboBox3.TabIndex = 24;
+            this.cbGen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbGen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGen.Enabled = false;
+            this.cbGen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbGen.FormattingEnabled = true;
+            this.cbGen.Items.AddRange(new object[] {
+            "Female",
+            "Male"});
+            this.cbGen.Location = new System.Drawing.Point(512, 67);
+            this.cbGen.Name = "cbGen";
+            this.cbGen.Size = new System.Drawing.Size(152, 21);
+            this.cbGen.TabIndex = 24;
             // 
-            // textBox6
+            // phone
             // 
-            this.textBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(512, 41);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(152, 20);
-            this.textBox6.TabIndex = 23;
+            this.phone.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.phone.Enabled = false;
+            this.phone.Location = new System.Drawing.Point(512, 41);
+            this.phone.Name = "phone";
+            this.phone.Size = new System.Drawing.Size(152, 20);
+            this.phone.TabIndex = 23;
             // 
             // label9
             // 
@@ -210,14 +219,14 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Gender";
             // 
-            // textBox7
+            // email
             // 
-            this.textBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(512, 18);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(152, 20);
-            this.textBox7.TabIndex = 20;
+            this.email.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.email.Enabled = false;
+            this.email.Location = new System.Drawing.Point(512, 18);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(152, 20);
+            this.email.TabIndex = 20;
             // 
             // label11
             // 
@@ -229,25 +238,29 @@
             this.label11.TabIndex = 19;
             this.label11.Text = "Email";
             // 
-            // comboBox2
+            // cbRol
             // 
-            this.comboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(145, 43);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(152, 21);
-            this.comboBox2.TabIndex = 18;
+            this.cbRol.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbRol.DataSource = this.rolesBindingSource;
+            this.cbRol.DisplayMember = "name";
+            this.cbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRol.Enabled = false;
+            this.cbRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRol.FormattingEnabled = true;
+            this.cbRol.Location = new System.Drawing.Point(145, 43);
+            this.cbRol.Name = "cbRol";
+            this.cbRol.Size = new System.Drawing.Size(152, 21);
+            this.cbRol.TabIndex = 18;
+            this.cbRol.ValueMember = "id";
             // 
-            // textBox3
+            // name
             // 
-            this.textBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(145, 121);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(152, 20);
-            this.textBox3.TabIndex = 17;
+            this.name.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.name.Enabled = false;
+            this.name.Location = new System.Drawing.Point(145, 121);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(152, 20);
+            this.name.TabIndex = 17;
             // 
             // label8
             // 
@@ -259,14 +272,14 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Name";
             // 
-            // textBox4
+            // password
             // 
-            this.textBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(145, 95);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(152, 20);
-            this.textBox4.TabIndex = 15;
+            this.password.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.password.Enabled = false;
+            this.password.Location = new System.Drawing.Point(145, 95);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(152, 20);
+            this.password.TabIndex = 15;
             // 
             // label6
             // 
@@ -278,14 +291,14 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Password";
             // 
-            // textBox5
+            // username
             // 
-            this.textBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(145, 69);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(152, 20);
-            this.textBox5.TabIndex = 13;
+            this.username.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.username.Enabled = false;
+            this.username.Location = new System.Drawing.Point(145, 69);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(152, 20);
+            this.username.TabIndex = 13;
             // 
             // label7
             // 
@@ -307,15 +320,14 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Role";
             // 
-            // textBox2
+            // id
             // 
-            this.textBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(145, 17);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 20);
-            this.textBox2.TabIndex = 9;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.id.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.id.Enabled = false;
+            this.id.Location = new System.Drawing.Point(145, 17);
+            this.id.Name = "id";
+            this.id.Size = new System.Drawing.Size(152, 20);
+            this.id.TabIndex = 9;
             // 
             // label4
             // 
@@ -380,6 +392,20 @@
             this.button5.Text = "Save";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // examinationDataSet
+            // 
+            this.examinationDataSet.DataSetName = "ExaminationDataSet";
+            this.examinationDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rolesBindingSource
+            // 
+            this.rolesBindingSource.DataMember = "roles";
+            this.rolesBindingSource.DataSource = this.examinationDataSet;
+            // 
+            // rolesTableAdapter
+            // 
+            this.rolesTableAdapter.ClearBeforeFill = true;
+            // 
             // FUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,9 +425,12 @@
             this.Controls.Add(this.label1);
             this.Name = "FUser";
             this.Text = "User Form";
+            this.Load += new System.EventHandler(this.FUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.examinationDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,28 +445,31 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox id;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.ComboBox cbGen;
+        private System.Windows.Forms.TextBox phone;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.ComboBox cbRol;
+        private System.Windows.Forms.TextBox address;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private ExaminationDataSet examinationDataSet;
+        private System.Windows.Forms.BindingSource rolesBindingSource;
+        private ExaminationDataSetTableAdapters.rolesTableAdapter rolesTableAdapter;
     }
 }

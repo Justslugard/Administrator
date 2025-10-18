@@ -17,19 +17,11 @@ namespace Examination
             InitializeComponent();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void FUser_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
+            // TODO: This line of code loads data into the 'examinationDataSet.roles' table. You can move, or remove it, as needed.
+            this.rolesTableAdapter.Fill(this.examinationDataSet.roles);
+            cbRol.SelectedIndex = -1;
         }
     }
 }
