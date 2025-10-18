@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Winform_Login
+namespace Examination
 {
     internal static class Program
     {
@@ -20,10 +20,9 @@ namespace Winform_Login
             {
                 if (login.ShowDialog() == DialogResult.OK)
                 {
-                    Application.Run(new Main(Login.user));
+                    Application.Run(new Main());
                 }
             }
-            //Application.Run(new MSales());
         }
     }
 }

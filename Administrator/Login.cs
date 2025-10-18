@@ -44,8 +44,8 @@ namespace Winform_Login
             Button button = (Button) sender;
             if (button.Name == "cash")
             {
-                email.Text = "cmattin2@51.la";
-                password.Text = "KG5FijQS62oe";
+                email.Text = "kellissen1@vkontakte.ru";
+                password.Text = "TZIBmL7IC6O";
             } else if (button.Name == "adm")
             {
                 email.Text = "ktoner0@topsy.com";

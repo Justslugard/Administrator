@@ -121,5 +121,16 @@ namespace Winform_Login.Properties {
                 return ((string)(this["LEGIONConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-EO4MCEI;Initial Catalog=Asus;Integrated Security=True;Encrypt" +
+            "=True;TrustServerCertificate=True")]
+        public string AsusConnectionString2 {
+            get {
+                return ((string)(this["AsusConnectionString2"]));
+            }
+        }
     }
 }
