@@ -7,25 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Examination.Util;
 
 namespace Examination
 {
     public partial class Login : Form
     {
-        static DataClasses1DataContext db = new DataClasses1DataContext();
-        static user resu;
         public Login()
         {
             InitializeComponent();
         }
         bool isValid()
         {
-            resu = db.users.Where(x => x.username.Equals(username.Text)).FirstOrDefault();
+            User = db.users.Where(x => x.username.Equals(username.Text)).FirstOrDefault();
 
             if (string.IsNullOrWhiteSpace(username.Text)) MessageBox.Show("Username can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (string.IsNullOrWhiteSpace(ps.Text)) MessageBox.Show("Password can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (resu == null) MessageBox.Show("No such User exist!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (resu.password != ps.Text) MessageBox.Show("Password wrong!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (User == null) MessageBox.Show("No such User exist!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (User.password != ps.Text) MessageBox.Show("Password wrong!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 return true;
 
@@ -36,8 +35,8 @@ namespace Examination
         {
             if (isValid())
             {
+                MessageBox.Show($"Welcome {User.name}!");
                 this.DialogResult = DialogResult.OK;
-                Util.User = resu;
             }
         }
 

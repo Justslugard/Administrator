@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Examination.Util;
 
 namespace Examination
 {
@@ -19,9 +20,14 @@ namespace Examination
 
         private void FUser_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'examinationDataSet.roles' table. You can move, or remove it, as needed.
-            this.rolesTableAdapter.Fill(this.examinationDataSet.roles);
-            cbRol.SelectedIndex = -1;
+            load();
+        }
+
+        void load()
+        {
+            //userBindingSource.ResumeBinding();
+            //userBindingSource.ResetBindings(false);
+            userBindingSource.DataSource = db.users.ToList();
         }
     }
 }

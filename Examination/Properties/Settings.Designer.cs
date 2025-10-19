@@ -33,5 +33,16 @@ namespace Examination.Properties {
                 return ((string)(this["ExaminationConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-SL3N9LFD;Initial Catalog=Exam;Integrated Security=True;TrustSe" +
+            "rverCertificate=True")]
+        public string ExamConnectionString {
+            get {
+                return ((string)(this["ExamConnectionString"]));
+            }
+        }
     }
 }

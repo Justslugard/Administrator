@@ -29,408 +29,391 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label nameLabel;
+            System.Windows.Forms.Label nameLabel1;
+            System.Windows.Forms.Label idLabel;
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.address = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cbGen = new System.Windows.Forms.ComboBox();
-            this.phone = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.email = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cbRol = new System.Windows.Forms.ComboBox();
-            this.name = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.password = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.username = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.examinationDataSet = new Examination.ExaminationDataSet();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rolesTableAdapter = new Examination.ExaminationDataSetTableAdapters.rolesTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.insert = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
+            this.cancel = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.userDataGridView = new System.Windows.Forms.DataGridView();
+            this.RoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameComboBox = new System.Windows.Forms.ComboBox();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            nameLabel = new System.Windows.Forms.Label();
+            nameLabel1 = new System.Windows.Forms.Label();
+            idLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.examinationDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(13, 56);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(39, 16);
+            nameLabel.TabIndex = 3;
+            nameLabel.Text = "Role:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(312, 9);
+            this.label1.Location = new System.Drawing.Point(416, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 32);
+            this.label1.Size = new System.Drawing.Size(81, 41);
             this.label1.TabIndex = 1;
             this.label1.Text = "User";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 102);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(673, 280);
-            this.dataGridView1.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 76);
+            this.label2.Location = new System.Drawing.Point(16, 94);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 16);
+            this.label2.Size = new System.Drawing.Size(47, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Filter";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(48, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(44, 21);
-            this.comboBox1.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(426, 76);
+            this.label3.Location = new System.Drawing.Point(568, 94);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 16);
+            this.label3.Size = new System.Drawing.Size(133, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Search by Name";
             // 
             // textBox1
             // 
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox1.Location = new System.Drawing.Point(533, 76);
+            this.textBox1.Location = new System.Drawing.Point(711, 94);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 20);
+            this.textBox1.Size = new System.Drawing.Size(201, 22);
             this.textBox1.TabIndex = 6;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.address);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.cbGen);
-            this.groupBox1.Controls.Add(this.phone);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.email);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.cbRol);
-            this.groupBox1.Controls.Add(this.name);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.password);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.username);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.id);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(15, 408);
+            this.groupBox1.Controls.Add(idLabel);
+            this.groupBox1.Controls.Add(this.idTextBox);
+            this.groupBox1.Controls.Add(nameLabel1);
+            this.groupBox1.Controls.Add(this.nameComboBox);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(nameLabel);
+            this.groupBox1.Location = new System.Drawing.Point(20, 509);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(670, 154);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(893, 190);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Detail";
             // 
-            // address
+            // comboBox1
             // 
-            this.address.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.address.Enabled = false;
-            this.address.Location = new System.Drawing.Point(512, 96);
-            this.address.Multiline = true;
-            this.address.Name = "address";
-            this.address.Size = new System.Drawing.Size(152, 47);
-            this.address.TabIndex = 26;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(57, 53);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(143, 24);
+            this.comboBox1.TabIndex = 4;
             // 
-            // label12
+            // insert
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(436, 97);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(58, 16);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Address";
+            this.insert.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.insert.Location = new System.Drawing.Point(307, 715);
+            this.insert.Margin = new System.Windows.Forms.Padding(4);
+            this.insert.Name = "insert";
+            this.insert.Size = new System.Drawing.Size(100, 28);
+            this.insert.TabIndex = 8;
+            this.insert.Text = "Insert";
+            this.insert.UseVisualStyleBackColor = true;
             // 
-            // cbGen
+            // update
             // 
-            this.cbGen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbGen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGen.Enabled = false;
-            this.cbGen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbGen.FormattingEnabled = true;
-            this.cbGen.Items.AddRange(new object[] {
-            "Female",
-            "Male"});
-            this.cbGen.Location = new System.Drawing.Point(512, 67);
-            this.cbGen.Name = "cbGen";
-            this.cbGen.Size = new System.Drawing.Size(152, 21);
-            this.cbGen.TabIndex = 24;
+            this.update.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.update.Location = new System.Drawing.Point(415, 715);
+            this.update.Margin = new System.Windows.Forms.Padding(4);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(100, 28);
+            this.update.TabIndex = 9;
+            this.update.Text = "Update";
+            this.update.UseVisualStyleBackColor = true;
             // 
-            // phone
+            // delete
             // 
-            this.phone.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.phone.Enabled = false;
-            this.phone.Location = new System.Drawing.Point(512, 41);
-            this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(152, 20);
-            this.phone.TabIndex = 23;
+            this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete.Enabled = false;
+            this.delete.Location = new System.Drawing.Point(523, 715);
+            this.delete.Margin = new System.Windows.Forms.Padding(4);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(100, 28);
+            this.delete.TabIndex = 10;
+            this.delete.Text = "Delete";
+            this.delete.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // cancel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(436, 42);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 16);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Phone";
+            this.cancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancel.Enabled = false;
+            this.cancel.Location = new System.Drawing.Point(471, 751);
+            this.cancel.Margin = new System.Windows.Forms.Padding(4);
+            this.cancel.Name = "cancel";
+            this.cancel.Size = new System.Drawing.Size(100, 28);
+            this.cancel.TabIndex = 12;
+            this.cancel.Text = "Cancel";
+            this.cancel.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // save
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(436, 71);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 16);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Gender";
+            this.save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.save.Enabled = false;
+            this.save.Location = new System.Drawing.Point(363, 751);
+            this.save.Margin = new System.Windows.Forms.Padding(4);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(100, 28);
+            this.save.TabIndex = 11;
+            this.save.Text = "Save";
+            this.save.UseVisualStyleBackColor = true;
             // 
-            // email
+            // comboBox2
             // 
-            this.email.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.email.Enabled = false;
-            this.email.Location = new System.Drawing.Point(512, 18);
-            this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(152, 20);
-            this.email.TabIndex = 20;
+            this.comboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox2.DisplayMember = "id";
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(60, 93);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(105, 25);
+            this.comboBox2.TabIndex = 27;
+            this.comboBox2.ValueMember = "id";
             // 
-            // label11
+            // userDataGridView
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(436, 18);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 16);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "Email";
+            this.userDataGridView.AutoGenerateColumns = false;
+            this.userDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.RoleName,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11});
+            this.userDataGridView.DataSource = this.userBindingSource;
+            this.userDataGridView.Location = new System.Drawing.Point(12, 125);
+            this.userDataGridView.Name = "userDataGridView";
+            this.userDataGridView.RowHeadersWidth = 51;
+            this.userDataGridView.RowTemplate.Height = 24;
+            this.userDataGridView.Size = new System.Drawing.Size(917, 370);
+            this.userDataGridView.TabIndex = 27;
             // 
-            // cbRol
+            // RoleName
             // 
-            this.cbRol.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbRol.DataSource = this.rolesBindingSource;
-            this.cbRol.DisplayMember = "name";
-            this.cbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRol.Enabled = false;
-            this.cbRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRol.FormattingEnabled = true;
-            this.cbRol.Location = new System.Drawing.Point(145, 43);
-            this.cbRol.Name = "cbRol";
-            this.cbRol.Size = new System.Drawing.Size(152, 21);
-            this.cbRol.TabIndex = 18;
-            this.cbRol.ValueMember = "id";
+            this.RoleName.DataPropertyName = "RoleName";
+            this.RoleName.HeaderText = "Role";
+            this.RoleName.MinimumWidth = 6;
+            this.RoleName.Name = "RoleName";
+            this.RoleName.ReadOnly = true;
+            this.RoleName.Width = 125;
             // 
-            // name
+            // nameLabel1
             // 
-            this.name.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.name.Enabled = false;
-            this.name.Location = new System.Drawing.Point(145, 121);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(152, 20);
-            this.name.TabIndex = 17;
+            nameLabel1.AutoSize = true;
+            nameLabel1.Location = new System.Drawing.Point(41, 106);
+            nameLabel1.Name = "nameLabel1";
+            nameLabel1.Size = new System.Drawing.Size(44, 16);
+            nameLabel1.TabIndex = 4;
+            nameLabel1.Text = "name:";
             // 
-            // label8
+            // nameComboBox
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(69, 121);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 16);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Name";
+            this.nameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "role.name", true));
+            this.nameComboBox.DataSource = this.roleBindingSource;
+            this.nameComboBox.DisplayMember = "name";
+            this.nameComboBox.FormattingEnabled = true;
+            this.nameComboBox.Location = new System.Drawing.Point(91, 103);
+            this.nameComboBox.Name = "nameComboBox";
+            this.nameComboBox.Size = new System.Drawing.Size(121, 24);
+            this.nameComboBox.TabIndex = 5;
+            this.nameComboBox.ValueMember = "name";
             // 
-            // password
+            // idLabel
             // 
-            this.password.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.password.Enabled = false;
-            this.password.Location = new System.Drawing.Point(145, 95);
-            this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(152, 20);
-            this.password.TabIndex = 15;
+            idLabel.AutoSize = true;
+            idLabel.Location = new System.Drawing.Point(13, 25);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(23, 16);
+            idLabel.TabIndex = 5;
+            idLabel.Text = "ID:";
             // 
-            // label6
+            // idTextBox
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(69, 95);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 16);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Password";
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "id", true));
+            this.idTextBox.Enabled = false;
+            this.idTextBox.Location = new System.Drawing.Point(57, 25);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(143, 22);
+            this.idTextBox.TabIndex = 6;
             // 
-            // username
+            // dataGridViewTextBoxColumn1
             // 
-            this.username.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.username.Enabled = false;
-            this.username.Location = new System.Drawing.Point(145, 69);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(152, 20);
-            this.username.TabIndex = 13;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
-            // label7
+            // dataGridViewTextBoxColumn2
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(69, 69);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 16);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Username";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "role_id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "role_id";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            this.dataGridViewTextBoxColumn2.Width = 125;
             // 
-            // label5
+            // dataGridViewTextBoxColumn3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(69, 43);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 16);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Role";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "username";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Username";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
-            // id
+            // dataGridViewTextBoxColumn4
             // 
-            this.id.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.id.Enabled = false;
-            this.id.Location = new System.Drawing.Point(145, 17);
-            this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(152, 20);
-            this.id.TabIndex = 9;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "password";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Password";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
             // 
-            // label4
+            // dataGridViewTextBoxColumn5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(69, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "ID";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 125;
             // 
-            // button1
+            // dataGridViewTextBoxColumn6
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(230, 581);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Insert";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "email";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Email";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 125;
             // 
-            // button2
+            // dataGridViewTextBoxColumn7
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Location = new System.Drawing.Point(311, 581);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "phone";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Phone";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 125;
             // 
-            // button3
+            // dataGridViewTextBoxColumn8
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(392, 581);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "gender";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Gender";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 125;
             // 
-            // button4
+            // dataGridViewTextBoxColumn9
             // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(353, 610);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Cancel";
-            this.button4.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "address";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 125;
             // 
-            // button5
+            // dataGridViewTextBoxColumn10
             // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Enabled = false;
-            this.button5.Location = new System.Drawing.Point(272, 610);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "Save";
-            this.button5.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "created_at";
+            this.dataGridViewTextBoxColumn10.HeaderText = "created_at";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 125;
             // 
-            // examinationDataSet
+            // dataGridViewTextBoxColumn11
             // 
-            this.examinationDataSet.DataSetName = "ExaminationDataSet";
-            this.examinationDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "deleted_at";
+            this.dataGridViewTextBoxColumn11.HeaderText = "deleted_at";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 125;
             // 
-            // rolesBindingSource
+            // userBindingSource
             // 
-            this.rolesBindingSource.DataMember = "roles";
-            this.rolesBindingSource.DataSource = this.examinationDataSet;
+            this.userBindingSource.DataSource = typeof(Examination.user);
             // 
-            // rolesTableAdapter
+            // roleBindingSource
             // 
-            this.rolesTableAdapter.ClearBeforeFill = true;
+            this.roleBindingSource.DataSource = typeof(Examination.role);
             // 
             // FUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 648);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(941, 799);
+            this.Controls.Add(this.userDataGridView);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cancel);
+            this.Controls.Add(this.save);
+            this.Controls.Add(this.delete);
+            this.Controls.Add(this.update);
+            this.Controls.Add(this.insert);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FUser";
             this.Text = "User Form";
             this.Load += new System.EventHandler(this.FUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.examinationDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,37 +422,35 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox id;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox name;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox password;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox username;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbGen;
-        private System.Windows.Forms.TextBox phone;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox email;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbRol;
-        private System.Windows.Forms.TextBox address;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private ExaminationDataSet examinationDataSet;
+        private System.Windows.Forms.Button insert;
+        private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Button delete;
+        private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.Button save;
         private System.Windows.Forms.BindingSource rolesBindingSource;
-        private ExaminationDataSetTableAdapters.rolesTableAdapter rolesTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.BindingSource userBindingSource;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView userDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoleName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.ComboBox nameComboBox;
+        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.BindingSource roleBindingSource;
     }
 }
