@@ -23,6 +23,8 @@ namespace Examination
 
         private void FUser_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'examDataSet.users' table. You can move, or remove it, as needed.
+            this.usersTableAdapter.Fill(this.examDataSet.users);
             // TODO: This line of code loads data into the 'examDataSet.roles' table. You can move, or remove it, as needed.
             this.rolesTableAdapter.Fill(this.examDataSet.roles);
 
@@ -71,11 +73,23 @@ namespace Examination
         private void insert_Click(object sender, EventArgs e)
         {
             modeField(this.Controls);
+
+            userBindingSource.SuspendBinding();
+
+            idTextBox.Text = nextId("users");
+            roleComboBox.SelectedIndex = -1;
+            table = null;
         }
 
         private void update_Click(object sender, EventArgs e)
         {
             modeField(this.Controls);
+
+            table = (user)userBindingSource.Current;
+            userBindingSource.SuspendBinding();
+
+            idTextBox.Text = table.id.ToString();
+            roleComboBox.SelectedIndex = table.role_id - 1;
         }
 
         private void delete_Click(object sender, EventArgs e)
@@ -91,6 +105,7 @@ namespace Examination
         private void cancel_Click(object sender, EventArgs e)
         {
             modeField(this.Controls);
+            userBindingSource.ResumeBinding();
         }
     }
 }

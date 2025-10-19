@@ -52,7 +52,7 @@
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.idTextBox = new System.Windows.Forms.TextBox();
-            this.nameComboBox = new System.Windows.Forms.ComboBox();
+            this.roleComboBox = new System.Windows.Forms.ComboBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.examDataSet = new Examination.ExamDataSet();
             this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -63,9 +63,12 @@
             this.save = new System.Windows.Forms.Button();
             this.cbFilt = new System.Windows.Forms.ComboBox();
             this.userDataGridView = new System.Windows.Forms.DataGridView();
+            this.rolesTableAdapter = new Examination.ExamDataSetTableAdapters.rolesTableAdapter();
+            this.fKusersrolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersTableAdapter = new Examination.ExamDataSetTableAdapters.usersTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.role_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +78,6 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rolesTableAdapter = new Examination.ExamDataSetTableAdapters.rolesTableAdapter();
             nameLabel = new System.Windows.Forms.Label();
             idLabel = new System.Windows.Forms.Label();
             usernameLabel = new System.Windows.Forms.Label();
@@ -91,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.examDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKusersrolesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -99,7 +102,7 @@
             nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             nameLabel.Location = new System.Drawing.Point(45, 49);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(46, 16);
+            nameLabel.Size = new System.Drawing.Size(44, 16);
             nameLabel.TabIndex = 0;
             nameLabel.Text = "Role:";
             // 
@@ -109,7 +112,7 @@
             idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             idLabel.Location = new System.Drawing.Point(62, 23);
             idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(29, 16);
+            idLabel.Size = new System.Drawing.Size(26, 16);
             idLabel.TabIndex = 2;
             idLabel.Text = "ID:";
             // 
@@ -119,7 +122,7 @@
             usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             usernameLabel.Location = new System.Drawing.Point(9, 76);
             usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new System.Drawing.Size(84, 16);
+            usernameLabel.Size = new System.Drawing.Size(82, 16);
             usernameLabel.TabIndex = 4;
             usernameLabel.Text = "Username:";
             // 
@@ -129,7 +132,7 @@
             passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             passwordLabel.Location = new System.Drawing.Point(10, 102);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(81, 16);
+            passwordLabel.Size = new System.Drawing.Size(79, 16);
             passwordLabel.TabIndex = 6;
             passwordLabel.Text = "Password:";
             // 
@@ -139,7 +142,7 @@
             nameLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             nameLabel1.Location = new System.Drawing.Point(37, 128);
             nameLabel1.Name = "nameLabel1";
-            nameLabel1.Size = new System.Drawing.Size(54, 16);
+            nameLabel1.Size = new System.Drawing.Size(52, 16);
             nameLabel1.TabIndex = 8;
             nameLabel1.Text = "Name:";
             // 
@@ -149,7 +152,7 @@
             emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             emailLabel.Location = new System.Drawing.Point(448, 20);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(52, 16);
+            emailLabel.Size = new System.Drawing.Size(50, 16);
             emailLabel.TabIndex = 10;
             emailLabel.Text = "Email:";
             // 
@@ -159,7 +162,7 @@
             phoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             phoneLabel.Location = new System.Drawing.Point(443, 45);
             phoneLabel.Name = "phoneLabel";
-            phoneLabel.Size = new System.Drawing.Size(57, 16);
+            phoneLabel.Size = new System.Drawing.Size(55, 16);
             phoneLabel.TabIndex = 12;
             phoneLabel.Text = "Phone:";
             // 
@@ -169,7 +172,7 @@
             genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             genderLabel.Location = new System.Drawing.Point(436, 72);
             genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(64, 16);
+            genderLabel.Size = new System.Drawing.Size(62, 16);
             genderLabel.TabIndex = 14;
             genderLabel.Text = "Gender:";
             // 
@@ -179,7 +182,7 @@
             addressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             addressLabel.Location = new System.Drawing.Point(429, 99);
             addressLabel.Name = "addressLabel";
-            addressLabel.Size = new System.Drawing.Size(71, 16);
+            addressLabel.Size = new System.Drawing.Size(69, 16);
             addressLabel.TabIndex = 16;
             addressLabel.Text = "Address:";
             // 
@@ -241,7 +244,7 @@
             this.groupBox1.Controls.Add(idLabel);
             this.groupBox1.Controls.Add(this.idTextBox);
             this.groupBox1.Controls.Add(nameLabel);
-            this.groupBox1.Controls.Add(this.nameComboBox);
+            this.groupBox1.Controls.Add(this.roleComboBox);
             this.groupBox1.Location = new System.Drawing.Point(15, 418);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(685, 164);
@@ -339,20 +342,20 @@
             this.idTextBox.Size = new System.Drawing.Size(159, 20);
             this.idTextBox.TabIndex = 3;
             // 
-            // nameComboBox
+            // roleComboBox
             // 
-            this.nameComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.nameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "role.name", true));
-            this.nameComboBox.DataSource = this.bindingSource1;
-            this.nameComboBox.DisplayMember = "name";
-            this.nameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.nameComboBox.Enabled = false;
-            this.nameComboBox.FormattingEnabled = true;
-            this.nameComboBox.Location = new System.Drawing.Point(97, 45);
-            this.nameComboBox.Name = "nameComboBox";
-            this.nameComboBox.Size = new System.Drawing.Size(159, 21);
-            this.nameComboBox.TabIndex = 1;
-            this.nameComboBox.ValueMember = "id";
+            this.roleComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roleComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "role.name", true));
+            this.roleComboBox.DataSource = this.bindingSource1;
+            this.roleComboBox.DisplayMember = "name";
+            this.roleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.roleComboBox.Enabled = false;
+            this.roleComboBox.FormattingEnabled = true;
+            this.roleComboBox.Location = new System.Drawing.Point(97, 45);
+            this.roleComboBox.Name = "roleComboBox";
+            this.roleComboBox.Size = new System.Drawing.Size(159, 21);
+            this.roleComboBox.TabIndex = 1;
+            this.roleComboBox.ValueMember = "id";
             // 
             // bindingSource1
             // 
@@ -393,7 +396,6 @@
             // delete
             // 
             this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.delete.Enabled = false;
             this.delete.Location = new System.Drawing.Point(392, 599);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 23);
@@ -449,8 +451,8 @@
             this.userDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn17,
+            this.role_id,
+            this.RoleName,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
@@ -467,6 +469,19 @@
             this.userDataGridView.Size = new System.Drawing.Size(689, 305);
             this.userDataGridView.TabIndex = 27;
             // 
+            // rolesTableAdapter
+            // 
+            this.rolesTableAdapter.ClearBeforeFill = true;
+            // 
+            // fKusersrolesBindingSource
+            // 
+            this.fKusersrolesBindingSource.DataMember = "FK_users_roles";
+            this.fKusersrolesBindingSource.DataSource = this.bindingSource1;
+            // 
+            // usersTableAdapter
+            // 
+            this.usersTableAdapter.ClearBeforeFill = true;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
@@ -476,23 +491,22 @@
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 43;
             // 
-            // dataGridViewTextBoxColumn2
+            // role_id
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "role_id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "role_id";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            this.dataGridViewTextBoxColumn2.Width = 63;
+            this.role_id.DataPropertyName = "role_id";
+            this.role_id.HeaderText = "role_id";
+            this.role_id.Name = "role_id";
+            this.role_id.ReadOnly = true;
+            this.role_id.Visible = false;
+            this.role_id.Width = 63;
             // 
-            // dataGridViewTextBoxColumn17
+            // RoleName
             // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "RoleName";
-            this.dataGridViewTextBoxColumn17.FillWeight = 148.7389F;
-            this.dataGridViewTextBoxColumn17.HeaderText = "Role";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Width = 54;
+            this.RoleName.DataPropertyName = "RoleName";
+            this.RoleName.HeaderText = "Role";
+            this.RoleName.Name = "RoleName";
+            this.RoleName.ReadOnly = true;
+            this.RoleName.Width = 54;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -575,10 +589,6 @@
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             this.dataGridViewTextBoxColumn11.Width = 82;
             // 
-            // rolesTableAdapter
-            // 
-            this.rolesTableAdapter.ClearBeforeFill = true;
-            // 
             // FUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -606,6 +616,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.examDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKusersrolesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -628,19 +639,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.BindingSource userBindingSource;
         private System.Windows.Forms.DataGridView userDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.ComboBox nameComboBox;
+        private System.Windows.Forms.ComboBox roleComboBox;
         private System.Windows.Forms.BindingSource roleBindingSource;
         private ExamDataSet examDataSet;
         private System.Windows.Forms.BindingSource bindingSource1;
@@ -653,5 +652,20 @@
         private System.Windows.Forms.ComboBox genderComboBox;
         private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.BindingSource fKusersrolesBindingSource;
+        private ExamDataSetTableAdapters.usersTableAdapter usersTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn role_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoleName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
     }
 }

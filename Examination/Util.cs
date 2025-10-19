@@ -44,6 +44,10 @@ namespace Examination
                 {
                     if (control.Name != "cbFilt") control.Enabled = !control.Enabled;
                 }
+                else if (control is DateTimePicker)
+                {
+                    control.Enabled = !control.Enabled;
+                }
                 else if (control.HasChildren)
                 {
                     modeField(control.Controls);
