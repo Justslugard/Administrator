@@ -372,6 +372,8 @@ FodyWeavers.xsd
 *.dbml
 
 *DataSet.cs
+*DataSet.Designer.cs
+*DataSet[1-9].Designer.cs
 
 DataClasses1.cs
 DataClasses1.designer.cs
@@ -379,3 +381,16 @@ DataClasses1.designer.cs
 /Administrator/DataClasses1.dbml.layout
 /Administrator/DataClasses1.designer.cs
 /Administrator/LEGIONDataSet.Designer.cs
+
+
+Model1.*
+Model1.*.edmx
+/Examination/case.cs
+/Examination/cases_details.cs
+/Examination/role.cs
+/Examination/room.cs
+/Examination/schedule.cs
+/Examination/schedules_participants.cs
+/Examination/sysdiagram.cs
+/Examination/type.cs
+/Examination/user.cs
