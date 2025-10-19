@@ -13,6 +13,7 @@ namespace Examination
 {
     public partial class Login : Form
     {
+        static ExamEntities db = new ExamEntities();
         public Login()
         {
             InitializeComponent();
