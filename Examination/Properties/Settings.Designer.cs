@@ -55,5 +55,16 @@ namespace Examination.Properties {
                 return ((string)(this["ExamConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-EO4MCEI;Initial Catalog=Exam;Integrated Security=True;TrustSe" +
+            "rverCertificate=True")]
+        public string ExamConnectionString2 {
+            get {
+                return ((string)(this["ExamConnectionString2"]));
+            }
+        }
     }
 }

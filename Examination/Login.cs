@@ -25,7 +25,7 @@ namespace Examination
             if (string.IsNullOrWhiteSpace(username.Text)) MessageBox.Show("Username can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (string.IsNullOrWhiteSpace(ps.Text)) MessageBox.Show("Password can't be empty!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (User == null) MessageBox.Show("No such User exist!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (User.password != ps.Text) MessageBox.Show("Password wrong!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (User.password != encryptMD5(ps.Text)) MessageBox.Show("Password wrong!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 return true;
 
