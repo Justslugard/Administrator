@@ -28,199 +28,271 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label passwordLabel;
+            System.Windows.Forms.Label usernameLabel;
+            System.Windows.Forms.Label idLabel;
+            this.search = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.cancel = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Button();
+            this.insert = new System.Windows.Forms.Button();
+            this.typeDataGridView = new System.Windows.Forms.DataGridView();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.typeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            passwordLabel = new System.Windows.Forms.Label();
+            usernameLabel = new System.Windows.Forms.Label();
+            idLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.typeDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // passwordLabel
             // 
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox1.Location = new System.Drawing.Point(533, 89);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 20);
-            this.textBox1.TabIndex = 17;
+            passwordLabel.AutoSize = true;
+            passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            passwordLabel.Location = new System.Drawing.Point(81, 433);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new System.Drawing.Size(52, 16);
+            passwordLabel.TabIndex = 32;
+            passwordLabel.Text = "Name:";
+            // 
+            // usernameLabel
+            // 
+            usernameLabel.AutoSize = true;
+            usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            usernameLabel.Location = new System.Drawing.Point(89, 409);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new System.Drawing.Size(48, 16);
+            usernameLabel.TabIndex = 31;
+            usernameLabel.Text = "Code:";
+            // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            idLabel.Location = new System.Drawing.Point(111, 381);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(26, 16);
+            idLabel.TabIndex = 30;
+            idLabel.Text = "ID:";
+            // 
+            // search
+            // 
+            this.search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.search.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.search.Location = new System.Drawing.Point(549, 61);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(152, 20);
+            this.search.TabIndex = 17;
+            this.search.TextChanged += new System.EventHandler(this.Search_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(419, 90);
+            this.label3.Location = new System.Drawing.Point(435, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 16);
             this.label3.TabIndex = 16;
             this.label3.Text = "Search by Name";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 115);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(673, 280);
-            this.dataGridView1.TabIndex = 15;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(306, 9);
+            this.label1.Location = new System.Drawing.Point(323, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 32);
             this.label1.TabIndex = 14;
             this.label1.Text = "Type";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox5
+            // cancel
             // 
-            this.textBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(110, 477);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(152, 20);
-            this.textBox5.TabIndex = 22;
+            this.cancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancel.Enabled = false;
+            this.cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancel.Location = new System.Drawing.Point(574, 413);
+            this.cancel.Name = "cancel";
+            this.cancel.Size = new System.Drawing.Size(75, 23);
+            this.cancel.TabIndex = 28;
+            this.cancel.Text = "Cancel";
+            this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
-            // label7
+            // save
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(34, 477);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Name";
+            this.save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.save.Enabled = false;
+            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save.Location = new System.Drawing.Point(574, 386);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(75, 23);
+            this.save.TabIndex = 27;
+            this.save.Text = "Save";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
             // 
-            // label5
+            // delete
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(34, 451);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 16);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Code";
+            this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete.Location = new System.Drawing.Point(493, 435);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(75, 23);
+            this.delete.TabIndex = 26;
+            this.delete.Text = "Delete";
+            this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
-            // textBox2
+            // update
             // 
-            this.textBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(110, 425);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 20);
-            this.textBox2.TabIndex = 19;
+            this.update.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.update.Location = new System.Drawing.Point(493, 406);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(75, 23);
+            this.update.TabIndex = 25;
+            this.update.Text = "Update";
+            this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
-            // label4
+            // insert
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 425);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 16);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "ID";
+            this.insert.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.insert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.insert.Location = new System.Drawing.Point(493, 377);
+            this.insert.Name = "insert";
+            this.insert.Size = new System.Drawing.Size(75, 23);
+            this.insert.TabIndex = 24;
+            this.insert.Text = "Insert";
+            this.insert.UseVisualStyleBackColor = true;
+            this.insert.Click += new System.EventHandler(this.insert_Click);
             // 
-            // textBox3
+            // typeDataGridView
             // 
-            this.textBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(110, 450);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(152, 20);
-            this.textBox3.TabIndex = 23;
+            this.typeDataGridView.AllowUserToAddRows = false;
+            this.typeDataGridView.AllowUserToDeleteRows = false;
+            this.typeDataGridView.AutoGenerateColumns = false;
+            this.typeDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.typeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.typeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.typeDataGridView.DataSource = this.typeBindingSource;
+            this.typeDataGridView.Location = new System.Drawing.Point(12, 87);
+            this.typeDataGridView.Name = "typeDataGridView";
+            this.typeDataGridView.ReadOnly = true;
+            this.typeDataGridView.Size = new System.Drawing.Size(689, 273);
+            this.typeDataGridView.TabIndex = 29;
             // 
-            // button4
+            // idTextBox
             // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(552, 455);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 28;
-            this.button4.Text = "Cancel";
-            this.button4.UseVisualStyleBackColor = true;
+            this.idTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBindingSource, "id", true));
+            this.idTextBox.Enabled = false;
+            this.idTextBox.Location = new System.Drawing.Point(139, 380);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(155, 20);
+            this.idTextBox.TabIndex = 33;
             // 
-            // button5
+            // codeTextBox
             // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Enabled = false;
-            this.button5.Location = new System.Drawing.Point(552, 428);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 27;
-            this.button5.Text = "Save";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBindingSource, "code", true));
+            this.codeTextBox.Enabled = false;
+            this.codeTextBox.Location = new System.Drawing.Point(139, 406);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(155, 20);
+            this.codeTextBox.TabIndex = 34;
             // 
-            // button3
+            // nameTextBox
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(471, 477);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBindingSource, "name", true));
+            this.nameTextBox.Enabled = false;
+            this.nameTextBox.Location = new System.Drawing.Point(139, 432);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(155, 20);
+            this.nameTextBox.TabIndex = 35;
             // 
-            // button2
+            // typeBindingSource
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Location = new System.Drawing.Point(471, 448);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
+            this.typeBindingSource.DataSource = typeof(Examination.type);
             // 
-            // button1
+            // dataGridViewTextBoxColumn1
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(471, 419);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Insert";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "code";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Code";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "created_at";
+            this.dataGridViewTextBoxColumn4.HeaderText = "created_at";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "deleted_at";
+            this.dataGridViewTextBoxColumn5.HeaderText = "deleted_at";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // FType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 526);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(713, 473);
+            this.Controls.Add(this.idTextBox);
+            this.Controls.Add(this.codeTextBox);
+            this.Controls.Add(this.nameTextBox);
+            this.Controls.Add(passwordLabel);
+            this.Controls.Add(usernameLabel);
+            this.Controls.Add(idLabel);
+            this.Controls.Add(this.typeDataGridView);
+            this.Controls.Add(this.cancel);
+            this.Controls.Add(this.save);
+            this.Controls.Add(this.delete);
+            this.Controls.Add(this.update);
+            this.Controls.Add(this.insert);
+            this.Controls.Add(this.search);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label4);
             this.Name = "FType";
             this.Text = "Type Form";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FType_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.typeDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,20 +300,23 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button delete;
+        private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Button insert;
+        private System.Windows.Forms.BindingSource typeBindingSource;
+        private System.Windows.Forms.DataGridView typeDataGridView;
+        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.TextBox codeTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

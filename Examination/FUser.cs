@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Examination.Util;
 
@@ -16,17 +12,10 @@ namespace Examination
     {
         static IQueryable<user> users = db.users;
         static user table = null;
-        static string[] doNot = {
-            "idTextBox"
-        };
-        static string[] Do = {
-            "save",
-            "cancel",
-            "search",
-            "cbFilt",
-            "insert",
-            "update",
-            "delete"
+        static List<string> doNot = new List<string>()
+        {
+            "TextBox",
+            "ComboBox"
         };
 
         public FUser()
@@ -58,9 +47,10 @@ namespace Examination
             if (cbFilt.Text == "All")
             {
                 users = db.users;
-            } else
+            }
+            else
             {
-                users = db.users.Where(x => x.role_id.Equals((int) cbFilt.SelectedValue));
+                users = db.users.Where(x => x.role_id.Equals((int)cbFilt.SelectedValue));
             }
 
             load(userBindingSource, users);
@@ -68,28 +58,27 @@ namespace Examination
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(search.Text)) 
-            { 
-                users = users.Where(x => x.name.Contains(search.Text)); 
-                load(userBindingSource, users); 
+            if (!string.IsNullOrWhiteSpace(search.Text))
+            {
+                users = users.Where(x => x.name.Contains(search.Text));
+                load(userBindingSource, users);
             }
             else cbFilt_Leave(sender, e);
         }
 
         private void insert_Click(object sender, EventArgs e)
         {
-            flipMode(this.Controls, doNot);
+            flipMode(this.Controls);
 
             userBindingSource.SuspendBinding();
 
             idTextBox.Text = nextId("users");
             roleComboBox.SelectedIndex = -1;
-            table = null;
         }
 
         private void update_Click(object sender, EventArgs e)
         {
-            flipMode(this.Controls, doNot);
+            flipMode(this.Controls);
 
             table = (user)userBindingSource.Current;
             userBindingSource.SuspendBinding();
@@ -120,7 +109,7 @@ namespace Examination
             genderComboBox.Text = table.gender.ToString();
             addressTextBox.Text = table.address.ToString();
 
-            flipMode(this.Controls, null, Do);
+            flipMode(this.Controls, doNot);
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -130,8 +119,8 @@ namespace Examination
             {
                 if (table == null && usernameTextBox.Enabled)
                 {
-                    user newUser = new user() 
-                    { 
+                    user newUser = new user()
+                    {
                         role_id = roleComboBox.SelectedIndex + 1,
                         username = usernameTextBox.Text,
                         password = encryptMD5(passwordTextBox.Text),
@@ -144,7 +133,8 @@ namespace Examination
                         deleted_at = null
                     };
                     db.users.Add(newUser);
-                } else if (!usernameTextBox.Enabled)
+                }
+                else if (!usernameTextBox.Enabled)
                 {
                     if (MessageBox.Show("Are you sure you want to delete this data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
@@ -153,7 +143,8 @@ namespace Examination
                         delUser.deleted_at = DateTime.Now;
                     }
 
-                } else
+                }
+                else
                 {
                     user updUser = db.users.Find(table.id);
 
@@ -173,33 +164,27 @@ namespace Examination
 
                 load(userBindingSource, users);
 
-                if (usernameTextBox.Enabled) flipMode(this.Controls, doNot);
-                else flipMode(this.Controls, null, Do);
+                flipMode(this.Controls, usernameTextBox.Enabled ? null : doNot);
             }
         }
 
         private void cancel_Click(object sender, EventArgs e)
         {
-            if (usernameTextBox.Enabled) flipMode(this.Controls, doNot);
-            else flipMode(this.Controls, null, Do);
-                userBindingSource.ResumeBinding();
+            flipMode(this.Controls, usernameTextBox.Enabled ? null : doNot);
+
+            userBindingSource.ResumeBinding();
         }
         bool isValid()
         {
             int id = int.Parse(idTextBox.Text);
             long output;
             Regex emailReg = new Regex(@"^[\w.]+@[\w.-]+\.\w+");
-            if (string.IsNullOrWhiteSpace(roleComboBox.Text)) MessageBox.Show("Role can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (isEmpty(this.Controls)) return false;
             else if (usernameTextBox.Text.Length <= 3) MessageBox.Show("Username must be more than 3 characters!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (db.users.Any(x => x.username.Equals(usernameTextBox.Text) && !x.id.Equals(id))) MessageBox.Show("Username must be unique!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if ((passwordTextBox.Text.Length <= 5 || passwordTextBox.Text.Length >= 12) && (table?.password?.Equals(passwordTextBox) ?? true)) MessageBox.Show("Password must be between 5 and 12 characters!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (string.IsNullOrWhiteSpace(nameTextBox.Text)) MessageBox.Show("Name can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (string.IsNullOrWhiteSpace(emailTextBox.Text)) MessageBox.Show("Email can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (!emailReg.IsMatch(emailTextBox.Text)) MessageBox.Show("Email must be valid!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (string.IsNullOrWhiteSpace(phoneTextBox.Text)) MessageBox.Show("Phone can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (!long.TryParse(phoneTextBox.Text, out output)) MessageBox.Show("Phone must be number only!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (string.IsNullOrWhiteSpace(genderComboBox.Text)) MessageBox.Show("Gender can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (string.IsNullOrWhiteSpace(addressTextBox.Text)) MessageBox.Show("Address can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else return true;
             return false;
         }

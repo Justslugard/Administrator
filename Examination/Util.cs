@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
 
 
 namespace Examination
@@ -30,11 +25,13 @@ namespace Examination
             return nextId;
         }
 
-        public static void flipMode(Control.ControlCollection controls, string[] doNot = null, string[] Do = null)
+        public static void flipMode(Control.ControlCollection controls, List<string> doNot = null)
         {
+            if (doNot == null) doNot = new List<string>() { "idTextBox" };
+
             foreach (Control control in controls)
             {
-                bool contains = (!doNot?.Contains(control.Name) ?? false) || (Do?.Contains(control.Name) ?? false);
+                bool contains = !doNot.Any(s => control.Name.Contains(s) && !string.IsNullOrWhiteSpace(control.Name));
                 if (control is Button)
                 {
                     if (contains) control.Enabled = !control.Enabled;
@@ -67,6 +64,38 @@ namespace Examination
         {
             return string.Join("", MD5.Create().ComputeHash(Encoding.ASCII.GetBytes(encrypt)).Select(s => s.ToString("x2")));
         }
+        public static bool isEmpty(Control.ControlCollection controls)
+        {
+            string[] validC = { "TextBox", "ComboBox" };
+
+            foreach (Control control in controls)
+            {
+                //Console.WriteLine(control);
+                //Console.WriteLine(control.Name);
+                //Console.WriteLine(string.IsNullOrWhiteSpace(control.Text) && validC.Any(s => control.Name.Contains(s) && !string.IsNullOrWhiteSpace(control.Name)));
+                //Console.WriteLine("====");
+                if (string.IsNullOrWhiteSpace(control.Text) && validC.Any(s => control.Name.Contains(s) && !string.IsNullOrWhiteSpace(control.Name))) 
+                {
+                    string text = char.ToUpper(control.Name[0]) + validC.Aggregate(control.Name, (curr, sub) => curr.Replace(sub, "")).Substring(1);
+
+                    MessageBox.Show($"{text} can't be emty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (control.HasChildren)
+                {
+                    if (isEmpty(control.Controls))
+                    {
+                        return true;
+                    } else
+                    {
+                        continue;
+                    }
+                }
+                else continue;
+
+                return true;
+            }
+            return false;
+        }
     }
     public partial class user : IDeletable
     {
@@ -74,7 +103,7 @@ namespace Examination
     }
     public partial class cases_details : IDeletable { }
     public partial class room : IDeletable { }
-    public partial class room : IDeletable { }
+    public partial class type : IDeletable { }
 
     public interface IDeletable
     {

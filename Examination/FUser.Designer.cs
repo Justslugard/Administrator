@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label nameLabel;
+            System.Windows.Forms.Label roleLabel;
             System.Windows.Forms.Label idLabel;
             System.Windows.Forms.Label usernameLabel;
             System.Windows.Forms.Label passwordLabel;
-            System.Windows.Forms.Label nameLabel1;
+            System.Windows.Forms.Label nameLabel;
             System.Windows.Forms.Label emailLabel;
             System.Windows.Forms.Label phoneLabel;
             System.Windows.Forms.Label genderLabel;
@@ -43,18 +43,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.search = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.idTextBox = new System.Windows.Forms.TextBox();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roleComboBox = new System.Windows.Forms.ComboBox();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.examDataSet = new Examination.ExamDataSet();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
-            this.idTextBox = new System.Windows.Forms.TextBox();
-            this.roleComboBox = new System.Windows.Forms.ComboBox();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.examDataSet = new Examination.ExamDataSet();
             this.insert = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
@@ -76,11 +76,11 @@
             this.createdatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deletedatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rolesTableAdapter = new Examination.ExamDataSetTableAdapters.rolesTableAdapter();
-            nameLabel = new System.Windows.Forms.Label();
+            roleLabel = new System.Windows.Forms.Label();
             idLabel = new System.Windows.Forms.Label();
             usernameLabel = new System.Windows.Forms.Label();
             passwordLabel = new System.Windows.Forms.Label();
-            nameLabel1 = new System.Windows.Forms.Label();
+            nameLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             phoneLabel = new System.Windows.Forms.Label();
             genderLabel = new System.Windows.Forms.Label();
@@ -93,15 +93,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // nameLabel
+            // roleLabel
             // 
-            nameLabel.AutoSize = true;
-            nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nameLabel.Location = new System.Drawing.Point(45, 49);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(44, 16);
-            nameLabel.TabIndex = 0;
-            nameLabel.Text = "Role:";
+            roleLabel.AutoSize = true;
+            roleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            roleLabel.Location = new System.Drawing.Point(45, 49);
+            roleLabel.Name = "roleLabel";
+            roleLabel.Size = new System.Drawing.Size(44, 16);
+            roleLabel.TabIndex = 0;
+            roleLabel.Text = "Role:";
             // 
             // idLabel
             // 
@@ -133,15 +133,15 @@
             passwordLabel.TabIndex = 6;
             passwordLabel.Text = "Password:";
             // 
-            // nameLabel1
+            // nameLabel
             // 
-            nameLabel1.AutoSize = true;
-            nameLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nameLabel1.Location = new System.Drawing.Point(37, 128);
-            nameLabel1.Name = "nameLabel1";
-            nameLabel1.Size = new System.Drawing.Size(52, 16);
-            nameLabel1.TabIndex = 8;
-            nameLabel1.Text = "Name:";
+            nameLabel.AutoSize = true;
+            nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nameLabel.Location = new System.Drawing.Point(37, 128);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(52, 16);
+            nameLabel.TabIndex = 8;
+            nameLabel.Text = "Name:";
             // 
             // emailLabel
             // 
@@ -177,7 +177,7 @@
             // 
             addressLabel.AutoSize = true;
             addressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            addressLabel.Location = new System.Drawing.Point(429, 99);
+            addressLabel.Location = new System.Drawing.Point(429, 100);
             addressLabel.Name = "addressLabel";
             addressLabel.Size = new System.Drawing.Size(69, 16);
             addressLabel.TabIndex = 16;
@@ -207,7 +207,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(441, 76);
+            this.label3.Location = new System.Drawing.Point(442, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 16);
             this.label3.TabIndex = 5;
@@ -215,8 +215,9 @@
             // 
             // search
             // 
-            this.search.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.search.Location = new System.Drawing.Point(548, 76);
+            this.search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.search.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.search.Location = new System.Drawing.Point(556, 77);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(152, 20);
             this.search.TabIndex = 6;
@@ -224,24 +225,24 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(addressLabel);
-            this.groupBox1.Controls.Add(this.addressTextBox);
-            this.groupBox1.Controls.Add(genderLabel);
-            this.groupBox1.Controls.Add(this.genderComboBox);
-            this.groupBox1.Controls.Add(phoneLabel);
-            this.groupBox1.Controls.Add(this.phoneTextBox);
-            this.groupBox1.Controls.Add(emailLabel);
-            this.groupBox1.Controls.Add(this.emailTextBox);
-            this.groupBox1.Controls.Add(nameLabel1);
-            this.groupBox1.Controls.Add(this.nameTextBox);
-            this.groupBox1.Controls.Add(passwordLabel);
-            this.groupBox1.Controls.Add(this.passwordTextBox);
-            this.groupBox1.Controls.Add(usernameLabel);
-            this.groupBox1.Controls.Add(this.usernameTextBox);
             this.groupBox1.Controls.Add(idLabel);
             this.groupBox1.Controls.Add(this.idTextBox);
-            this.groupBox1.Controls.Add(nameLabel);
+            this.groupBox1.Controls.Add(roleLabel);
             this.groupBox1.Controls.Add(this.roleComboBox);
+            this.groupBox1.Controls.Add(usernameLabel);
+            this.groupBox1.Controls.Add(this.usernameTextBox);
+            this.groupBox1.Controls.Add(passwordLabel);
+            this.groupBox1.Controls.Add(this.passwordTextBox);
+            this.groupBox1.Controls.Add(nameLabel);
+            this.groupBox1.Controls.Add(this.nameTextBox);
+            this.groupBox1.Controls.Add(emailLabel);
+            this.groupBox1.Controls.Add(this.emailTextBox);
+            this.groupBox1.Controls.Add(phoneLabel);
+            this.groupBox1.Controls.Add(this.phoneTextBox);
+            this.groupBox1.Controls.Add(genderLabel);
+            this.groupBox1.Controls.Add(this.genderComboBox);
+            this.groupBox1.Controls.Add(addressLabel);
+            this.groupBox1.Controls.Add(this.addressTextBox);
             this.groupBox1.Location = new System.Drawing.Point(15, 418);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(685, 164);
@@ -249,95 +250,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Detail";
             // 
-            // addressTextBox
-            // 
-            this.addressTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "address", true));
-            this.addressTextBox.Enabled = false;
-            this.addressTextBox.Location = new System.Drawing.Point(506, 101);
-            this.addressTextBox.Multiline = true;
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(159, 46);
-            this.addressTextBox.TabIndex = 17;
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(Examination.user);
-            // 
-            // genderComboBox
-            // 
-            this.genderComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.genderComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "gender", true));
-            this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.genderComboBox.Enabled = false;
-            this.genderComboBox.FormattingEnabled = true;
-            this.genderComboBox.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.genderComboBox.Location = new System.Drawing.Point(506, 71);
-            this.genderComboBox.Name = "genderComboBox";
-            this.genderComboBox.Size = new System.Drawing.Size(159, 21);
-            this.genderComboBox.TabIndex = 15;
-            // 
-            // phoneTextBox
-            // 
-            this.phoneTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "phone", true));
-            this.phoneTextBox.Enabled = false;
-            this.phoneTextBox.Location = new System.Drawing.Point(506, 45);
-            this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(159, 20);
-            this.phoneTextBox.TabIndex = 13;
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "email", true));
-            this.emailTextBox.Enabled = false;
-            this.emailTextBox.Location = new System.Drawing.Point(506, 19);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(159, 20);
-            this.emailTextBox.TabIndex = 11;
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "name", true));
-            this.nameTextBox.Enabled = false;
-            this.nameTextBox.Location = new System.Drawing.Point(97, 124);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(159, 20);
-            this.nameTextBox.TabIndex = 9;
-            // 
-            // passwordTextBox
-            // 
-            this.passwordTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "password", true));
-            this.passwordTextBox.Enabled = false;
-            this.passwordTextBox.Location = new System.Drawing.Point(97, 98);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(159, 20);
-            this.passwordTextBox.TabIndex = 7;
-            // 
-            // usernameTextBox
-            // 
-            this.usernameTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.usernameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "username", true));
-            this.usernameTextBox.Enabled = false;
-            this.usernameTextBox.Location = new System.Drawing.Point(97, 72);
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(159, 20);
-            this.usernameTextBox.TabIndex = 5;
-            // 
             // idTextBox
             // 
-            this.idTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.idTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "id", true));
             this.idTextBox.Enabled = false;
             this.idTextBox.Location = new System.Drawing.Point(97, 19);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(159, 20);
             this.idTextBox.TabIndex = 3;
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(Examination.user);
             // 
             // roleComboBox
             // 
@@ -364,9 +290,92 @@
             this.examDataSet.DataSetName = "ExamDataSet";
             this.examDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // addressTextBox
+            // 
+            this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.addressTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "address", true));
+            this.addressTextBox.Enabled = false;
+            this.addressTextBox.Location = new System.Drawing.Point(506, 102);
+            this.addressTextBox.Multiline = true;
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(159, 46);
+            this.addressTextBox.TabIndex = 17;
+            // 
+            // genderComboBox
+            // 
+            this.genderComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.genderComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "gender", true));
+            this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genderComboBox.Enabled = false;
+            this.genderComboBox.FormattingEnabled = true;
+            this.genderComboBox.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.genderComboBox.Location = new System.Drawing.Point(506, 71);
+            this.genderComboBox.Name = "genderComboBox";
+            this.genderComboBox.Size = new System.Drawing.Size(159, 21);
+            this.genderComboBox.TabIndex = 15;
+            // 
+            // phoneTextBox
+            // 
+            this.phoneTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.phoneTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "phone", true));
+            this.phoneTextBox.Enabled = false;
+            this.phoneTextBox.Location = new System.Drawing.Point(506, 45);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(159, 20);
+            this.phoneTextBox.TabIndex = 13;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.emailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "email", true));
+            this.emailTextBox.Enabled = false;
+            this.emailTextBox.Location = new System.Drawing.Point(506, 19);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(159, 20);
+            this.emailTextBox.TabIndex = 11;
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "name", true));
+            this.nameTextBox.Enabled = false;
+            this.nameTextBox.Location = new System.Drawing.Point(97, 124);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(159, 20);
+            this.nameTextBox.TabIndex = 9;
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.passwordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "password", true));
+            this.passwordTextBox.Enabled = false;
+            this.passwordTextBox.Location = new System.Drawing.Point(97, 98);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(159, 20);
+            this.passwordTextBox.TabIndex = 7;
+            // 
+            // usernameTextBox
+            // 
+            this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.usernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.usernameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "username", true));
+            this.usernameTextBox.Enabled = false;
+            this.usernameTextBox.Location = new System.Drawing.Point(97, 72);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(159, 20);
+            this.usernameTextBox.TabIndex = 5;
+            // 
             // insert
             // 
             this.insert.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.insert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insert.Location = new System.Drawing.Point(243, 599);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(75, 23);
@@ -378,6 +387,7 @@
             // update
             // 
             this.update.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.update.Location = new System.Drawing.Point(324, 599);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(75, 23);
@@ -389,6 +399,7 @@
             // delete
             // 
             this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete.Location = new System.Drawing.Point(405, 599);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 23);
@@ -401,6 +412,7 @@
             // 
             this.cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancel.Enabled = false;
+            this.cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancel.Location = new System.Drawing.Point(366, 628);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(75, 23);
@@ -413,6 +425,7 @@
             // 
             this.save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.save.Enabled = false;
+            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.save.Location = new System.Drawing.Point(285, 628);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(75, 23);
@@ -447,6 +460,8 @@
             this.userDataGridView.AllowUserToDeleteRows = false;
             this.userDataGridView.AutoGenerateColumns = false;
             this.userDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.userDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.userDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.userDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -465,16 +480,17 @@
             this.userDataGridView.Location = new System.Drawing.Point(12, 103);
             this.userDataGridView.Name = "userDataGridView";
             this.userDataGridView.ReadOnly = true;
+            this.userDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.userDataGridView.Size = new System.Drawing.Size(696, 309);
             this.userDataGridView.TabIndex = 27;
             // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 40;
+            this.idDataGridViewTextBoxColumn.Width = 43;
             // 
             // roleidDataGridViewTextBoxColumn
             // 
@@ -488,66 +504,66 @@
             // roleNameDataGridViewTextBoxColumn
             // 
             this.roleNameDataGridViewTextBoxColumn.DataPropertyName = "RoleName";
-            this.roleNameDataGridViewTextBoxColumn.HeaderText = "RoleName";
+            this.roleNameDataGridViewTextBoxColumn.HeaderText = "Role";
             this.roleNameDataGridViewTextBoxColumn.Name = "roleNameDataGridViewTextBoxColumn";
             this.roleNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roleNameDataGridViewTextBoxColumn.Width = 82;
+            this.roleNameDataGridViewTextBoxColumn.Width = 54;
             // 
             // usernameDataGridViewTextBoxColumn
             // 
             this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
             this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
             this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.usernameDataGridViewTextBoxColumn.Width = 78;
+            this.usernameDataGridViewTextBoxColumn.Width = 80;
             // 
             // passwordDataGridViewTextBoxColumn
             // 
             this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
             this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            this.passwordDataGridViewTextBoxColumn.Width = 77;
+            this.passwordDataGridViewTextBoxColumn.Width = 78;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 58;
+            this.nameDataGridViewTextBoxColumn.Width = 60;
             // 
             // emailDataGridViewTextBoxColumn
             // 
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.emailDataGridViewTextBoxColumn.Width = 56;
+            this.emailDataGridViewTextBoxColumn.Width = 57;
             // 
             // phoneDataGridViewTextBoxColumn
             // 
             this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
             this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
             this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            this.phoneDataGridViewTextBoxColumn.Width = 62;
+            this.phoneDataGridViewTextBoxColumn.Width = 63;
             // 
             // genderDataGridViewTextBoxColumn
             // 
             this.genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
-            this.genderDataGridViewTextBoxColumn.HeaderText = "gender";
+            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
             this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
             this.genderDataGridViewTextBoxColumn.ReadOnly = true;
-            this.genderDataGridViewTextBoxColumn.Width = 65;
+            this.genderDataGridViewTextBoxColumn.Width = 67;
             // 
             // addressDataGridViewTextBoxColumn
             // 
             this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-            this.addressDataGridViewTextBoxColumn.Width = 69;
+            this.addressDataGridViewTextBoxColumn.Width = 70;
             // 
             // createdatDataGridViewTextBoxColumn
             // 
@@ -623,17 +639,12 @@
         private System.Windows.Forms.ComboBox genderComboBox;
         private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridView userDataGridView;
+        private System.Windows.Forms.BindingSource userBindingSource;
+        private ExamDataSet examDataSet;
+        private System.Windows.Forms.BindingSource rolesBindingSource;
+        private ExamDataSetTableAdapters.rolesTableAdapter rolesTableAdapter;
+        private System.Windows.Forms.BindingSource rolesBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleNameDataGridViewTextBoxColumn;
@@ -646,10 +657,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deletedatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource userBindingSource;
-        private ExamDataSet examDataSet;
-        private System.Windows.Forms.BindingSource rolesBindingSource;
-        private ExamDataSetTableAdapters.rolesTableAdapter rolesTableAdapter;
-        private System.Windows.Forms.BindingSource rolesBindingSource1;
     }
 }

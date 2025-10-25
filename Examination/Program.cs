@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Examination
@@ -14,16 +11,16 @@ namespace Examination
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            using (Login login = new Login())
-            {
-                if (login.ShowDialog() == DialogResult.OK)
-                {
-                    Application.Run(new Main());
-                }
-            }
-            //Application.Run(new FUser());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //using (Login login = new Login())
+            //{
+            //    if (login.ShowDialog() == DialogResult.OK)
+            //    {
+            //        Application.Run(new Main());
+            //    }
+            //}
+            Application.Run(new FType());
         }
     }
 }
