@@ -37,6 +37,8 @@ namespace Examination
         private void FUser_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'examDataSet.roles' table. You can move, or remove it, as needed.
+            this.rolesTableAdapter.Fill(this.examDataSet.roles);
+            // TODO: This line of code loads data into the 'examDataSet.roles' table. You can move, or remove it, as needed.
             //this.rolesTableAdapter.Fill(this.examDataSet.roles);
 
             List<role> filter = db.roles.ToList();
@@ -190,7 +192,7 @@ namespace Examination
             if (string.IsNullOrWhiteSpace(roleComboBox.Text)) MessageBox.Show("Role can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (usernameTextBox.Text.Length <= 3) MessageBox.Show("Username must be more than 3 characters!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (db.users.Any(x => x.username.Equals(usernameTextBox.Text) && !x.id.Equals(id))) MessageBox.Show("Username must be unique!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (passwordTextBox.Text.Length <= 5 || passwordTextBox.Text.Length >= 12) MessageBox.Show("Password must be between 5 and 12 characters!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if ((passwordTextBox.Text.Length <= 5 || passwordTextBox.Text.Length >= 12) && (table?.password?.Equals(passwordTextBox) ?? true)) MessageBox.Show("Password must be between 5 and 12 characters!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (string.IsNullOrWhiteSpace(nameTextBox.Text)) MessageBox.Show("Name can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (string.IsNullOrWhiteSpace(emailTextBox.Text)) MessageBox.Show("Email can't be empty!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (!emailReg.IsMatch(emailTextBox.Text)) MessageBox.Show("Email must be valid!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);

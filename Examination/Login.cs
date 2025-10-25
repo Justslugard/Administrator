@@ -47,12 +47,12 @@ namespace Examination
             if (button.Name == "exam")
             {
                 username.Text = "participant";
-                ps.Text = "e42db0f9a183ac066bdec45b0c0cf2c7";
+                ps.Text = "participant";
             }
             else if (button.Name == "adm")
             {
                 username.Text = "root";
-                ps.Text = "21232f297a57a5a743894a0e4a801fc3";
+                ps.Text = "admin";
             }
             logkan_Click(sender, e);
         }

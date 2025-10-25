@@ -44,6 +44,7 @@
             this.search = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
@@ -52,28 +53,29 @@
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.roleComboBox = new System.Windows.Forms.ComboBox();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.examDataSet = new Examination.ExamDataSet();
             this.insert = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.cbFilt = new System.Windows.Forms.ComboBox();
+            this.rolesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.userDataGridView = new System.Windows.Forms.DataGridView();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.deletedatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.examDataSet = new Examination.ExamDataSet();
-            this.examDataSet1 = new Examination.ExamDataSet();
+            this.roleidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deletedatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rolesTableAdapter = new Examination.ExamDataSetTableAdapters.rolesTableAdapter();
             nameLabel = new System.Windows.Forms.Label();
             idLabel = new System.Windows.Forms.Label();
             usernameLabel = new System.Windows.Forms.Label();
@@ -84,10 +86,11 @@
             genderLabel = new System.Windows.Forms.Label();
             addressLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.examDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.examDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -249,6 +252,7 @@
             // addressTextBox
             // 
             this.addressTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "address", true));
             this.addressTextBox.Enabled = false;
             this.addressTextBox.Location = new System.Drawing.Point(506, 101);
             this.addressTextBox.Multiline = true;
@@ -256,9 +260,14 @@
             this.addressTextBox.Size = new System.Drawing.Size(159, 46);
             this.addressTextBox.TabIndex = 17;
             // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(Examination.user);
+            // 
             // genderComboBox
             // 
             this.genderComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.genderComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "gender", true));
             this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderComboBox.Enabled = false;
             this.genderComboBox.FormattingEnabled = true;
@@ -273,6 +282,7 @@
             // phoneTextBox
             // 
             this.phoneTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "phone", true));
             this.phoneTextBox.Enabled = false;
             this.phoneTextBox.Location = new System.Drawing.Point(506, 45);
             this.phoneTextBox.Name = "phoneTextBox";
@@ -282,6 +292,7 @@
             // emailTextBox
             // 
             this.emailTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "email", true));
             this.emailTextBox.Enabled = false;
             this.emailTextBox.Location = new System.Drawing.Point(506, 19);
             this.emailTextBox.Name = "emailTextBox";
@@ -291,6 +302,7 @@
             // nameTextBox
             // 
             this.nameTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "name", true));
             this.nameTextBox.Enabled = false;
             this.nameTextBox.Location = new System.Drawing.Point(97, 124);
             this.nameTextBox.Name = "nameTextBox";
@@ -300,6 +312,7 @@
             // passwordTextBox
             // 
             this.passwordTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "password", true));
             this.passwordTextBox.Enabled = false;
             this.passwordTextBox.Location = new System.Drawing.Point(97, 98);
             this.passwordTextBox.Name = "passwordTextBox";
@@ -309,6 +322,7 @@
             // usernameTextBox
             // 
             this.usernameTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.usernameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "username", true));
             this.usernameTextBox.Enabled = false;
             this.usernameTextBox.Location = new System.Drawing.Point(97, 72);
             this.usernameTextBox.Name = "usernameTextBox";
@@ -318,6 +332,7 @@
             // idTextBox
             // 
             this.idTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "id", true));
             this.idTextBox.Enabled = false;
             this.idTextBox.Location = new System.Drawing.Point(97, 19);
             this.idTextBox.Name = "idTextBox";
@@ -327,6 +342,9 @@
             // roleComboBox
             // 
             this.roleComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roleComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.userBindingSource, "role_id", true));
+            this.roleComboBox.DataSource = this.rolesBindingSource;
+            this.roleComboBox.DisplayMember = "name";
             this.roleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.roleComboBox.Enabled = false;
             this.roleComboBox.FormattingEnabled = true;
@@ -335,6 +353,16 @@
             this.roleComboBox.Size = new System.Drawing.Size(159, 21);
             this.roleComboBox.TabIndex = 1;
             this.roleComboBox.ValueMember = "id";
+            // 
+            // rolesBindingSource
+            // 
+            this.rolesBindingSource.DataMember = "roles";
+            this.rolesBindingSource.DataSource = this.examDataSet;
+            // 
+            // examDataSet
+            // 
+            this.examDataSet.DataSetName = "ExamDataSet";
+            this.examDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // insert
             // 
@@ -396,6 +424,7 @@
             // cbFilt
             // 
             this.cbFilt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbFilt.DataSource = this.rolesBindingSource1;
             this.cbFilt.DisplayMember = "name";
             this.cbFilt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -404,13 +433,19 @@
             this.cbFilt.Name = "cbFilt";
             this.cbFilt.Size = new System.Drawing.Size(80, 21);
             this.cbFilt.TabIndex = 27;
-            this.cbFilt.ValueMember = "name";
+            this.cbFilt.ValueMember = "id";
             this.cbFilt.SelectionChangeCommitted += new System.EventHandler(this.cbFilt_Leave);
+            // 
+            // rolesBindingSource1
+            // 
+            this.rolesBindingSource1.DataMember = "roles";
+            this.rolesBindingSource1.DataSource = this.examDataSet;
             // 
             // userDataGridView
             // 
             this.userDataGridView.AllowUserToAddRows = false;
             this.userDataGridView.AllowUserToDeleteRows = false;
+            this.userDataGridView.AutoGenerateColumns = false;
             this.userDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.userDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -426,95 +461,20 @@
             this.addressDataGridViewTextBoxColumn,
             this.createdatDataGridViewTextBoxColumn,
             this.deletedatDataGridViewTextBoxColumn});
+            this.userDataGridView.DataSource = this.userBindingSource;
             this.userDataGridView.Location = new System.Drawing.Point(12, 103);
             this.userDataGridView.Name = "userDataGridView";
             this.userDataGridView.ReadOnly = true;
             this.userDataGridView.Size = new System.Drawing.Size(696, 309);
             this.userDataGridView.TabIndex = 27;
             // 
-            // userBindingSource
+            // idDataGridViewTextBoxColumn
             // 
-            this.userBindingSource.DataSource = typeof(Examination.user);
-            // 
-            // deletedatDataGridViewTextBoxColumn
-            // 
-            this.deletedatDataGridViewTextBoxColumn.DataPropertyName = "deleted_at";
-            this.deletedatDataGridViewTextBoxColumn.HeaderText = "deleted_at";
-            this.deletedatDataGridViewTextBoxColumn.Name = "deletedatDataGridViewTextBoxColumn";
-            this.deletedatDataGridViewTextBoxColumn.ReadOnly = true;
-            this.deletedatDataGridViewTextBoxColumn.Width = 82;
-            // 
-            // createdatDataGridViewTextBoxColumn
-            // 
-            this.createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
-            this.createdatDataGridViewTextBoxColumn.HeaderText = "created_at";
-            this.createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
-            this.createdatDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createdatDataGridViewTextBoxColumn.Width = 83;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-            this.addressDataGridViewTextBoxColumn.Width = 69;
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            this.genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
-            this.genderDataGridViewTextBoxColumn.HeaderText = "gender";
-            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            this.genderDataGridViewTextBoxColumn.ReadOnly = true;
-            this.genderDataGridViewTextBoxColumn.Width = 65;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "phone";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            this.phoneDataGridViewTextBoxColumn.Width = 62;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.emailDataGridViewTextBoxColumn.Width = 56;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 58;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            this.passwordDataGridViewTextBoxColumn.Width = 77;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "username";
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.usernameDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // roleNameDataGridViewTextBoxColumn
-            // 
-            this.roleNameDataGridViewTextBoxColumn.DataPropertyName = "RoleName";
-            this.roleNameDataGridViewTextBoxColumn.HeaderText = "RoleName";
-            this.roleNameDataGridViewTextBoxColumn.Name = "roleNameDataGridViewTextBoxColumn";
-            this.roleNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roleNameDataGridViewTextBoxColumn.Width = 82;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 40;
             // 
             // roleidDataGridViewTextBoxColumn
             // 
@@ -525,23 +485,89 @@
             this.roleidDataGridViewTextBoxColumn.Visible = false;
             this.roleidDataGridViewTextBoxColumn.Width = 63;
             // 
-            // idDataGridViewTextBoxColumn
+            // roleNameDataGridViewTextBoxColumn
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 40;
+            this.roleNameDataGridViewTextBoxColumn.DataPropertyName = "RoleName";
+            this.roleNameDataGridViewTextBoxColumn.HeaderText = "RoleName";
+            this.roleNameDataGridViewTextBoxColumn.Name = "roleNameDataGridViewTextBoxColumn";
+            this.roleNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.roleNameDataGridViewTextBoxColumn.Width = 82;
             // 
-            // examDataSet
+            // usernameDataGridViewTextBoxColumn
             // 
-            this.examDataSet.DataSetName = "ExamDataSet";
-            this.examDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "username";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usernameDataGridViewTextBoxColumn.Width = 78;
             // 
-            // examDataSet1
+            // passwordDataGridViewTextBoxColumn
             // 
-            this.examDataSet1.DataSetName = "ExamDataSet";
-            this.examDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            this.passwordDataGridViewTextBoxColumn.Width = 77;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 58;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.emailDataGridViewTextBoxColumn.Width = 56;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "phone";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            this.phoneDataGridViewTextBoxColumn.Width = 62;
+            // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            this.genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
+            this.genderDataGridViewTextBoxColumn.HeaderText = "gender";
+            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            this.genderDataGridViewTextBoxColumn.ReadOnly = true;
+            this.genderDataGridViewTextBoxColumn.Width = 65;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            this.addressDataGridViewTextBoxColumn.Width = 69;
+            // 
+            // createdatDataGridViewTextBoxColumn
+            // 
+            this.createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
+            this.createdatDataGridViewTextBoxColumn.HeaderText = "created_at";
+            this.createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
+            this.createdatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createdatDataGridViewTextBoxColumn.Width = 83;
+            // 
+            // deletedatDataGridViewTextBoxColumn
+            // 
+            this.deletedatDataGridViewTextBoxColumn.DataPropertyName = "deleted_at";
+            this.deletedatDataGridViewTextBoxColumn.HeaderText = "deleted_at";
+            this.deletedatDataGridViewTextBoxColumn.Name = "deletedatDataGridViewTextBoxColumn";
+            this.deletedatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.deletedatDataGridViewTextBoxColumn.Width = 82;
+            // 
+            // rolesTableAdapter
+            // 
+            this.rolesTableAdapter.ClearBeforeFill = true;
             // 
             // FUser
             // 
@@ -565,10 +591,11 @@
             this.Load += new System.EventHandler(this.FUser_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.examDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.examDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -621,6 +648,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn deletedatDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource userBindingSource;
         private ExamDataSet examDataSet;
-        private ExamDataSet examDataSet1;
+        private System.Windows.Forms.BindingSource rolesBindingSource;
+        private ExamDataSetTableAdapters.rolesTableAdapter rolesTableAdapter;
+        private System.Windows.Forms.BindingSource rolesBindingSource1;
     }
 }
