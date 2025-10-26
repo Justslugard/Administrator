@@ -13,14 +13,14 @@ namespace Examination
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            using (Login login = new Login())
-            {
-                if (login.ShowDialog() == DialogResult.OK)
-                {
-                    Application.Run(new Main());
-                }
-            }
-            //Application.Run(new ViewCase());
+            //using (Login login = new Login())
+            //{
+            //    if (login.ShowDialog() == DialogResult.OK)
+            //    {
+            //        Application.Run(new Main());
+            //    }
+            //}
+            Application.Run(new FSchedule());
         }
     }
 }

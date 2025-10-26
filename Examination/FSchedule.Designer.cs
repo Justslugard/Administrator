@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -56,11 +57,24 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.scheduleidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.participantidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schedulesparticipantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.examineridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.caseidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deletedatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulesparticipantsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -255,9 +269,19 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.examineridDataGridViewTextBoxColumn,
+            this.roomidDataGridViewTextBoxColumn,
+            this.caseidDataGridViewTextBoxColumn,
+            this.timeDataGridViewTextBoxColumn,
+            this.createdatDataGridViewTextBoxColumn,
+            this.deletedatDataGridViewTextBoxColumn});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dataGridView1.DataSource = this.scheduleBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(5, 19);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -351,14 +375,97 @@
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.scheduleidDataGridViewTextBoxColumn,
+            this.participantidDataGridViewTextBoxColumn});
             this.dataGridView2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dataGridView2.DataSource = this.schedulesparticipantsBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(6, 19);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(413, 99);
             this.dataGridView2.TabIndex = 1;
+            // 
+            // scheduleidDataGridViewTextBoxColumn
+            // 
+            this.scheduleidDataGridViewTextBoxColumn.DataPropertyName = "schedule_id";
+            this.scheduleidDataGridViewTextBoxColumn.HeaderText = "Schedule ID";
+            this.scheduleidDataGridViewTextBoxColumn.Name = "scheduleidDataGridViewTextBoxColumn";
+            this.scheduleidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // participantidDataGridViewTextBoxColumn
+            // 
+            this.participantidDataGridViewTextBoxColumn.DataPropertyName = "participant_id";
+            this.participantidDataGridViewTextBoxColumn.HeaderText = "Participant ID";
+            this.participantidDataGridViewTextBoxColumn.Name = "participantidDataGridViewTextBoxColumn";
+            this.participantidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // schedulesparticipantsBindingSource
+            // 
+            this.schedulesparticipantsBindingSource.DataSource = typeof(Examination.schedules_participants);
+            // 
+            // scheduleBindingSource
+            // 
+            this.scheduleBindingSource.DataSource = typeof(Examination.schedule);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 43;
+            // 
+            // examineridDataGridViewTextBoxColumn
+            // 
+            this.examineridDataGridViewTextBoxColumn.DataPropertyName = "Examiner";
+            this.examineridDataGridViewTextBoxColumn.HeaderText = "Examiner";
+            this.examineridDataGridViewTextBoxColumn.Name = "examineridDataGridViewTextBoxColumn";
+            this.examineridDataGridViewTextBoxColumn.ReadOnly = true;
+            this.examineridDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // roomidDataGridViewTextBoxColumn
+            // 
+            this.roomidDataGridViewTextBoxColumn.DataPropertyName = "Room";
+            this.roomidDataGridViewTextBoxColumn.HeaderText = "Room";
+            this.roomidDataGridViewTextBoxColumn.Name = "roomidDataGridViewTextBoxColumn";
+            this.roomidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.roomidDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // caseidDataGridViewTextBoxColumn
+            // 
+            this.caseidDataGridViewTextBoxColumn.DataPropertyName = "Case";
+            this.caseidDataGridViewTextBoxColumn.HeaderText = "Cases";
+            this.caseidDataGridViewTextBoxColumn.Name = "caseidDataGridViewTextBoxColumn";
+            this.caseidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.caseidDataGridViewTextBoxColumn.Width = 61;
+            // 
+            // timeDataGridViewTextBoxColumn
+            // 
+            this.timeDataGridViewTextBoxColumn.DataPropertyName = "time";
+            this.timeDataGridViewTextBoxColumn.HeaderText = "Time";
+            this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
+            this.timeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.timeDataGridViewTextBoxColumn.Width = 55;
+            // 
+            // createdatDataGridViewTextBoxColumn
+            // 
+            this.createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
+            this.createdatDataGridViewTextBoxColumn.HeaderText = "created_at";
+            this.createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
+            this.createdatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createdatDataGridViewTextBoxColumn.Width = 83;
+            // 
+            // deletedatDataGridViewTextBoxColumn
+            // 
+            this.deletedatDataGridViewTextBoxColumn.DataPropertyName = "deleted_at";
+            this.deletedatDataGridViewTextBoxColumn.HeaderText = "deleted_at";
+            this.deletedatDataGridViewTextBoxColumn.Name = "deletedatDataGridViewTextBoxColumn";
+            this.deletedatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.deletedatDataGridViewTextBoxColumn.Width = 82;
             // 
             // FSchedule
             // 
@@ -370,6 +477,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FSchedule";
             this.Text = "Schedule";
+            this.Load += new System.EventHandler(this.FSchedule_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -377,6 +485,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulesparticipantsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,5 +522,16 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.BindingSource scheduleBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scheduleidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn participantidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource schedulesparticipantsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn examineridDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roomidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn caseidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deletedatDataGridViewTextBoxColumn;
     }
 }

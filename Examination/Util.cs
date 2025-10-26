@@ -67,7 +67,7 @@ namespace Examination
         }
         public static bool isEmpty(Control.ControlCollection controls)
         {
-            string[] validC = { "TextBox", "ComboBox" };
+            string[] validC = { "TextBox", "ComboBox", "DateTimePicker" };
 
             foreach (Control control in controls)
             {
@@ -118,6 +118,12 @@ namespace Examination
     }
     public partial class room : IDeletable { }
     public partial class type : IDeletable { }
+    public partial class schedule : IDeletable 
+    { 
+        public string Examiner { get { return user?.name ?? ""; } }
+        public string Room { get { return room?.code ?? ""; } }
+        public string Case { get { return @case?.code ?? ""; } }
+    }
 
     public interface IDeletable
     {
