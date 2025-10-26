@@ -105,6 +105,8 @@ namespace Examination
                 {
                     room.code = codeTextBox.Text;
                     room.capacity = int.Parse(capacityTextBox.Text);
+
+                    MessageBox.Show("Room successfully updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 db.SaveChanges();

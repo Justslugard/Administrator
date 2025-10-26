@@ -97,10 +97,9 @@
             // 
             roleLabel.AutoSize = true;
             roleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            roleLabel.Location = new System.Drawing.Point(60, 60);
-            roleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            roleLabel.Location = new System.Drawing.Point(45, 49);
             roleLabel.Name = "roleLabel";
-            roleLabel.Size = new System.Drawing.Size(53, 20);
+            roleLabel.Size = new System.Drawing.Size(44, 16);
             roleLabel.TabIndex = 0;
             roleLabel.Text = "Role:";
             // 
@@ -108,10 +107,9 @@
             // 
             idLabel.AutoSize = true;
             idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            idLabel.Location = new System.Drawing.Point(83, 28);
-            idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            idLabel.Location = new System.Drawing.Point(62, 23);
             idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(34, 20);
+            idLabel.Size = new System.Drawing.Size(26, 16);
             idLabel.TabIndex = 2;
             idLabel.Text = "ID:";
             // 
@@ -119,10 +117,9 @@
             // 
             usernameLabel.AutoSize = true;
             usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            usernameLabel.Location = new System.Drawing.Point(12, 94);
-            usernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            usernameLabel.Location = new System.Drawing.Point(9, 76);
             usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new System.Drawing.Size(100, 20);
+            usernameLabel.Size = new System.Drawing.Size(82, 16);
             usernameLabel.TabIndex = 4;
             usernameLabel.Text = "Username:";
             // 
@@ -130,10 +127,9 @@
             // 
             passwordLabel.AutoSize = true;
             passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            passwordLabel.Location = new System.Drawing.Point(13, 126);
-            passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            passwordLabel.Location = new System.Drawing.Point(10, 102);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(97, 20);
+            passwordLabel.Size = new System.Drawing.Size(79, 16);
             passwordLabel.TabIndex = 6;
             passwordLabel.Text = "Password:";
             // 
@@ -141,10 +137,9 @@
             // 
             nameLabel.AutoSize = true;
             nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nameLabel.Location = new System.Drawing.Point(49, 158);
-            nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            nameLabel.Location = new System.Drawing.Point(37, 128);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(63, 20);
+            nameLabel.Size = new System.Drawing.Size(52, 16);
             nameLabel.TabIndex = 8;
             nameLabel.Text = "Name:";
             // 
@@ -152,10 +147,9 @@
             // 
             emailLabel.AutoSize = true;
             emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            emailLabel.Location = new System.Drawing.Point(597, 25);
-            emailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            emailLabel.Location = new System.Drawing.Point(448, 20);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(62, 20);
+            emailLabel.Size = new System.Drawing.Size(50, 16);
             emailLabel.TabIndex = 10;
             emailLabel.Text = "Email:";
             // 
@@ -163,10 +157,9 @@
             // 
             phoneLabel.AutoSize = true;
             phoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            phoneLabel.Location = new System.Drawing.Point(591, 55);
-            phoneLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            phoneLabel.Location = new System.Drawing.Point(443, 45);
             phoneLabel.Name = "phoneLabel";
-            phoneLabel.Size = new System.Drawing.Size(67, 20);
+            phoneLabel.Size = new System.Drawing.Size(55, 16);
             phoneLabel.TabIndex = 12;
             phoneLabel.Text = "Phone:";
             // 
@@ -174,10 +167,9 @@
             // 
             genderLabel.AutoSize = true;
             genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            genderLabel.Location = new System.Drawing.Point(581, 89);
-            genderLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            genderLabel.Location = new System.Drawing.Point(436, 72);
             genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(76, 20);
+            genderLabel.Size = new System.Drawing.Size(62, 16);
             genderLabel.TabIndex = 14;
             genderLabel.Text = "Gender:";
             // 
@@ -185,10 +177,9 @@
             // 
             addressLabel.AutoSize = true;
             addressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            addressLabel.Location = new System.Drawing.Point(572, 123);
-            addressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            addressLabel.Location = new System.Drawing.Point(429, 100);
             addressLabel.Name = "addressLabel";
-            addressLabel.Size = new System.Drawing.Size(84, 20);
+            addressLabel.Size = new System.Drawing.Size(69, 16);
             addressLabel.TabIndex = 16;
             addressLabel.Text = "Address:";
             // 
@@ -197,10 +188,9 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(416, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(312, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 41);
+            this.label1.Size = new System.Drawing.Size(65, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "User";
             // 
@@ -209,10 +199,9 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 94);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(12, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 20);
+            this.label2.Size = new System.Drawing.Size(36, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Filter";
             // 
@@ -221,10 +210,9 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(589, 100);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(442, 79);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 20);
+            this.label3.Size = new System.Drawing.Size(108, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Search by Name";
             // 
@@ -233,10 +221,9 @@
             this.search.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.search.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.search.Location = new System.Drawing.Point(741, 95);
-            this.search.Margin = new System.Windows.Forms.Padding(4);
+            this.search.Location = new System.Drawing.Point(556, 75);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(202, 22);
+            this.search.Size = new System.Drawing.Size(152, 20);
             this.search.TabIndex = 6;
             this.search.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -261,11 +248,9 @@
             this.groupBox1.Controls.Add(this.genderComboBox);
             this.groupBox1.Controls.Add(addressLabel);
             this.groupBox1.Controls.Add(this.addressTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(20, 514);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(15, 416);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(913, 202);
+            this.groupBox1.Size = new System.Drawing.Size(685, 164);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Detail";
@@ -276,10 +261,9 @@
             this.idTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "id", true));
             this.idTextBox.Enabled = false;
-            this.idTextBox.Location = new System.Drawing.Point(129, 23);
-            this.idTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.idTextBox.Location = new System.Drawing.Point(97, 19);
             this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(211, 22);
+            this.idTextBox.Size = new System.Drawing.Size(159, 20);
             this.idTextBox.TabIndex = 3;
             // 
             // userBindingSource
@@ -296,10 +280,9 @@
             this.roleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.roleComboBox.Enabled = false;
             this.roleComboBox.FormattingEnabled = true;
-            this.roleComboBox.Location = new System.Drawing.Point(129, 55);
-            this.roleComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.roleComboBox.Location = new System.Drawing.Point(97, 45);
             this.roleComboBox.Name = "roleComboBox";
-            this.roleComboBox.Size = new System.Drawing.Size(211, 24);
+            this.roleComboBox.Size = new System.Drawing.Size(159, 21);
             this.roleComboBox.TabIndex = 1;
             this.roleComboBox.ValueMember = "id";
             // 
@@ -319,10 +302,9 @@
             this.usernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.usernameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "username", true));
             this.usernameTextBox.Enabled = false;
-            this.usernameTextBox.Location = new System.Drawing.Point(129, 89);
-            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.usernameTextBox.Location = new System.Drawing.Point(97, 72);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(211, 22);
+            this.usernameTextBox.Size = new System.Drawing.Size(159, 20);
             this.usernameTextBox.TabIndex = 5;
             // 
             // passwordTextBox
@@ -331,10 +313,9 @@
             this.passwordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "password", true));
             this.passwordTextBox.Enabled = false;
-            this.passwordTextBox.Location = new System.Drawing.Point(129, 121);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.passwordTextBox.Location = new System.Drawing.Point(97, 98);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(211, 22);
+            this.passwordTextBox.Size = new System.Drawing.Size(159, 20);
             this.passwordTextBox.TabIndex = 7;
             // 
             // nameTextBox
@@ -343,10 +324,9 @@
             this.nameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "name", true));
             this.nameTextBox.Enabled = false;
-            this.nameTextBox.Location = new System.Drawing.Point(129, 153);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.nameTextBox.Location = new System.Drawing.Point(97, 124);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(211, 22);
+            this.nameTextBox.Size = new System.Drawing.Size(159, 20);
             this.nameTextBox.TabIndex = 9;
             // 
             // emailTextBox
@@ -355,10 +335,9 @@
             this.emailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "email", true));
             this.emailTextBox.Enabled = false;
-            this.emailTextBox.Location = new System.Drawing.Point(675, 23);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.emailTextBox.Location = new System.Drawing.Point(506, 19);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(211, 22);
+            this.emailTextBox.Size = new System.Drawing.Size(159, 20);
             this.emailTextBox.TabIndex = 11;
             // 
             // phoneTextBox
@@ -367,10 +346,9 @@
             this.phoneTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "phone", true));
             this.phoneTextBox.Enabled = false;
-            this.phoneTextBox.Location = new System.Drawing.Point(675, 55);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.phoneTextBox.Location = new System.Drawing.Point(506, 45);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(211, 22);
+            this.phoneTextBox.Size = new System.Drawing.Size(159, 20);
             this.phoneTextBox.TabIndex = 13;
             // 
             // genderComboBox
@@ -383,10 +361,9 @@
             this.genderComboBox.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.genderComboBox.Location = new System.Drawing.Point(675, 87);
-            this.genderComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.genderComboBox.Location = new System.Drawing.Point(506, 71);
             this.genderComboBox.Name = "genderComboBox";
-            this.genderComboBox.Size = new System.Drawing.Size(211, 24);
+            this.genderComboBox.Size = new System.Drawing.Size(159, 21);
             this.genderComboBox.TabIndex = 15;
             // 
             // addressTextBox
@@ -395,11 +372,10 @@
             this.addressTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "address", true));
             this.addressTextBox.Enabled = false;
-            this.addressTextBox.Location = new System.Drawing.Point(675, 126);
-            this.addressTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.addressTextBox.Location = new System.Drawing.Point(506, 102);
             this.addressTextBox.Multiline = true;
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(211, 56);
+            this.addressTextBox.Size = new System.Drawing.Size(159, 46);
             this.addressTextBox.TabIndex = 17;
             // 
             // insert
@@ -407,10 +383,9 @@
             this.insert.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.insert.Cursor = System.Windows.Forms.Cursors.Hand;
             this.insert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.insert.Location = new System.Drawing.Point(324, 737);
-            this.insert.Margin = new System.Windows.Forms.Padding(4);
+            this.insert.Location = new System.Drawing.Point(241, 595);
             this.insert.Name = "insert";
-            this.insert.Size = new System.Drawing.Size(100, 28);
+            this.insert.Size = new System.Drawing.Size(75, 23);
             this.insert.TabIndex = 8;
             this.insert.Text = "Insert";
             this.insert.UseVisualStyleBackColor = true;
@@ -421,10 +396,9 @@
             this.update.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.update.Location = new System.Drawing.Point(432, 737);
-            this.update.Margin = new System.Windows.Forms.Padding(4);
+            this.update.Location = new System.Drawing.Point(322, 595);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(100, 28);
+            this.update.Size = new System.Drawing.Size(75, 23);
             this.update.TabIndex = 9;
             this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = true;
@@ -435,10 +409,9 @@
             this.delete.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.delete.Location = new System.Drawing.Point(540, 737);
-            this.delete.Margin = new System.Windows.Forms.Padding(4);
+            this.delete.Location = new System.Drawing.Point(403, 595);
             this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(100, 28);
+            this.delete.Size = new System.Drawing.Size(75, 23);
             this.delete.TabIndex = 10;
             this.delete.Text = "Delete";
             this.delete.UseVisualStyleBackColor = true;
@@ -450,10 +423,9 @@
             this.cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancel.Enabled = false;
             this.cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancel.Location = new System.Drawing.Point(488, 773);
-            this.cancel.Margin = new System.Windows.Forms.Padding(4);
+            this.cancel.Location = new System.Drawing.Point(364, 624);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(100, 28);
+            this.cancel.Size = new System.Drawing.Size(75, 23);
             this.cancel.TabIndex = 12;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
@@ -465,10 +437,9 @@
             this.save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.save.Enabled = false;
             this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.save.Location = new System.Drawing.Point(380, 773);
-            this.save.Margin = new System.Windows.Forms.Padding(4);
+            this.save.Location = new System.Drawing.Point(283, 624);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(100, 28);
+            this.save.Size = new System.Drawing.Size(75, 23);
             this.save.TabIndex = 11;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
@@ -483,10 +454,9 @@
             this.cbFilt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFilt.FormattingEnabled = true;
-            this.cbFilt.Location = new System.Drawing.Point(68, 94);
-            this.cbFilt.Margin = new System.Windows.Forms.Padding(4);
+            this.cbFilt.Location = new System.Drawing.Point(51, 74);
             this.cbFilt.Name = "cbFilt";
-            this.cbFilt.Size = new System.Drawing.Size(105, 25);
+            this.cbFilt.Size = new System.Drawing.Size(80, 21);
             this.cbFilt.TabIndex = 27;
             this.cbFilt.ValueMember = "id";
             this.cbFilt.SelectionChangeCommitted += new System.EventHandler(this.cbFilt_Leave);
@@ -520,13 +490,12 @@
             this.createdatDataGridViewTextBoxColumn,
             this.deletedatDataGridViewTextBoxColumn});
             this.userDataGridView.DataSource = this.userBindingSource;
-            this.userDataGridView.Location = new System.Drawing.Point(16, 127);
-            this.userDataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.userDataGridView.Location = new System.Drawing.Point(12, 101);
             this.userDataGridView.Name = "userDataGridView";
             this.userDataGridView.ReadOnly = true;
             this.userDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.userDataGridView.RowHeadersWidth = 51;
-            this.userDataGridView.Size = new System.Drawing.Size(928, 380);
+            this.userDataGridView.Size = new System.Drawing.Size(696, 309);
             this.userDataGridView.TabIndex = 27;
             // 
             // idDataGridViewTextBoxColumn
@@ -536,7 +505,7 @@
             this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 49;
+            this.idDataGridViewTextBoxColumn.Width = 43;
             // 
             // roleidDataGridViewTextBoxColumn
             // 
@@ -555,7 +524,7 @@
             this.roleNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.roleNameDataGridViewTextBoxColumn.Name = "roleNameDataGridViewTextBoxColumn";
             this.roleNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roleNameDataGridViewTextBoxColumn.Width = 65;
+            this.roleNameDataGridViewTextBoxColumn.Width = 54;
             // 
             // usernameDataGridViewTextBoxColumn
             // 
@@ -564,7 +533,7 @@
             this.usernameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
             this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.usernameDataGridViewTextBoxColumn.Width = 99;
+            this.usernameDataGridViewTextBoxColumn.Width = 80;
             // 
             // passwordDataGridViewTextBoxColumn
             // 
@@ -573,7 +542,7 @@
             this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            this.passwordDataGridViewTextBoxColumn.Width = 96;
+            this.passwordDataGridViewTextBoxColumn.Width = 78;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -582,7 +551,7 @@
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 73;
+            this.nameDataGridViewTextBoxColumn.Width = 60;
             // 
             // emailDataGridViewTextBoxColumn
             // 
@@ -591,7 +560,7 @@
             this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.emailDataGridViewTextBoxColumn.Width = 70;
+            this.emailDataGridViewTextBoxColumn.Width = 57;
             // 
             // phoneDataGridViewTextBoxColumn
             // 
@@ -600,7 +569,7 @@
             this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
             this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            this.phoneDataGridViewTextBoxColumn.Width = 75;
+            this.phoneDataGridViewTextBoxColumn.Width = 63;
             // 
             // genderDataGridViewTextBoxColumn
             // 
@@ -609,7 +578,7 @@
             this.genderDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
             this.genderDataGridViewTextBoxColumn.ReadOnly = true;
-            this.genderDataGridViewTextBoxColumn.Width = 81;
+            this.genderDataGridViewTextBoxColumn.Width = 67;
             // 
             // addressDataGridViewTextBoxColumn
             // 
@@ -618,7 +587,7 @@
             this.addressDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-            this.addressDataGridViewTextBoxColumn.Width = 87;
+            this.addressDataGridViewTextBoxColumn.Width = 70;
             // 
             // createdatDataGridViewTextBoxColumn
             // 
@@ -627,6 +596,7 @@
             this.createdatDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
             this.createdatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createdatDataGridViewTextBoxColumn.Width = 83;
             // 
             // deletedatDataGridViewTextBoxColumn
             // 
@@ -635,6 +605,7 @@
             this.deletedatDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.deletedatDataGridViewTextBoxColumn.Name = "deletedatDataGridViewTextBoxColumn";
             this.deletedatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.deletedatDataGridViewTextBoxColumn.Width = 82;
             // 
             // rolesTableAdapter
             // 
@@ -642,9 +613,9 @@
             // 
             // FUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 826);
+            this.ClientSize = new System.Drawing.Size(720, 653);
             this.Controls.Add(this.userDataGridView);
             this.Controls.Add(this.cbFilt);
             this.Controls.Add(this.cancel);
@@ -657,7 +628,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Form";

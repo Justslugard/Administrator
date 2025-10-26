@@ -11,9 +11,9 @@ namespace Examination
 {
     public static class Util
     {
-        public static user User { get; set; }
-
-        public static ExamEntities db = new ExamEntities();
+        public static user User { get; set; } = db?.users?.First();
+        public static ExamEntities db { get; set; } = new ExamEntities();
+        public static Dictionary<string, string> Question { get; set; } = new Dictionary<string, string>();
 
         public static string nextId(string table)
         {

@@ -166,6 +166,7 @@ namespace Examination
                 load(userBindingSource, users);
 
                 flipMode(this.Controls, usernameTextBox.Enabled ? null : doNot);
+                passwordTextBox.Enabled = false;
             }
         }
 

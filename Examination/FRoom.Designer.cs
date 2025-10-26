@@ -62,10 +62,9 @@
             passwordLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             passwordLabel.AutoSize = true;
             passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            passwordLabel.Location = new System.Drawing.Point(75, 588);
-            passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            passwordLabel.Location = new System.Drawing.Point(56, 478);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(88, 20);
+            passwordLabel.Size = new System.Drawing.Size(72, 16);
             passwordLabel.TabIndex = 47;
             passwordLabel.Text = "Capacity:";
             // 
@@ -74,10 +73,9 @@
             usernameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             usernameLabel.AutoSize = true;
             usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            usernameLabel.Location = new System.Drawing.Point(75, 555);
-            usernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            usernameLabel.Location = new System.Drawing.Point(56, 451);
             usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new System.Drawing.Size(58, 20);
+            usernameLabel.Size = new System.Drawing.Size(48, 16);
             usernameLabel.TabIndex = 46;
             usernameLabel.Text = "Code:";
             // 
@@ -86,10 +84,9 @@
             idLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             idLabel.AutoSize = true;
             idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            idLabel.Location = new System.Drawing.Point(75, 523);
-            idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            idLabel.Location = new System.Drawing.Point(56, 425);
             idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(34, 20);
+            idLabel.Size = new System.Drawing.Size(26, 16);
             idLabel.TabIndex = 45;
             idLabel.Text = "ID:";
             // 
@@ -98,10 +95,9 @@
             this.cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancel.Enabled = false;
             this.cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancel.Location = new System.Drawing.Point(735, 564);
-            this.cancel.Margin = new System.Windows.Forms.Padding(4);
+            this.cancel.Location = new System.Drawing.Point(551, 458);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(100, 28);
+            this.cancel.Size = new System.Drawing.Size(75, 23);
             this.cancel.TabIndex = 43;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
@@ -112,10 +108,9 @@
             this.save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.save.Enabled = false;
             this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.save.Location = new System.Drawing.Point(735, 531);
-            this.save.Margin = new System.Windows.Forms.Padding(4);
+            this.save.Location = new System.Drawing.Point(551, 431);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(100, 28);
+            this.save.Size = new System.Drawing.Size(75, 23);
             this.save.TabIndex = 42;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
@@ -125,10 +120,9 @@
             // 
             this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.delete.Location = new System.Drawing.Point(627, 591);
-            this.delete.Margin = new System.Windows.Forms.Padding(4);
+            this.delete.Location = new System.Drawing.Point(470, 480);
             this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(100, 28);
+            this.delete.Size = new System.Drawing.Size(75, 23);
             this.delete.TabIndex = 41;
             this.delete.Text = "Delete";
             this.delete.UseVisualStyleBackColor = true;
@@ -138,10 +132,9 @@
             // 
             this.update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.update.Location = new System.Drawing.Point(627, 555);
-            this.update.Margin = new System.Windows.Forms.Padding(4);
+            this.update.Location = new System.Drawing.Point(470, 451);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(100, 28);
+            this.update.Size = new System.Drawing.Size(75, 23);
             this.update.TabIndex = 40;
             this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = true;
@@ -151,10 +144,9 @@
             // 
             this.insert.Cursor = System.Windows.Forms.Cursors.Hand;
             this.insert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.insert.Location = new System.Drawing.Point(627, 520);
-            this.insert.Margin = new System.Windows.Forms.Padding(4);
+            this.insert.Location = new System.Drawing.Point(470, 422);
             this.insert.Name = "insert";
-            this.insert.Size = new System.Drawing.Size(100, 28);
+            this.insert.Size = new System.Drawing.Size(75, 23);
             this.insert.TabIndex = 39;
             this.insert.Text = "Insert";
             this.insert.UseVisualStyleBackColor = true;
@@ -164,10 +156,9 @@
             // 
             this.search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.search.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.search.Location = new System.Drawing.Point(718, 84);
-            this.search.Margin = new System.Windows.Forms.Padding(4);
+            this.search.Location = new System.Drawing.Point(538, 68);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(201, 22);
+            this.search.Size = new System.Drawing.Size(151, 20);
             this.search.TabIndex = 32;
             this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             // 
@@ -175,10 +166,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(582, 83);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(436, 67);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 20);
+            this.label3.Size = new System.Drawing.Size(104, 16);
             this.label3.TabIndex = 31;
             this.label3.Text = "Search by Code";
             // 
@@ -186,10 +176,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(428, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(321, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 41);
+            this.label1.Size = new System.Drawing.Size(81, 32);
             this.label1.TabIndex = 29;
             this.label1.Text = "Room";
             // 
@@ -208,12 +197,13 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.roomDataGridView.DataSource = this.roomBindingSource;
-            this.roomDataGridView.Location = new System.Drawing.Point(12, 123);
+            this.roomDataGridView.Location = new System.Drawing.Point(9, 100);
+            this.roomDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.roomDataGridView.Name = "roomDataGridView";
             this.roomDataGridView.ReadOnly = true;
             this.roomDataGridView.RowHeadersWidth = 51;
             this.roomDataGridView.RowTemplate.Height = 24;
-            this.roomDataGridView.Size = new System.Drawing.Size(908, 368);
+            this.roomDataGridView.Size = new System.Drawing.Size(681, 299);
             this.roomDataGridView.TabIndex = 44;
             // 
             // dataGridViewTextBoxColumn1
@@ -266,10 +256,9 @@
             this.idTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomBindingSource, "id", true));
             this.idTextBox.Enabled = false;
-            this.idTextBox.Location = new System.Drawing.Point(163, 524);
-            this.idTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.idTextBox.Location = new System.Drawing.Point(131, 426);
             this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(201, 22);
+            this.idTextBox.Size = new System.Drawing.Size(151, 20);
             this.idTextBox.TabIndex = 34;
             // 
             // codeTextBox
@@ -278,10 +267,9 @@
             this.codeTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomBindingSource, "code", true));
             this.codeTextBox.Enabled = false;
-            this.codeTextBox.Location = new System.Drawing.Point(163, 555);
-            this.codeTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.codeTextBox.Location = new System.Drawing.Point(131, 451);
             this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(201, 22);
+            this.codeTextBox.Size = new System.Drawing.Size(151, 20);
             this.codeTextBox.TabIndex = 38;
             // 
             // capacityTextBox
@@ -290,17 +278,16 @@
             this.capacityTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.capacityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomBindingSource, "capacity", true));
             this.capacityTextBox.Enabled = false;
-            this.capacityTextBox.Location = new System.Drawing.Point(163, 588);
-            this.capacityTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.capacityTextBox.Location = new System.Drawing.Point(131, 478);
             this.capacityTextBox.Name = "capacityTextBox";
-            this.capacityTextBox.Size = new System.Drawing.Size(201, 22);
+            this.capacityTextBox.Size = new System.Drawing.Size(151, 20);
             this.capacityTextBox.TabIndex = 37;
             // 
             // FRoom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 647);
+            this.ClientSize = new System.Drawing.Size(699, 526);
             this.Controls.Add(passwordLabel);
             this.Controls.Add(usernameLabel);
             this.Controls.Add(idLabel);
@@ -316,7 +303,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.capacityTextBox);
             this.Controls.Add(this.idTextBox);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FRoom";
             this.Text = "Room Form";
             this.Load += new System.EventHandler(this.FRoom_Load);
