@@ -28,198 +28,300 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label passwordLabel;
+            System.Windows.Forms.Label usernameLabel;
+            System.Windows.Forms.Label idLabel;
+            this.cancel = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Button();
+            this.insert = new System.Windows.Forms.Button();
+            this.search = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.roomDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
+            this.capacityTextBox = new System.Windows.Forms.TextBox();
+            passwordLabel = new System.Windows.Forms.Label();
+            usernameLabel = new System.Windows.Forms.Label();
+            idLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.roomDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // button4
+            // passwordLabel
             // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(552, 464);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 43;
-            this.button4.Text = "Cancel";
-            this.button4.UseVisualStyleBackColor = true;
+            passwordLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            passwordLabel.AutoSize = true;
+            passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            passwordLabel.Location = new System.Drawing.Point(75, 588);
+            passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new System.Drawing.Size(88, 20);
+            passwordLabel.TabIndex = 47;
+            passwordLabel.Text = "Capacity:";
             // 
-            // button5
+            // usernameLabel
             // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Enabled = false;
-            this.button5.Location = new System.Drawing.Point(552, 437);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 42;
-            this.button5.Text = "Save";
-            this.button5.UseVisualStyleBackColor = true;
+            usernameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            usernameLabel.AutoSize = true;
+            usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            usernameLabel.Location = new System.Drawing.Point(75, 555);
+            usernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new System.Drawing.Size(58, 20);
+            usernameLabel.TabIndex = 46;
+            usernameLabel.Text = "Code:";
             // 
-            // button3
+            // idLabel
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(471, 486);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 41;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            idLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            idLabel.AutoSize = true;
+            idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            idLabel.Location = new System.Drawing.Point(75, 523);
+            idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(34, 20);
+            idLabel.TabIndex = 45;
+            idLabel.Text = "ID:";
             // 
-            // button2
+            // cancel
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Location = new System.Drawing.Point(471, 457);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 40;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancel.Enabled = false;
+            this.cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancel.Location = new System.Drawing.Point(735, 564);
+            this.cancel.Margin = new System.Windows.Forms.Padding(4);
+            this.cancel.Name = "cancel";
+            this.cancel.Size = new System.Drawing.Size(100, 28);
+            this.cancel.TabIndex = 43;
+            this.cancel.Text = "Cancel";
+            this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
-            // button1
+            // save
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(471, 428);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Insert";
-            this.button1.UseVisualStyleBackColor = true;
+            this.save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.save.Enabled = false;
+            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save.Location = new System.Drawing.Point(735, 531);
+            this.save.Margin = new System.Windows.Forms.Padding(4);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(100, 28);
+            this.save.TabIndex = 42;
+            this.save.Text = "Save";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
             // 
-            // textBox3
+            // delete
             // 
-            this.textBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(110, 459);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(152, 20);
-            this.textBox3.TabIndex = 38;
+            this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete.Location = new System.Drawing.Point(627, 591);
+            this.delete.Margin = new System.Windows.Forms.Padding(4);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(100, 28);
+            this.delete.TabIndex = 41;
+            this.delete.Text = "Delete";
+            this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
-            // textBox1
+            // update
             // 
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox1.Location = new System.Drawing.Point(533, 98);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 20);
-            this.textBox1.TabIndex = 32;
+            this.update.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.update.Location = new System.Drawing.Point(627, 555);
+            this.update.Margin = new System.Windows.Forms.Padding(4);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(100, 28);
+            this.update.TabIndex = 40;
+            this.update.Text = "Update";
+            this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
+            // 
+            // insert
+            // 
+            this.insert.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.insert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.insert.Location = new System.Drawing.Point(627, 520);
+            this.insert.Margin = new System.Windows.Forms.Padding(4);
+            this.insert.Name = "insert";
+            this.insert.Size = new System.Drawing.Size(100, 28);
+            this.insert.TabIndex = 39;
+            this.insert.Text = "Insert";
+            this.insert.UseVisualStyleBackColor = true;
+            this.insert.Click += new System.EventHandler(this.insert_Click);
+            // 
+            // search
+            // 
+            this.search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.search.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.search.Location = new System.Drawing.Point(718, 84);
+            this.search.Margin = new System.Windows.Forms.Padding(4);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(201, 22);
+            this.search.TabIndex = 32;
+            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(419, 99);
+            this.label3.Location = new System.Drawing.Point(582, 83);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 16);
+            this.label3.Size = new System.Drawing.Size(128, 20);
             this.label3.TabIndex = 31;
             this.label3.Text = "Search by Code";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 124);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(673, 280);
-            this.dataGridView1.TabIndex = 30;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(306, 18);
+            this.label1.Location = new System.Drawing.Point(428, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 32);
+            this.label1.Size = new System.Drawing.Size(100, 41);
             this.label1.TabIndex = 29;
             this.label1.Text = "Room";
             // 
-            // textBox5
+            // roomDataGridView
             // 
-            this.textBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(110, 486);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(152, 20);
-            this.textBox5.TabIndex = 37;
+            this.roomDataGridView.AllowUserToAddRows = false;
+            this.roomDataGridView.AllowUserToDeleteRows = false;
+            this.roomDataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.roomDataGridView.AutoGenerateColumns = false;
+            this.roomDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.roomDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.roomDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.roomDataGridView.DataSource = this.roomBindingSource;
+            this.roomDataGridView.Location = new System.Drawing.Point(12, 123);
+            this.roomDataGridView.Name = "roomDataGridView";
+            this.roomDataGridView.ReadOnly = true;
+            this.roomDataGridView.RowHeadersWidth = 51;
+            this.roomDataGridView.RowTemplate.Height = 24;
+            this.roomDataGridView.Size = new System.Drawing.Size(908, 368);
+            this.roomDataGridView.TabIndex = 44;
             // 
-            // label7
+            // dataGridViewTextBoxColumn1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(34, 486);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 16);
-            this.label7.TabIndex = 36;
-            this.label7.Text = "Capacity";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // label5
+            // dataGridViewTextBoxColumn2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(34, 460);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 16);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "Code";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "code";
+            this.dataGridViewTextBoxColumn2.HeaderText = "code";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // textBox2
+            // dataGridViewTextBoxColumn3
             // 
-            this.textBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(110, 434);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 20);
-            this.textBox2.TabIndex = 34;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "capacity";
+            this.dataGridViewTextBoxColumn3.HeaderText = "capacity";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // label4
+            // dataGridViewTextBoxColumn4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 434);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 16);
-            this.label4.TabIndex = 33;
-            this.label4.Text = "ID";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "created_at";
+            this.dataGridViewTextBoxColumn4.HeaderText = "created_at";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "deleted_at";
+            this.dataGridViewTextBoxColumn5.HeaderText = "deleted_at";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // roomBindingSource
+            // 
+            this.roomBindingSource.DataSource = typeof(Examination.room);
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomBindingSource, "id", true));
+            this.idTextBox.Enabled = false;
+            this.idTextBox.Location = new System.Drawing.Point(163, 524);
+            this.idTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(201, 22);
+            this.idTextBox.TabIndex = 34;
+            // 
+            // codeTextBox
+            // 
+            this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.codeTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomBindingSource, "code", true));
+            this.codeTextBox.Enabled = false;
+            this.codeTextBox.Location = new System.Drawing.Point(163, 555);
+            this.codeTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(201, 22);
+            this.codeTextBox.TabIndex = 38;
+            // 
+            // capacityTextBox
+            // 
+            this.capacityTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.capacityTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.capacityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomBindingSource, "capacity", true));
+            this.capacityTextBox.Enabled = false;
+            this.capacityTextBox.Location = new System.Drawing.Point(163, 588);
+            this.capacityTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.capacityTextBox.Name = "capacityTextBox";
+            this.capacityTextBox.Size = new System.Drawing.Size(201, 22);
+            this.capacityTextBox.TabIndex = 37;
             // 
             // FRoom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 526);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(932, 647);
+            this.Controls.Add(passwordLabel);
+            this.Controls.Add(usernameLabel);
+            this.Controls.Add(idLabel);
+            this.Controls.Add(this.roomDataGridView);
+            this.Controls.Add(this.cancel);
+            this.Controls.Add(this.save);
+            this.Controls.Add(this.delete);
+            this.Controls.Add(this.update);
+            this.Controls.Add(this.insert);
+            this.Controls.Add(this.codeTextBox);
+            this.Controls.Add(this.search);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.capacityTextBox);
+            this.Controls.Add(this.idTextBox);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FRoom";
             this.Text = "Room Form";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FRoom_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.roomDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,20 +329,23 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button delete;
+        private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Button insert;
+        private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.BindingSource roomBindingSource;
+        private System.Windows.Forms.DataGridView roomDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.TextBox codeTextBox;
+        private System.Windows.Forms.TextBox capacityTextBox;
     }
 }

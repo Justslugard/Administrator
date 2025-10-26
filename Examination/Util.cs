@@ -58,7 +58,8 @@ namespace Examination
         {
             binding.ResumeBinding();
             binding.ResetBindings(false);
-            binding.DataSource = db.Where(x => x.deleted_at.Equals(null)).ToList();
+            //binding.DataSource = db.Where(x => x.deleted_at.Equals(null)).ToList();
+            binding.DataSource = db.ToList();
         }
         public static string encryptMD5(string encrypt)
         {
@@ -102,6 +103,19 @@ namespace Examination
         public string RoleName { get { return role != null ? role.name : ""; } }
     }
     public partial class cases_details : IDeletable { }
+    public partial class @case : IDeletable
+    {
+        public static int count = 0;
+
+        public string CreatorName { get { return user != null ? user.name : string.Empty; } }
+        public string question { get { return cases_details.ToList()[count].text; } }
+        public string optionA { get { return cases_details.ToList()[count].option_a; } }
+        public string optionB { get { return cases_details.ToList()[count].option_b; } }
+        public string optionC { get { return cases_details.ToList()[count].option_c; } }
+        public string optionD { get { return cases_details.ToList()[count].option_d; } }
+        public string answer { get { return cases_details.ToList()[count].correct_answer; } }
+        public string totalQ { get { return $"{count + 1}/{number_of_questions}"; } }
+    }
     public partial class room : IDeletable { }
     public partial class type : IDeletable { }
 

@@ -11,8 +11,8 @@ namespace Examination
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             //using (Login login = new Login())
             //{
             //    if (login.ShowDialog() == DialogResult.OK)
@@ -20,7 +20,7 @@ namespace Examination
             //        Application.Run(new Main());
             //    }
             //}
-            Application.Run(new FType());
+            Application.Run(new ViewCase());
         }
     }
 }

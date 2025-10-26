@@ -201,10 +201,6 @@
     <EmbeddedResource Include="ViewCase.resx">
       <DependentUpon>ViewCase.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="App.Config" />
     <None Include="ExamDataSet.xsc">
       <DependentUpon>ExamDataSet.xsd</DependentUpon>
@@ -217,6 +213,10 @@
     <None Include="ExamDataSet.xss">
       <DependentUpon>ExamDataSet.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>

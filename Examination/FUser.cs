@@ -27,8 +27,6 @@ namespace Examination
         {
             // TODO: This line of code loads data into the 'examDataSet.roles' table. You can move, or remove it, as needed.
             this.rolesTableAdapter.Fill(this.examDataSet.roles);
-            // TODO: This line of code loads data into the 'examDataSet.roles' table. You can move, or remove it, as needed.
-            //this.rolesTableAdapter.Fill(this.examDataSet.roles);
 
             List<role> filter = db.roles.ToList();
             role alrol = new role() { id = 0, name = "All", created_at = DateTime.Now };
@@ -78,13 +76,13 @@ namespace Examination
 
         private void update_Click(object sender, EventArgs e)
         {
-            flipMode(this.Controls);
+            flipMode(this.Controls, new List<string>() { "idTextBox", "passwordTextBox" });
 
             table = (user)userBindingSource.Current;
             userBindingSource.SuspendBinding();
 
             idTextBox.Text = table.id.ToString();
-            roleComboBox.SelectedIndex = table.role_id - 1;
+            roleComboBox.SelectedValue = table.role_id;
             usernameTextBox.Text = table.username.ToString();
             passwordTextBox.Text = table.password.ToString();
             nameTextBox.Text = table.name.ToString();
@@ -100,7 +98,7 @@ namespace Examination
             userBindingSource.SuspendBinding();
 
             idTextBox.Text = table.id.ToString();
-            roleComboBox.SelectedIndex = table.role_id - 1;
+            roleComboBox.SelectedValue = table.role_id;
             usernameTextBox.Text = table.username.ToString();
             passwordTextBox.Text = table.password.ToString();
             nameTextBox.Text = table.name.ToString();
@@ -117,11 +115,13 @@ namespace Examination
             if (!isValid()) return;
             else
             {
+                user user = db.users.Find(table?.id);
+
                 if (table == null && usernameTextBox.Enabled)
                 {
                     user newUser = new user()
                     {
-                        role_id = roleComboBox.SelectedIndex + 1,
+                        role_id = (int)roleComboBox.SelectedValue,
                         username = usernameTextBox.Text,
                         password = encryptMD5(passwordTextBox.Text),
                         name = nameTextBox.Text,
@@ -133,31 +133,32 @@ namespace Examination
                         deleted_at = null
                     };
                     db.users.Add(newUser);
+
+                    MessageBox.Show("New user successfully inserted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (!usernameTextBox.Enabled)
                 {
-                    if (MessageBox.Show("Are you sure you want to delete this data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Are you sure you want to delete this user?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        user delUser = db.users.Find(table.id);
-
-                        delUser.deleted_at = DateTime.Now;
+                        user.deleted_at = DateTime.Now;
                     }
+                    MessageBox.Show("User deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
                 else
                 {
-                    user updUser = db.users.Find(table.id);
+                    user.role = db.roles.Find(roleComboBox.SelectedValue);
+                    user.username = usernameTextBox.Text;
+                    user.password = passwordTextBox.Text;
+                    user.name = nameTextBox.Text;
+                    user.email = emailTextBox.Text;
+                    user.phone = phoneTextBox.Text;
+                    user.gender = genderComboBox.Text;
+                    user.address = addressTextBox.Text;
+                    user.created_at = table.created_at;
+                    user.deleted_at = table.deleted_at;
 
-                    updUser.role = db.roles.Find(roleComboBox.SelectedIndex + 1);
-                    updUser.username = usernameTextBox.Text;
-                    updUser.password = encryptMD5(passwordTextBox.Text);
-                    updUser.name = nameTextBox.Text;
-                    updUser.email = emailTextBox.Text;
-                    updUser.phone = phoneTextBox.Text;
-                    updUser.gender = genderComboBox.Text;
-                    updUser.address = addressTextBox.Text;
-                    updUser.created_at = table.created_at;
-                    updUser.deleted_at = table.deleted_at;
+                    MessageBox.Show("User updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 db.SaveChanges();
@@ -171,6 +172,7 @@ namespace Examination
         private void cancel_Click(object sender, EventArgs e)
         {
             flipMode(this.Controls, usernameTextBox.Enabled ? null : doNot);
+            passwordTextBox.Enabled = false;
 
             userBindingSource.ResumeBinding();
         }

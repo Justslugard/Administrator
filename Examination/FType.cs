@@ -25,11 +25,6 @@ namespace Examination
         private void FType_Load(object sender, EventArgs e)
         {
             load(typeBindingSource, types);
-
-            foreach (Control control in this.Controls)
-            {
-                Console.WriteLine(control);
-            }
         }
 
         private void insert_Click(object sender, EventArgs e)
@@ -88,16 +83,22 @@ namespace Examination
                         deleted_at = null
                     };
                     db.types.Add(newType);
+
+                    MessageBox.Show("New type successfully inserted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } else if (!codeTextBox.Enabled) 
                 {
-                    if (MessageBox.Show("Are you sure you want to delete this data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Are you sure you want to delete this type?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         type.deleted_at = DateTime.Now;
                     }
+
+                    MessageBox.Show("Type successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } else
                 {
                     type.code = codeTextBox.Text;
                     type.name = nameTextBox.Text;
+
+                    MessageBox.Show("Type successfully updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 db.SaveChanges();
