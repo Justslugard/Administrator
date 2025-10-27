@@ -14,7 +14,7 @@ namespace Examination
 
         private void Main_Load(object sender, EventArgs e)
         {
-            if (Util.User.role_id > 1) masterToolStripMenuItem.Visible = false;
+            if (Util.LogUser.role_id > 1) masterToolStripMenuItem.Visible = false;
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)

@@ -9,7 +9,7 @@ namespace Examination
 {
     public partial class FRoom : Form
     {
-        static IQueryable<room> rooms = db.rooms;
+        static IQueryable<room> rooms = Db.rooms;
         static room table = null;
         static List<string> doNot = new List<string>()
         {
@@ -29,7 +29,7 @@ namespace Examination
         private void search_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(search.Text)) rooms = rooms.Where(x => x.code.Contains(search.Text));
-            else rooms = db.rooms;
+            else rooms = Db.rooms;
 
             load(roomBindingSource, rooms);
         }
@@ -60,6 +60,13 @@ namespace Examination
             flipMode(this.Controls, doNot);
 
             table = (room)roomBindingSource.Current;
+
+            if (table == null)
+            {
+                MessageBox.Show("There aren't any data!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             roomBindingSource.SuspendBinding();
 
             idTextBox.Text = table.id.ToString();
@@ -79,7 +86,7 @@ namespace Examination
             if (!isValid()) return;
             else
             {
-                room room = db.rooms.Find(table?.id);
+                room room = Db.rooms.Find(table?.id);
 
                 if (table  == null && codeTextBox.Enabled)
                 {
@@ -90,7 +97,7 @@ namespace Examination
                         created_at = DateTime.Now,
                         deleted_at = null
                     };
-                    db.rooms.Add(newRoom);
+                    Db.rooms.Add(newRoom);
 
                     MessageBox.Show("Room successfully inserted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } else if (!codeTextBox.Enabled)
@@ -109,7 +116,7 @@ namespace Examination
                     MessageBox.Show("Room successfully updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                db.SaveChanges();
+                Db.SaveChanges();
 
                 load(roomBindingSource, rooms);
 

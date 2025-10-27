@@ -9,7 +9,7 @@ namespace Examination
 {
     public partial class ViewCase : Form
     {
-        static IQueryable<@case> cases = db.cases;
+        static IQueryable<@case> cases = Db.cases;
         static List<cases_details> table = null;
         static List<string> doNot = new List<string>()
         {
@@ -143,7 +143,7 @@ namespace Examination
                 details.correct_answer = answerComboBox.SelectedIndex == 0 ? optionATextBox.Text : answerComboBox.SelectedIndex == 1 ? optionBTextBox.Text :
                     answerComboBox.SelectedIndex == 2 ? optionCTextBox.Text : answerComboBox.SelectedIndex == 3 ? optionDTextBox.Text : "";
 
-                db.SaveChanges();
+                Db.SaveChanges();
 
                 load(caseBindingSource, cases);
                 flipMode(this.Controls);
@@ -155,8 +155,8 @@ namespace Examination
 
         private void search_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(search.Text)) cases = db.cases.Where(x => x.user.name.Contains(search.Text));
-            else cases = db.cases;
+            if (!string.IsNullOrWhiteSpace(search.Text)) cases = Db.cases.Where(x => x.user.name.Contains(search.Text));
+            else cases = Db.cases;
 
             load(caseBindingSource, cases);
         }

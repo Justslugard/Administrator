@@ -10,7 +10,7 @@ namespace Examination
 {
     public partial class FUser : Form
     {
-        static IQueryable<user> users = db.users;
+        static IQueryable<user> users = Db.users;
         static user table = null;
         static List<string> doNot = new List<string>()
         {
@@ -28,7 +28,7 @@ namespace Examination
             // TODO: This line of code loads data into the 'examDataSet.roles' table. You can move, or remove it, as needed.
             this.rolesTableAdapter.Fill(this.examDataSet.roles);
 
-            List<role> filter = db.roles.ToList();
+            List<role> filter = Db.roles.ToList();
             role alrol = new role() { id = 0, name = "All", created_at = DateTime.Now };
 
             filter.Insert(0, alrol);
@@ -44,11 +44,11 @@ namespace Examination
         {
             if (cbFilt.Text == "All")
             {
-                users = db.users;
+                users = Db.users;
             }
             else
             {
-                users = db.users.Where(x => x.role_id.Equals((int)cbFilt.SelectedValue));
+                users = Db.users.Where(x => x.role_id.Equals((int)cbFilt.SelectedValue));
             }
 
             load(userBindingSource, users);
@@ -95,6 +95,13 @@ namespace Examination
         private void delete_Click(object sender, EventArgs e)
         {
             table = (user)userBindingSource.Current;
+
+            if (table == null)
+            {
+                MessageBox.Show("There aren't any data!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             userBindingSource.SuspendBinding();
 
             idTextBox.Text = table.id.ToString();
@@ -115,7 +122,7 @@ namespace Examination
             if (!isValid()) return;
             else
             {
-                user user = db.users.Find(table?.id);
+                user user = Db.users.Find(table?.id);
 
                 if (table == null && usernameTextBox.Enabled)
                 {
@@ -132,7 +139,7 @@ namespace Examination
                         created_at = DateTime.Now,
                         deleted_at = null
                     };
-                    db.users.Add(newUser);
+                    Db.users.Add(newUser);
 
                     MessageBox.Show("New user successfully inserted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -147,7 +154,7 @@ namespace Examination
                 }
                 else
                 {
-                    user.role = db.roles.Find(roleComboBox.SelectedValue);
+                    user.role = Db.roles.Find(roleComboBox.SelectedValue);
                     user.username = usernameTextBox.Text;
                     user.password = passwordTextBox.Text;
                     user.name = nameTextBox.Text;
@@ -161,7 +168,7 @@ namespace Examination
                     MessageBox.Show("User updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                db.SaveChanges();
+                Db.SaveChanges();
 
                 load(userBindingSource, users);
 
@@ -184,7 +191,7 @@ namespace Examination
             Regex emailReg = new Regex(@"^[\w.]+@[\w.-]+\.\w+");
             if (isEmpty(this.Controls)) return false;
             else if (usernameTextBox.Text.Length <= 3) MessageBox.Show("Username must be more than 3 characters!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (db.users.Any(x => x.username.Equals(usernameTextBox.Text) && !x.id.Equals(id))) MessageBox.Show("Username must be unique!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (Db.users.Any(x => x.username.Equals(usernameTextBox.Text) && !x.id.Equals(id))) MessageBox.Show("Username must be unique!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if ((passwordTextBox.Text.Length <= 5 || passwordTextBox.Text.Length >= 12) && (table?.password?.Equals(passwordTextBox) ?? true)) MessageBox.Show("Password must be between 5 and 12 characters!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (!emailReg.IsMatch(emailTextBox.Text)) MessageBox.Show("Email must be valid!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (!long.TryParse(phoneTextBox.Text, out output)) MessageBox.Show("Phone must be number only!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);

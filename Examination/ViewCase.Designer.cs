@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label idLabel;
+            System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label5;
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label8;
             this.search = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.questionTextBox = new System.Windows.Forms.TextBox();
             this.caseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label4 = new System.Windows.Forms.Label();
             this.optionATextBox = new System.Windows.Forms.TextBox();
             this.optionCTextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.optionDTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.optionBTextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.fastBackward = new System.Windows.Forms.Button();
             this.backward = new System.Windows.Forms.Button();
             this.fastForward = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.cancel = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.answerComboBox = new System.Windows.Forms.ComboBox();
             this.caseDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +63,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.examDataSet = new Examination.ExamDataSet();
             this.cases_detailsTableAdapter = new Examination.ExamDataSetTableAdapters.cases_detailsTableAdapter();
+            idLabel = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.caseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.caseDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.examDataSet)).BeginInit();
@@ -97,16 +103,6 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "View Case";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 332);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 18);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "Question ";
-            // 
             // questionTextBox
             // 
             this.questionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -121,16 +117,6 @@
             // caseBindingSource
             // 
             this.caseBindingSource.DataSource = typeof(Examination.@case);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 437);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 18);
-            this.label4.TabIndex = 39;
-            this.label4.Text = "A.";
             // 
             // optionATextBox
             // 
@@ -154,16 +140,6 @@
             this.optionCTextBox.Size = new System.Drawing.Size(225, 46);
             this.optionCTextBox.TabIndex = 42;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(424, 437);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(23, 18);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "C.";
-            // 
             // optionDTextBox
             // 
             this.optionDTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -175,16 +151,6 @@
             this.optionDTextBox.Size = new System.Drawing.Size(225, 46);
             this.optionDTextBox.TabIndex = 46;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(424, 516);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 18);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "D.";
-            // 
             // optionBTextBox
             // 
             this.optionBTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -195,16 +161,6 @@
             this.optionBTextBox.Name = "optionBTextBox";
             this.optionBTextBox.Size = new System.Drawing.Size(225, 46);
             this.optionBTextBox.TabIndex = 44;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 516);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(22, 18);
-            this.label7.TabIndex = 43;
-            this.label7.Text = "B.";
             // 
             // fastBackward
             // 
@@ -293,16 +249,6 @@
             this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = true;
             this.update.Click += new System.EventHandler(this.update_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(13, 587);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 18);
-            this.label8.TabIndex = 54;
-            this.label8.Text = "Answer:";
             // 
             // answerComboBox
             // 
@@ -408,7 +354,7 @@
             this.label9.AutoSize = true;
             this.label9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caseBindingSource, "totalQ", true));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(78, 332);
+            this.label9.Location = new System.Drawing.Point(82, 333);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(0, 18);
             this.label9.TabIndex = 58;
@@ -422,15 +368,80 @@
             // 
             this.cases_detailsTableAdapter.ClearBeforeFill = true;
             // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            idLabel.Location = new System.Drawing.Point(18, 437);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(21, 16);
+            idLabel.TabIndex = 59;
+            idLabel.Text = "A.";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(434, 437);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(21, 16);
+            label4.TabIndex = 60;
+            label4.Text = "C.";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(433, 517);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(22, 16);
+            label5.TabIndex = 62;
+            label5.Text = "D.";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Location = new System.Drawing.Point(16, 517);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(21, 16);
+            label6.TabIndex = 61;
+            label6.Text = "B.";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.Location = new System.Drawing.Point(11, 588);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(61, 16);
+            label7.TabIndex = 63;
+            label7.Text = "Answer:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.Location = new System.Drawing.Point(12, 334);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(68, 16);
+            label8.TabIndex = 64;
+            label8.Text = "Question";
+            // 
             // ViewCase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 693);
+            this.Controls.Add(label8);
+            this.Controls.Add(label7);
+            this.Controls.Add(label5);
+            this.Controls.Add(label6);
+            this.Controls.Add(label4);
+            this.Controls.Add(idLabel);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.caseDataGridView);
             this.Controls.Add(this.answerComboBox);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.save);
             this.Controls.Add(this.update);
@@ -439,15 +450,10 @@
             this.Controls.Add(this.backward);
             this.Controls.Add(this.fastBackward);
             this.Controls.Add(this.optionDTextBox);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.optionBTextBox);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.optionCTextBox);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.optionATextBox);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.questionTextBox);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.search);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -467,16 +473,11 @@
         private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox questionTextBox;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox optionATextBox;
         private System.Windows.Forms.TextBox optionCTextBox;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox optionDTextBox;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox optionBTextBox;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button fastBackward;
         private System.Windows.Forms.Button backward;
         private System.Windows.Forms.Button fastForward;
@@ -484,7 +485,6 @@
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.Button update;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox answerComboBox;
         private System.Windows.Forms.BindingSource caseBindingSource;
         private System.Windows.Forms.DataGridView caseDataGridView;

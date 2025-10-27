@@ -29,23 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label label2;
             this.cancel = new System.Windows.Forms.Button();
             this.submit = new System.Windows.Forms.Button();
             this.qQty = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.add = new System.Windows.Forms.Button();
             this.cases_detailsDataGridView = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cases_detailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            label6 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cases_detailsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cases_detailsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -85,16 +87,6 @@
             this.qQty.TabIndex = 54;
             this.qQty.Text = "0";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(124, 117);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(146, 18);
-            this.label7.TabIndex = 53;
-            this.label7.Text = "Number of questions";
-            // 
             // codeTextBox
             // 
             this.codeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -102,16 +94,6 @@
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Size = new System.Drawing.Size(135, 20);
             this.codeTextBox.TabIndex = 52;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(124, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 18);
-            this.label4.TabIndex = 51;
-            this.label4.Text = "Code";
             // 
             // label1
             // 
@@ -150,7 +132,7 @@
             this.dataGridViewTextBoxColumn8,
             this.Column1});
             this.cases_detailsDataGridView.Location = new System.Drawing.Point(9, 186);
-            this.cases_detailsDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cases_detailsDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.cases_detailsDataGridView.Name = "cases_detailsDataGridView";
             this.cases_detailsDataGridView.ReadOnly = true;
             this.cases_detailsDataGridView.RowHeadersWidth = 51;
@@ -160,6 +142,60 @@
             this.cases_detailsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cases_detailsDataGridView_CellContentClick);
             this.cases_detailsDataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.cases_detailsDataGridView_RowsAdded);
             this.cases_detailsDataGridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.cases_detailsDataGridView_RowsRemoved);
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "text";
+            this.dataGridViewTextBoxColumn3.HeaderText = "text";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 49;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "option_a";
+            this.dataGridViewTextBoxColumn4.HeaderText = "option_a";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 73;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "option_b";
+            this.dataGridViewTextBoxColumn5.HeaderText = "option_b";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 73;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "option_c";
+            this.dataGridViewTextBoxColumn6.HeaderText = "option_c";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 73;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "option_d";
+            this.dataGridViewTextBoxColumn7.HeaderText = "option_d";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 73;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "correct_answer";
+            this.dataGridViewTextBoxColumn8.HeaderText = "correct_answer";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 105;
             // 
             // Column1
             // 
@@ -171,77 +207,43 @@
             this.Column1.UseColumnTextForButtonValue = true;
             this.Column1.Width = 43;
             // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "correct_answer";
-            this.dataGridViewTextBoxColumn8.HeaderText = "correct_answer";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 105;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "option_d";
-            this.dataGridViewTextBoxColumn7.HeaderText = "option_d";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 73;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "option_c";
-            this.dataGridViewTextBoxColumn6.HeaderText = "option_c";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 73;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "option_b";
-            this.dataGridViewTextBoxColumn5.HeaderText = "option_b";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 73;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "option_a";
-            this.dataGridViewTextBoxColumn4.HeaderText = "option_a";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 73;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "text";
-            this.dataGridViewTextBoxColumn3.HeaderText = "text";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 49;
-            // 
             // cases_detailsBindingSource
             // 
             this.cases_detailsBindingSource.DataSource = typeof(Examination.cases_details);
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Location = new System.Drawing.Point(129, 78);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(44, 16);
+            label6.TabIndex = 62;
+            label6.Text = "Code";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(129, 117);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(151, 16);
+            label2.TabIndex = 63;
+            label2.Text = "Number of Questions";
             // 
             // NewCase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 422);
+            this.Controls.Add(label2);
+            this.Controls.Add(label6);
             this.Controls.Add(this.cases_detailsDataGridView);
             this.Controls.Add(this.add);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.qQty);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.codeTextBox);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Name = "NewCase";
             this.Text = "New Case";
@@ -257,9 +259,7 @@
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.TextBox qQty;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox codeTextBox;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.DataGridView cases_detailsDataGridView;

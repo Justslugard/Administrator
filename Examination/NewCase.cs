@@ -38,14 +38,14 @@ namespace Examination
             {
                 @case newCase = new @case()
                 {
-                    creator_id = User.id,
+                    creator_id = LogUser.id,
                     code = codeTextBox.Text,
                     number_of_questions = cases_detailsDataGridView.RowCount,
                     created_at = DateTime.Now,
                     deleted_at = null
                 };
 
-                db.cases.Add(newCase);
+                Db.cases.Add(newCase);
 
                 for (int i = 0; i < cases_detailsDataGridView.RowCount; i++)
                 {
@@ -62,10 +62,10 @@ namespace Examination
                         deleted_at = null
                     };
 
-                    db.cases_details.Add(newDetails);
+                    Db.cases_details.Add(newDetails);
                 }
 
-                db.SaveChanges();
+                Db.SaveChanges();
 
                 MessageBox.Show("New case successfully created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

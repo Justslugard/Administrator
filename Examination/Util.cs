@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -11,13 +12,13 @@ namespace Examination
 {
     public static class Util
     {
-        public static user User { get; set; } = db?.users?.First();
-        public static ExamEntities db { get; set; } = new ExamEntities();
+        public static user LogUser { get; set; } = Db?.users?.First();
+        public static ExamEntities Db { get; set; } = new ExamEntities();
         public static Dictionary<string, string> Question { get; set; } = new Dictionary<string, string>();
 
         public static string nextId(string table)
         {
-            string nextId = db.Database
+            string nextId = Db.Database
                 .SqlQuery<Decimal>($"SELECT IDENT_CURRENT('{table}') + IDENT_INCR('{table}')")
                 .FirstOrDefault()
                 .ToString();
@@ -58,8 +59,8 @@ namespace Examination
         {
             binding.ResumeBinding();
             binding.ResetBindings(false);
-            //binding.DataSource = db.Where(x => x.deleted_at.Equals(null)).ToList();
-            binding.DataSource = db.ToList();
+            binding.DataSource = db.Where(x => x.deleted_at.Equals(null)).ToList();
+            //binding.DataSource = db.ToList();
         }
         public static string encryptMD5(string encrypt)
         {
@@ -119,11 +120,12 @@ namespace Examination
     public partial class room : IDeletable { }
     public partial class type : IDeletable { }
     public partial class schedule : IDeletable 
-    { 
+    {
         public string Examiner { get { return user?.name ?? ""; } }
-        public string Room { get { return room?.code ?? ""; } }
-        public string Case { get { return @case?.code ?? ""; } }
+        public string Roomate { get { return room?.code ?? ""; } }
+        public string Caseoh { get { return @case?.code ?? ""; } }
     }
+    public partial class schedules_participants : IDeletable { }
 
     public interface IDeletable
     {

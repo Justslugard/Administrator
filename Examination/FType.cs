@@ -10,7 +10,7 @@ namespace Examination
 {
     public partial class FType : Form
     {
-        static IQueryable<type> types = db.types;
+        static IQueryable<type> types = Db.types;
         static List<string> doNot = new List<string>()
         {
             "TextBox"
@@ -36,8 +36,8 @@ namespace Examination
 
         private void Search_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(search.Text)) types = db.types.Where(x => x.name.Contains(search.Text));
-            else types = db.types;
+            if (!string.IsNullOrWhiteSpace(search.Text)) types = Db.types.Where(x => x.name.Contains(search.Text));
+            else types = Db.types;
 
             load(typeBindingSource, types);
         }
@@ -59,6 +59,13 @@ namespace Examination
             flipMode(this.Controls, doNot);
 
             table = (type)typeBindingSource.Current;
+
+            if (table == null)
+            {
+                MessageBox.Show("There aren't any data!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             typeBindingSource.SuspendBinding();
 
             idTextBox.Text = table.id.ToString();
@@ -71,7 +78,7 @@ namespace Examination
             if (!isValid()) return;
             else
             {
-                type type = db.types.Find(table?.id);
+                type type = Db.types.Find(table?.id);
 
                 if (table == null && codeTextBox.Enabled)
                 {
@@ -82,7 +89,7 @@ namespace Examination
                         created_at = DateTime.Now,
                         deleted_at = null
                     };
-                    db.types.Add(newType);
+                    Db.types.Add(newType);
 
                     MessageBox.Show("New type successfully inserted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } else if (!codeTextBox.Enabled) 
@@ -101,7 +108,7 @@ namespace Examination
                     MessageBox.Show("Type successfully updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                db.SaveChanges();
+                Db.SaveChanges();
                 load(typeBindingSource, types);
                 flipMode(this.Controls, nameTextBox.Enabled ? null : doNot);
             }

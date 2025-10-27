@@ -29,53 +29,109 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label8;
+            System.Windows.Forms.Label label2;
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.sch = new System.Windows.Forms.GroupBox();
+            this.cancel = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Button();
+            this.insert = new System.Windows.Forms.Button();
+            this.caseTextBox = new System.Windows.Forms.TextBox();
+            this.roomTextBox = new System.Windows.Forms.TextBox();
+            this.examinerTextBox = new System.Windows.Forms.TextBox();
+            this.timeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.caseIDTextBox = new System.Windows.Forms.TextBox();
+            this.roomIDTextBox = new System.Windows.Forms.TextBox();
+            this.examinerIDTextBox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.scheduleidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.participantidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schedulesparticipantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Roomate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Caseoh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.par = new System.Windows.Forms.GroupBox();
+            this.delAllPar = new System.Windows.Forms.Button();
+            this.delSelPar = new System.Windows.Forms.Button();
+            this.newPar = new System.Windows.Forms.GroupBox();
+            this.addPartici = new System.Windows.Forms.Button();
+            this.participantTextBox = new System.Windows.Forms.TextBox();
+            this.participantIDTextBox = new System.Windows.Forms.TextBox();
+            this.parDgv = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.examineridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caseidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deletedatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1.SuspendLayout();
+            label6 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            this.sch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulesparticipantsBindingSource)).BeginInit();
+            this.par.SuspendLayout();
+            this.newPar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.parDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Location = new System.Drawing.Point(6, 134);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(71, 16);
+            label6.TabIndex = 68;
+            label6.Text = "Examiner";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(6, 160);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(48, 16);
+            label4.TabIndex = 71;
+            label4.Text = "Room";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.Location = new System.Drawing.Point(6, 212);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(42, 16);
+            label7.TabIndex = 73;
+            label7.Text = "Time";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.Location = new System.Drawing.Point(6, 186);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(43, 16);
+            label8.TabIndex = 72;
+            label8.Text = "Case";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(6, 21);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(81, 16);
+            label2.TabIndex = 74;
+            label2.Text = "Participant";
             // 
             // label1
             // 
@@ -87,183 +143,159 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Schedule";
             // 
-            // groupBox1
+            // sch
             // 
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(8, 58);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(448, 307);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Schedule";
+            this.sch.Controls.Add(label7);
+            this.sch.Controls.Add(label8);
+            this.sch.Controls.Add(label4);
+            this.sch.Controls.Add(label6);
+            this.sch.Controls.Add(this.cancel);
+            this.sch.Controls.Add(this.save);
+            this.sch.Controls.Add(this.delete);
+            this.sch.Controls.Add(this.update);
+            this.sch.Controls.Add(this.insert);
+            this.sch.Controls.Add(this.caseTextBox);
+            this.sch.Controls.Add(this.roomTextBox);
+            this.sch.Controls.Add(this.examinerTextBox);
+            this.sch.Controls.Add(this.timeDateTimePicker);
+            this.sch.Controls.Add(this.caseIDTextBox);
+            this.sch.Controls.Add(this.roomIDTextBox);
+            this.sch.Controls.Add(this.examinerIDTextBox);
+            this.sch.Controls.Add(this.dataGridView1);
+            this.sch.Location = new System.Drawing.Point(8, 58);
+            this.sch.Name = "sch";
+            this.sch.Size = new System.Drawing.Size(448, 307);
+            this.sch.TabIndex = 2;
+            this.sch.TabStop = false;
+            this.sch.Text = "Schedule";
             // 
-            // button4
+            // cancel
             // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(231, 275);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 70;
-            this.button4.Text = "Cancel";
-            this.button4.UseVisualStyleBackColor = true;
+            this.cancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancel.Enabled = false;
+            this.cancel.Location = new System.Drawing.Point(231, 275);
+            this.cancel.Name = "cancel";
+            this.cancel.Size = new System.Drawing.Size(75, 23);
+            this.cancel.TabIndex = 70;
+            this.cancel.Text = "Cancel";
+            this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
-            // button5
+            // save
             // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Enabled = false;
-            this.button5.Location = new System.Drawing.Point(150, 275);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 69;
-            this.button5.Text = "Save";
-            this.button5.UseVisualStyleBackColor = true;
+            this.save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.save.Enabled = false;
+            this.save.Location = new System.Drawing.Point(150, 275);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(75, 23);
+            this.save.TabIndex = 69;
+            this.save.Text = "Save";
+            this.save.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // delete
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(270, 246);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 68;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete.Location = new System.Drawing.Point(270, 246);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(75, 23);
+            this.delete.TabIndex = 68;
+            this.delete.Text = "Delete";
+            this.delete.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // update
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Location = new System.Drawing.Point(189, 246);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 67;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
+            this.update.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.update.Location = new System.Drawing.Point(189, 246);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(75, 23);
+            this.update.TabIndex = 67;
+            this.update.Text = "Update";
+            this.update.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // insert
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(108, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 66;
-            this.button1.Text = "Insert";
-            this.button1.UseVisualStyleBackColor = true;
+            this.insert.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.insert.Location = new System.Drawing.Point(108, 246);
+            this.insert.Name = "insert";
+            this.insert.Size = new System.Drawing.Size(75, 23);
+            this.insert.TabIndex = 66;
+            this.insert.Text = "Insert";
+            this.insert.UseVisualStyleBackColor = true;
+            this.insert.Click += new System.EventHandler(this.insert_Click);
             // 
-            // textBox1
+            // caseTextBox
             // 
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox1.Location = new System.Drawing.Point(177, 185);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 20);
-            this.textBox1.TabIndex = 65;
+            this.caseTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.caseTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Caseoh", true));
+            this.caseTextBox.Enabled = false;
+            this.caseTextBox.Location = new System.Drawing.Point(177, 185);
+            this.caseTextBox.Name = "caseTextBox";
+            this.caseTextBox.Size = new System.Drawing.Size(265, 20);
+            this.caseTextBox.TabIndex = 65;
             // 
-            // textBox4
+            // roomTextBox
             // 
-            this.textBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox4.Location = new System.Drawing.Point(177, 159);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(265, 20);
-            this.textBox4.TabIndex = 64;
+            this.roomTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.roomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Roomate", true));
+            this.roomTextBox.Enabled = false;
+            this.roomTextBox.Location = new System.Drawing.Point(177, 159);
+            this.roomTextBox.Name = "roomTextBox";
+            this.roomTextBox.Size = new System.Drawing.Size(265, 20);
+            this.roomTextBox.TabIndex = 64;
             // 
-            // textBox5
+            // examinerTextBox
             // 
-            this.textBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox5.Location = new System.Drawing.Point(177, 133);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(265, 20);
-            this.textBox5.TabIndex = 63;
+            this.examinerTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.examinerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Examiner", true));
+            this.examinerTextBox.Enabled = false;
+            this.examinerTextBox.Location = new System.Drawing.Point(177, 133);
+            this.examinerTextBox.Name = "examinerTextBox";
+            this.examinerTextBox.Size = new System.Drawing.Size(265, 20);
+            this.examinerTextBox.TabIndex = 63;
             // 
-            // dateTimePicker1
+            // timeDateTimePicker
             // 
-            this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateTimePicker1.Location = new System.Drawing.Point(82, 211);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(360, 20);
-            this.dateTimePicker1.TabIndex = 62;
+            this.timeDateTimePicker.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.timeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.scheduleBindingSource, "time", true));
+            this.timeDateTimePicker.Enabled = false;
+            this.timeDateTimePicker.Location = new System.Drawing.Point(82, 211);
+            this.timeDateTimePicker.Name = "timeDateTimePicker";
+            this.timeDateTimePicker.Size = new System.Drawing.Size(360, 20);
+            this.timeDateTimePicker.TabIndex = 62;
             // 
-            // label2
+            // caseIDTextBox
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 211);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 18);
-            this.label2.TabIndex = 61;
-            this.label2.Text = "Time";
+            this.caseIDTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.caseIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "case_id", true));
+            this.caseIDTextBox.Enabled = false;
+            this.caseIDTextBox.Location = new System.Drawing.Point(82, 185);
+            this.caseIDTextBox.Name = "caseIDTextBox";
+            this.caseIDTextBox.Size = new System.Drawing.Size(89, 20);
+            this.caseIDTextBox.TabIndex = 60;
+            this.caseIDTextBox.Text = "<<Case ID>>";
             // 
-            // textBox2
+            // roomIDTextBox
             // 
-            this.textBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox2.Location = new System.Drawing.Point(82, 185);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(89, 20);
-            this.textBox2.TabIndex = 60;
-            this.textBox2.Text = "<<Case ID>>";
+            this.roomIDTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.roomIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "room_id", true));
+            this.roomIDTextBox.Enabled = false;
+            this.roomIDTextBox.Location = new System.Drawing.Point(82, 159);
+            this.roomIDTextBox.Name = "roomIDTextBox";
+            this.roomIDTextBox.Size = new System.Drawing.Size(89, 20);
+            this.roomIDTextBox.TabIndex = 58;
+            this.roomIDTextBox.Text = "<<Room ID>>";
             // 
-            // label3
+            // examinerIDTextBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 184);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 18);
-            this.label3.TabIndex = 59;
-            this.label3.Text = "Case";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox6.Location = new System.Drawing.Point(82, 159);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(89, 20);
-            this.textBox6.TabIndex = 58;
-            this.textBox6.Text = "<<Room ID>>";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 159);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 18);
-            this.label7.TabIndex = 57;
-            this.label7.Text = "Room";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox3.Location = new System.Drawing.Point(82, 133);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(89, 20);
-            this.textBox3.TabIndex = 56;
-            this.textBox3.Text = "<<Examiner ID>>";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 132);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 18);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "Examiner";
+            this.examinerIDTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.examinerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "examiner_id", true));
+            this.examinerIDTextBox.Enabled = false;
+            this.examinerIDTextBox.Location = new System.Drawing.Point(82, 133);
+            this.examinerIDTextBox.Margin = new System.Windows.Forms.Padding(0);
+            this.examinerIDTextBox.Name = "examinerIDTextBox";
+            this.examinerIDTextBox.Size = new System.Drawing.Size(89, 20);
+            this.examinerIDTextBox.TabIndex = 56;
+            this.examinerIDTextBox.Text = "<<Examiner ID>>";
             // 
             // dataGridView1
             // 
@@ -275,8 +307,8 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.examineridDataGridViewTextBoxColumn,
-            this.roomidDataGridViewTextBoxColumn,
-            this.caseidDataGridViewTextBoxColumn,
+            this.Roomate,
+            this.Caseoh,
             this.timeDataGridViewTextBoxColumn,
             this.createdatDataGridViewTextBoxColumn,
             this.deletedatDataGridViewTextBoxColumn});
@@ -288,128 +320,155 @@
             this.dataGridView1.Size = new System.Drawing.Size(437, 99);
             this.dataGridView1.TabIndex = 0;
             // 
-            // groupBox2
+            // Roomate
             // 
-            this.groupBox2.Controls.Add(this.button7);
-            this.groupBox2.Controls.Add(this.button8);
-            this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Location = new System.Drawing.Point(462, 58);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(425, 307);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Participant";
+            this.Roomate.DataPropertyName = "Roomate";
+            this.Roomate.HeaderText = "Room";
+            this.Roomate.Name = "Roomate";
+            this.Roomate.ReadOnly = true;
+            this.Roomate.Width = 60;
             // 
-            // button7
+            // Caseoh
             // 
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.Location = new System.Drawing.Point(215, 259);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(198, 23);
-            this.button7.TabIndex = 72;
-            this.button7.Text = "Delete All Participant";
-            this.button7.UseVisualStyleBackColor = true;
+            this.Caseoh.DataPropertyName = "Caseoh";
+            this.Caseoh.HeaderText = "Case";
+            this.Caseoh.Name = "Caseoh";
+            this.Caseoh.ReadOnly = true;
+            this.Caseoh.Width = 56;
             // 
-            // button8
+            // par
             // 
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.Location = new System.Drawing.Point(11, 259);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(198, 23);
-            this.button8.TabIndex = 71;
-            this.button8.Text = "Delete Selected Participant";
-            this.button8.UseVisualStyleBackColor = true;
+            this.par.Controls.Add(this.delAllPar);
+            this.par.Controls.Add(this.delSelPar);
+            this.par.Controls.Add(this.newPar);
+            this.par.Controls.Add(this.parDgv);
+            this.par.Location = new System.Drawing.Point(462, 58);
+            this.par.Name = "par";
+            this.par.Size = new System.Drawing.Size(425, 307);
+            this.par.TabIndex = 3;
+            this.par.TabStop = false;
+            this.par.Text = "Participant";
             // 
-            // groupBox3
+            // delAllPar
             // 
-            this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Controls.Add(this.textBox7);
-            this.groupBox3.Controls.Add(this.textBox8);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(6, 133);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(413, 100);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Add New Participant";
+            this.delAllPar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delAllPar.Enabled = false;
+            this.delAllPar.Location = new System.Drawing.Point(215, 259);
+            this.delAllPar.Name = "delAllPar";
+            this.delAllPar.Size = new System.Drawing.Size(198, 23);
+            this.delAllPar.TabIndex = 72;
+            this.delAllPar.Text = "Delete All Participant";
+            this.delAllPar.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // delSelPar
             // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.Location = new System.Drawing.Point(332, 71);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 74;
-            this.button6.Text = "Add";
-            this.button6.UseVisualStyleBackColor = true;
+            this.delSelPar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delSelPar.Enabled = false;
+            this.delSelPar.Location = new System.Drawing.Point(11, 259);
+            this.delSelPar.Name = "delSelPar";
+            this.delSelPar.Size = new System.Drawing.Size(198, 23);
+            this.delSelPar.TabIndex = 71;
+            this.delSelPar.Text = "Delete Selected Participant";
+            this.delSelPar.UseVisualStyleBackColor = true;
             // 
-            // textBox7
+            // newPar
             // 
-            this.textBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox7.Location = new System.Drawing.Point(183, 19);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(224, 20);
-            this.textBox7.TabIndex = 73;
+            this.newPar.Controls.Add(label2);
+            this.newPar.Controls.Add(this.addPartici);
+            this.newPar.Controls.Add(this.participantTextBox);
+            this.newPar.Controls.Add(this.participantIDTextBox);
+            this.newPar.Location = new System.Drawing.Point(6, 133);
+            this.newPar.Name = "newPar";
+            this.newPar.Size = new System.Drawing.Size(413, 100);
+            this.newPar.TabIndex = 2;
+            this.newPar.TabStop = false;
+            this.newPar.Text = "Add New Participant";
             // 
-            // textBox8
+            // addPartici
             // 
-            this.textBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox8.Location = new System.Drawing.Point(79, 19);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(98, 20);
-            this.textBox8.TabIndex = 72;
-            this.textBox8.Text = "<<Participant ID>>";
+            this.addPartici.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addPartici.Enabled = false;
+            this.addPartici.Location = new System.Drawing.Point(332, 71);
+            this.addPartici.Name = "addPartici";
+            this.addPartici.Size = new System.Drawing.Size(75, 23);
+            this.addPartici.TabIndex = 74;
+            this.addPartici.Text = "Add";
+            this.addPartici.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // participantTextBox
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 18);
-            this.label5.TabIndex = 71;
-            this.label5.Text = "Participant";
+            this.participantTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.participantTextBox.Enabled = false;
+            this.participantTextBox.Location = new System.Drawing.Point(191, 19);
+            this.participantTextBox.Name = "participantTextBox";
+            this.participantTextBox.Size = new System.Drawing.Size(216, 20);
+            this.participantTextBox.TabIndex = 73;
             // 
-            // dataGridView2
+            // participantIDTextBox
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.scheduleidDataGridViewTextBoxColumn,
-            this.participantidDataGridViewTextBoxColumn});
-            this.dataGridView2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dataGridView2.DataSource = this.schedulesparticipantsBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(413, 99);
-            this.dataGridView2.TabIndex = 1;
+            this.participantIDTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.participantIDTextBox.Enabled = false;
+            this.participantIDTextBox.Location = new System.Drawing.Point(89, 19);
+            this.participantIDTextBox.Name = "participantIDTextBox";
+            this.participantIDTextBox.Size = new System.Drawing.Size(98, 20);
+            this.participantIDTextBox.TabIndex = 72;
+            this.participantIDTextBox.Text = "<<Participant ID>>";
             // 
-            // scheduleidDataGridViewTextBoxColumn
+            // parDgv
             // 
-            this.scheduleidDataGridViewTextBoxColumn.DataPropertyName = "schedule_id";
-            this.scheduleidDataGridViewTextBoxColumn.HeaderText = "Schedule ID";
-            this.scheduleidDataGridViewTextBoxColumn.Name = "scheduleidDataGridViewTextBoxColumn";
-            this.scheduleidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.parDgv.AllowUserToAddRows = false;
+            this.parDgv.AllowUserToDeleteRows = false;
+            this.parDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.parDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.parDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.parDgv.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.parDgv.Location = new System.Drawing.Point(6, 19);
+            this.parDgv.Name = "parDgv";
+            this.parDgv.ReadOnly = true;
+            this.parDgv.Size = new System.Drawing.Size(413, 99);
+            this.parDgv.TabIndex = 1;
             // 
-            // participantidDataGridViewTextBoxColumn
+            // Column1
             // 
-            this.participantidDataGridViewTextBoxColumn.DataPropertyName = "participant_id";
-            this.participantidDataGridViewTextBoxColumn.HeaderText = "Participant ID";
-            this.participantidDataGridViewTextBoxColumn.Name = "participantidDataGridViewTextBoxColumn";
-            this.participantidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Column1.HeaderText = "Schedule ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
-            // schedulesparticipantsBindingSource
+            // Column2
             // 
-            this.schedulesparticipantsBindingSource.DataSource = typeof(Examination.schedules_participants);
+            this.Column2.HeaderText = "Participant ID";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Name";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Room";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Room";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Case";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Case";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 56;
             // 
             // scheduleBindingSource
             // 
             this.scheduleBindingSource.DataSource = typeof(Examination.schedule);
+            this.scheduleBindingSource.CurrentChanged += new System.EventHandler(this.scheduleBindingSource_CurrentChanged);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -426,22 +485,6 @@
             this.examineridDataGridViewTextBoxColumn.Name = "examineridDataGridViewTextBoxColumn";
             this.examineridDataGridViewTextBoxColumn.ReadOnly = true;
             this.examineridDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // roomidDataGridViewTextBoxColumn
-            // 
-            this.roomidDataGridViewTextBoxColumn.DataPropertyName = "Room";
-            this.roomidDataGridViewTextBoxColumn.HeaderText = "Room";
-            this.roomidDataGridViewTextBoxColumn.Name = "roomidDataGridViewTextBoxColumn";
-            this.roomidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roomidDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // caseidDataGridViewTextBoxColumn
-            // 
-            this.caseidDataGridViewTextBoxColumn.DataPropertyName = "Case";
-            this.caseidDataGridViewTextBoxColumn.HeaderText = "Cases";
-            this.caseidDataGridViewTextBoxColumn.Name = "caseidDataGridViewTextBoxColumn";
-            this.caseidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.caseidDataGridViewTextBoxColumn.Width = 61;
             // 
             // timeDataGridViewTextBoxColumn
             // 
@@ -472,20 +515,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(894, 377);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.par);
+            this.Controls.Add(this.sch);
             this.Controls.Add(this.label1);
             this.Name = "FSchedule";
             this.Text = "Schedule";
             this.Load += new System.EventHandler(this.FSchedule_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.sch.ResumeLayout(false);
+            this.sch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulesparticipantsBindingSource)).EndInit();
+            this.par.ResumeLayout(false);
+            this.newPar.ResumeLayout(false);
+            this.newPar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.parDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -495,43 +537,42 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox sch;
+        private System.Windows.Forms.GroupBox par;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.DataGridView parDgv;
+        private System.Windows.Forms.TextBox caseIDTextBox;
+        private System.Windows.Forms.TextBox roomIDTextBox;
+        private System.Windows.Forms.TextBox examinerIDTextBox;
+        private System.Windows.Forms.TextBox caseTextBox;
+        private System.Windows.Forms.TextBox roomTextBox;
+        private System.Windows.Forms.TextBox examinerTextBox;
+        private System.Windows.Forms.DateTimePicker timeDateTimePicker;
+        private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button delete;
+        private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Button insert;
+        private System.Windows.Forms.GroupBox newPar;
+        private System.Windows.Forms.TextBox participantTextBox;
+        private System.Windows.Forms.TextBox participantIDTextBox;
+        private System.Windows.Forms.Button addPartici;
+        private System.Windows.Forms.Button delAllPar;
+        private System.Windows.Forms.Button delSelPar;
         private System.Windows.Forms.BindingSource scheduleBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scheduleidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn participantidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource schedulesparticipantsBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn examineridDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn caseidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn examineridDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Roomate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Caseoh;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deletedatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }
