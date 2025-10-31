@@ -269,6 +269,7 @@
             // userBindingSource
             // 
             this.userBindingSource.DataSource = typeof(Examination.user);
+            this.userBindingSource.CurrentChanged += new System.EventHandler(this.userBindingSource_CurrentChanged);
             // 
             // roleComboBox
             // 

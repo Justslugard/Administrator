@@ -198,5 +198,10 @@ namespace Examination
             else return true;
             return false;
         }
+
+        private void userBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(((user)userBindingSource.Current).name);
+        }
     }
 }
