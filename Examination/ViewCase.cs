@@ -107,12 +107,15 @@ namespace Examination
         private void cancel_Click(object sender, EventArgs e)
         {
             flipMode(this.Controls, doNot);
+            caseBindingSource.ResumeBinding();
 
             if (count == 0) forward.Enabled = fastForward.Enabled = true;
             else if (count == table.Count - 1) backward.Enabled = fastBackward.Enabled = true;
             else fastBackward.Enabled = backward.Enabled = forward.Enabled = fastForward.Enabled = true;
 
-            caseBindingSource.ResumeBinding();
+            table = ((@case)caseBindingSource.Current).cases_details.ToList();
+            count = 0;
+            reset();
         }
 
         void reset()

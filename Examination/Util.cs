@@ -126,11 +126,7 @@ namespace Examination
         public string Roomate { get { return room?.code ?? ""; } }
         public string Caseoh { get { return @case?.code ?? ""; } }
     }
-    public partial class schedules_participants : IDeletable
-    {
-        public string GetName { get { return user.name; } }
-        public int GetID { get { return user.id; } }
-    }
+    public partial class schedules_participants : IDeletable { }
 
     public interface IDeletable
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
@@ -18,6 +19,7 @@ namespace Examination
         };
         static schedule table = null;
         static int row = -1;
+        static bool onInsert = false;
 
         public FSchedule()
         {
@@ -69,19 +71,21 @@ namespace Examination
             flipMode(this.Controls, doNot);
 
             suspend();
-            parDgv.DataSource = null;
+            parDgv.Rows.Clear();
             timeDateTimePicker.Value = DateTime.Now;
+            onInsert = true;
 
             examinerIDTextBox.Text = examinerID;
             roomIDTextBox.Text = roomID;
             caseIDTextBox.Text = caseID;
             participantIDTextBox.Text = parID;
-            participantTextBox.Text = string.Empty;
+            participantTextBox.Clear();
         }
 
         private void cancel_Click(object sender, EventArgs e)
         {
             flipMode(this.Controls, doNot);
+            onInsert = false;
 
             unSuspend();
         }
@@ -91,7 +95,7 @@ namespace Examination
 
         }
 
-        bool isValid()
+        bool isSchValid()
         {
             if (isEmpty(sch.Controls)) return false;
             else 
@@ -110,27 +114,27 @@ namespace Examination
             roomTextBox.Text = table.room.code;
             caseIDTextBox.Text = table.@case.id.ToString();
             caseTextBox.Text = table.@case.code;
+            participantIDTextBox.Text = parID;
+            participantTextBox.Clear();
         }
 
         private void examinerTextBox_Validating(object sender, CancelEventArgs e)
         {
-            if (sender is TextBox)
-            {
-                TextBox s = (TextBox)sender;
-                user us = Db.users.Where(x => x.name.Equals(s.Text) && x.role_id.Equals(2)).FirstOrDefault();
-                room ro = Db.rooms.Where(x => x.code.Equals(s.Text)).FirstOrDefault();
-                @case ca = Db.cases.Where(x => x.code.Equals(s.Text)).FirstOrDefault();
-                user su = Db.users.Where(x => x.name.Equals(s.Text) && x.role_id.Equals(3)).FirstOrDefault();
+            TextBox s = (TextBox)sender;
 
-                if (us != null || ca != null || ro != null)
-                    sch.Controls[$"{s.Name.Replace("TextBox", string.Empty)}IDTextBox"].Text = us != null ? us.id.ToString() : ro != null ? ro.id.ToString() : ca != null ? ca.id.ToString() : "";
-                else if (su != null) 
-                    participantIDTextBox.Text = su.id.ToString();
-                else if (!string.IsNullOrWhiteSpace(s.Text))
-                {
-                    MessageBox.Show($"No such {s.Name.Replace("TextBox", string.Empty)} exist!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    e.Cancel = true;
-                }
+            user us = Db.users.Where(x => x.name.Equals(s.Text) && x.role_id.Equals(2)).FirstOrDefault();
+            room ro = Db.rooms.Where(x => x.code.Equals(s.Text)).FirstOrDefault();
+            @case ca = Db.cases.Where(x => x.code.Equals(s.Text)).FirstOrDefault();
+            user su = Db.users.Where(x => x.name.Equals(s.Text) && x.role_id.Equals(3)).FirstOrDefault();
+
+            var allCt = sch.Controls.Cast<Control>().Concat(newPar.Controls.Cast<Control>()).ToDictionary(k => k.Name, v => v);
+
+            if (us != null || ca != null || ro != null || su != null)
+                allCt[$"{s.Name.Replace("TextBox", string.Empty)}IDTextBox"].Text = us != null ? us.id.ToString() : ro != null ? ro.id.ToString() : ca != null ? ca.id.ToString() : su != null ? su.id.ToString() : "";
+            else if (!string.IsNullOrWhiteSpace(s.Text))
+            {
+                MessageBox.Show($"No such {s.Name.Replace("TextBox", string.Empty)} exist!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true;
             }
         }
 
@@ -147,31 +151,68 @@ namespace Examination
         private void parDgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             row = e.RowIndex;
+            Console.WriteLine(row);
 
-            if (row > -1)
+            if (row > -1 && !scheduleBindingSource.IsBindingSuspended)
             {
-                participantIDTextBox.Text = parDgv.Rows[row].Cells[0].Value.ToString();
-                participantTextBox.Text = parDgv.Rows[row].Cells[3].Value.ToString();
+                participantIDTextBox.Text = parDgv.Rows[row].Cells[1].Value.ToString();
+                participantTextBox.Text = parDgv.Rows[row].Cells[2].Value.ToString();
             }
+        }
+
+        private void delSelPar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show($"Are you sure you want to delete this participant?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) return;
+             
+            if (onInsert) parDgv.Rows.RemoveAt(row);
+            else
+            {
+                schedules_participants rem = Db.schedules_participants.Where(x => x.participant_id.Equals(int.Parse(parDgv.Rows[row].Cells[1].Value.ToString()))).FirstOrDefault();
+                rem.deleted_at = DateTime.Now;
+
+                load(scheduleBindingSource, schedules);
+            }
+
+            MessageBox.Show($"Successfully deleted participant", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void delAllPar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show($"Are you sure you want to delete all participants?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No) return;
+
+            if (onInsert) parDgv.Rows.Clear();
+            else
+            {
+                foreach (schedules_participants item in ((schedule)scheduleBindingSource.Current).schedules_participants)
+                {
+                    item.deleted_at = DateTime.Now;
+                }
+
+                Db.SaveChanges();
+                load(scheduleBindingSource, schedules);
+            }
+
+            MessageBox.Show($"Successfully deleted all participant", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void scheduleBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            var par = ((schedule)scheduleBindingSource.Current)?.schedules_participants?.Select(x => new
+            List<ParView> bind = ((schedule)scheduleBindingSource.Current)?.schedules_participants?.Where(x => x.deleted_at.Equals(null)).Select(x => new ParView
             {
-                x.GetID,
-                x.schedule_id,
-                x.participant_id,
-                x.GetName
+                SchID = x.schedule_id,
+                PartiID = x.participant_id,
+                ParName = x.user.name
             }).ToList();
+
+            BindingList<ParView> par = new BindingList<ParView>(bind);
 
             parDgv.DataSource = par;
 
             if (par.Count > 0)
             {
                 row = 0;
-                participantIDTextBox.Text = parDgv.Rows[row].Cells[0].Value.ToString();
-                participantTextBox.Text = parDgv.Rows[row].Cells[3].Value.ToString();
+                participantIDTextBox.Text = parDgv.Rows[row].Cells[1].Value.ToString();
+                participantTextBox.Text = parDgv.Rows[row].Cells[2].Value.ToString();
             }
         }
 
@@ -198,6 +239,12 @@ namespace Examination
             //participantIDTextBox.DataBindings.Add("Text", ajg, "participant_id", true, DataSourceUpdateMode.OnPropertyChanged);
             //participantTextBox.DataBindings.Add("Text", ajg, "GetName", true, DataSourceUpdateMode.OnPropertyChanged);
         }
+    }
+    public class ParView
+    {
+        public int SchID { get; set; }
+        public int PartiID { get; set; }
+        public string ParName { get; set; }
     }
 }
 

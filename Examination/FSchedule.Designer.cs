@@ -59,13 +59,12 @@
             this.participantTextBox = new System.Windows.Forms.TextBox();
             this.participantIDTextBox = new System.Windows.Forms.TextBox();
             this.parDgv = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schhh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eman = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.schhh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eman = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.examineridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -280,12 +279,16 @@
             // timeDateTimePicker
             // 
             this.timeDateTimePicker.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.timeDateTimePicker.CustomFormat = "dddd, MMMM d, yyyy HH:mm:ss";
             this.timeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.scheduleBindingSource, "time", true));
             this.timeDateTimePicker.Enabled = false;
+            this.timeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.timeDateTimePicker.Location = new System.Drawing.Point(82, 211);
+            this.timeDateTimePicker.MinDate = new System.DateTime(2025, 11, 1, 17, 0, 10, 663);
             this.timeDateTimePicker.Name = "timeDateTimePicker";
             this.timeDateTimePicker.Size = new System.Drawing.Size(360, 20);
             this.timeDateTimePicker.TabIndex = 62;
+            this.timeDateTimePicker.Value = new System.DateTime(2025, 11, 1, 17, 0, 10, 663);
             // 
             // caseIDTextBox
             // 
@@ -383,6 +386,7 @@
             this.delAllPar.TabIndex = 72;
             this.delAllPar.Text = "Delete All Participant";
             this.delAllPar.UseVisualStyleBackColor = true;
+            this.delAllPar.Click += new System.EventHandler(this.delAllPar_Click);
             // 
             // delSelPar
             // 
@@ -394,6 +398,7 @@
             this.delSelPar.TabIndex = 71;
             this.delSelPar.Text = "Delete Selected Participant";
             this.delSelPar.UseVisualStyleBackColor = true;
+            this.delSelPar.Click += new System.EventHandler(this.delSelPar_Click);
             // 
             // newPar
             // 
@@ -449,7 +454,6 @@
             this.parDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.parDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.parDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.schhh,
             this.column2,
             this.Eman});
@@ -460,35 +464,6 @@
             this.parDgv.Size = new System.Drawing.Size(413, 99);
             this.parDgv.TabIndex = 1;
             this.parDgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.parDgv_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "GetID";
-            this.Column1.HeaderText = "id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // schhh
-            // 
-            this.schhh.DataPropertyName = "schedule_id";
-            this.schhh.HeaderText = "Schedule ID";
-            this.schhh.Name = "schhh";
-            this.schhh.ReadOnly = true;
-            // 
-            // column2
-            // 
-            this.column2.DataPropertyName = "participant_id";
-            this.column2.HeaderText = "Participant ID";
-            this.column2.Name = "column2";
-            this.column2.ReadOnly = true;
-            // 
-            // Eman
-            // 
-            this.Eman.DataPropertyName = "GetName";
-            this.Eman.HeaderText = "Name";
-            this.Eman.Name = "Eman";
-            this.Eman.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -510,6 +485,27 @@
             // 
             this.parBindingSource.DataSource = this.scheduleBindingSource;
             this.parBindingSource.CurrentChanged += new System.EventHandler(this.parBindingSource_CurrentChanged);
+            // 
+            // schhh
+            // 
+            this.schhh.DataPropertyName = "SchID";
+            this.schhh.HeaderText = "Schedule ID";
+            this.schhh.Name = "schhh";
+            this.schhh.ReadOnly = true;
+            // 
+            // column2
+            // 
+            this.column2.DataPropertyName = "PartiID";
+            this.column2.HeaderText = "Participant ID";
+            this.column2.Name = "column2";
+            this.column2.ReadOnly = true;
+            // 
+            // Eman
+            // 
+            this.Eman.DataPropertyName = "ParName";
+            this.Eman.HeaderText = "Name";
+            this.Eman.Name = "Eman";
+            this.Eman.ReadOnly = true;
             // 
             // scheduleBindingSource
             // 
@@ -617,7 +613,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deletedatDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource parBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn schhh;
         private System.Windows.Forms.DataGridViewTextBoxColumn column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Eman;
