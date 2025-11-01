@@ -59,13 +59,13 @@
             this.participantTextBox = new System.Windows.Forms.TextBox();
             this.participantIDTextBox = new System.Windows.Forms.TextBox();
             this.parDgv = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schhh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eman = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.examineridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -231,6 +231,7 @@
             // caseTextBox
             // 
             this.caseTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.caseTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.caseTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.caseTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Caseoh", true));
             this.caseTextBox.Enabled = false;
@@ -238,10 +239,14 @@
             this.caseTextBox.Name = "caseTextBox";
             this.caseTextBox.Size = new System.Drawing.Size(265, 20);
             this.caseTextBox.TabIndex = 65;
+            this.caseTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.examinerTextBox_Validating);
             // 
             // roomTextBox
             // 
+            this.roomTextBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "A"});
             this.roomTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.roomTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.roomTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.roomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Roomate", true));
             this.roomTextBox.Enabled = false;
@@ -249,6 +254,7 @@
             this.roomTextBox.Name = "roomTextBox";
             this.roomTextBox.Size = new System.Drawing.Size(265, 20);
             this.roomTextBox.TabIndex = 64;
+            this.roomTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.examinerTextBox_Validating);
             // 
             // examinerTextBox
             // 
@@ -270,7 +276,6 @@
             this.examinerTextBox.Size = new System.Drawing.Size(265, 20);
             this.examinerTextBox.TabIndex = 63;
             this.examinerTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.examinerTextBox_Validating);
-            this.examinerTextBox.Validated += new System.EventHandler(this.examinerTextBox_Validated);
             // 
             // timeDateTimePicker
             // 
@@ -417,12 +422,15 @@
             // 
             // participantTextBox
             // 
+            this.participantTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.participantTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.participantTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.participantTextBox.Enabled = false;
             this.participantTextBox.Location = new System.Drawing.Point(191, 19);
             this.participantTextBox.Name = "participantTextBox";
             this.participantTextBox.Size = new System.Drawing.Size(216, 20);
             this.participantTextBox.TabIndex = 73;
+            this.participantTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.examinerTextBox_Validating);
             // 
             // participantIDTextBox
             // 
@@ -441,6 +449,7 @@
             this.parDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.parDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.parDgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.schhh,
             this.column2,
             this.Eman});
@@ -450,6 +459,15 @@
             this.parDgv.ReadOnly = true;
             this.parDgv.Size = new System.Drawing.Size(413, 99);
             this.parDgv.TabIndex = 1;
+            this.parDgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.parDgv_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "GetID";
+            this.Column1.HeaderText = "id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
             // 
             // schhh
             // 
@@ -492,17 +510,6 @@
             // 
             this.parBindingSource.DataSource = this.scheduleBindingSource;
             this.parBindingSource.CurrentChanged += new System.EventHandler(this.parBindingSource_CurrentChanged);
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(780, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 75;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.addPartici_Click);
             // 
             // scheduleBindingSource
             // 
@@ -554,7 +561,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(894, 377);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.par);
             this.Controls.Add(this.sch);
             this.Controls.Add(this.label1);
@@ -611,9 +617,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deletedatDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource parBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn schhh;
         private System.Windows.Forms.DataGridViewTextBoxColumn column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Eman;
-        private System.Windows.Forms.Button button1;
     }
 }
