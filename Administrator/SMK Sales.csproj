@@ -176,9 +176,9 @@
       <DependentUpon>AsusDataSet.xsd</DependentUpon>
     </None>
     <None Include="AsusDataSet.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>AsusDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="AsusDataSet.xss">
       <DependentUpon>AsusDataSet.xsd</DependentUpon>

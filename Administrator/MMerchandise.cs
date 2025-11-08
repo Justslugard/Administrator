@@ -181,6 +181,7 @@ namespace Winform_Login
 
                     loadDgv();
                 }
+                modeField(false);
             }
         }
 

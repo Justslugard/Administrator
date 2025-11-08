@@ -21,6 +21,7 @@ namespace Examination
             //    }
             //}
             Application.Run(new FSchedule());
+            //Application.Run(new FType());
         }
     }
 }

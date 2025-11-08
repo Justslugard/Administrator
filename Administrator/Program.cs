@@ -23,7 +23,7 @@ namespace Winform_Login
                     Application.Run(new Main(Login.user));
                 }
             }
-            //Application.Run(new MSales());
+            //Application.Run(new MMerchandise());
         }
     }
 }
