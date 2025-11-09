@@ -94,7 +94,7 @@ namespace Winform_Login
                 price.Text = dgv.Rows[dgvRow].Cells[5].Value.ToString();
                 stock.Text = dgv.Rows[dgvRow].Cells[6].Value.ToString();
                 photo.Text = dgv.Rows[dgvRow].Cells[7].Value.ToString().Split('\\').Last();
-                pBox.ImageLocation = dgv.Rows[dgvRow].Cells[7].Value.ToString().Contains("\\") ? dgv.Rows[dgvRow].Cells[7].Value.ToString() : $"./Assets/Images/{photo.Text}";
+                pBox.ImageLocation = dgv.Rows[dgvRow].Cells[7].Value.ToString().Contains(@"\") ? dgv.Rows[dgvRow].Cells[7].Value.ToString() : $"./Assets/Images/{photo.Text}";
             }
             else
             {
@@ -182,6 +182,7 @@ namespace Winform_Login
                     loadDgv();
                 }
                 modeField(false);
+                onInsert = onUpdate = false;
             }
         }
 

@@ -43,21 +43,12 @@ namespace Examination
             idTextBox.Text = nextId("rooms");
         }
 
-        private void update_Click(object sender, EventArgs e)
-        {
-            flipMode(this.Controls);
-
-            table = (room)roomBindingSource.Current;
-            roomBindingSource.SuspendBinding();
-
-            idTextBox.Text = table.id.ToString();
-            codeTextBox.Text = table.code.ToString();
-            capacityTextBox.Text = table.capacity.ToString();
-        }
-
         private void delete_Click(object sender, EventArgs e)
         {
-            flipMode(this.Controls, doNot);
+            Button s = sender as Button;
+            
+            if (s.Name == "update") flipMode(this.Controls);
+            else flipMode(this.Controls, doNot);
 
             table = (room)roomBindingSource.Current;
 
@@ -77,7 +68,7 @@ namespace Examination
         private void cancel_Click(object sender, EventArgs e)
         {
             flipMode(this.Controls, codeTextBox.Enabled ? null : doNot);
-
+            table = null;
             roomBindingSource.ResumeBinding();
         }
 
@@ -105,9 +96,9 @@ namespace Examination
                     if (MessageBox.Show("Are you sure you want to delete this room?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         room.deleted_at = DateTime.Now;
+                        MessageBox.Show("Room successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
-                    MessageBox.Show("Room successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } else
                 {
                     room.code = codeTextBox.Text;
@@ -119,7 +110,7 @@ namespace Examination
                 Db.SaveChanges();
 
                 load(roomBindingSource, rooms);
-
+                table = null;
                 flipMode(this.Controls, codeTextBox.Enabled ? null : doNot);
             }
         }

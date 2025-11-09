@@ -15,8 +15,7 @@ namespace Examination
         static string caseID, roomID, examinerID, parID, tyID;
         static List<string> doNot = new List<string>()
         {
-            "ID",
-            //"Par"
+            "ID"
         };
         static schedule table = null;
         static int row = -1;
@@ -83,27 +82,24 @@ namespace Examination
 
         private void cancel_Click(object sender, EventArgs e)
         {
-            flipMode(this.Controls, doNot);
+            flipMode(this.Controls, roomTextBox.Enabled ? doNot : new List<string> { "TextBox", "Par", "DateTimePicker" });
+            table = null;
 
             unSuspend();
         }
 
-        private void delete_Click(object sender, EventArgs e)
-        {
-
-        }
-
         bool isSchValid()
         {
-            long ei;
-            long.TryParse(examinerIDTextBox.Text, out ei);
-            long ri;
-            long.TryParse(roomIDTextBox.Text, out ri);
+            int ei;
+            int.TryParse(examinerIDTextBox.Text, out ei);
+            int ri;
+            int.TryParse(roomIDTextBox.Text, out ri);
 
+            Console.WriteLine(Db.schedules.Any(x => x.examiner_id.Equals(ei) && x.time.Equals(timeDateTimePicker.Value) && !x.id.Equals(table.id)));
             if (isEmpty(sch.Controls)) return false;
-            else if (Db.schedules.Any(x => x.examiner_id.Equals(ei) && x.time == timeDateTimePicker.Value))
+            else if (Db.schedules.Any(x => x.examiner_id.Equals(ei) && x.time.Equals(timeDateTimePicker.Value) && !x.id.Equals(table.id)))
                 MessageBox.Show("The current examiner have another schedules with the same time!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (Db.schedules.Any(x => x.room_id.Equals(ri) && x.time == timeDateTimePicker.Value))
+            else if (Db.schedules.Any(x => x.room_id.Equals(ri) && x.time.Equals(timeDateTimePicker.Value) && !x.id.Equals(table.id)))
                 MessageBox.Show("The current room have another schedules with the same time!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (timeDateTimePicker.Value < DateTime.Now)
                 MessageBox.Show("Time must be greater than the current time!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -114,14 +110,19 @@ namespace Examination
 
         private void update_Click(object sender, EventArgs e)
         {
+            Button d = sender as Button;
+
             table = scheduleBindingSource.Current as schedule;
             suspend();
-            flipMode(this.Controls, doNot);
+            if (d.Name == "update") flipMode(this.Controls, doNot);
+            else flipMode(this.Controls, new List<string> { "TextBox", "Par", "DateTimePicker" });
 
             examinerIDTextBox.Text = table.user.id.ToString();
             examinerTextBox.Text = table.user.name;
             roomIDTextBox.Text = table.room.id.ToString();
             roomTextBox.Text = table.room.code;
+            typeTextBox.Text = table.type.code;
+            typeIDTextBox.Text = table.type.id.ToString();
             caseIDTextBox.Text = table.@case.id.ToString();
             caseTextBox.Text = table.@case.code;
             participantIDTextBox.Text = parID;
@@ -147,14 +148,12 @@ namespace Examination
 
         private void addPartici_Click(object sender, EventArgs e)
         {
-            long i;
-            long.TryParse(roomIDTextBox.Text, out i);
+            int i;
+            int.TryParse(roomIDTextBox.Text, out i);
 
             BindingList<ParView> ls = parDgv.DataSource as BindingList<ParView>;
             bool isExist = ls.Any(x => x.ParName.Equals(participantTextBox.Text));
             room room = Db.rooms.Find(i);
-
-            Console.WriteLine(room.capacity);
 
             if (room == null)
             {
@@ -250,6 +249,9 @@ namespace Examination
             if (us != null || ca != null || ro != null || su != null || ty != null)
             {
                 allCt[$"{s.Name.Replace("TextBox", string.Empty)}IDTextBox"].Text = us != null ? us.id.ToString() : ro != null ? ro.id.ToString() : ca != null ? ca.id.ToString() : su != null ? su.id.ToString() : ty != null ? ty.id.ToString() : "";
+            } else
+            {
+                allCt[$"{s.Name.Replace("TextBox", string.Empty)}IDTextBox"].Text = s.Name == "examinerTextBox" ? examinerID : s.Name == "roomTextBox" ? roomID : s.Name == "typeTextBox" ? tyID : s.Name == "caseTextBox" ? caseID : s.Name == "participantTextBox" ? parID : "";
             }
 
         }
@@ -259,7 +261,9 @@ namespace Examination
             if (!isSchValid()) return;
             else
             {
-                if (table == null)
+                schedule su = Db.schedules.Find(table?.id);
+
+                if (table == null && roomTextBox.Enabled)
                 {
                     schedule s = new schedule()
                     {
@@ -277,50 +281,64 @@ namespace Examination
                     {
                         schedules_participants sp = new schedules_participants()
                         {
-                            schedule_id = int.Parse(row.Cells[0].Value.ToString()),
-                            participant_id = int.Parse(row.Cells[1].Value.ToString()),
+                            schedule_id = (int)row.Cells[0].Value,
+                            participant_id = (int)row.Cells[1].Value,
                             created_at = DateTime.Now,
                             deleted_at = null
                         };
                         Db.schedules_participants.Add(sp);
                     }
-                }
-                else
+                } else if (!roomTextBox.Enabled)
                 {
-                    schedule s = Db.schedules.Find(table.id);
-                    s.examiner_id = int.Parse(examinerIDTextBox.Text);
-                    s.room_id = int.Parse(roomIDTextBox.Text);
-                    s.type_id = int.Parse(typeIDTextBox.Text);
-                    s.case_id = int.Parse(caseIDTextBox.Text);
-                    s.time = timeDateTimePicker.Value;
+                    if (MessageBox.Show("Are you sure you want to delete this schedule?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        su.deleted_at = DateTime.Now;
+                        foreach (schedules_participants item in su.schedules_participants)
+                        {
+                            item.deleted_at = DateTime.Now;
+                        }
+                        MessageBox.Show("Room successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                } else
+                {
+                    su.examiner_id = int.Parse(examinerIDTextBox.Text);
+                    su.room_id = int.Parse(roomIDTextBox.Text);
+                    su.type_id = int.Parse(typeIDTextBox.Text);
+                    su.case_id = int.Parse(caseIDTextBox.Text);
+                    su.time = timeDateTimePicker.Value;
+
+                    foreach (schedules_participants sh in su.schedules_participants)
+                    {
+                        if (!parDgv.Rows.Cast<DataGridViewRow>().Any(x => x.Cells[1].Value.Equals(sh.participant_id))) sh.deleted_at = DateTime.Now;
+                    }
 
                     foreach (DataGridViewRow row in parDgv.Rows)
                     {
-                        int i = int.Parse(row.Cells[0].Value.ToString());
+                        int i = (int)row.Cells[1].Value;
 
-                        if (!table.schedules_participants.Any(x => x.participant_id.Equals(i)))
+                        if (!su.schedules_participants.Any(x => x.participant_id.Equals(i)) || su.schedules_participants.Count == 0)
                         {
                             schedules_participants sp = new schedules_participants()
                             {
-                                schedule_id = int.Parse(row.Cells[0].Value.ToString()),
-                                participant_id = int.Parse(row.Cells[1].Value.ToString()),
+                                schedule_id = (int)row.Cells[0].Value,
+                                participant_id = i,
                                 created_at = DateTime.Now,
                                 deleted_at = null
                             };
                             Db.schedules_participants.Add(sp);
                         }
-                    }
-
-                    foreach (schedules_participants sh in table.schedules_participants)
-                    {
-                        if (!parDgv.Rows.Cast<DataGridViewRow>().Any(x => x.Cells[1].Equals(sh.participant_id)))
+                        else if (!su.schedules_participants.Any(x => x.participant_id.Equals(i) && x.deleted_at.Equals(null)))
                         {
-                            sh.deleted_at = DateTime.Now;
+                            schedules_participants sp = su.schedules_participants.Where(x => x.participant_id.Equals((int)row.Cells[1].Value)).FirstOrDefault();
+                            sp.deleted_at = null;
                         }
                     }
+
                 }
                 Db.SaveChanges();
                 load(scheduleBindingSource, schedules);
+                flipMode(this.Controls, roomTextBox.Enabled ? doNot : new List<string> { "TextBox", "Par", "DateTimePicker" });
+                table = null;
             }
         }
 

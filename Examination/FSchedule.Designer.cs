@@ -37,18 +37,18 @@
             System.Windows.Forms.Label label3;
             this.label1 = new System.Windows.Forms.Label();
             this.sch = new System.Windows.Forms.GroupBox();
-            this.typeTextBox = new System.Windows.Forms.TextBox();
+            this.examinerTextBox = new System.Windows.Forms.TextBox();
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roomTextBox = new System.Windows.Forms.TextBox();
+            this.typeTextBox = new System.Windows.Forms.TextBox();
+            this.caseTextBox = new System.Windows.Forms.TextBox();
+            this.timeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.typeIDTextBox = new System.Windows.Forms.TextBox();
             this.cancel = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
             this.insert = new System.Windows.Forms.Button();
-            this.caseTextBox = new System.Windows.Forms.TextBox();
-            this.roomTextBox = new System.Windows.Forms.TextBox();
-            this.examinerTextBox = new System.Windows.Forms.TextBox();
-            this.timeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.caseIDTextBox = new System.Windows.Forms.TextBox();
             this.roomIDTextBox = new System.Windows.Forms.TextBox();
             this.examinerIDTextBox = new System.Windows.Forms.TextBox();
@@ -69,11 +69,11 @@
             this.participantTextBox = new System.Windows.Forms.TextBox();
             this.participantIDTextBox = new System.Windows.Forms.TextBox();
             this.parDgv = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eman = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             label6 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
@@ -161,7 +161,11 @@
             // sch
             // 
             this.sch.Controls.Add(label3);
+            this.sch.Controls.Add(this.examinerTextBox);
+            this.sch.Controls.Add(this.roomTextBox);
             this.sch.Controls.Add(this.typeTextBox);
+            this.sch.Controls.Add(this.caseTextBox);
+            this.sch.Controls.Add(this.timeDateTimePicker);
             this.sch.Controls.Add(this.typeIDTextBox);
             this.sch.Controls.Add(label7);
             this.sch.Controls.Add(label8);
@@ -172,10 +176,6 @@
             this.sch.Controls.Add(this.delete);
             this.sch.Controls.Add(this.update);
             this.sch.Controls.Add(this.insert);
-            this.sch.Controls.Add(this.caseTextBox);
-            this.sch.Controls.Add(this.roomTextBox);
-            this.sch.Controls.Add(this.examinerTextBox);
-            this.sch.Controls.Add(this.timeDateTimePicker);
             this.sch.Controls.Add(this.caseIDTextBox);
             this.sch.Controls.Add(this.roomIDTextBox);
             this.sch.Controls.Add(this.examinerIDTextBox);
@@ -186,6 +186,49 @@
             this.sch.TabIndex = 2;
             this.sch.TabStop = false;
             this.sch.Text = "Schedule";
+            // 
+            // examinerTextBox
+            // 
+            this.examinerTextBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "ijam",
+            "ijal",
+            "kajim",
+            "almeq",
+            "hujan",
+            "rapjor",
+            "plapon"});
+            this.examinerTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.examinerTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.examinerTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.examinerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Examiner", true));
+            this.examinerTextBox.Enabled = false;
+            this.examinerTextBox.Location = new System.Drawing.Point(177, 133);
+            this.examinerTextBox.Name = "examinerTextBox";
+            this.examinerTextBox.Size = new System.Drawing.Size(265, 20);
+            this.examinerTextBox.TabIndex = 63;
+            this.examinerTextBox.TextChanged += new System.EventHandler(this.examinerTextBox_TextChanged);
+            this.examinerTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.examinerTextBox_Validating);
+            // 
+            // scheduleBindingSource
+            // 
+            this.scheduleBindingSource.DataSource = typeof(Examination.schedule);
+            this.scheduleBindingSource.CurrentChanged += new System.EventHandler(this.scheduleBindingSource_CurrentChanged);
+            // 
+            // roomTextBox
+            // 
+            this.roomTextBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "A"});
+            this.roomTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.roomTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.roomTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.roomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Roomate", true));
+            this.roomTextBox.Enabled = false;
+            this.roomTextBox.Location = new System.Drawing.Point(177, 159);
+            this.roomTextBox.Name = "roomTextBox";
+            this.roomTextBox.Size = new System.Drawing.Size(265, 20);
+            this.roomTextBox.TabIndex = 64;
+            this.roomTextBox.TextChanged += new System.EventHandler(this.examinerTextBox_TextChanged);
+            this.roomTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.examinerTextBox_Validating);
             // 
             // typeTextBox
             // 
@@ -201,10 +244,33 @@
             this.typeTextBox.TextChanged += new System.EventHandler(this.examinerTextBox_TextChanged);
             this.typeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.examinerTextBox_Validating);
             // 
-            // scheduleBindingSource
+            // caseTextBox
             // 
-            this.scheduleBindingSource.DataSource = typeof(Examination.schedule);
-            this.scheduleBindingSource.CurrentChanged += new System.EventHandler(this.scheduleBindingSource_CurrentChanged);
+            this.caseTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.caseTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.caseTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.caseTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Caseoh", true));
+            this.caseTextBox.Enabled = false;
+            this.caseTextBox.Location = new System.Drawing.Point(177, 211);
+            this.caseTextBox.Name = "caseTextBox";
+            this.caseTextBox.Size = new System.Drawing.Size(265, 20);
+            this.caseTextBox.TabIndex = 65;
+            this.caseTextBox.TextChanged += new System.EventHandler(this.examinerTextBox_TextChanged);
+            this.caseTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.examinerTextBox_Validating);
+            // 
+            // timeDateTimePicker
+            // 
+            this.timeDateTimePicker.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.timeDateTimePicker.CustomFormat = "dddd, MMMM d, yyyy HH:mm:ss";
+            this.timeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.scheduleBindingSource, "time", true));
+            this.timeDateTimePicker.Enabled = false;
+            this.timeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.timeDateTimePicker.Location = new System.Drawing.Point(82, 237);
+            this.timeDateTimePicker.MinDate = new System.DateTime(2000, 11, 1, 17, 0, 10, 663);
+            this.timeDateTimePicker.Name = "timeDateTimePicker";
+            this.timeDateTimePicker.Size = new System.Drawing.Size(360, 20);
+            this.timeDateTimePicker.TabIndex = 62;
+            this.timeDateTimePicker.Value = new System.DateTime(2025, 11, 1, 17, 0, 10, 663);
             // 
             // typeIDTextBox
             // 
@@ -250,7 +316,7 @@
             this.delete.TabIndex = 68;
             this.delete.Text = "Delete";
             this.delete.UseVisualStyleBackColor = true;
-            this.delete.Click += new System.EventHandler(this.delete_Click);
+            this.delete.Click += new System.EventHandler(this.update_Click);
             // 
             // update
             // 
@@ -273,72 +339,6 @@
             this.insert.Text = "Insert";
             this.insert.UseVisualStyleBackColor = true;
             this.insert.Click += new System.EventHandler(this.insert_Click);
-            // 
-            // caseTextBox
-            // 
-            this.caseTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.caseTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.caseTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.caseTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Caseoh", true));
-            this.caseTextBox.Enabled = false;
-            this.caseTextBox.Location = new System.Drawing.Point(177, 211);
-            this.caseTextBox.Name = "caseTextBox";
-            this.caseTextBox.Size = new System.Drawing.Size(265, 20);
-            this.caseTextBox.TabIndex = 65;
-            this.caseTextBox.TextChanged += new System.EventHandler(this.examinerTextBox_TextChanged);
-            this.caseTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.examinerTextBox_Validating);
-            // 
-            // roomTextBox
-            // 
-            this.roomTextBox.AutoCompleteCustomSource.AddRange(new string[] {
-            "A"});
-            this.roomTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.roomTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.roomTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.roomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Roomate", true));
-            this.roomTextBox.Enabled = false;
-            this.roomTextBox.Location = new System.Drawing.Point(177, 159);
-            this.roomTextBox.Name = "roomTextBox";
-            this.roomTextBox.Size = new System.Drawing.Size(265, 20);
-            this.roomTextBox.TabIndex = 64;
-            this.roomTextBox.TextChanged += new System.EventHandler(this.examinerTextBox_TextChanged);
-            this.roomTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.examinerTextBox_Validating);
-            // 
-            // examinerTextBox
-            // 
-            this.examinerTextBox.AutoCompleteCustomSource.AddRange(new string[] {
-            "ijam",
-            "ijal",
-            "kajim",
-            "almeq",
-            "hujan",
-            "rapjor",
-            "plapon"});
-            this.examinerTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.examinerTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.examinerTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.examinerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Examiner", true));
-            this.examinerTextBox.Enabled = false;
-            this.examinerTextBox.Location = new System.Drawing.Point(177, 133);
-            this.examinerTextBox.Name = "examinerTextBox";
-            this.examinerTextBox.Size = new System.Drawing.Size(265, 20);
-            this.examinerTextBox.TabIndex = 63;
-            this.examinerTextBox.TextChanged += new System.EventHandler(this.examinerTextBox_TextChanged);
-            this.examinerTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.examinerTextBox_Validating);
-            // 
-            // timeDateTimePicker
-            // 
-            this.timeDateTimePicker.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.timeDateTimePicker.CustomFormat = "dddd, MMMM d, yyyy HH:mm:ss";
-            this.timeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.scheduleBindingSource, "time", true));
-            this.timeDateTimePicker.Enabled = false;
-            this.timeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timeDateTimePicker.Location = new System.Drawing.Point(82, 237);
-            this.timeDateTimePicker.MinDate = new System.DateTime(2000, 11, 1, 17, 0, 10, 663);
-            this.timeDateTimePicker.Name = "timeDateTimePicker";
-            this.timeDateTimePicker.Size = new System.Drawing.Size(360, 20);
-            this.timeDateTimePicker.TabIndex = 62;
-            this.timeDateTimePicker.Value = new System.DateTime(2025, 11, 1, 17, 0, 10, 663);
             // 
             // caseIDTextBox
             // 
@@ -565,22 +565,6 @@
             this.parDgv.TabIndex = 1;
             this.parDgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.parDgv_CellClick);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Room";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Room";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Case";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Case";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 56;
-            // 
             // schid
             // 
             this.schid.DataPropertyName = "SchID";
@@ -601,6 +585,22 @@
             this.Eman.HeaderText = "Name";
             this.Eman.Name = "Eman";
             this.Eman.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Room";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Room";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Case";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Case";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 56;
             // 
             // FSchedule
             // 

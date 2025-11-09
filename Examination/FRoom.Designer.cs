@@ -138,7 +138,7 @@
             this.update.TabIndex = 40;
             this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = true;
-            this.update.Click += new System.EventHandler(this.update_Click);
+            this.update.Click += new System.EventHandler(this.delete_Click);
             // 
             // insert
             // 
@@ -198,7 +198,7 @@
             this.dataGridViewTextBoxColumn5});
             this.roomDataGridView.DataSource = this.roomBindingSource;
             this.roomDataGridView.Location = new System.Drawing.Point(9, 100);
-            this.roomDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.roomDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.roomDataGridView.Name = "roomDataGridView";
             this.roomDataGridView.ReadOnly = true;
             this.roomDataGridView.RowHeadersWidth = 51;
