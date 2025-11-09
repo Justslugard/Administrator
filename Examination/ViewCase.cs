@@ -11,6 +11,7 @@ namespace Examination
     {
         static IQueryable<@case> cases = Db.cases;
         static List<cases_details> table = null;
+        static @case caseoh = null;
         static int pos = -1;
         static List<string> doNot = new List<string>()
         {
@@ -27,7 +28,7 @@ namespace Examination
         {
             load(caseBindingSource, cases);
 
-            @case caseoh = caseBindingSource.Current as @case;
+            caseoh = caseBindingSource.Current as @case;
             table = caseoh.cases_details.ToList();
 
             reset();
@@ -61,9 +62,10 @@ namespace Examination
 
         private void caseDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Console.WriteLine("Still going");
+            if (caseBindingSource.IsBindingSuspended) return;
+
             count = 0;
-            @case caseoh = caseBindingSource.Current as @case;
+            caseoh = caseBindingSource.Current as @case;
             table = caseoh.cases_details.ToList();
 
             backward.Enabled = fastBackward.Enabled = false;
@@ -98,6 +100,7 @@ namespace Examination
 
             caseBindingSource.SuspendBinding();
 
+            qQty.Text = caseoh.totalQ;
             questionTextBox.Text = table[count].text;
             optionATextBox.Text = table[count].option_a;
             optionBTextBox.Text = table[count].option_b;
@@ -172,9 +175,20 @@ namespace Examination
             load(caseBindingSource, cases);
         }
 
-        private void caseBindingSource_CurrentChanged(object sender, EventArgs e)
+        private void caseBindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
+        {
+            Console.WriteLine($"{DateTime.Now}");
+
+        }
+
+        private void caseBindingSource_CurrentItemChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void caseBindingSource_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
         {
 
+            Console.WriteLine($"{DateTime.Now}");
         }
     }
 }

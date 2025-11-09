@@ -110,12 +110,12 @@ namespace Examination
         public static int count = 0;
 
         public string CreatorName { get { return user != null ? user.name : string.Empty; } }
-        public string question { get { return cases_details.ToList()[count].text; } }
-        public string optionA { get { return cases_details.ToList()[count].option_a; } }
-        public string optionB { get { return cases_details.ToList()[count].option_b; } }
-        public string optionC { get { return cases_details.ToList()[count].option_c; } }
-        public string optionD { get { return cases_details.ToList()[count].option_d; } }
-        public string answer { get { return cases_details.ToList()[count].correct_answer; } }
+        public string question { get { return cases_details.ToList()[count >= cases_details.ToList().Count ? 0 : count].text; } }
+        public string optionA { get { return cases_details.ToList()[count >= cases_details.ToList().Count ? 0 : count].option_a; } }
+        public string optionB { get { return cases_details.ToList()[count >= cases_details.ToList().Count ? 0 : count].option_b; } }
+        public string optionC { get { return cases_details.ToList()[count >= cases_details.ToList().Count ? 0 : count].option_c; } }
+        public string optionD { get { return cases_details.ToList()[count >= cases_details.ToList().Count ? 0 : count].option_d; } }
+        public string answer { get { return cases_details.ToList()[count >= cases_details.ToList().Count ? 0 : count].correct_answer; } }
         public string totalQ { get { return $"{count + 1}/{number_of_questions}"; } }
     }
     public partial class room : IDeletable { }
