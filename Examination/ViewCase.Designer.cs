@@ -74,12 +74,79 @@
             ((System.ComponentModel.ISupportInitialize)(this.examDataSet)).BeginInit();
             this.SuspendLayout();
             // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            idLabel.Location = new System.Drawing.Point(24, 538);
+            idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(26, 20);
+            idLabel.TabIndex = 59;
+            idLabel.Text = "A.";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(579, 538);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(27, 20);
+            label4.TabIndex = 60;
+            label4.Text = "C.";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(577, 636);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(28, 20);
+            label5.TabIndex = 62;
+            label5.Text = "D.";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Location = new System.Drawing.Point(21, 636);
+            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(27, 20);
+            label6.TabIndex = 61;
+            label6.Text = "B.";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.Location = new System.Drawing.Point(15, 724);
+            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(77, 20);
+            label7.TabIndex = 63;
+            label7.Text = "Answer:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.Location = new System.Drawing.Point(16, 411);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(84, 20);
+            label8.TabIndex = 64;
+            label8.Text = "Question";
+            // 
             // search
             // 
             this.search.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.search.Location = new System.Drawing.Point(533, 56);
+            this.search.Location = new System.Drawing.Point(711, 69);
+            this.search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(152, 20);
+            this.search.Size = new System.Drawing.Size(201, 22);
             this.search.TabIndex = 36;
             this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             // 
@@ -87,9 +154,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(412, 57);
+            this.label3.Location = new System.Drawing.Point(549, 70);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 16);
+            this.label3.Size = new System.Drawing.Size(145, 20);
             this.label3.TabIndex = 35;
             this.label3.Text = "Search by Creator";
             // 
@@ -97,9 +165,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(296, 9);
+            this.label1.Location = new System.Drawing.Point(395, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 32);
+            this.label1.Size = new System.Drawing.Size(159, 41);
             this.label1.TabIndex = 33;
             this.label1.Text = "View Case";
             // 
@@ -108,25 +177,28 @@
             this.questionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.questionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caseBindingSource, "question", true));
             this.questionTextBox.Enabled = false;
-            this.questionTextBox.Location = new System.Drawing.Point(15, 356);
+            this.questionTextBox.Location = new System.Drawing.Point(20, 438);
+            this.questionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.questionTextBox.Multiline = true;
             this.questionTextBox.Name = "questionTextBox";
-            this.questionTextBox.Size = new System.Drawing.Size(670, 66);
+            this.questionTextBox.Size = new System.Drawing.Size(892, 80);
             this.questionTextBox.TabIndex = 38;
             // 
             // caseBindingSource
             // 
             this.caseBindingSource.DataSource = typeof(Examination.@case);
+            this.caseBindingSource.CurrentChanged += new System.EventHandler(this.caseBindingSource_CurrentChanged);
             // 
             // optionATextBox
             // 
             this.optionATextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.optionATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caseBindingSource, "optionA", true));
             this.optionATextBox.Enabled = false;
-            this.optionATextBox.Location = new System.Drawing.Point(45, 437);
+            this.optionATextBox.Location = new System.Drawing.Point(60, 538);
+            this.optionATextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.optionATextBox.Multiline = true;
             this.optionATextBox.Name = "optionATextBox";
-            this.optionATextBox.Size = new System.Drawing.Size(225, 46);
+            this.optionATextBox.Size = new System.Drawing.Size(299, 56);
             this.optionATextBox.TabIndex = 40;
             // 
             // optionCTextBox
@@ -134,10 +206,11 @@
             this.optionCTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.optionCTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caseBindingSource, "optionC", true));
             this.optionCTextBox.Enabled = false;
-            this.optionCTextBox.Location = new System.Drawing.Point(460, 437);
+            this.optionCTextBox.Location = new System.Drawing.Point(613, 538);
+            this.optionCTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.optionCTextBox.Multiline = true;
             this.optionCTextBox.Name = "optionCTextBox";
-            this.optionCTextBox.Size = new System.Drawing.Size(225, 46);
+            this.optionCTextBox.Size = new System.Drawing.Size(299, 56);
             this.optionCTextBox.TabIndex = 42;
             // 
             // optionDTextBox
@@ -145,10 +218,11 @@
             this.optionDTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.optionDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caseBindingSource, "optionD", true));
             this.optionDTextBox.Enabled = false;
-            this.optionDTextBox.Location = new System.Drawing.Point(460, 516);
+            this.optionDTextBox.Location = new System.Drawing.Point(613, 635);
+            this.optionDTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.optionDTextBox.Multiline = true;
             this.optionDTextBox.Name = "optionDTextBox";
-            this.optionDTextBox.Size = new System.Drawing.Size(225, 46);
+            this.optionDTextBox.Size = new System.Drawing.Size(299, 56);
             this.optionDTextBox.TabIndex = 46;
             // 
             // optionBTextBox
@@ -156,10 +230,11 @@
             this.optionBTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.optionBTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caseBindingSource, "optionB", true));
             this.optionBTextBox.Enabled = false;
-            this.optionBTextBox.Location = new System.Drawing.Point(45, 516);
+            this.optionBTextBox.Location = new System.Drawing.Point(60, 635);
+            this.optionBTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.optionBTextBox.Multiline = true;
             this.optionBTextBox.Name = "optionBTextBox";
-            this.optionBTextBox.Size = new System.Drawing.Size(225, 46);
+            this.optionBTextBox.Size = new System.Drawing.Size(299, 56);
             this.optionBTextBox.TabIndex = 44;
             // 
             // fastBackward
@@ -167,9 +242,10 @@
             this.fastBackward.Cursor = System.Windows.Forms.Cursors.Hand;
             this.fastBackward.Enabled = false;
             this.fastBackward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fastBackward.Location = new System.Drawing.Point(186, 632);
+            this.fastBackward.Location = new System.Drawing.Point(248, 778);
+            this.fastBackward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fastBackward.Name = "fastBackward";
-            this.fastBackward.Size = new System.Drawing.Size(76, 23);
+            this.fastBackward.Size = new System.Drawing.Size(101, 28);
             this.fastBackward.TabIndex = 47;
             this.fastBackward.Text = "<<";
             this.fastBackward.UseVisualStyleBackColor = true;
@@ -180,9 +256,10 @@
             this.backward.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backward.Enabled = false;
             this.backward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backward.Location = new System.Drawing.Point(268, 632);
+            this.backward.Location = new System.Drawing.Point(357, 778);
+            this.backward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.backward.Name = "backward";
-            this.backward.Size = new System.Drawing.Size(76, 23);
+            this.backward.Size = new System.Drawing.Size(101, 28);
             this.backward.TabIndex = 48;
             this.backward.Text = "<";
             this.backward.UseVisualStyleBackColor = true;
@@ -192,9 +269,10 @@
             // 
             this.fastForward.Cursor = System.Windows.Forms.Cursors.Hand;
             this.fastForward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fastForward.Location = new System.Drawing.Point(432, 632);
+            this.fastForward.Location = new System.Drawing.Point(576, 778);
+            this.fastForward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fastForward.Name = "fastForward";
-            this.fastForward.Size = new System.Drawing.Size(76, 23);
+            this.fastForward.Size = new System.Drawing.Size(101, 28);
             this.fastForward.TabIndex = 50;
             this.fastForward.Text = ">>";
             this.fastForward.UseVisualStyleBackColor = true;
@@ -204,9 +282,10 @@
             // 
             this.forward.Cursor = System.Windows.Forms.Cursors.Hand;
             this.forward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.forward.Location = new System.Drawing.Point(350, 632);
+            this.forward.Location = new System.Drawing.Point(467, 778);
+            this.forward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.forward.Name = "forward";
-            this.forward.Size = new System.Drawing.Size(76, 23);
+            this.forward.Size = new System.Drawing.Size(101, 28);
             this.forward.TabIndex = 49;
             this.forward.Text = ">";
             this.forward.UseVisualStyleBackColor = true;
@@ -217,9 +296,10 @@
             this.cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancel.Enabled = false;
             this.cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel.Location = new System.Drawing.Point(391, 661);
+            this.cancel.Location = new System.Drawing.Point(521, 814);
+            this.cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(76, 23);
+            this.cancel.Size = new System.Drawing.Size(101, 28);
             this.cancel.TabIndex = 53;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
@@ -230,9 +310,10 @@
             this.save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.save.Enabled = false;
             this.save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.save.Location = new System.Drawing.Point(309, 661);
+            this.save.Location = new System.Drawing.Point(412, 814);
+            this.save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(76, 23);
+            this.save.Size = new System.Drawing.Size(101, 28);
             this.save.TabIndex = 52;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
@@ -242,9 +323,10 @@
             // 
             this.update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.update.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.update.Location = new System.Drawing.Point(227, 661);
+            this.update.Location = new System.Drawing.Point(303, 814);
+            this.update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(76, 23);
+            this.update.Size = new System.Drawing.Size(101, 28);
             this.update.TabIndex = 51;
             this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = true;
@@ -261,9 +343,10 @@
             "B",
             "C",
             "D"});
-            this.answerComboBox.Location = new System.Drawing.Point(78, 587);
+            this.answerComboBox.Location = new System.Drawing.Point(104, 722);
+            this.answerComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.answerComboBox.Name = "answerComboBox";
-            this.answerComboBox.Size = new System.Drawing.Size(39, 21);
+            this.answerComboBox.Size = new System.Drawing.Size(51, 24);
             this.answerComboBox.TabIndex = 55;
             // 
             // caseDataGridView
@@ -282,13 +365,13 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.caseDataGridView.DataSource = this.caseBindingSource;
-            this.caseDataGridView.Location = new System.Drawing.Point(9, 80);
-            this.caseDataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.caseDataGridView.Location = new System.Drawing.Point(12, 98);
+            this.caseDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.caseDataGridView.Name = "caseDataGridView";
             this.caseDataGridView.ReadOnly = true;
             this.caseDataGridView.RowHeadersWidth = 51;
             this.caseDataGridView.RowTemplate.Height = 24;
-            this.caseDataGridView.Size = new System.Drawing.Size(681, 240);
+            this.caseDataGridView.Size = new System.Drawing.Size(908, 295);
             this.caseDataGridView.TabIndex = 56;
             this.caseDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.caseDataGridView_CellClick);
             // 
@@ -354,9 +437,10 @@
             this.label9.AutoSize = true;
             this.label9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.caseBindingSource, "totalQ", true));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(82, 333);
+            this.label9.Location = new System.Drawing.Point(109, 410);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 18);
+            this.label9.Size = new System.Drawing.Size(0, 24);
             this.label9.TabIndex = 58;
             // 
             // examDataSet
@@ -368,71 +452,11 @@
             // 
             this.cases_detailsTableAdapter.ClearBeforeFill = true;
             // 
-            // idLabel
-            // 
-            idLabel.AutoSize = true;
-            idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            idLabel.Location = new System.Drawing.Point(18, 437);
-            idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(21, 16);
-            idLabel.TabIndex = 59;
-            idLabel.Text = "A.";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.Location = new System.Drawing.Point(434, 437);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(21, 16);
-            label4.TabIndex = 60;
-            label4.Text = "C.";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(433, 517);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(22, 16);
-            label5.TabIndex = 62;
-            label5.Text = "D.";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.Location = new System.Drawing.Point(16, 517);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(21, 16);
-            label6.TabIndex = 61;
-            label6.Text = "B.";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.Location = new System.Drawing.Point(11, 588);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(61, 16);
-            label7.TabIndex = 63;
-            label7.Text = "Answer:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.Location = new System.Drawing.Point(12, 334);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(68, 16);
-            label8.TabIndex = 64;
-            label8.Text = "Question";
-            // 
             // ViewCase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 693);
+            this.ClientSize = new System.Drawing.Size(932, 853);
             this.Controls.Add(label8);
             this.Controls.Add(label7);
             this.Controls.Add(label5);
@@ -457,6 +481,7 @@
             this.Controls.Add(this.search);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ViewCase";
             this.Text = "View Case";
             this.Load += new System.EventHandler(this.ViewCase_Load);

@@ -41,15 +41,15 @@
             this.update = new System.Windows.Forms.Button();
             this.insert = new System.Windows.Forms.Button();
             this.typeDataGridView = new System.Windows.Forms.DataGridView();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.typeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idTextBox = new System.Windows.Forms.TextBox();
-            this.codeTextBox = new System.Windows.Forms.TextBox();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
             passwordLabel = new System.Windows.Forms.Label();
             usernameLabel = new System.Windows.Forms.Label();
             idLabel = new System.Windows.Forms.Label();
@@ -97,9 +97,9 @@
             // 
             this.search.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.search.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.search.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.search.Location = new System.Drawing.Point(732, 75);
-            this.search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.search.Margin = new System.Windows.Forms.Padding(4);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(202, 22);
             this.search.TabIndex = 17;
@@ -136,7 +136,7 @@
             this.cancel.Enabled = false;
             this.cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancel.Location = new System.Drawing.Point(765, 508);
-            this.cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancel.Margin = new System.Windows.Forms.Padding(4);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(100, 28);
             this.cancel.TabIndex = 28;
@@ -151,7 +151,7 @@
             this.save.Enabled = false;
             this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.save.Location = new System.Drawing.Point(765, 475);
-            this.save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.save.Margin = new System.Windows.Forms.Padding(4);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(100, 28);
             this.save.TabIndex = 27;
@@ -165,7 +165,7 @@
             this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete.Location = new System.Drawing.Point(657, 535);
-            this.delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.delete.Margin = new System.Windows.Forms.Padding(4);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(100, 28);
             this.delete.TabIndex = 26;
@@ -179,13 +179,13 @@
             this.update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.update.Location = new System.Drawing.Point(657, 500);
-            this.update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.update.Margin = new System.Windows.Forms.Padding(4);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(100, 28);
             this.update.TabIndex = 25;
             this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = true;
-            this.update.Click += new System.EventHandler(this.update_Click);
+            this.update.Click += new System.EventHandler(this.delete_Click);
             // 
             // insert
             // 
@@ -193,7 +193,7 @@
             this.insert.Cursor = System.Windows.Forms.Cursors.Hand;
             this.insert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insert.Location = new System.Drawing.Point(657, 464);
-            this.insert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.insert.Margin = new System.Windows.Forms.Padding(4);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(100, 28);
             this.insert.TabIndex = 24;
@@ -217,12 +217,52 @@
             this.dataGridViewTextBoxColumn5});
             this.typeDataGridView.DataSource = this.typeBindingSource;
             this.typeDataGridView.Location = new System.Drawing.Point(16, 107);
-            this.typeDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.typeDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.typeDataGridView.Name = "typeDataGridView";
             this.typeDataGridView.ReadOnly = true;
             this.typeDataGridView.RowHeadersWidth = 51;
             this.typeDataGridView.Size = new System.Drawing.Size(919, 336);
             this.typeDataGridView.TabIndex = 29;
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.idTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBindingSource, "id", true));
+            this.idTextBox.Enabled = false;
+            this.idTextBox.Location = new System.Drawing.Point(185, 468);
+            this.idTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(206, 22);
+            this.idTextBox.TabIndex = 33;
+            // 
+            // codeTextBox
+            // 
+            this.codeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBindingSource, "code", true));
+            this.codeTextBox.Enabled = false;
+            this.codeTextBox.Location = new System.Drawing.Point(185, 500);
+            this.codeTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(206, 22);
+            this.codeTextBox.TabIndex = 34;
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBindingSource, "name", true));
+            this.nameTextBox.Enabled = false;
+            this.nameTextBox.Location = new System.Drawing.Point(185, 532);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(206, 22);
+            this.nameTextBox.TabIndex = 35;
+            // 
+            // typeBindingSource
+            // 
+            this.typeBindingSource.DataSource = typeof(Examination.type);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -264,46 +304,6 @@
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
-            // typeBindingSource
-            // 
-            this.typeBindingSource.DataSource = typeof(Examination.type);
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.idTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBindingSource, "id", true));
-            this.idTextBox.Enabled = false;
-            this.idTextBox.Location = new System.Drawing.Point(185, 468);
-            this.idTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(206, 22);
-            this.idTextBox.TabIndex = 33;
-            // 
-            // codeTextBox
-            // 
-            this.codeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBindingSource, "code", true));
-            this.codeTextBox.Enabled = false;
-            this.codeTextBox.Location = new System.Drawing.Point(185, 500);
-            this.codeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(206, 22);
-            this.codeTextBox.TabIndex = 34;
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeBindingSource, "name", true));
-            this.nameTextBox.Enabled = false;
-            this.nameTextBox.Location = new System.Drawing.Point(185, 532);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(206, 22);
-            this.nameTextBox.TabIndex = 35;
-            // 
             // FType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -324,7 +324,7 @@
             this.Controls.Add(this.search);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Type Form";

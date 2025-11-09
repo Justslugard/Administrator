@@ -20,7 +20,7 @@ namespace Examination
             //        Application.Run(new Main());
             //    }
             //}
-            Application.Run(new FSchedule());
+            Application.Run(new ViewCase());
             //Application.Run(new FType());
         }
     }

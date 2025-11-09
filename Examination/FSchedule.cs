@@ -94,12 +94,12 @@ namespace Examination
             int.TryParse(examinerIDTextBox.Text, out ei);
             int ri;
             int.TryParse(roomIDTextBox.Text, out ri);
+            int iden = table?.id ?? -1; 
 
-            Console.WriteLine(Db.schedules.Any(x => x.examiner_id.Equals(ei) && x.time.Equals(timeDateTimePicker.Value) && !x.id.Equals(table.id)));
             if (isEmpty(sch.Controls)) return false;
-            else if (Db.schedules.Any(x => x.examiner_id.Equals(ei) && x.time.Equals(timeDateTimePicker.Value) && !x.id.Equals(table.id)))
+            else if (Db.schedules.Any(x => x.examiner_id.Equals(ei) && x.time.Equals(timeDateTimePicker.Value) && !x.id.Equals(iden)))
                 MessageBox.Show("The current examiner have another schedules with the same time!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (Db.schedules.Any(x => x.room_id.Equals(ri) && x.time.Equals(timeDateTimePicker.Value) && !x.id.Equals(table.id)))
+            else if (Db.schedules.Any(x => x.room_id.Equals(ri) && x.time.Equals(timeDateTimePicker.Value) && !x.id.Equals(iden)))
                 MessageBox.Show("The current room have another schedules with the same time!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (timeDateTimePicker.Value < DateTime.Now)
                 MessageBox.Show("Time must be greater than the current time!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -254,6 +254,14 @@ namespace Examination
                 allCt[$"{s.Name.Replace("TextBox", string.Empty)}IDTextBox"].Text = s.Name == "examinerTextBox" ? examinerID : s.Name == "roomTextBox" ? roomID : s.Name == "typeTextBox" ? tyID : s.Name == "caseTextBox" ? caseID : s.Name == "participantTextBox" ? parID : "";
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            examinerTextBox.Text = "Agnes Bricket";
+            roomTextBox.Text = "A789";
+            typeTextBox.Text = "TRY03";
+            caseTextBox.Text = "CASE10001";
         }
 
         private void save_Click(object sender, EventArgs e)

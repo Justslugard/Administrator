@@ -74,47 +74,29 @@ namespace Examination
             roleComboBox.SelectedIndex = -1;
         }
 
-        private void update_Click(object sender, EventArgs e)
-        {
-            flipMode(this.Controls, new List<string>() { "idTextBox", "passwordTextBox" });
-
-            table = (user)userBindingSource.Current;
-            userBindingSource.SuspendBinding();
-
-            idTextBox.Text = table.id.ToString();
-            roleComboBox.SelectedValue = table.role_id;
-            usernameTextBox.Text = table.username.ToString();
-            passwordTextBox.Text = table.password.ToString();
-            nameTextBox.Text = table.name.ToString();
-            emailTextBox.Text = table.email.ToString();
-            phoneTextBox.Text = table.phone.ToString();
-            genderComboBox.Text = table.gender.ToString();
-            addressTextBox.Text = table.address.ToString();
-        }
-
         private void delete_Click(object sender, EventArgs e)
         {
             table = (user)userBindingSource.Current;
+            Button b = sender as Button;
 
             if (table == null)
-            {
                 MessageBox.Show("There aren't any data!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+            else
+            {
+                flipMode(this.Controls, b.Name == "update" ? new List<string>() { "passwordTextBox" } : doNot);
+
+                userBindingSource.SuspendBinding();
+                idTextBox.Text = table.id.ToString();
+                roleComboBox.SelectedValue = table.role_id;
+                usernameTextBox.Text = table.username.ToString();
+                passwordTextBox.Text = table.password.ToString();
+                nameTextBox.Text = table.name.ToString();
+                emailTextBox.Text = table.email.ToString();
+                phoneTextBox.Text = table.phone.ToString();
+                genderComboBox.Text = table.gender.ToString();
+                addressTextBox.Text = table.address.ToString();
+
             }
-
-            userBindingSource.SuspendBinding();
-
-            idTextBox.Text = table.id.ToString();
-            roleComboBox.SelectedValue = table.role_id;
-            usernameTextBox.Text = table.username.ToString();
-            passwordTextBox.Text = table.password.ToString();
-            nameTextBox.Text = table.name.ToString();
-            emailTextBox.Text = table.email.ToString();
-            phoneTextBox.Text = table.phone.ToString();
-            genderComboBox.Text = table.gender.ToString();
-            addressTextBox.Text = table.address.ToString();
-
-            flipMode(this.Controls, doNot);
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -181,6 +163,7 @@ namespace Examination
         {
             flipMode(this.Controls, usernameTextBox.Enabled ? null : doNot);
             passwordTextBox.Enabled = false;
+            table = null;
 
             userBindingSource.ResumeBinding();
         }
@@ -197,11 +180,6 @@ namespace Examination
             else if (!long.TryParse(phoneTextBox.Text, out output)) MessageBox.Show("Phone must be number only!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else return true;
             return false;
-        }
-
-        private void userBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine(((user)userBindingSource.Current).name);
         }
     }
 }

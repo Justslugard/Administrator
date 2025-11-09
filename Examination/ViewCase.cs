@@ -11,6 +11,7 @@ namespace Examination
     {
         static IQueryable<@case> cases = Db.cases;
         static List<cases_details> table = null;
+        static int pos = -1;
         static List<string> doNot = new List<string>()
         {
             "orward",
@@ -60,12 +61,14 @@ namespace Examination
 
         private void caseDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            Console.WriteLine("Still going");
             count = 0;
             @case caseoh = caseBindingSource.Current as @case;
             table = caseoh.cases_details.ToList();
 
             backward.Enabled = fastBackward.Enabled = false;
-            forward.Enabled = fastForward.Enabled = true; 
+            forward.Enabled = fastForward.Enabled = true;
+            pos = caseBindingSource.Position;
 
             reset();
         }
@@ -107,20 +110,25 @@ namespace Examination
         private void cancel_Click(object sender, EventArgs e)
         {
             flipMode(this.Controls, doNot);
+            int temp = count;
+            count = 0;
             caseBindingSource.ResumeBinding();
+            caseBindingSource.Position = pos;
+            count = temp;
+
+            Console.WriteLine($"{count} CANCEL");
+            table = ((@case)caseBindingSource.Current).cases_details.ToList();
+            reset();
 
             if (count == 0) forward.Enabled = fastForward.Enabled = true;
             else if (count == table.Count - 1) backward.Enabled = fastBackward.Enabled = true;
             else fastBackward.Enabled = backward.Enabled = forward.Enabled = fastForward.Enabled = true;
 
-            table = ((@case)caseBindingSource.Current).cases_details.ToList();
-            count = 0;
-            reset();
         }
 
         void reset()
         {
-            caseBindingSource.ResetBindings(true);
+            caseBindingSource.ResetBindings(false);
 
             cases_details curr = table[count];
 
@@ -162,6 +170,11 @@ namespace Examination
             else cases = Db.cases;
 
             load(caseBindingSource, cases);
+        }
+
+        private void caseBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

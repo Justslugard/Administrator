@@ -42,35 +42,22 @@ namespace Examination
             load(typeBindingSource, types);
         }
 
-        private void update_Click(object sender, EventArgs e)
-        {
-            flipMode(this.Controls);
-
-            table = (type)typeBindingSource.Current;
-            typeBindingSource.SuspendBinding();
-
-            idTextBox.Text = table.id.ToString();
-            codeTextBox.Text = table.code.ToString();
-            nameTextBox.Text = table.name.ToString();
-        }
-
         private void delete_Click(object sender, EventArgs e)
         {
-            flipMode(this.Controls, doNot);
-
+            Button b = (Button)sender;
             table = (type)typeBindingSource.Current;
 
             if (table == null)
-            {
                 MessageBox.Show("There aren't any data!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+            else
+            {
+                flipMode(this.Controls, b.Name == "update" ? null : doNot);
+                typeBindingSource.SuspendBinding();
+
+                idTextBox.Text = table.id.ToString();
+                codeTextBox.Text = table.code.ToString();
+                nameTextBox.Text = table.name.ToString();
             }
-
-            typeBindingSource.SuspendBinding();
-
-            idTextBox.Text = table.id.ToString();
-            codeTextBox.Text = table.code.ToString();
-            nameTextBox.Text = table.name.ToString();
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -111,6 +98,7 @@ namespace Examination
                 Db.SaveChanges();
                 load(typeBindingSource, types);
                 flipMode(this.Controls, nameTextBox.Enabled ? null : doNot);
+                table = null;
             }
         }
 
@@ -118,6 +106,7 @@ namespace Examination
         {
             flipMode(this.Controls, nameTextBox.Enabled ? null : doNot);
             typeBindingSource.ResumeBinding();
+            table = null;
         }
 
         bool isValid()
