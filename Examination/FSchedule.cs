@@ -24,6 +24,7 @@ namespace Examination
         type ty;
         @case ca;
         user su;
+        static int pos = 0;
 
         public FSchedule()
         {
@@ -84,8 +85,8 @@ namespace Examination
         {
             flipMode(this.Controls, roomTextBox.Enabled ? doNot : new List<string> { "TextBox", "Par", "DateTimePicker" });
             table = null;
-
             unSuspend();
+            scheduleBindingSource.Position = pos;
         }
 
         bool isSchValid()
@@ -256,12 +257,11 @@ namespace Examination
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            examinerTextBox.Text = "Agnes Bricket";
-            roomTextBox.Text = "A789";
-            typeTextBox.Text = "TRY03";
-            caseTextBox.Text = "CASE10001";
+            if (scheduleBindingSource.IsBindingSuspended) return;
+
+            pos = scheduleBindingSource.Position;
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -296,7 +296,9 @@ namespace Examination
                         };
                         Db.schedules_participants.Add(sp);
                     }
-                } else if (!roomTextBox.Enabled)
+                    MessageBox.Show("New schedule successfully inserted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!roomTextBox.Enabled)
                 {
                     if (MessageBox.Show("Are you sure you want to delete this schedule?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
@@ -305,9 +307,10 @@ namespace Examination
                         {
                             item.deleted_at = DateTime.Now;
                         }
-                        MessageBox.Show("Room successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Schedule successfully deleted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                } else
+                }
+                else
                 {
                     su.examiner_id = int.Parse(examinerIDTextBox.Text);
                     su.room_id = int.Parse(roomIDTextBox.Text);
@@ -341,12 +344,15 @@ namespace Examination
                             sp.deleted_at = null;
                         }
                     }
+                    MessageBox.Show("Schedule successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
                 }
                 Db.SaveChanges();
                 load(scheduleBindingSource, schedules);
                 flipMode(this.Controls, roomTextBox.Enabled ? doNot : new List<string> { "TextBox", "Par", "DateTimePicker" });
                 table = null;
+                scheduleBindingSource.Position = pos;
             }
         }
 

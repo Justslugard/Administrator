@@ -41,15 +41,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.roomDataGridView = new System.Windows.Forms.DataGridView();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
+            this.capacityTextBox = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idTextBox = new System.Windows.Forms.TextBox();
-            this.codeTextBox = new System.Windows.Forms.TextBox();
-            this.capacityTextBox = new System.Windows.Forms.TextBox();
             passwordLabel = new System.Windows.Forms.Label();
             usernameLabel = new System.Windows.Forms.Label();
             idLabel = new System.Windows.Forms.Label();
@@ -205,6 +205,40 @@
             this.roomDataGridView.RowTemplate.Height = 24;
             this.roomDataGridView.Size = new System.Drawing.Size(681, 299);
             this.roomDataGridView.TabIndex = 44;
+            this.roomDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.roomDataGridView_CellClick);
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomBindingSource, "id", true));
+            this.idTextBox.Enabled = false;
+            this.idTextBox.Location = new System.Drawing.Point(131, 426);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(151, 20);
+            this.idTextBox.TabIndex = 34;
+            // 
+            // codeTextBox
+            // 
+            this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.codeTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomBindingSource, "code", true));
+            this.codeTextBox.Enabled = false;
+            this.codeTextBox.Location = new System.Drawing.Point(131, 451);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(151, 20);
+            this.codeTextBox.TabIndex = 38;
+            // 
+            // capacityTextBox
+            // 
+            this.capacityTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.capacityTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.capacityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomBindingSource, "capacity", true));
+            this.capacityTextBox.Enabled = false;
+            this.capacityTextBox.Location = new System.Drawing.Point(131, 478);
+            this.capacityTextBox.Name = "capacityTextBox";
+            this.capacityTextBox.Size = new System.Drawing.Size(151, 20);
+            this.capacityTextBox.TabIndex = 37;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -249,39 +283,6 @@
             // roomBindingSource
             // 
             this.roomBindingSource.DataSource = typeof(Examination.room);
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.idTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomBindingSource, "id", true));
-            this.idTextBox.Enabled = false;
-            this.idTextBox.Location = new System.Drawing.Point(131, 426);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(151, 20);
-            this.idTextBox.TabIndex = 34;
-            // 
-            // codeTextBox
-            // 
-            this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.codeTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomBindingSource, "code", true));
-            this.codeTextBox.Enabled = false;
-            this.codeTextBox.Location = new System.Drawing.Point(131, 451);
-            this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(151, 20);
-            this.codeTextBox.TabIndex = 38;
-            // 
-            // capacityTextBox
-            // 
-            this.capacityTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.capacityTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.capacityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomBindingSource, "capacity", true));
-            this.capacityTextBox.Enabled = false;
-            this.capacityTextBox.Location = new System.Drawing.Point(131, 478);
-            this.capacityTextBox.Name = "capacityTextBox";
-            this.capacityTextBox.Size = new System.Drawing.Size(151, 20);
-            this.capacityTextBox.TabIndex = 37;
             // 
             // FRoom
             // 

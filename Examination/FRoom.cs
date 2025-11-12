@@ -11,6 +11,7 @@ namespace Examination
     {
         static IQueryable<room> rooms = Db.rooms;
         static room table = null;
+        static int pos = 0;
         static List<string> doNot = new List<string>()
         {
             "TextBox"
@@ -70,6 +71,7 @@ namespace Examination
             flipMode(this.Controls, codeTextBox.Enabled ? null : doNot);
             table = null;
             roomBindingSource.ResumeBinding();
+            roomBindingSource.Position = pos;
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -112,6 +114,7 @@ namespace Examination
                 load(roomBindingSource, rooms);
                 table = null;
                 flipMode(this.Controls, codeTextBox.Enabled ? null : doNot);
+                roomBindingSource.Position = pos;
             }
         }
 
@@ -127,6 +130,13 @@ namespace Examination
             else return true;
 
             return false;
+        }
+
+        private void roomDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (roomBindingSource.IsBindingSuspended) return;
+
+            pos = roomBindingSource.Position;
         }
     }
 }

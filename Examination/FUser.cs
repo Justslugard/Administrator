@@ -17,6 +17,7 @@ namespace Examination
             "TextBox",
             "ComboBox"
         };
+        static int pos = 0;
 
         public FUser()
         {
@@ -83,7 +84,7 @@ namespace Examination
                 MessageBox.Show("There aren't any data!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
-                flipMode(this.Controls, b.Name == "update" ? new List<string>() { "passwordTextBox" } : doNot);
+                flipMode(this.Controls, b.Name == "update" ? new List<string>() { "passwordTextBox", "idTextBox" } : doNot);
 
                 userBindingSource.SuspendBinding();
                 idTextBox.Text = table.id.ToString();
@@ -156,6 +157,7 @@ namespace Examination
 
                 flipMode(this.Controls, usernameTextBox.Enabled ? null : doNot);
                 passwordTextBox.Enabled = false;
+                userBindingSource.Position = pos;
             }
         }
 
@@ -166,6 +168,7 @@ namespace Examination
             table = null;
 
             userBindingSource.ResumeBinding();
+            userBindingSource.Position = pos;
         }
         bool isValid()
         {
@@ -180,6 +183,13 @@ namespace Examination
             else if (!long.TryParse(phoneTextBox.Text, out output)) MessageBox.Show("Phone must be number only!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else return true;
             return false;
+        }
+
+        private void userDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (userBindingSource.IsBindingSuspended) return;
+
+            pos = userBindingSource.Position;
         }
     }
 }

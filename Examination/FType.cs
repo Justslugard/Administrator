@@ -16,6 +16,7 @@ namespace Examination
             "TextBox"
         };
         static type table = null;
+        static int pos = 0;
 
         public FType()
         {
@@ -99,6 +100,7 @@ namespace Examination
                 load(typeBindingSource, types);
                 flipMode(this.Controls, nameTextBox.Enabled ? null : doNot);
                 table = null;
+                typeBindingSource.Position = pos;
             }
         }
 
@@ -107,6 +109,7 @@ namespace Examination
             flipMode(this.Controls, nameTextBox.Enabled ? null : doNot);
             typeBindingSource.ResumeBinding();
             table = null;
+            typeBindingSource.Position = pos;
         }
 
         bool isValid()
@@ -117,6 +120,13 @@ namespace Examination
             else return true;
 
             return false;
+        }
+
+        private void typeDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (typeBindingSource.IsBindingSuspended) return;
+
+            pos = typeBindingSource.Position;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Examination
         static IQueryable<@case> cases = Db.cases;
         static List<cases_details> table = null;
         static @case caseoh = null;
-        static int pos = -1;
+        static int pos = 0;
         static List<string> doNot = new List<string>()
         {
             "orward",

@@ -132,5 +132,27 @@ namespace Winform_Login.Properties {
                 return ((string)(this["AsusConnectionString2"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SISWA-RPL-36\\MSSQLSERVER02;Initial Catalog=Sales;Integrated Security=" +
+            "True;TrustServerCertificate=True")]
+        public string SalesConnectionString {
+            get {
+                return ((string)(this["SalesConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SISWA-RPL-36\\MSSQLSERVER02;Initial Catalog=Asus;Integrated Security=T" +
+            "rue;TrustServerCertificate=True")]
+        public string AsusConnectionString3 {
+            get {
+                return ((string)(this["AsusConnectionString3"]));
+            }
+        }
     }
 }
