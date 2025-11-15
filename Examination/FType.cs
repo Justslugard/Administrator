@@ -85,9 +85,8 @@ namespace Examination
                     if (MessageBox.Show("Are you sure you want to delete this type?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         type.deleted_at = DateTime.Now;
+                        MessageBox.Show("Type successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
-                    MessageBox.Show("Type successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } else
                 {
                     type.code = codeTextBox.Text;
