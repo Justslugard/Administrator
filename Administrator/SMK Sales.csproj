@@ -78,6 +78,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsusDataSet.cs">
+      <DependentUpon>AsusDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="AsusDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,6 +133,17 @@
     <Compile Include="MAdministrator.Designer.cs">
       <DependentUpon>MAdministrator.cs</DependentUpon>
     </Compile>
+    <None Include="AsusDataSet.xsc">
+      <DependentUpon>AsusDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AsusDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AsusDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AsusDataSet.xss">
+      <DependentUpon>AsusDataSet.xsd</DependentUpon>
+    </None>
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
@@ -175,17 +189,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="AsusDataSet.xsc">
-      <DependentUpon>AsusDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="AsusDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AsusDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="AsusDataSet.xss">
-      <DependentUpon>AsusDataSet.xsd</DependentUpon>
-    </None>
     <None Include="DataClasses1.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>

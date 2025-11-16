@@ -61,7 +61,9 @@
             this.spass = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.asusDataSet = new Winform_Login.AsusDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.asusDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv
@@ -352,9 +354,6 @@
             this.cbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRol.Enabled = false;
             this.cbRol.FormattingEnabled = true;
-            this.cbRol.Items.AddRange(new object[] {
-            "Manager",
-            "Cashier"});
             this.cbRol.Location = new System.Drawing.Point(752, 517);
             this.cbRol.Margin = new System.Windows.Forms.Padding(4);
             this.cbRol.Name = "cbRol";
@@ -460,6 +459,11 @@
             this.label10.TabIndex = 31;
             this.label10.Text = "Search:";
             // 
+            // asusDataSet
+            // 
+            this.asusDataSet.DataSetName = "AsusDataSet";
+            this.asusDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // MAdministrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -500,6 +504,7 @@
             this.Text = "Manage Administrator";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.asusDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -539,6 +544,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private AsusDataSet asusDataSet;
     }
 }
 

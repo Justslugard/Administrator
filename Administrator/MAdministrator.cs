@@ -95,9 +95,9 @@ namespace Winform_Login
 
         private void update_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(id.Text)) 
+            if (dgvRow == -1) 
             {
-                MessageBox.Show("Please select an Administrator!", "No Data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                MessageBox.Show("Please select an Administrator!", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -118,6 +118,7 @@ namespace Winform_Login
             data.SubmitChanges();
 
             rmv.Enabled = false;
+            clear();
 
             MessageBox.Show("Administrator deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -126,6 +127,7 @@ namespace Winform_Login
         private void cancel_Click(object sender, EventArgs e)
         {
             modeField(true);
+            if (onInsert) clear();
             pass.UseSystemPasswordChar = cpass.UseSystemPasswordChar = true;
             onInsert = onUpdate = false;
         }
@@ -178,6 +180,8 @@ namespace Winform_Login
 
                     loadDgv();
                 }
+                onInsert = onUpdate = false;
+                modeField(true);
             }
         }
 

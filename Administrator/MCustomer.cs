@@ -119,11 +119,15 @@ namespace Winform_Login
 
                     loadDgv();
                 }
+                onUpdate = onInsert = false; 
+                modeField(false);
+                clearField();
             }
         }
 
         private void cancel_Click(object sender, EventArgs e)
         {
+            if (onInsert) clearField();
             onInsert = onUpdate = false;
             modeField(false);
         }
