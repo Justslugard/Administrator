@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Score.Util;
@@ -13,7 +14,7 @@ namespace Score
 {
     public partial class MTeacher : Form
     {
-        static int index = 0;
+        int pos = 0;
         static Teacher table = null;
 
         public MTeacher()
@@ -59,6 +60,7 @@ namespace Score
             teacherIDTextBox.Enabled = false;
             table = null;
             teacherBindingSource.ResumeBinding();
+            teacherBindingSource.Position = pos;
         }
 
         private void update_Click(object sender, EventArgs e)
@@ -95,41 +97,71 @@ namespace Score
 
         private void save_Click(object sender, EventArgs e)
         {
-            if (table == null)
+            if (!isValid()) return;
+            else
             {
-                db.Teachers.Add(new Teacher()
+                if (table == null)
                 {
-                    TeacherName = teacherNameTextBox.Text,
-                    PhoneNumber = phoneNumberTextBox.Text,
-                    BirthDate = birthDateDateTimePicker.Value,
-                    Gender = mRB.Checked ? "M" : "F",
-                    Email = emailTextBox.Text,
-                    Password = passwordTextBox.Text,
-                    Role = comboBox1.Text
-                });
-            } else
-            {
-                Teacher t = db.Teachers.Find(table.TeacherID);
-                t.TeacherName = teacherNameTextBox.Text;
-                t.PhoneNumber = phoneNumberTextBox.Text;
-                t.BirthDate = birthDateDateTimePicker.Value;
-                t.Gender = mRB.Checked ? "M" : "F";
-                t.Email = emailTextBox.Text;
-                t.Password = passwordTextBox.Text;
-                t.Role = comboBox1.Text;
-            }
+                    db.Teachers.Add(new Teacher()
+                    {
+                        TeacherName = teacherNameTextBox.Text,
+                        PhoneNumber = phoneNumberTextBox.Text,
+                        BirthDate = birthDateDateTimePicker.Value.Date,
+                        Gender = mRB.Checked ? "M" : "F",
+                        Email = emailTextBox.Text,
+                        Password = passwordTextBox.Text,
+                        Role = comboBox1.Text
+                    });
+                }
+                else
+                {
+                    Teacher t = db.Teachers.Find(table.TeacherID);
+                    t.TeacherName = teacherNameTextBox.Text;
+                    t.PhoneNumber = phoneNumberTextBox.Text;
+                    t.BirthDate = birthDateDateTimePicker.Value.Date;
+                    t.Gender = mRB.Checked ? "M" : "F";
+                    t.Email = emailTextBox.Text;
+                    t.Password = passwordTextBox.Text;
+                    t.Role = comboBox1.Text;
+                }
 
-            db.SaveChanges();
-            load(teacherBindingSource, db.Teachers);
-            table = null;
-            flip(this.Controls);
-            teacherIDTextBox.Enabled = false;
+                db.SaveChanges();
+                load(teacherBindingSource, db.Teachers);
+                table = null;
+                flip(this.Controls);
+                teacherBindingSource.Position = pos;
+                teacherIDTextBox.Enabled = false;
+            }
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(searchTextBox.Text)) load(teacherBindingSource, db.Teachers.Where(x => x.TeacherName.Contains(searchTextBox.Text) || x.Email.Contains(searchTextBox.Text) || x.PhoneNumber.Contains(searchTextBox.Text)));
             else load(teacherBindingSource, db.Teachers);
+        }
+
+        bool isValid()
+        {
+            if (new[] { teacherNameTextBox.Text, phoneNumberTextBox.Text, emailTextBox.Text, passwordTextBox.Text }.Any(string.IsNullOrWhiteSpace)
+                || (!fRB.Checked && !mRB.Checked)) MessageBox.Show("All fields must be filled");
+            else if (!Regex.IsMatch(emailTextBox.Text, @"^[\w.]+@[\w-.]+\.\w+$")) MessageBox.Show("Email must be valid format!");
+            else if (!Regex.IsMatch(phoneNumberTextBox.Text, @"^08\d+$")) MessageBox.Show("Phone must start with \"08\" and another with digits!");
+            else if (!Regex.IsMatch(passwordTextBox.Text, @"[A-Z]+\w.\d{4,}")) MessageBox.Show("Password must start with capital, number and minimum length 5 characters!");
+            else return true;
+
+            return false;
+        }
+
+        private void teacherDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (teacherBindingSource.IsBindingSuspended) return;
+
+            pos = teacherBindingSource.Position;
+        }
+
+        private void birthDateDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

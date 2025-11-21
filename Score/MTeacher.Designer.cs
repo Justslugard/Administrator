@@ -80,27 +80,30 @@
             // birthDateLabel
             // 
             birthDateLabel.AutoSize = true;
-            birthDateLabel.Location = new System.Drawing.Point(12, 419);
+            birthDateLabel.Location = new System.Drawing.Point(9, 340);
+            birthDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             birthDateLabel.Name = "birthDateLabel";
-            birthDateLabel.Size = new System.Drawing.Size(68, 16);
+            birthDateLabel.Size = new System.Drawing.Size(57, 13);
             birthDateLabel.TabIndex = 2;
             birthDateLabel.Text = "Birth Date:";
             // 
             // emailLabel
             // 
             emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(361, 354);
+            emailLabel.Location = new System.Drawing.Point(271, 288);
+            emailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(44, 16);
+            emailLabel.Size = new System.Drawing.Size(35, 13);
             emailLabel.TabIndex = 4;
             emailLabel.Text = "Email:";
             // 
             // genderLabel
             // 
             genderLabel.AutoSize = true;
-            genderLabel.Location = new System.Drawing.Point(360, 327);
+            genderLabel.Location = new System.Drawing.Point(270, 266);
+            genderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(55, 16);
+            genderLabel.Size = new System.Drawing.Size(45, 13);
             genderLabel.TabIndex = 6;
             genderLabel.Text = "Gender:";
             genderLabel.Click += new System.EventHandler(this.genderLabel_Click);
@@ -108,18 +111,20 @@
             // passwordLabel
             // 
             passwordLabel.AutoSize = true;
-            passwordLabel.Location = new System.Drawing.Point(361, 385);
+            passwordLabel.Location = new System.Drawing.Point(271, 313);
+            passwordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(70, 16);
+            passwordLabel.Size = new System.Drawing.Size(56, 13);
             passwordLabel.TabIndex = 8;
             passwordLabel.Text = "Password:";
             // 
             // phoneNumberLabel
             // 
             phoneNumberLabel.AutoSize = true;
-            phoneNumberLabel.Location = new System.Drawing.Point(12, 388);
+            phoneNumberLabel.Location = new System.Drawing.Point(9, 315);
+            phoneNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             phoneNumberLabel.Name = "phoneNumberLabel";
-            phoneNumberLabel.Size = new System.Drawing.Size(100, 16);
+            phoneNumberLabel.Size = new System.Drawing.Size(81, 13);
             phoneNumberLabel.TabIndex = 10;
             phoneNumberLabel.Text = "Phone Number:";
             phoneNumberLabel.Click += new System.EventHandler(this.phoneNumberLabel_Click);
@@ -127,36 +132,40 @@
             // roleLabel
             // 
             roleLabel.AutoSize = true;
-            roleLabel.Location = new System.Drawing.Point(361, 416);
+            roleLabel.Location = new System.Drawing.Point(271, 338);
+            roleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             roleLabel.Name = "roleLabel";
-            roleLabel.Size = new System.Drawing.Size(39, 16);
+            roleLabel.Size = new System.Drawing.Size(32, 13);
             roleLabel.TabIndex = 12;
             roleLabel.Text = "Role:";
             // 
             // teacherIDLabel
             // 
             teacherIDLabel.AutoSize = true;
-            teacherIDLabel.Location = new System.Drawing.Point(12, 327);
+            teacherIDLabel.Location = new System.Drawing.Point(9, 266);
+            teacherIDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             teacherIDLabel.Name = "teacherIDLabel";
-            teacherIDLabel.Size = new System.Drawing.Size(77, 16);
+            teacherIDLabel.Size = new System.Drawing.Size(64, 13);
             teacherIDLabel.TabIndex = 14;
             teacherIDLabel.Text = "Teacher ID:";
             // 
             // teacherNameLabel
             // 
             teacherNameLabel.AutoSize = true;
-            teacherNameLabel.Location = new System.Drawing.Point(12, 357);
+            teacherNameLabel.Location = new System.Drawing.Point(9, 290);
+            teacherNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             teacherNameLabel.Name = "teacherNameLabel";
-            teacherNameLabel.Size = new System.Drawing.Size(47, 16);
+            teacherNameLabel.Size = new System.Drawing.Size(38, 13);
             teacherNameLabel.TabIndex = 16;
             teacherNameLabel.Text = "Name:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(839, 32);
+            label2.Location = new System.Drawing.Point(629, 26);
+            label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(50, 16);
+            label2.Size = new System.Drawing.Size(41, 13);
             label2.TabIndex = 21;
             label2.Text = "Search";
             // 
@@ -177,13 +186,15 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.teacherDataGridView.DataSource = this.teacherBindingSource;
-            this.teacherDataGridView.Location = new System.Drawing.Point(12, 76);
+            this.teacherDataGridView.Location = new System.Drawing.Point(9, 62);
+            this.teacherDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.teacherDataGridView.Name = "teacherDataGridView";
             this.teacherDataGridView.ReadOnly = true;
             this.teacherDataGridView.RowHeadersWidth = 51;
             this.teacherDataGridView.RowTemplate.Height = 24;
-            this.teacherDataGridView.Size = new System.Drawing.Size(1030, 220);
+            this.teacherDataGridView.Size = new System.Drawing.Size(772, 179);
             this.teacherDataGridView.TabIndex = 1;
+            this.teacherDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teacherDataGridView_CellClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -258,47 +269,54 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 44);
+            this.label1.Location = new System.Drawing.Point(9, 36);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 29);
+            this.label1.Size = new System.Drawing.Size(156, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Master Teacher";
             // 
             // birthDateDateTimePicker
             // 
+            this.birthDateDateTimePicker.CustomFormat = "dd/MM/yyyy";
             this.birthDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.teacherBindingSource, "BirthDate", true));
             this.birthDateDateTimePicker.Enabled = false;
             this.birthDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.birthDateDateTimePicker.Location = new System.Drawing.Point(119, 415);
+            this.birthDateDateTimePicker.Location = new System.Drawing.Point(89, 337);
+            this.birthDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.birthDateDateTimePicker.Name = "birthDateDateTimePicker";
-            this.birthDateDateTimePicker.Size = new System.Drawing.Size(200, 22);
+            this.birthDateDateTimePicker.Size = new System.Drawing.Size(151, 20);
             this.birthDateDateTimePicker.TabIndex = 3;
+            this.birthDateDateTimePicker.ValueChanged += new System.EventHandler(this.birthDateDateTimePicker_ValueChanged);
             // 
             // emailTextBox
             // 
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Email", true));
             this.emailTextBox.Enabled = false;
-            this.emailTextBox.Location = new System.Drawing.Point(468, 351);
+            this.emailTextBox.Location = new System.Drawing.Point(351, 285);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(200, 22);
+            this.emailTextBox.Size = new System.Drawing.Size(151, 20);
             this.emailTextBox.TabIndex = 5;
             // 
             // passwordTextBox
             // 
             this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Password", true));
             this.passwordTextBox.Enabled = false;
-            this.passwordTextBox.Location = new System.Drawing.Point(468, 382);
+            this.passwordTextBox.Location = new System.Drawing.Point(351, 310);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(200, 22);
+            this.passwordTextBox.Size = new System.Drawing.Size(151, 20);
             this.passwordTextBox.TabIndex = 9;
             // 
             // phoneNumberTextBox
             // 
             this.phoneNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "PhoneNumber", true));
             this.phoneNumberTextBox.Enabled = false;
-            this.phoneNumberTextBox.Location = new System.Drawing.Point(119, 385);
+            this.phoneNumberTextBox.Location = new System.Drawing.Point(89, 313);
+            this.phoneNumberTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-            this.phoneNumberTextBox.Size = new System.Drawing.Size(200, 22);
+            this.phoneNumberTextBox.Size = new System.Drawing.Size(151, 20);
             this.phoneNumberTextBox.TabIndex = 11;
             this.phoneNumberTextBox.TextChanged += new System.EventHandler(this.phoneNumberTextBox_TextChanged);
             // 
@@ -306,18 +324,20 @@
             // 
             this.teacherIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "TeacherID", true));
             this.teacherIDTextBox.Enabled = false;
-            this.teacherIDTextBox.Location = new System.Drawing.Point(119, 324);
+            this.teacherIDTextBox.Location = new System.Drawing.Point(89, 263);
+            this.teacherIDTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.teacherIDTextBox.Name = "teacherIDTextBox";
-            this.teacherIDTextBox.Size = new System.Drawing.Size(200, 22);
+            this.teacherIDTextBox.Size = new System.Drawing.Size(151, 20);
             this.teacherIDTextBox.TabIndex = 15;
             // 
             // teacherNameTextBox
             // 
             this.teacherNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "TeacherName", true));
             this.teacherNameTextBox.Enabled = false;
-            this.teacherNameTextBox.Location = new System.Drawing.Point(119, 354);
+            this.teacherNameTextBox.Location = new System.Drawing.Point(89, 288);
+            this.teacherNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.teacherNameTextBox.Name = "teacherNameTextBox";
-            this.teacherNameTextBox.Size = new System.Drawing.Size(200, 22);
+            this.teacherNameTextBox.Size = new System.Drawing.Size(151, 20);
             this.teacherNameTextBox.TabIndex = 17;
             // 
             // comboBox1
@@ -329,16 +349,18 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Admin",
             "Evaluator"});
-            this.comboBox1.Location = new System.Drawing.Point(468, 413);
+            this.comboBox1.Location = new System.Drawing.Point(351, 336);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 24);
+            this.comboBox1.Size = new System.Drawing.Size(151, 21);
             this.comboBox1.TabIndex = 18;
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(842, 51);
+            this.searchTextBox.Location = new System.Drawing.Point(632, 41);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(200, 22);
+            this.searchTextBox.Size = new System.Drawing.Size(151, 20);
             this.searchTextBox.TabIndex = 22;
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
@@ -347,9 +369,10 @@
             this.button1.BackColor = System.Drawing.Color.IndianRed;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(925, 357);
+            this.button1.Location = new System.Drawing.Point(694, 290);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 35);
+            this.button1.Size = new System.Drawing.Size(74, 28);
             this.button1.TabIndex = 23;
             this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = false;
@@ -360,9 +383,10 @@
             this.lB.BackColor = System.Drawing.Color.MediumPurple;
             this.lB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lB.Location = new System.Drawing.Point(722, 357);
+            this.lB.Location = new System.Drawing.Point(542, 290);
+            this.lB.Margin = new System.Windows.Forms.Padding(2);
             this.lB.Name = "lB";
-            this.lB.Size = new System.Drawing.Size(98, 35);
+            this.lB.Size = new System.Drawing.Size(74, 28);
             this.lB.TabIndex = 24;
             this.lB.Text = "Insert";
             this.lB.UseVisualStyleBackColor = false;
@@ -373,9 +397,10 @@
             this.update.BackColor = System.Drawing.Color.MediumPurple;
             this.update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.update.Location = new System.Drawing.Point(823, 357);
+            this.update.Location = new System.Drawing.Point(617, 290);
+            this.update.Margin = new System.Windows.Forms.Padding(2);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(98, 35);
+            this.update.Size = new System.Drawing.Size(74, 28);
             this.update.TabIndex = 25;
             this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = false;
@@ -387,9 +412,10 @@
             this.save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.save.Enabled = false;
             this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.save.Location = new System.Drawing.Point(768, 395);
+            this.save.Location = new System.Drawing.Point(576, 321);
+            this.save.Margin = new System.Windows.Forms.Padding(2);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(98, 35);
+            this.save.Size = new System.Drawing.Size(74, 28);
             this.save.TabIndex = 27;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = false;
@@ -401,9 +427,10 @@
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.Enabled = false;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(870, 395);
+            this.button4.Location = new System.Drawing.Point(652, 321);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(98, 35);
+            this.button4.Size = new System.Drawing.Size(74, 28);
             this.button4.TabIndex = 26;
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = false;
@@ -413,9 +440,10 @@
             // 
             this.mRB.AutoSize = true;
             this.mRB.Enabled = false;
-            this.mRB.Location = new System.Drawing.Point(468, 325);
+            this.mRB.Location = new System.Drawing.Point(351, 264);
+            this.mRB.Margin = new System.Windows.Forms.Padding(2);
             this.mRB.Name = "mRB";
-            this.mRB.Size = new System.Drawing.Size(58, 20);
+            this.mRB.Size = new System.Drawing.Size(48, 17);
             this.mRB.TabIndex = 28;
             this.mRB.TabStop = true;
             this.mRB.Text = "Male";
@@ -425,9 +453,10 @@
             // 
             this.fRB.AutoSize = true;
             this.fRB.Enabled = false;
-            this.fRB.Location = new System.Drawing.Point(594, 324);
+            this.fRB.Location = new System.Drawing.Point(446, 263);
+            this.fRB.Margin = new System.Windows.Forms.Padding(2);
             this.fRB.Name = "fRB";
-            this.fRB.Size = new System.Drawing.Size(74, 20);
+            this.fRB.Size = new System.Drawing.Size(59, 17);
             this.fRB.TabIndex = 29;
             this.fRB.TabStop = true;
             this.fRB.Text = "Female";
@@ -435,9 +464,9 @@
             // 
             // MTeacher
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 471);
+            this.ClientSize = new System.Drawing.Size(796, 383);
             this.Controls.Add(this.fRB);
             this.Controls.Add(this.mRB);
             this.Controls.Add(this.save);
@@ -464,8 +493,9 @@
             this.Controls.Add(this.teacherNameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.teacherDataGridView);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MTeacher";
-            this.Text = "MTeacher";
+            this.Text = "Master Teacher";
             ((System.ComponentModel.ISupportInitialize)(this.teacherDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -478,14 +508,6 @@
         private System.Windows.Forms.BindingSource teacherBindingSource;
         private System.Windows.Forms.DataGridView teacherDataGridView;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DateTimePicker birthDateDateTimePicker;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
@@ -501,5 +523,13 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.RadioButton mRB;
         private System.Windows.Forms.RadioButton fRB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }

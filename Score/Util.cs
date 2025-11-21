@@ -10,7 +10,7 @@ namespace Score
     public static class Util
     {
         public static ScoreEntities db = new ScoreEntities();
-        public static Teacher teacher = null;
+        public static Teacher teacher = db.Teachers.Find(5);
 
         public static void load<T>(BindingSource Binding, IQueryable<T> bs) where T : class
         {
@@ -33,11 +33,11 @@ namespace Score
         {
             foreach (Control control in controls)
             {
-                if (control is TextBox) control.Enabled = !control.Enabled;
-                else if (control is Button) control.Enabled = !control.Enabled;
-                else if (control is DateTimePicker) control.Enabled = !control.Enabled;
-                else if (control is RadioButton) control.Enabled = !control.Enabled;
-                else if (control is ComboBox) control.Enabled = !control.Enabled;
+                if (control is TextBox || control is Button 
+                    || control is DateTimePicker || control is RadioButton 
+                    || control is ComboBox || control is CheckBox
+                    || control is NumericUpDown) control.Enabled = !control.Enabled;
+                else if (control.HasChildren) flip(control.Controls);
             }
         }
     }

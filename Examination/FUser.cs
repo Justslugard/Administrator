@@ -173,7 +173,7 @@ namespace Examination
         {
             int id = int.Parse(idTextBox.Text);
             long output;
-            Regex emailReg = new Regex(@"^[\w.]+@[\w.-]+\.\w+");
+            Regex emailReg = new Regex(@"^[\w.]+@[\w.-]+\.\w+$");
             if (isEmpty(this.Controls)) return false;
             else if (usernameTextBox.Text.Length <= 3) MessageBox.Show("Username must be more than 3 characters!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (Db.users.Any(x => x.username.Equals(usernameTextBox.Text) && !x.id.Equals(id))) MessageBox.Show("Username must be unique!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);

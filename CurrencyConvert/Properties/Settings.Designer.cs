@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Score.Properties {
+namespace CurrencyConvert.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -26,11 +26,11 @@ namespace Score.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-62UUGGH;Initial Catalog=SMKScore;Integrated Security=True;Tru" +
-            "stServerCertificate=True")]
-        public string SMKScoreConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-62UUGGH;Initial Catalog=CurrencyConverter;Integrated Security" +
+            "=True;TrustServerCertificate=True")]
+        public string CurrencyConverterConnectionString {
             get {
-                return ((string)(this["SMKScoreConnectionString"]));
+                return ((string)(this["CurrencyConverterConnectionString"]));
             }
         }
     }

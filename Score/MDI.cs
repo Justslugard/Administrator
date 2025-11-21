@@ -41,11 +41,34 @@ namespace Score
 
         private void upB_Click(object sender, EventArgs e)
         {
-            Button b = (Button)sender;
-
-            if (b.Text == "Master Teacher")
+            if (teacher.Role == "Admin")
             {
                 new MTeacher().ShowDialog();
+            } else
+            {
+                new Scoring().ShowDialog();
+            }
+        }
+
+        private void midB_Click(object sender, EventArgs e)
+        {
+            if (teacher.Role == "Admin")
+            {
+                new MStudent().ShowDialog();
+            } else
+            {
+                new ViewScore().ShowDialog();
+            }
+        }
+
+        private void lB_Click(object sender, EventArgs e)
+        {
+            if (teacher.Role == "Admin")
+            {
+                new MSubject().ShowDialog();
+            } else
+            {
+                new ViewReport().ShowDialog();
             }
         }
     }
