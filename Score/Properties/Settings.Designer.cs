@@ -33,5 +33,16 @@ namespace Score.Properties {
                 return ((string)(this["SMKScoreConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-EO4MCEI;Initial Catalog=SMKScore;Integrated Security=True;Tru" +
+            "stServerCertificate=True")]
+        public string SMKScoreConnectionString1 {
+            get {
+                return ((string)(this["SMKScoreConnectionString1"]));
+            }
+        }
     }
 }

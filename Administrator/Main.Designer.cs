@@ -144,6 +144,7 @@
             this.ClientSize = new System.Drawing.Size(625, 333);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "SMK Sales";

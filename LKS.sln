@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Score", "Score\Score.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConvert", "CurrencyConvert\CurrencyConvert.csproj", "{2D668A3C-0CA8-4303-8AC0-BFC91A837A2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsemkaLibrary", "EsemkaLibrary\EsemkaLibrary.csproj", "{06B40D0D-2623-47DC-991A-CC73CA5E6B21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2D668A3C-0CA8-4303-8AC0-BFC91A837A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D668A3C-0CA8-4303-8AC0-BFC91A837A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D668A3C-0CA8-4303-8AC0-BFC91A837A2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B40D0D-2623-47DC-991A-CC73CA5E6B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B40D0D-2623-47DC-991A-CC73CA5E6B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B40D0D-2623-47DC-991A-CC73CA5E6B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B40D0D-2623-47DC-991A-CC73CA5E6B21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

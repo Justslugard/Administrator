@@ -34,27 +34,28 @@ namespace CurrencyConvert
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (oriCb.SelectedValue == null || periodCb.SelectedValue == null || convertCb.SelectedValue == null) return;
-
-            if (oriCb.Text != "USD" && convertCb.Text != "USD")
+            if (sender is ComboBox)
             {
-                decimal rate1 = db.USDExchangeRates.Where(x => x.currency_id.Equals((int)oriCb.SelectedValue) && x.period_id.Equals((int)periodCb.SelectedValue)).FirstOrDefault().rate;
-                decimal rate2 = db.USDExchangeRates.Where(x => x.currency_id.Equals((int)convertCb.SelectedValue) && x.period_id.Equals((int)periodCb.SelectedValue)).FirstOrDefault().rate;
-                crossRate = Math.Ceiling((rate2 / rate1) * 1e10M) / 1e10M;
-                USD = null;
-            }
-            else
-            {
-                decimal usd = db.USDExchangeRates.Where(x => x.currency_id.Equals((int)oriCb.SelectedIndex) || x.currency_id.Equals((int)convertCb.SelectedValue)).FirstOrDefault().rate;
+                if (oriCb.SelectedValue == null || periodCb.SelectedValue == null || convertCb.SelectedValue == null) return;
 
-                USD = usd;
+                if (oriCb.Text != "USD" && convertCb.Text != "USD")
+                {
+                    decimal rate1 = db.USDExchangeRates.Where(x => x.currency_id.Equals((int)oriCb.SelectedValue) && x.period_id.Equals((int)periodCb.SelectedValue)).FirstOrDefault().rate;
+                    decimal rate2 = db.USDExchangeRates.Where(x => x.currency_id.Equals((int)convertCb.SelectedValue) && x.period_id.Equals((int)periodCb.SelectedValue)).FirstOrDefault().rate;
+                    crossRate = Math.Ceiling((rate2 / rate1) * 1e10M) / 1e10M;
+                    USD = null;
+                }
+                else
+                {
+                    USD = db.USDExchangeRates.Where(x => (x.currency_id.Equals((int)oriCb.SelectedValue) || x.currency_id.Equals((int)convertCb.SelectedValue)) && x.period_id.Equals((int)periodCb.SelectedValue)).FirstOrDefault().rate;
+                }
             }
 
             decimal res;
             if (string.IsNullOrWhiteSpace(oriTb.Text) || !decimal.TryParse(oriTb.Text, out res)) convertTb.Clear();
             else if (USD == null) convertTb.Text = (Math.Ceiling((res * crossRate) * 1e3M) / 1e3M).ToString();
-            else if (USD != null && oriCb.Text == "USD") convertTb.Text = (Math.Ceiling((res / ((decimal)USD)) * 1e3M) / 1e3M).ToString();
-            else if (USD != null && convertCb.Text == "USD") convertTb.Text = (Math.Ceiling((res * ((decimal)USD)) * 1e3M) / 1e3M).ToString();
+            else if (USD != null && oriCb.Text == "USD") convertTb.Text = (Math.Ceiling((res * ((decimal)USD)) * 1e3M) / 1e3M).ToString();
+            else if (USD != null && convertCb.Text == "USD") convertTb.Text = (Math.Ceiling((res / ((decimal)USD)) * 1e3M) / 1e3M).ToString();
         }
 
         private void periodBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -64,11 +65,16 @@ namespace CurrencyConvert
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            oriCb.TextChanged -= textBox1_TextChanged;
+            convertCb.TextChanged -= textBox1_TextChanged;
             int x = oriCb.SelectedIndex;
             int y = convertCb.SelectedIndex;
 
             oriCb.SelectedIndex = y;
             convertCb.SelectedIndex = x;
+            oriCb.TextChanged += textBox1_TextChanged;
+            convertCb.TextChanged += textBox1_TextChanged;
+            textBox1_TextChanged(sender, e);
         }
 
         private void convertCb_Enter(object sender, EventArgs e)

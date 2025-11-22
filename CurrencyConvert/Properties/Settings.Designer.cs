@@ -33,5 +33,16 @@ namespace CurrencyConvert.Properties {
                 return ((string)(this["CurrencyConverterConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-EO4MCEI;Initial Catalog=CurrencyConverter;Integrated Security" +
+            "=True;TrustServerCertificate=True")]
+        public string CurrencyConverterConnectionString1 {
+            get {
+                return ((string)(this["CurrencyConverterConnectionString1"]));
+            }
+        }
     }
 }
