@@ -46,10 +46,11 @@
             this.id.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.id.ForeColor = System.Drawing.Color.Black;
             this.id.Location = new System.Drawing.Point(200, 25);
-            this.id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.id.Margin = new System.Windows.Forms.Padding(4);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(213, 22);
             this.id.TabIndex = 31;
+            this.id.TextChanged += new System.EventHandler(this.id_TextChanged);
             // 
             // asd
             // 
@@ -83,7 +84,7 @@
             this.cNumber.Enabled = false;
             this.cNumber.ForeColor = System.Drawing.Color.Black;
             this.cNumber.Location = new System.Drawing.Point(200, 190);
-            this.cNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cNumber.Margin = new System.Windows.Forms.Padding(4);
             this.cNumber.Name = "cNumber";
             this.cNumber.Size = new System.Drawing.Size(288, 22);
             this.cNumber.TabIndex = 28;
@@ -95,7 +96,7 @@
             this.cash.Checked = true;
             this.cash.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cash.Location = new System.Drawing.Point(215, 138);
-            this.cash.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cash.Margin = new System.Windows.Forms.Padding(4);
             this.cash.Name = "cash";
             this.cash.Size = new System.Drawing.Size(59, 20);
             this.cash.TabIndex = 32;
@@ -110,7 +111,7 @@
             this.card.AutoSize = true;
             this.card.Cursor = System.Windows.Forms.Cursors.Hand;
             this.card.Location = new System.Drawing.Point(288, 138);
-            this.card.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.card.Margin = new System.Windows.Forms.Padding(4);
             this.card.Name = "card";
             this.card.Size = new System.Drawing.Size(57, 20);
             this.card.TabIndex = 33;
@@ -162,7 +163,7 @@
             this.check.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.check.Cursor = System.Windows.Forms.Cursors.Hand;
             this.check.Location = new System.Drawing.Point(423, 25);
-            this.check.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.check.Margin = new System.Windows.Forms.Padding(4);
             this.check.Name = "check";
             this.check.Size = new System.Drawing.Size(117, 25);
             this.check.TabIndex = 78;
@@ -176,7 +177,7 @@
             this.pay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pay.Enabled = false;
             this.pay.Location = new System.Drawing.Point(240, 241);
-            this.pay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pay.Margin = new System.Windows.Forms.Padding(4);
             this.pay.Name = "pay";
             this.pay.Size = new System.Drawing.Size(117, 25);
             this.pay.TabIndex = 79;
@@ -201,7 +202,7 @@
             this.Controls.Add(this.asd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cNumber);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Payment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Payment";

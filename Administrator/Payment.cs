@@ -72,7 +72,7 @@ namespace Winform_Login
                 }
 
                 MessageBox.Show("Payment successfull!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                this.Close();
             }
         }
 
@@ -93,14 +93,19 @@ namespace Winform_Login
             string headerID = data.SalesHeaders.OrderByDescending(x => x.Id).FirstOrDefault()?.Id;
             int year = DateTime.Now.Year,
                 month = DateTime.Now.Month;
-            if (headerID == null || int.Parse(headerID.Substring(1, 4)) != year)
+            if (headerID == null || int.Parse(headerID.Substring(0, 4)) != year)
             {
                 return $"{year}{month}00001";
             }
             else 
             {
-                return $"{year}{month:00}{headerID.Substring(7, 5) + 1:00000}";
+                return $"{year}{month:00}{int.Parse(headerID.Substring(6, 5)) + 1:00000}";
             }
+        }
+
+        private void id_TextChanged(object sender, EventArgs e)
+        {
+            pay.Enabled = false;
         }
     }
 }

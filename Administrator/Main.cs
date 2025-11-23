@@ -45,35 +45,45 @@ namespace Winform_Login
         {
             if (Application.OpenForms.OfType<MCustomer>().Count() >= 1) return;
 
-            new MCustomer().Show();
+            MCustomer m = new MCustomer();
+            m.MdiParent = this;
+            m.Show();
         }
 
         private void adminStrip_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<MAdministrator>().Count() >= 1) return;
 
-            new MAdministrator().Show();
+            MAdministrator m = new MAdministrator();
+            m.MdiParent = this;
+            m.Show();
         }
 
         private void modelStrip_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<MModel>().Count() >= 1) return;
 
-            new MModel().Show();
+            MModel m = new MModel();
+            m.MdiParent = this;
+            m.Show();
         }
 
         private void merchandStrip_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<MMerchandise>().Count() >= 1) return;
 
-            new MMerchandise().Show();
+            MMerchandise m = new MMerchandise();
+            m.MdiParent = this;
+            m.Show();
         }
 
         private void salesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<MSales>().Count() >= 1) return;
 
-            new MSales().Show();
+            MSales m = new MSales();
+            m.MdiParent = this;
+            m.Show();
 
         }
     }

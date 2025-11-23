@@ -45,13 +45,14 @@
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.wutToolStripMenuItem,
             this.manageToolStripMenuItem,
             this.transactionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(625, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(833, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -63,20 +64,20 @@
             this.logoutStrip,
             this.exitStrip});
             this.wutToolStripMenuItem.Name = "wutToolStripMenuItem";
-            this.wutToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.wutToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.wutToolStripMenuItem.Text = "File";
             // 
             // logoutStrip
             // 
             this.logoutStrip.Name = "logoutStrip";
-            this.logoutStrip.Size = new System.Drawing.Size(112, 22);
+            this.logoutStrip.Size = new System.Drawing.Size(139, 26);
             this.logoutStrip.Text = "Logout";
             this.logoutStrip.Click += new System.EventHandler(this.logoutStrip_Click);
             // 
             // exitStrip
             // 
             this.exitStrip.Name = "exitStrip";
-            this.exitStrip.Size = new System.Drawing.Size(112, 22);
+            this.exitStrip.Size = new System.Drawing.Size(139, 26);
             this.exitStrip.Text = "Exit";
             this.exitStrip.Click += new System.EventHandler(this.exitStrip_Click);
             // 
@@ -88,34 +89,34 @@
             this.modelStrip,
             this.merchandStrip});
             this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
-            this.manageToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.manageToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.manageToolStripMenuItem.Text = "Manage";
             // 
             // customerStrip
             // 
             this.customerStrip.Name = "customerStrip";
-            this.customerStrip.Size = new System.Drawing.Size(147, 22);
+            this.customerStrip.Size = new System.Drawing.Size(183, 26);
             this.customerStrip.Text = "Customer";
             this.customerStrip.Click += new System.EventHandler(this.customerStrip_Click);
             // 
             // adminStrip
             // 
             this.adminStrip.Name = "adminStrip";
-            this.adminStrip.Size = new System.Drawing.Size(147, 22);
+            this.adminStrip.Size = new System.Drawing.Size(183, 26);
             this.adminStrip.Text = "Administrator";
             this.adminStrip.Click += new System.EventHandler(this.adminStrip_Click);
             // 
             // modelStrip
             // 
             this.modelStrip.Name = "modelStrip";
-            this.modelStrip.Size = new System.Drawing.Size(147, 22);
+            this.modelStrip.Size = new System.Drawing.Size(183, 26);
             this.modelStrip.Text = "Model";
             this.modelStrip.Click += new System.EventHandler(this.modelStrip_Click);
             // 
             // merchandStrip
             // 
             this.merchandStrip.Name = "merchandStrip";
-            this.merchandStrip.Size = new System.Drawing.Size(147, 22);
+            this.merchandStrip.Size = new System.Drawing.Size(183, 26);
             this.merchandStrip.Text = "Merchandise";
             this.merchandStrip.Click += new System.EventHandler(this.merchandStrip_Click);
             // 
@@ -124,30 +125,31 @@
             this.transactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salesToolStripMenuItem});
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(126, 26);
             this.salesToolStripMenuItem.Text = "Sales";
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.BackgroundImage = global::Winform_Login.Properties.Resources._1388342;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(625, 333);
+            this.ClientSize = new System.Drawing.Size(833, 410);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Main";
             this.Text = "SMK Sales";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
