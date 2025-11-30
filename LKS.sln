@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConvert", "Currency
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsemkaLibrary", "EsemkaLibrary\EsemkaLibrary.csproj", "{06B40D0D-2623-47DC-991A-CC73CA5E6B21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodCourt", "FoodCourt\FoodCourt.csproj", "{3F26D5CD-BDA8-4C40-97DE-43E4DD58945B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{06B40D0D-2623-47DC-991A-CC73CA5E6B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06B40D0D-2623-47DC-991A-CC73CA5E6B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06B40D0D-2623-47DC-991A-CC73CA5E6B21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F26D5CD-BDA8-4C40-97DE-43E4DD58945B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F26D5CD-BDA8-4C40-97DE-43E4DD58945B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F26D5CD-BDA8-4C40-97DE-43E4DD58945B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F26D5CD-BDA8-4C40-97DE-43E4DD58945B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
