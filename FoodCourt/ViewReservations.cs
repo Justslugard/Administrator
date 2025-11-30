@@ -32,28 +32,49 @@ namespace FoodCourt
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("FIRE IN THE HOLEEEEE");
+            loadReserve();
         }
 
         private void ViewReservations_Load(object sender, EventArgs e)
         {
-
+            loadReserve();
         }
 
         void loadReserve()
         {
-            reservations = db.Reservations.Where(x => x.ReservationDate == DateTime.Now).ToList();
 
-            foreach (Reservation item in reservations)
+            reservations = db.Reservations.Where(x => x.ReservationDate == dateTimePicker1.Value.Date).ToList();
+
+            for (int i = 1; i <= 12; i++)
             {
-                //tableGroup.Controls[$"table{item.TableID}"].
+                if (reservations.Any(x => x.TableID == i)) ((PictureBox)tableGroup.Controls[$"table{i}"]).Image = Image.FromFile("./Resources/table_reserved.png");
+                else ((PictureBox)tableGroup.Controls[$"table{i}"]).Image = Image.FromFile("./Resources/table_free.png");
             }
+        }
+
+        private void table12_Click_1(object sender, EventArgs e)
+        {
+            PictureBox pb = sender as PictureBox;
+
+            Reservation r = reservations.Where(x => x.TableID == int.Parse(pb.Name.Replace("table", ""))).FirstOrDefault();
+
+            if (r == null) 
+            {
+                reservationDetailDataGridView.DataSource = null;
+                reservationBindingSource.DataSource = new Reservation();
+                reservationDetailBindingSource.DataSource = new ReservationDetail();
+                return; 
+            }
+
+            reservationDetailDataGridView.DataSource = reservationDetailBindingSource;
+            reservationBindingSource.DataSource = r;
+            reservationDetailBindingSource.DataSource = r.ReservationDetails;
         }
     }
     public partial class ReservationDetail
     {
-        public string MenuName { get { return Menu.Name; } }
-        public string Price { get { return Menu.Price.ToString("C", new CultureInfo("id-ID")); } }
-        public string TotalPrice { get { return (Menu.Price * Qty).ToString("C", new CultureInfo("id-ID")); } }
+        public string MenuName { get { return Menu?.Name ?? ""; } }
+        public string Price { get { return Menu?.Price.ToString("C", new CultureInfo("id-ID")) ?? ""; } }
+        public string TotalPrice { get { return (Menu?.Price * Qty)?.ToString("C", new CultureInfo("id-ID")) ?? ""; } }
     }
 }
